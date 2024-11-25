@@ -1,0 +1,211 @@
+@import "./variables";
+@import "../typography/mixins";
+@import "../typography/variables";
+@import "../transition/mixins";
+
+@mixin popup() {
+  @include typography(regular);
+
+  display: flex;
+  flex-direction: column;
+  color: map-get($palette, main-text);
+  border: 1px solid $br-stroke;
+  background: $bg-body;
+  border-radius: $chart-border-radius;
+  box-shadow: $chart-shadow;
+  padding: $chart-padding;
+  box-sizing: border-box;
+
+  &__header {
+    color: map-get($palette, contrast-text);
+    margin-bottom: $size-xxs;
+  }
+
+  &__delimeter {
+    height: 1px;
+    background: $br-stroke;
+    margin: $size-xxs 0;
+  }
+
+  &__list {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__list-item {
+    padding: 0;
+  }
+
+  &__value,
+  &__label {
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &__value {
+    padding: $size-xxs $size-s $size-xxs 0;
+  }
+
+  &--legend {
+    margin-top: $atom;
+    margin-bottom: $atom;
+    display: flex;
+    flex-direction: column;
+    gap: $atom;
+  }
+}
+
+@mixin tooltip() {
+  @include typography(regular);
+
+  display: flex;
+  flex-direction: column;
+  color: map-get($palette, contrast-text);
+  border: 1px solid $br-stroke;
+  background: $bg-body;
+  border-radius: $chart-border-radius;
+  box-shadow: $chart-shadow;
+  box-sizing: border-box;
+
+  &__header {
+    background: $bg-header;
+    color: map-get($palette, main-text);
+    padding: $chart-padding;
+  }
+
+  &__delimeter {
+    height: 1px;
+    background: $br-stroke;
+  }
+
+  &__list {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  &__value,
+  &__label {
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: $chart-padding;
+  }
+}
+
+@mixin legend() {
+  display: flex;
+  align-items: center;
+  gap: $size-s;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-label {
+    @include typography(regular-sm);
+    @include transition((border-color, color, background-color));
+
+    color: map-get($palette, contrast-text);
+    height: $size-sm;
+    box-sizing: border-box;
+    border: 1px dashed $br-stroke;
+    padding: 0 $size-xs;
+    border-radius: $chart-border-radius;
+    background: $bg-body;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    user-select: none;
+    cursor: pointer;
+    gap: $size-xs;
+    justify-content: space-between;
+
+    &--opened {
+      background-color: $bg-main;
+      border-color: map-get($palette, red);;
+    }
+
+    &:active,
+    &--active {
+      background-color: $bg-main;
+    }
+
+    &--inactive {
+      opacity: 0.5;
+    }
+
+    &--disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &:hover,
+    &--hover,
+    &--opened {
+      border: 1px solid map-get($palette, contrast-text);
+      box-shadow: 2px 2px 2px $br-stroke;
+      opacity: 0.9;
+    }
+  }
+}
+
+@mixin simple-legend() {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: $size-xs;
+  padding: 0 $size-xs;
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: $size-xs;
+    cursor: pointer;
+
+
+    &--inactive {
+      opacity: 0.5;
+    }
+
+    &--disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: map-get($palette, contrast-text);
+    }
+  }
+
+  &__icon {
+    width: $size-sm;
+    height: $size-sm;
+    border-radius: $size-xs;
+  }
+
+  &__title {
+    @include typography(regular);
+    color: map-get($palette, main-text);
+  }
+}
+
+@mixin toolbar() {
+  display: flex;
+  flex-direction: row;
+  gap: $size-xxs;
+
+  &__icon {
+    cursor: pointer;
+
+    &--selected,
+    &:hover {
+      color: map-get($palette, logo),
+    }
+  }
+}
+

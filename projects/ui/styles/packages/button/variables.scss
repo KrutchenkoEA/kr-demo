@@ -1,0 +1,218 @@
+@import "../typography/variables.scss";
+@import "../../variables.scss";
+
+$btn-icon-color: map-get($text-colors, default);
+$btn-icon-color-hover: map-get($text-colors, accent);
+$btn-icon-color-active: map-get($text-colors, info);
+$btn-shadow: 0px 4px 9px rgba(93,117,147,0.110);
+$btn-border-radius: 4px;
+$btn-padding: $atom * 2.5;
+$btn-outline-color: map-get($palette, red);
+$btn-outline-border-color: $gray-6-50;
+
+$light-red:  map-get($palette, red-logo);
+$red: map-get($palette, red);
+$dark-red: map-get($palette, red-logo50);
+
+
+$button-styles: (
+  primary: (
+    default: (
+      color: white,
+      background: map-get($palette, logo),
+      border: map-get($palette, logo),
+    ),
+    disabled: (
+      color: white,
+      background: map-get($palette, logo-disabled),
+      border: map-get($palette, logo-disabled),
+    ),
+    focus: (
+      color: white,
+      background: map-get($palette, logo-light),
+      border: map-get($palette, logo-light),
+    ),
+    active: (
+      color: white,
+      background: map-get($palette, logo-dark),
+      border: map-get($palette, logo-dark),
+    ),
+  ),
+  primary-red: (
+    default: (
+      color: white,
+      background: $light-red,
+      border: $light-red,
+    ),
+    disabled: (
+      color: white,
+      background: $dark-red,
+      border: $dark-red,
+    ),
+    focus: (
+      color: white,
+      background: $red,
+      border: $red,
+    ),
+    active: (
+      color: white,
+      background: $red,
+      border: $dark-red,
+    ),
+  ),
+  secondary: (
+    default: (
+      color: var(--color-text-contrast),
+      background: var(--color-special-color-white-background),
+      border: map-get($palette, logo),
+    ),
+    disabled: (
+      color: white,
+      background: map-get($palette, logo-disabled),
+      border: map-get($palette, logo-disabled),
+    ),
+    focus: (
+      color: white,
+      background: map-get($palette, logo-light),
+      border: map-get($palette, logo-light),
+    ),
+    active: (
+      color: white,
+      background: map-get($palette, logo-dark),
+      border: map-get($palette, logo-dark),
+    ),
+  ),
+  tertiary: (
+    default: (
+      color: map-get($palette, contrast),
+      background: var(--color-special-color-white-background),
+      border: var(--color-borders-and-icons-stroke-shape),
+    ),
+    disabled: (
+      color: white,
+      background: $gray-6-50,
+      border: $gray-6-50,
+    ),
+    focus: (
+      color: map-get($palette, contrast),
+      background: map-get($palette, red50),
+      border: map-get($palette, logo),
+    ),
+    active: (
+      color: map-get($palette, contrast),
+      background: map-get($palette, red20),
+      border: map-get($palette, red),
+    ),
+  ),
+  ghost: (
+    default: (
+      color: map-get($text-colors, info),
+      background: transparent,
+      border: transparent,
+    ),
+    disabled: (
+      color: white,
+      background: transparent,
+      border: transparent,
+    ),
+    focus: (
+      color: white,
+      background: $gray-6,
+      border: $gray-6,
+    ),
+    active: (
+      color: white,
+      background: map-get($palette, red20),
+      border: map-get($palette, red),
+    ),
+  ),
+  danger: (
+    default: (
+      color: white,
+      background: $red,
+      border: $red,
+    ),
+    disabled: (
+      color: white,
+      background: $gray-14-50,
+      border: $gray-14-50,
+    ),
+    focus: (
+      color: white,
+      background: $dark-red,
+      border: $red,
+    ),
+    active: (
+      color: white,
+      background: map-get($palette, red50),
+      border: $red,
+    ),
+  ),
+  success: (
+    default: (
+      color: white,
+      background: map-get($palette, green),
+      border: map-get($palette, green),
+    ),
+    disabled: (
+      color: white,
+      background: $gray-6-50,
+      border: $gray-6-50,
+    ),
+    focus: (
+      color: white,
+      background: map-get($palette, green50),
+      border: map-get($palette, green),
+    ),
+    active: (
+      color: white,
+      background: map-get($palette, green50),
+      border: map-get($palette, green),
+    ),
+  ),
+  input: (
+    default: (
+      color: map-get($text-colors, contrast),
+      background: $bg-main,
+      border: $gray-6,
+    ),
+    disabled: (
+      color: map-get($text-colors, contrast),
+      background: $gray-6-50,
+      border: $gray-6-50,
+    ),
+    focus: (
+      color: map-get($text-colors, contrast),
+      background: $gray-1,
+      border: $gray-6,
+    ),
+    active: (
+      color: map-get($text-colors, contrast),
+      background: map-get($palette, red20),
+      border: map-get($palette, red),
+    ),
+  ),
+);
+
+$button-sizes: (
+  sm: (
+    height: $size-md,
+    padding: 12px,
+    font-size: 13px,
+  ),
+  md: (
+    height: $size-lg,
+    padding: 16px,
+    font-size: 14px,
+  ),
+  lg: (
+    height: $size-xlg,
+    padding: 20px,
+    font-size: 15px,
+  ),
+  xlg: (
+    height: $size-xxlg,
+    padding: 24px,
+    font-size: 16px,
+  ),
+);

@@ -3,23 +3,20 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kr-demo": {
+    "kr-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": true,
           "style": "scss",
           "skipTests": true,
           "changeDetection": "OnPush",
           "prefix": "kr-app"
         },
         "@schematics/angular:directive": {
-          "standalone": true,
           "skipTests": true,
           "prefix": "kr-app"
         },
         "@schematics/angular:pipe": {
-          "standalone": true,
           "skipTests": true
         },
         "@schematics/angular:class": {
@@ -50,14 +47,13 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets",
+              "src/theme"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/cyan-orange.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "@kr-app/ui/styles/index.scss"
             ],
             "scripts": []
           },
@@ -123,7 +119,7 @@
         }
       }
     },
-    "shared": {
+    "kr-shared": {
       "projectType": "library",
       "root": "projects/shared",
       "sourceRoot": "projects/shared/src",
@@ -158,21 +154,21 @@
     },
     "kr-ui": {
       "projectType": "library",
-      "root": "projects/kr-ui",
-      "sourceRoot": "projects/kr-ui",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui",
       "prefix": "kr-ui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/kr-ui/ng-package.json"
+            "project": "projects/ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/kr-ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/kr-ui/tsconfig.lib.json"
+              "tsConfig": "projects/ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -180,7 +176,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/kr-ui/tsconfig.spec.json",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

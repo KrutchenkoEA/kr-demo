@@ -24,10 +24,10 @@
         "./dist/shared/*"
       ],
       "@kr-ui": [
-        "./dist/kr-ui"
+        "./dist/@kr-platform/ui"
       ],
       "@kr-ui/*": [
-        "./dist/kr-ui/*"
+        "./dist/@kr-platform/ui/*"
       ]
     },
     "importHelpers": true,

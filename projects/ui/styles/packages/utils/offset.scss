@@ -1,0 +1,70 @@
+@import "../../variables.scss";
+
+$offsets: (
+  none: 0,
+  xxs: $size-xxs,
+  xs: $size-xs,
+  sm: $size-sm,
+  md: $size-md,
+  lg: $size-lg,
+  xlg: $size-xlg,
+  xxlg: $size-xxlg,
+);
+
+@each $name, $value in $offsets {
+  // margin
+
+  .krui-mt--#{$name} {
+    margin-top: $value !important;
+  }
+
+  .krui-mr--#{$name} {
+    margin-right: $value !important;
+  }
+
+  .krui-mb--#{$name} {
+    margin-bottom: $value !important;
+  }
+
+  .krui-ml--#{$name} {
+    margin-left: $value !important;
+  }
+
+  .krui-mh--#{$name} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+
+  .krui-mv--#{$name} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  // padding
+
+  .krui-pt--#{$name} {
+    padding-top: $value !important;
+  }
+
+  .krui-pr--#{$name} {
+    padding-right: $value !important;
+  }
+
+  .krui-pb--#{$name} {
+    padding-bottom: $value !important;
+  }
+
+  .krui-pl--#{$name} {
+    padding-left: $value !important;
+  }
+
+  .krui-ph--#{$name} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+
+  .krui-pv--#{$name} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}

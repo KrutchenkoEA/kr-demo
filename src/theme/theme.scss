@@ -1,8 +1,4 @@
-@import 'dark-variables';
-@import 'light-variables';
-
-@import 'roboto-fontface/css/roboto/roboto-fontface.css';
-
+@import '@kr-app/ui';
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
