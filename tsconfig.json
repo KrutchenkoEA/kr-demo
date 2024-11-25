@@ -17,15 +17,26 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "@kr-kit": [
-        "./dist/kr-kit"
+      "@shared": [
+        "./dist/shared"
       ],
-      "@shared": ["./dist/shared"]
+      "@shared/*": [
+        "./dist/shared/*"
+      ],
+      "@kr-ui": [
+        "./dist/kr-ui"
+      ],
+      "@kr-ui/*": [
+        "./dist/kr-ui/*"
+      ]
     },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": ["ES2022", "dom"]
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

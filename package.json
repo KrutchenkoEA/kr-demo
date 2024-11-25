@@ -6,7 +6,8 @@
     "start": "ng serve --port=4005",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "ui:build": "ng build kr-ui --watch"
   },
   "private": true,
   "dependencies": {
