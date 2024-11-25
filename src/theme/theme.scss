@@ -1,0 +1,14 @@
+@import '@kr-app/ui';
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  .theme-light {
+    @include light-variables();
+  }
+  .theme-dark {
+    @include dark-variables();
+  }
+}

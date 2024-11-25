@@ -1,0 +1,32 @@
+$transitions: (
+  all: (
+    duration: 80ms,
+    function: linear,
+    delay: 0ms,
+  ),
+  color: (
+    duration: 80ms,
+    function: linear,
+    delay: 0ms,
+  ),
+  background-color: (
+    duration: 80ms,
+    function: linear,
+    delay: 0ms,
+  ),
+  border-color: (
+    duration: 180ms,
+    function: linear,
+    delay: 0ms,
+  ),
+  box-shadow: (
+    duration: 120ms,
+    function: linear,
+    delay: 0ms,
+  ),
+  opacity: (
+    duration: 80ms,
+    function: linear,
+    delay: 10ms,
+  ),
+);

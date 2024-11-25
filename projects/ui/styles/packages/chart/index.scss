@@ -1,0 +1,37 @@
+@import "./mixins";
+@import "./variables";
+
+.krui-chart {
+  &-popup {
+    @include popup();
+  }
+
+  &-tooltip {
+    @include tooltip();
+  }
+
+  &-legend {
+    @include legend();
+  }
+
+  &-simple-legend {
+    @include simple-legend();
+  }
+
+  &-toolbar {
+    @include toolbar();
+  }
+
+  &-data-layer,
+  &-line,
+  &-stack-text,
+  &-data-bar {
+    &--opacity {
+      opacity: 0.3;
+    }
+
+    &--hidden{
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@if (toolbarDirective.toolbar) {
+  <div #toolbarContainer [style.order]="orders.toolbar"
+       [style.justify-content]="toolbarDirective?.toolbarJustifyContent"
+       class="krui-chart-toolbar">
+    <svg-icon (click)="toolbarDirective.toolbarZoomIn()"
+              class="krui-chart-toolbar__icon"
+              src="kruiIconPlusAddCircle">
+    </svg-icon>
+    <div class="krui-chart-toolbar__zoom-timer">
+      x{{ (zoomK$ | async) }}
+    </div>
+    <svg-icon (click)="toolbarDirective.toolbarZoomOut()"
+              class="krui-chart-toolbar__icon"
+              src="kruiIconPlusMinusCircle">
+    </svg-icon>
+    <svg-icon (click)="toolbarDirective.toggleZoomType('scroll')"
+              [class.krui-chart-toolbar__icon--selected]="zoomType === 'scroll'"
+              class="krui-chart-toolbar__icon"
+              src="tluiIconSearchPlus">
+    </svg-icon>
+    <svg-icon (click)="toolbarDirective.toggleZoomType('brush')"
+              [class.krui-chart-toolbar__icon--selected]="zoomType === 'brush'"
+              class="krui-chart-toolbar__icon"
+              src="tluiIconSelectAreaAimTarget">
+    </svg-icon>
+    <svg-icon (click)="toolbarDirective.toolbarRefresh()"
+              class="krui-chart-toolbar__icon"
+              src="tluiIconReturnCircle">
+    </svg-icon>
+    <svg-icon (click)="toolbarDirective.print()"
+              class="krui-chart-toolbar__icon"
+              src="tluiIconPrint">
+    </svg-icon>
+    <svg-icon (click)="toolbarDirective.savePng()"
+              class="krui-chart-toolbar__icon"
+              src="tluiIconPictureX3">
+    </svg-icon>
+  </div>
+}
+
+@if (legend && legendType === 'default') {
+  <div [style.order]="orders.legend" #legendContainer class="krui-chart-legend">
+    @for (layer of legendGroups; track layer.layerId; let layerIndex = $index) {
+      <div class="legend-group">
+        @if (legendLayer) {
+          <krui-chart-legend
+            (eventLabelClick)="onInactivityChange('layer', layer.layerId, '', $event); layer.inactive = !layer.inactive "
+            [color]="'var(--color-text-main-and-axis-labels)'"
+            [style.display]="'flex'"
+            [symbol]="'&#137;'"
+            [title]="layer.layerTitle">
+          </krui-chart-legend>
+        }
+        @if (legendAxis) {
+          <krui-chart-legend
+            (eventLabelClick)="onInactivityChange('axis', layer.layerId, axis.name, $event)"
+            *ngFor="let axis of layer.axis"
+            [color]="axis.fontColor"
+            [disabled]="layer.inactive"
+            [symbol]="(axis.position === 'left' || axis.position === 'right') ? '&#8593;' : '&#8594;'"
+            [title]="axis.name">
+          </krui-chart-legend>
+          <krui-chart-legend
+            (eventLabelClick)="onInactivityChange('grid', layer.layerId, grid.axis, $event)"
+            *ngFor="let grid of layer.grid"
+            [color]="grid.color"
+            [disabled]="layer.inactive"
+            [symbol]="'&#35;'"
+            [title]="grid.axis">
+          </krui-chart-legend>
+        }
+        @if (legendTrend) {
+          @for (label of layer.dataLayer; track label.layer.id) {
+            @for (lab of label.data; track lab.title + lab.color; let trendIndex = $index) {
+              <krui-chart-legend
+                (mouseenter)="onTrendMouseEnter(label.layer, trendIndex, true)"
+                (mouseleave)="onTrendMouseLeave(label.layer, trendIndex, false)"
+                (eventLabelClick)="onTrendInactivityChange(lab.type, label.layer, layer.layerId, layerIndex, trendIndex, $event)"
+                [color]="lab.color"
+                [disabled]="layer.inactive || lab.disabled"
+                [symbol]="lab.type === 'single' ? '&#9644;' : '&#9724;'"
+                [title]="lab.title"
+              ></krui-chart-legend>
+            }
+          }
+        }
+      </div>
+    }
+  </div>
+} @else if (legend && legendType === 'simple-style') {
+  <div [style.order]="orders.legend" #simpleLegendContainer class="krui-chart-simple-legend">
+    @for (layer of legendGroups; track layer.layerId; let layerIndex = $index) {
+      @for (label of layer.dataLayer; track label.layer.id) {
+        @for (lab of label.data; track lab.title; let trendIndex = $index) {
+          <div class="krui-chart-simple-legend__item"
+               (mouseenter)="onTrendMouseEnter(label.layer, trendIndex, true)"
+               (mouseleave)="onTrendMouseLeave(label.layer, trendIndex, false)"
+               (click)="onTrendInactivityChange(lab.type, label.layer, layer.layerId, layerIndex, trendIndex, lab.inactive = !lab.inactive)"
+               [class.krui-chart-simple-legend__item--inactive]="lab.inactive"
+               [class.krui-chart-simple-legend__item--disabled]="layer.inactive || lab.disabled"
+          >
+            <div [style.background-color]="lab.color" class="krui-chart-simple-legend__icon"></div>
+            <div class="krui-chart-simple-legend__title">{{ lab.title }}</div>
+          </div>
+        }
+      }
+    }
+  </div>
+} @else {
+  <ng-content #customLegendContainer select="krui-chart-legend-directive"></ng-content>
+}
+
+<div #resizeContainer [style.order]="orders.resizeContainer" class="resize-container"></div>

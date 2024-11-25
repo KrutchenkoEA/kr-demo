@@ -1,0 +1,5 @@
+@each $cursor in (default, pointer) {
+  .krui-cursor--#{$cursor} {
+    cursor: $cursor !important;
+  }
+}

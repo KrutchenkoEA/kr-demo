@@ -1,0 +1,37 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.legend-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+::ng-deep {
+  .krui-chart-print-background {
+    background: var(--color-background-popup-widgets);
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.resize-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+
+@media print {
+  .krui-chart-toolbar {
+    display: none;
+  }
+}

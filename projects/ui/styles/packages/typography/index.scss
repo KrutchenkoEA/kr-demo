@@ -1,0 +1,94 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+@each $name in map-keys($typography) {
+  .krui-typography--#{$name} {
+    @include typography($name);
+  }
+}
+
+@each $name in map-keys($font-sizes) {
+  .krui-text--#{$name} {
+    @include typography-size($name);
+  }
+}
+
+@each $name in map-keys($font-weights) {
+  .krui-text--#{$name} {
+    @include typography-weight($name);
+  }
+}
+
+@each $name in map-keys($text-colors) {
+  .krui-text--#{$name} {
+    @include typography-color($name);
+  }
+}
+
+@each $name in $text-alignments {
+  .krui-text--#{$name} {
+    text-align: $name !important;
+  }
+}
+
+@each $name in $text-transforms {
+  .krui-text--#{$name} {
+    text-transform: $name !important;
+  }
+}
+
+.krui-text--paragraph {
+  @include typography-paragraph();
+}
+
+.krui-text--ellipsis {
+  @include text-ellipsis();
+}
+
+.krui-text--nowrap {
+  @include text-nowrap();
+}
+
+@each $name, $size in $head-sizes {
+  #{$name} {
+    font-size: $size;
+    margin: 0 0 $text-margin 0;
+  }
+}
+
+a {
+  @include text-link();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 $text-margin 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-name;
+  color: $color;
+  background: $background;
+}

@@ -1,0 +1,46 @@
+@mixin dark-variables() {
+  --color-logo: #1838e5;
+
+  /*Текст*/
+  --color-text-contrast: #ffffff;
+  --color-text-main-and-axis-labels: #e0e4eb;
+  --color-text-signatures-and-future: #97a3ba;
+
+  /*Фон*/
+  --color-background-main: #181d25;
+  --color-background-body: #212631;
+  --color-background-headers: #2d3443;
+
+  /*Границы*/
+  --color-borders-stroke: #2d3443;
+  --color-borders-icons: #727689;
+
+  /*Индексы*/
+  --color-index-gray: #C8CEDA;
+  --color-index-yellow: #FFB30F;
+  --color-index-red: #FF4046;
+  --color-index-green: #4CB944;
+  --color-index-blue: #2D8DED;
+
+  --color-additional-1: #D4BBFF;
+  --color-additional-2: #6FDC8C;
+  --color-additional-3: #FF7D96;
+  --color-additional-4: #45C5FA;
+  --color-additional-5: #FDD13A;
+  --color-additional-6: #9362D0;
+  --color-additional-7: #8090F0;
+  --color-additional-8: #78A9FF;
+  --color-additional-9: #08BDBA;
+  --color-additional-10: #007D79;
+  --color-additional-11: #D0C4E8;
+  --color-additional-12: #69E88B;
+  --color-additional-13: #FF9090;
+  --color-additional-14: #53CDFF;
+  --color-additional-15: #FFDD66;
+  --color-additional-16: #AC7EE6;
+  --color-additional-17: #7282DD;
+  --color-additional-18: #DA8AE1;
+  --color-additional-19: #8DF2F1;
+  --color-additional-20: #B6FF6D;
+  --color-additional-21: #118F3F;
+}

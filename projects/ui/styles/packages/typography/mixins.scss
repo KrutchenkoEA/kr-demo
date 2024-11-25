@@ -1,0 +1,58 @@
+@import "./variables";
+
+@mixin typography-font($name) {
+  font-family: $name;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin typography($name: regular) {
+  @include typography-font($font-name);
+
+  $preset: map-get($typography, $name);
+
+  font-size: map-get($preset, font-size);
+  font-weight: map-get($preset, font-weight);
+  line-height: map-get($preset, line-height);
+  letter-spacing: map-get($preset, letter-spacing);
+  text-decoration: map-get($preset, text-decoration);
+  text-transform: map-get($preset, text-transform);
+}
+
+@mixin typography-size($name) {
+  font-size: map-get($font-sizes, $name) !important;
+}
+
+@mixin typography-weight($name) {
+  font-weight: map-get($font-weights, $name) !important;
+}
+
+@mixin typography-color($name) {
+  color: map-get($palette, $name) !important;
+}
+
+@mixin typography-paragraph() {
+  line-height: $line-height-paragraph !important;
+}
+
+@mixin text-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-nowrap() {
+  overflow: visible;
+  text-overflow: initial;
+  white-space: nowrap;
+}
+
+@mixin text-link() {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

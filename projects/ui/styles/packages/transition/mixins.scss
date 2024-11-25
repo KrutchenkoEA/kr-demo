@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+@mixin transition($properties) {
+  $durations: ();
+  $functions: ();
+  $delays: ();
+
+  @each $property in $properties {
+    $params: ();
+
+    @if map-has-key($transitions, $property) {
+      $params: map-get($transitions, $property);
+    } @else {
+      $params: map-get($transitions, all);
+    }
+
+    $durations: append($durations, map-get($params, duration), comma);
+    $functions: append($functions, map-get($params, function), comma);
+    $delays: append($delays, map-get($params, delay), comma);
+  }
+
+  transition-property: $properties;
+  transition-duration: $durations;
+  transition-timing-function: $functions;
+  transition-delay: $delays;
+}

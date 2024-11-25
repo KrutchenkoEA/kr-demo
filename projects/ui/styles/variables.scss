@@ -1,0 +1,28 @@
+$atom: 8px;
+
+$size-xxs: $atom * 0.5;
+$size-xs: $atom;
+$size-s: $atom * 2;
+$size-sm: $atom * 3;
+$size-md: $atom * 4;
+$size-lg: $atom * 5;
+$size-xlg: $atom * 6;
+$size-xxlg: $atom * 7;
+
+$bg-main: #{var(--color-background-main)};
+$bg-body: #{var(--color-background-body)};
+$bg-header: #{var(--color-background-headers)};
+$br-stroke: #{var(--color-borders-stroke)};
+$icon: #{var(--color-borders-icons)};
+
+$palette: (
+  contrast: #{var(--color-text-contrast)},
+  accent: #{var(--color-text-main-and-axis-labels)},
+  subscript: #{var(--color-text-signatures-and-future)},
+  gray: #{var(--color-index-gray)},
+  info: #{var(--color-index-blue)},
+  warning: #{var(--color-index-yellow)},
+  error: #{var(--color-index-red)},
+  success: #{var(--color-index-green)},
+  logo: #{var(--color-logo)},
+)

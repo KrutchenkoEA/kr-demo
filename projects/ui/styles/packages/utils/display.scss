@@ -1,0 +1,5 @@
+@each $display in (none, inline, inline-block, block, flex) {
+  .krui-display--#{$display} {
+    display: $display !important;
+  }
+}
