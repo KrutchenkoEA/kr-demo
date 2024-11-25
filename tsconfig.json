@@ -17,7 +17,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "shared": ["./dist/shared"]
+      "@kr-kit": [
+        "./dist/kr-kit"
+      ],
+      "@shared": ["./dist/shared"]
     },
     "importHelpers": true,
     "target": "ES2022",

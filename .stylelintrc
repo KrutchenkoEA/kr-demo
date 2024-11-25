@@ -1,9 +1,0 @@
-{
-  "extends": "stylelint-config-recommended-scss",
-  "rules": {
-    "at-rule-empty-line-before": null,
-    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
-    "no-empty-source": null,
-    "no-invalid-position-at-import-rule": null
-  }
-}

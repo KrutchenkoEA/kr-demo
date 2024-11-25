@@ -6,79 +6,40 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint",
-    "lint:fix": "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js \"projects/**/*.{ts,html}\" --fix",
-    "lint-css": "stylelint \"src/**/*.scss\" \"projects/**/*.scss\"",
-    "lint-css:fix": "stylelint \"src/**/*.scss\" \"projects/**/*.scss\" --fix",
-    "prettier": "prettier --write src/**/*.{json,ts,html,scss} projects/**/*.{json,ts,html,scss}",
-    "prepare": "husky"
-  },
-  "lint-staged": {
-    "*.json": [
-      "prettier --write src/**/*.json projects/**/*.json"
-    ],
-    "*.{ts,html}": [
-      "prettier --write src/**/*.{ts,html} projects/**/*.{ts,html}",
-      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix"
-    ],
-    "*.scss": [
-      "prettier --write src/**/*.scss projects/**/*.scss",
-      "npm run lint-css:fix"
-    ]
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.8",
     "@angular/common": "^18.2.0",
-    "@angular/compiler": "^18.2.0",
+    "@angular/compiler": "^18.2.12",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "angular-gridster2": "^18.0.1",
-    "angular-split": "^18.0.0-beta.1",
+    "angular-split": "^18.0.0",
     "angular-svg-icon": "^18.0.2",
     "ngx-skeleton-loader": "^9.0.0",
     "roboto-fontface": "^0.10.0",
-    "rxjs": "~7.8.0",
+    "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.8",
-    "@angular-eslint/builder": "^18.3.1",
-    "@angular-eslint/eslint-plugin": "^18.3.1",
-    "@angular-eslint/eslint-plugin-template": "^18.3.1",
-    "@angular-eslint/schematics": "^18.3.1",
-    "@angular-eslint/template-parser": "^18.3.1",
     "@angular/cli": "^18.2.8",
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",
-    "@typescript-eslint/eslint-plugin": "7.11.0",
-    "@typescript-eslint/parser": "7.11.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-etc": "^2.0.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-rxjs-angular": "^2.0.1",
-    "husky": "^9.1.6",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "lint-staged": "^15.2.10",
     "ng-packagr": "^18.2.0",
-    "prettier": "^3.3.3",
-    "stylelint": "^16.9.0",
-    "stylelint-config-recommended-scss": "^14.1.0",
-    "stylelint-config-standard": "^36.0.1",
-    "stylelint-scss": "^6.7.0",
     "typescript": "~5.5.2"
   }
 }

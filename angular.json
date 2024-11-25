@@ -10,11 +10,13 @@
           "standalone": true,
           "style": "scss",
           "skipTests": true,
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "prefix": "kr-app"
         },
         "@schematics/angular:directive": {
           "standalone": true,
-          "skipTests": true
+          "skipTests": true,
+          "prefix": "kr-app"
         },
         "@schematics/angular:pipe": {
           "standalone": true,
@@ -108,19 +110,13 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
-          }
-        }
       }
     },
     "shared": {
       "projectType": "library",
       "root": "projects/shared",
       "sourceRoot": "projects/shared/src",
-      "prefix": "lib",
+      "prefix": "kr-shared",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -144,16 +140,40 @@
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
+      }
+    },
+    "kr-kit": {
+      "projectType": "library",
+      "root": "projects/kr-kit",
+      "sourceRoot": "projects/kr-kit/src",
+      "prefix": "krui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "lintFilePatterns": ["projects/shared/**/*.ts", "projects/shared/**/*.html"]
+            "project": "projects/kr-kit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/kr-kit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/kr-kit/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/kr-kit/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "analytics": false
   }
 }
