@@ -24,6 +24,7 @@
     "angular-gridster2": "^18.0.1",
     "angular-split": "^18.0.0",
     "angular-svg-icon": "^18.0.2",
+    "kr-ui": "file:projects/kr-ui",
     "ngx-skeleton-loader": "^9.0.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~7.8.1",
