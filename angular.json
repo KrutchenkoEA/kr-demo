@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/kr-demo",
+            "outputPath": "dist/kr-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -51,9 +51,9 @@
               "src/theme"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/cyan-orange.css",
               "src/styles.scss",
-              "@kr-app/ui/styles/index.scss"
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "@kr-platform/ui/styles/index.scss"
             ],
             "scripts": []
           },
@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kr-demo:build:production"
+              "buildTarget": "kr-app:build:production"
             },
             "development": {
-              "buildTarget": "kr-demo:build:development"
+              "buildTarget": "kr-app:build:development"
             }
           },
           "defaultConfiguration": "development"

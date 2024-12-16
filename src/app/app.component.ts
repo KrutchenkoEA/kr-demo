@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { ThemeConfiguratorService } from './services/theme-configurator.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'kr-app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'kr-demo';
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private themeService: ThemeConfiguratorService,){
+
+  }
+
+  public ngOnInit(): void {
+    this.themeService.setThemeConfiguratorRoot(this.document);
+  }
 }

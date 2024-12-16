@@ -7,5 +7,8 @@ import { KruiButtonIconDirective } from './button-icon.directive';
 @NgModule({
   declarations: [KruiButtonGroupComponent, KruiButtonDirective, KruiButtonIconDirective],
   imports: [CommonModule],
+  exports: [
+    KruiButtonDirective,
+  ],
 })
 export class ButtonModule {}
