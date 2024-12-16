@@ -1,0 +1,12 @@
+:host {
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--color-background-body);
+}

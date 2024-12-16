@@ -1,8 +1,11 @@
-<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-<div class="left">
-  <button mat-button routerLink="">main</button>
-  <button mat-button routerLink="/charts">charts</button>
+<button mat-button routerLink="">
+  <mat-icon aria-hidden="false" aria-label="Logo" fontIcon="home"></mat-icon>
+</button>
+<div class="menu">
+  <button mat-button routerLink="">Главная</button>
+  <button mat-button routerLink="/charts">Графики</button>
+  <button mat-button routerLink="/mnemo">Мнемосхемы</button>
 </div>
-<div class="right">
-  <mat-slide-toggle></mat-slide-toggle>
+<div class="options">
+  <mat-slide-toggle (toggleChange)="changeTheme()"></mat-slide-toggle>
 </div>

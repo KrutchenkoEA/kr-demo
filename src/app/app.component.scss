@@ -1,4 +1,10 @@
 :host {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  overflow: hidden;
+}
+
+.main {
+  flex: 1;
 }

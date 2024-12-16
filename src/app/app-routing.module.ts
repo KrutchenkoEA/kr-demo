@@ -16,6 +16,10 @@ const routes: Routes = [
     loadComponent: () => import('./pages/charts/charts.component').then((m) => m.ChartsComponent),
   },
   {
+    path: 'mnemo',
+    loadComponent: () => import('./pages/mnemo/mnemo.component').then((m) => m.MnemoComponent),
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found.component').then((m) => m.NotFoundComponent),
   },
