@@ -1,5 +1,4 @@
 @import '@kr-platform/ui/styles/index';
-@use '@angular/material' as mat;
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -13,9 +12,4 @@ body {
   .theme-dark {
     @include dark-variables();
   }
-
-    //@include mat.slide-toggle-overrides((
-      //track-outline-color: orange,
-      //disabled-unselected-track-outline-color: red,
-    //));
 }
