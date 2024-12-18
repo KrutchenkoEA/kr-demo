@@ -8,11 +8,12 @@ body {
   //overflow: hidden;
 }
 
-:root {
-  .theme-light {
-    @include light-variables();
-  }
-  .theme-dark {
-    @include dark-variables();
-  }
-}
+//:root {
+//  .theme-light {
+//    @include light-variables();
+//  }
+//
+//  .theme-dark {
+//    @include dark-variables();
+//  }
+//}

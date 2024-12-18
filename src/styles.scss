@@ -1,2 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import "theme/theme";
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 10px;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 12px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--color-background-body);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: var(--color-background-headers);
+  border-radius: 10px;
+  border: 2px solid var(--color-borders-stroke);
+}
+
+::-webkit-resizer {
+  background-color: var(--color-borders-stroke);
+}

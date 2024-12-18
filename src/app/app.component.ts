@@ -12,8 +12,8 @@ export class AppComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private themeService: ThemeConfiguratorService,){
-
+    private themeService: ThemeConfiguratorService,
+  ) {
   }
 
   public ngOnInit(): void {

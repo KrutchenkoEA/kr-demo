@@ -1,12 +1,39 @@
 :host {
   box-sizing: border-box;
+
   display: grid;
-  gap: 0.5rem;
-  padding: 0.5rem;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: minmax(100px, 1fr);
+  grid-auto-flow: row;
+
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .card {
   border-radius: 1rem;
   padding: 1rem;
   background-color: var(--color-background-body);
+  grid-column: span 8;
+
+  &_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_3 {
+    grid-column: span 3;
+  }
+
+  &_5 {
+    grid-column: span 5;
+  }
+
+  .avo {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: auto;
+  }
 }
+
