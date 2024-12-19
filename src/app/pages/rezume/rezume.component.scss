@@ -8,3 +8,20 @@
   aspect-ratio: auto;
 }
 
+.job {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 1px solid var(--color-borders-stroke);
+
+  .date {
+    width: 100px;
+  }
+
+  .info {
+    flex: 1;
+    padding: 8px;
+    border-left: 1px dashed var(--color-borders-stroke);
+  }
+}
