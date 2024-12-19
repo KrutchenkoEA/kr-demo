@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "theme/theme";
 
+a:any-link {
+  color: var(--color-additional-8);
+
+  &:hover {
+    color: var(--color-additional-6);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 1px;
   height: 10px;
