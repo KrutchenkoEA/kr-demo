@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'kr-app-main',
   standalone: true,
   imports: [
     RouterLink,
+    MatIcon,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',

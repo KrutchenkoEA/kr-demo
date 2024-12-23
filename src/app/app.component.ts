@@ -19,4 +19,8 @@ export class AppComponent {
   public ngOnInit(): void {
     this.themeService.setThemeConfiguratorRoot(this.document);
   }
+
+  public scrollTop(): void {
+    this.document.body.firstElementChild?.scrollTo(0, 0);
+  }
 }
