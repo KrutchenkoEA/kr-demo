@@ -1,0 +1,13 @@
+<button mat-button routerLink="">
+  <mat-icon aria-hidden="false" aria-label="Logo" fontIcon="home"></mat-icon>
+</button>
+<div class="menu">
+  <button mat-button routerLink="">Главная</button>
+  <button mat-button routerLink="/rezume">Резюме</button>
+  <button mat-button routerLink="/charts">Графики</button>
+  <button mat-button routerLink="/mnemo">Мнемосхемы</button>
+  <button mat-button routerLink="/dashboard">Дашборды</button>
+</div>
+<div class="options">
+  <mat-slide-toggle (toggleChange)="changeTheme()" matTooltip="Переключить тему"></mat-slide-toggle>
+</div>

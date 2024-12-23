@@ -1,14 +1,19 @@
-@import '@kr-app/ui';
+@import '@kr-platform/ui/styles/index';
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-background-main);
+  color: var(--color-text-contrast);
+  height: 98vh;
+  overflow: hidden;
 }
 
-:root {
-  .theme-light {
-    @include light-variables();
-  }
-  .theme-dark {
-    @include dark-variables();
-  }
-}
+//:root {
+//  .theme-light {
+//    @include light-variables();
+//  }
+//
+//  .theme-dark {
+//    @include dark-variables();
+//  }
+//}
