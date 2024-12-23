@@ -4,6 +4,7 @@ import {MatButton} from '@angular/material/button';
 import {MatIcon} from '@angular/material/icon';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
 import {ThemeConfiguratorService} from '../../services/theme-configurator.service';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'kr-app-platform-header',
@@ -13,6 +14,7 @@ import {ThemeConfiguratorService} from '../../services/theme-configurator.servic
     MatButton,
     MatIcon,
     MatSlideToggle,
+    MatTooltip,
   ],
   templateUrl: './platform-header.component.html',
   styleUrl: './platform-header.component.scss',

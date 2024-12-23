@@ -3,6 +3,7 @@ import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { SvgIconComponent } from 'angular-svg-icon';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'kr-app-rezume',
@@ -12,6 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
     RouterLink,
     MatIcon,
     SvgIconComponent,
+    MatTooltip,
   ],
   templateUrl: './rezume.component.html',
   styleUrl: './rezume.component.scss',

@@ -10,6 +10,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { provideHttpClient } from '@angular/common/http';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatIcon } from '@angular/material/icon';
     PlatformSidebarComponent,
     MatButton,
     MatIcon,
+    MatTooltip,
   ],
   providers: [
     provideAnimationsAsync(),
