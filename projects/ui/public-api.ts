@@ -1,2 +1,2 @@
-export * from './animations'
-export * from './components'
+export * from '@kr-platform/ui/animations'
+export * from '@kr-platform/ui/components'
