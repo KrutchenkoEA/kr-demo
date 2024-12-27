@@ -28,6 +28,12 @@
       ],
       "@kr-ui/*": [
         "./dist/@kr-platform/ui/*"
+      ],
+      "@kr-kit": [
+        "./dist/@kr-platform/kit/"
+      ],
+      "@kr-kit/*": [
+        "./dist/@kr-platform/kit/*"
       ]
     },
     "importHelpers": true,

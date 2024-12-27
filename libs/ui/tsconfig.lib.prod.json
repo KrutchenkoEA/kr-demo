@@ -5,7 +5,7 @@
   "compilerOptions": {
     "declarationMap": false,
     "paths": {
-      "@kr-platform/ui": ["projects/ui"]
+      "@kr-platform/ui": ["libs/ui"]
     }
   },
   "angularCompilerOptions": {

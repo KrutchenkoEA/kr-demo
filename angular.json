@@ -154,21 +154,21 @@
     },
     "kr-ui": {
       "projectType": "library",
-      "root": "projects/ui",
-      "sourceRoot": "projects/ui",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui",
       "prefix": "kr-ui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ui/ng-package.json"
+            "project": "libs/ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
+              "tsConfig": "libs/ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ui/tsconfig.lib.json"
+              "tsConfig": "libs/ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -176,11 +176,139 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
             ]
+          }
+        }
+      }
+    },
+    "kr-kit": {
+      "projectType": "library",
+      "root": "libs/kit",
+      "sourceRoot": "libs/kit/src",
+      "prefix": "kr-kit",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/kit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/kit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/kit/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "libs/kit/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "kr-kit-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/kit-demo",
+      "sourceRoot": "projects/kit-demo/src",
+      "prefix": "kr-kit-demo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/kit-demo",
+            "index": "projects/kit-demo/src/index.html",
+            "browser": "projects/kit-demo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/kit-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/kit-demo/public"
+              }
+            ],
+            "styles": [
+              "projects/kit-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "kit-demo:build:production"
+            },
+            "development": {
+              "buildTarget": "kit-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/kit-demo/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/kit-demo/public"
+              }
+            ],
+            "styles": [
+              "projects/kit-demo/src/styles.scss"
+            ],
+            "scripts": []
           }
         }
       }
