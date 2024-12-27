@@ -32,26 +32,27 @@
           "skipTests": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/kr-app",
+      "sourceRoot": "projects/kr-app/src",
       "prefix": "kr-app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/kr-app",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "index": "projects/kr-app/src/index.html",
+            "browser": "projects/kr-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/kr-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets",
-              "src/theme"
+              "projects/kr-app/src/assets",
+              "projects/kr-app/src/theme"
             ],
             "styles": [
-              "src/styles.scss",
+              "projects/kr-app/src/styles.scss",
               "@angular/material/prebuilt-themes/cyan-orange.css",
               "@kr-platform/ui/styles/index.scss"
             ],
@@ -103,16 +104,12 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "tsConfig": "projects/kr-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [            ],
             "styles": [
-              "@angular/material/prebuilt-themes/cyan-orange.css",
-              "src/styles.scss"
+              "projects/kr-app/src/styles.scss",
+              "@angular/material/prebuilt-themes/cyan-orange.css"
             ],
             "scripts": []
           }

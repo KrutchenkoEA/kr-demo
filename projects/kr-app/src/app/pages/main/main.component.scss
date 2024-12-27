@@ -1,0 +1,14 @@
+@import "../../../theme/mixins/main-page-mixin";
+
+@include main-page-mixin();
+
+.card_clickable {
+  margin: 0 2rem;
+}
+
+.image {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: auto;
+  height: 100px;
+}
