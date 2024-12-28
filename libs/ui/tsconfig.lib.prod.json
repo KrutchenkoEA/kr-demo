@@ -5,8 +5,12 @@
   "compilerOptions": {
     "declarationMap": false,
     "paths": {
-      "@kr-platform/ui": ["libs/ui"],
-      "@kr-platform/ui/*": ["libs/ui/*"]
+      "@kr-platform/ui": [
+        "libs/ui"
+      ],
+      "@kr-platform/ui/*": [
+        "libs/ui/*"
+      ]
     }
   },
   "angularCompilerOptions": {

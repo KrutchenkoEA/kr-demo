@@ -3,7 +3,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -17,22 +19,16 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "@shared": [
-        "./dist/shared"
-      ],
-      "@shared/*": [
-        "./dist/shared/*"
-      ],
-      "@kr-ui": [
+      "@kr-platform/ui": [
         "dist/@kr-platform/ui"
       ],
-      "@kr-ui/*": [
+      "@kr-platform/ui/*": [
         "dist/@kr-platform/ui/*"
       ],
-      "@kr-kit": [
+      "@kr-platform/kit": [
         "dist/@kr-platform/kit/"
       ],
-      "@kr-kit/*": [
+      "@kr-platform/kit*": [
         "dist/@kr-platform/kit/*"
       ]
     },
@@ -42,8 +38,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "baseUrl": "./"
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
