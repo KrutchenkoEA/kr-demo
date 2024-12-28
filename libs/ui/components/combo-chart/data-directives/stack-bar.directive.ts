@@ -52,38 +52,39 @@ import { getBarTextPositionStack } from '../constants/inner/bar.pure';
 
 
 @Directive({
-  selector: '[kruiChartStackBar]',
-  exportAs: 'kruiChartStackBar',
-  providers: [
-    {
-      provide: KruiChartDataLayerColorProvider,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerValueShower,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerAnimated,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerProvider,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataPointProvider,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerRenderer,
-      useExisting: KruiChartStackBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerTooltipProvider,
-      useExisting: KruiChartStackBarDirective,
-    },
-  ],
+    selector: '[kruiChartStackBar]',
+    exportAs: 'kruiChartStackBar',
+    providers: [
+        {
+            provide: KruiChartDataLayerColorProvider,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerValueShower,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerAnimated,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerProvider,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataPointProvider,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerRenderer,
+            useExisting: KruiChartStackBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerTooltipProvider,
+            useExisting: KruiChartStackBarDirective,
+        },
+    ],
+    standalone: false
 })
 export class KruiChartStackBarDirective implements OnInit,
   OnChanges,

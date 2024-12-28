@@ -19,15 +19,16 @@ import { KruiChartWrapperDirective } from './wrapper.directive';
 import { getKruiTooltipDefaultInputs } from '../constants';
 
 @Directive({
-  selector: 'krui-chart',
-  providers: [
-    {
-      provide: KruiChartTooltipModel, useExisting: KruiChartTooltipProviderDirective
-    },
-    {
-      provide: KRUI_CHART_TOOLTIP_PROVIDER_TOKEN, useExisting: KruiChartTooltipProviderDirective
-    }
-  ]
+    selector: 'krui-chart',
+    providers: [
+        {
+            provide: KruiChartTooltipModel, useExisting: KruiChartTooltipProviderDirective
+        },
+        {
+            provide: KRUI_CHART_TOOLTIP_PROVIDER_TOKEN, useExisting: KruiChartTooltipProviderDirective
+        }
+    ],
+    standalone: false
 })
 export class KruiChartTooltipProviderDirective implements OnInit, KruiChartTooltipModel, KruiChartTooltipProviderInputs {
   @Input() public tooltip: boolean = true;

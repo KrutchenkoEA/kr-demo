@@ -4,7 +4,8 @@ import { KRUI_CHART_COLOR_PARSE_SERVICE } from '../injection-tokens';
 import { KruiChartColorParseService } from '../services';
 
 @Directive({
-  selector: '[kruiChartInputColorWrapper]'
+    selector: '[kruiChartInputColorWrapper]',
+    standalone: false
 })
 export class KruiChartColorWrapperDirective implements OnInit {
   @Input() public isDarkTheme: boolean = true;

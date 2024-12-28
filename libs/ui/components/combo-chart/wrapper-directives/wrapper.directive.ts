@@ -21,12 +21,13 @@ import { getKruiWrapperDefaultInputs } from '../constants';
 // height - размер svg
 
 @Directive({
-  selector: 'krui-chart',
-  providers: [
-    {
-      provide: KRUI_CHART_WRAP_TOKEN, useExisting: KruiChartWrapperDirective
-    }
-  ]
+    selector: 'krui-chart',
+    providers: [
+        {
+            provide: KRUI_CHART_WRAP_TOKEN, useExisting: KruiChartWrapperDirective
+        }
+    ],
+    standalone: false
 })
 export class KruiChartWrapperDirective implements OnInit, KruiChartWrapperInputs {
   @Input() public marginLeft: number = 12;

@@ -3,9 +3,10 @@ import { ThemeConfiguratorService } from './services/theme-configurator.service'
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'kr-app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'kr-app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    standalone: false
 })
 export class AppComponent {
   public title = 'kr-demo';

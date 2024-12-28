@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-kit',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'lib-kit',
+    imports: [],
+    template: `
     <p>
       kit works!
     </p>
   `,
-  styles: ``
+    styles: ``
 })
 export class KitComponent {
 

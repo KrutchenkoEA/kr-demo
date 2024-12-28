@@ -59,18 +59,19 @@ import { KruiChartWrapperDirective } from '../../wrapper-directives/wrapper.dire
 
 
 @Component({
-  selector: 'krui-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss'],
-  providers: [
-    {
-      provide: KRUI_CHART_PALETTE_PROVIDER_TOKEN, useExisting: KruiChartComponent
-    },
-    {
-      provide: KRUI_CHART_LEGEND_PROVIDER_TOKEN, useExisting: KruiChartComponent
-    }
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'krui-chart',
+    templateUrl: './chart.component.html',
+    styleUrls: ['./chart.component.scss'],
+    providers: [
+        {
+            provide: KRUI_CHART_PALETTE_PROVIDER_TOKEN, useExisting: KruiChartComponent
+        },
+        {
+            provide: KRUI_CHART_LEGEND_PROVIDER_TOKEN, useExisting: KruiChartComponent
+        }
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, KruiChartPaletteProvider, KruiChartLegendProvider {
   @Input() public legend: boolean = true;

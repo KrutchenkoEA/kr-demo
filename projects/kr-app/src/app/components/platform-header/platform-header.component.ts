@@ -7,18 +7,17 @@ import {ThemeConfiguratorService} from '../../services/theme-configurator.servic
 import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'kr-app-platform-header',
-  standalone: true,
-  imports: [
-    RouterLink,
-    MatButton,
-    MatIcon,
-    MatSlideToggle,
-    MatTooltip,
-  ],
-  templateUrl: './platform-header.component.html',
-  styleUrl: './platform-header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'kr-app-platform-header',
+    imports: [
+        RouterLink,
+        MatButton,
+        MatIcon,
+        MatSlideToggle,
+        MatTooltip,
+    ],
+    templateUrl: './platform-header.component.html',
+    styleUrl: './platform-header.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlatformHeaderComponent {
 

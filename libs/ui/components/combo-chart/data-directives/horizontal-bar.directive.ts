@@ -42,38 +42,39 @@ import { getBarHorizontalTextPosition } from '../constants/inner/bar.pure';
 
 
 @Directive({
-  selector: '[kruiChartHorizontalBar]',
-  exportAs: 'kruiChartHorizontalBar',
-  providers: [
-    {
-      provide: KruiChartDataLayerColorProvider,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerValueShower,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerAnimated,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerProvider,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataPointProvider,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerRenderer,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-    {
-      provide: KruiChartDataLayerTooltipProvider,
-      useExisting: KruiChartHorizontalBarDirective,
-    },
-  ],
+    selector: '[kruiChartHorizontalBar]',
+    exportAs: 'kruiChartHorizontalBar',
+    providers: [
+        {
+            provide: KruiChartDataLayerColorProvider,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerValueShower,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerAnimated,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerProvider,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataPointProvider,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerRenderer,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+        {
+            provide: KruiChartDataLayerTooltipProvider,
+            useExisting: KruiChartHorizontalBarDirective,
+        },
+    ],
+    standalone: false
 })
 export class KruiChartHorizontalBarDirective implements OnInit,
   OnChanges,

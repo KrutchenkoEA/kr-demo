@@ -15,13 +15,13 @@ import {
 
 
 @Directive({
-  selector: 'krui-chart-data-layer',
-  providers: [
-    {
-      provide: KRUI_CHART_DATA_LAYER_TOKEN, useClass: KruiChartDataLayerDirective
-    }
-  ]
-
+    selector: 'krui-chart-data-layer',
+    providers: [
+        {
+            provide: KRUI_CHART_DATA_LAYER_TOKEN, useClass: KruiChartDataLayerDirective
+        }
+    ],
+    standalone: false
 })
 export class KruiChartDataLayerDirective<U, V> {
   private static nextId: number = 0;

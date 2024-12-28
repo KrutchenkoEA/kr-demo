@@ -2,7 +2,8 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import { ITluiChartTooltipBase, KruiChartTooltipDataLayer } from '../models';
 
 @Directive({
-  selector: 'krui-chart-tooltip-directive'
+    selector: 'krui-chart-tooltip-directive',
+    standalone: false
 })
 export class KruiChartTooltipBaseDirective implements ITluiChartTooltipBase {
   @Input() public data: KruiChartTooltipDataLayer[] = [];

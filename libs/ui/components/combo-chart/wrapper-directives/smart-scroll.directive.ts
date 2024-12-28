@@ -9,12 +9,13 @@ const LINE_PADDING = 8;
 
 
 @Directive({
-  selector: 'krui-chart-smart-scroll',
-  providers: [
-    {
-      provide: KRUI_CHART_SMART_SCROLL_TOKEN, useExisting: KruiChartSmartScrollDirective
-    }
-  ]
+    selector: 'krui-chart-smart-scroll',
+    providers: [
+        {
+            provide: KRUI_CHART_SMART_SCROLL_TOKEN, useExisting: KruiChartSmartScrollDirective
+        }
+    ],
+    standalone: false
 })
 export class KruiChartSmartScrollDirective implements OnInit, KruiChartSmartScrollInputs {
   @Input() public useDefaultCheck: boolean = true;

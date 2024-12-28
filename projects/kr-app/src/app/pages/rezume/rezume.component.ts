@@ -6,18 +6,17 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'kr-app-rezume',
-  standalone: true,
-  imports: [
-    MatButton,
-    RouterLink,
-    MatIcon,
-    SvgIconComponent,
-    MatTooltip,
-  ],
-  templateUrl: './rezume.component.html',
-  styleUrl: './rezume.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'kr-app-rezume',
+    imports: [
+        MatButton,
+        RouterLink,
+        MatIcon,
+        SvgIconComponent,
+        MatTooltip,
+    ],
+    templateUrl: './rezume.component.html',
+    styleUrl: './rezume.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RezumeComponent {
   public showPreviousJobs: boolean = false;

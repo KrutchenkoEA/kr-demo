@@ -3,16 +3,17 @@ import { KruiChartGridInputs, KruiChartGridProvider } from '../models';
 import { KRUI_CHART_GRID_TOKEN } from '../injection-tokens';
 
 @Directive({
-  selector: 'krui-chart-grid',
-  exportAs: 'kruiChartGrid',
-  providers: [
-    {
-      provide: KruiChartGridProvider, useExisting: KruiChartGridDirective
-    },
-    {
-      provide: KRUI_CHART_GRID_TOKEN, useExisting: KruiChartGridDirective
-    }
-  ]
+    selector: 'krui-chart-grid',
+    exportAs: 'kruiChartGrid',
+    providers: [
+        {
+            provide: KruiChartGridProvider, useExisting: KruiChartGridDirective
+        },
+        {
+            provide: KRUI_CHART_GRID_TOKEN, useExisting: KruiChartGridDirective
+        }
+    ],
+    standalone: false
 })
 
 export class KruiChartGridDirective implements KruiChartGridProvider, KruiChartGridInputs {

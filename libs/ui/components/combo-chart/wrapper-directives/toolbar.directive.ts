@@ -16,13 +16,14 @@ import { KruiChartWrapperDirective } from './wrapper.directive';
 import { getKruiToolbarDefaultInputs } from '../constants';
 
 @Directive({
-  selector: 'krui-chart', providers: [
-    {
-      provide: KRUI_CHART_TOOLBAR_TOKEN, useExisting: KruiChartToolbarDirective
-    }, {
-      provide: KruiChartToolbarModel, useExisting: KruiChartToolbarDirective
-    }
-  ]
+    selector: 'krui-chart', providers: [
+        {
+            provide: KRUI_CHART_TOOLBAR_TOKEN, useExisting: KruiChartToolbarDirective
+        }, {
+            provide: KruiChartToolbarModel, useExisting: KruiChartToolbarDirective
+        }
+    ],
+    standalone: false
 })
 export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel, KruiChartToolbarInputs {
   @Input() public toolbar: boolean = true;

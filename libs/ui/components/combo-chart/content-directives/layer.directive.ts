@@ -48,25 +48,26 @@ import { KruiChartWrapperDirective } from '../wrapper-directives/wrapper.directi
 import { KruiChartDataLayerDirective } from './data-layer.directive';
 
 @Directive({
-  selector: 'krui-chart-layer',
-  providers: [
-    {
-      provide: KruiChartLayerStateManager, useExisting: KruiChartLayerDirective
-    },
-    {
-      provide: KruiChartLayerDataProvider, useExisting: KruiChartLayerDirective
-    },
-    {
-      provide: KruiChartLayerRenderer, useExisting: KruiChartLayerDirective
-    },
-    {
-      provide: KruiChartLayerZoom, useExisting: KruiChartLayerDirective
-    },
-    {
-      provide: KruiChartLayerTooltip, useExisting: KruiChartLayerDirective
-    },
-    { provide: KRUI_CHART_LAYER_TOKEN, useExisting: KruiChartLayerDirective }
-  ]
+    selector: 'krui-chart-layer',
+    providers: [
+        {
+            provide: KruiChartLayerStateManager, useExisting: KruiChartLayerDirective
+        },
+        {
+            provide: KruiChartLayerDataProvider, useExisting: KruiChartLayerDirective
+        },
+        {
+            provide: KruiChartLayerRenderer, useExisting: KruiChartLayerDirective
+        },
+        {
+            provide: KruiChartLayerZoom, useExisting: KruiChartLayerDirective
+        },
+        {
+            provide: KruiChartLayerTooltip, useExisting: KruiChartLayerDirective
+        },
+        { provide: KRUI_CHART_LAYER_TOKEN, useExisting: KruiChartLayerDirective }
+    ],
+    standalone: false
 })
 export class KruiChartLayerDirective implements OnInit,
   AfterViewInit,
