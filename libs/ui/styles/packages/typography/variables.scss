@@ -15,6 +15,14 @@ $font-weight-bold: 700 !default;
 $line-height-regular: 1.2em !default;
 $line-height-paragraph: 1.5em !default;
 
+$text-colors: (
+  contrast-text: #{var(--color-text-contrast)},
+  main-text: #{var(--color-text-main-and-axis-labels)},
+  subscript-text: #{var(--color-text-signatures-and-future)},
+  black: black,
+  white: white
+) !default;
+
 $color: map-get($text-colors, main-text) !default;
 $background: $bg-main !default;
 $link-color: map-get($palette, logo) !default;
@@ -43,14 +51,6 @@ $font-weights: (
 $text-alignments: (left, center, right, justify);
 
 $text-transforms: (lowercase, uppercase, capitalize);
-
-$text-colors: (
-  contrast-text: #{var(--color-text-contrast)},
-  main-text: #{var(--color-text-main-and-axis-labels)},
-  subscript-text: #{var(--color-text-signatures-and-future)},
-  black: black,
-  white: white
-) !default;
 
 $typography: (
   regular-xs: (

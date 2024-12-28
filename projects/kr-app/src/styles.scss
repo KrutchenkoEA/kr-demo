@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "theme/theme";
+@use "theme/theme";
 
 a:any-link {
   color: var(--color-additional-8);
