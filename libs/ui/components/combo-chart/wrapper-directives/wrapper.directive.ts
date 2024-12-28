@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { BehaviorSubject } from 'rxjs';
 import {
+  getKruiWrapperDefaultInputs,
   KRUI_CHART_AXIS_COLOR,
   KRUI_CHART_AXIS_HEIGHT,
   KRUI_CHART_AXIS_OFFSET,
@@ -11,10 +12,9 @@ import {
   KRUI_CHART_DEFAULT_LEGEND_HEIGHT,
   KRUI_CHART_DEFAULT_WIDTH,
   KRUI_CHART_SMART_SCROLL_COLOR,
-} from '../constants/export/constants';
+} from '../constants';
 import { KRUI_CHART_WRAP_TOKEN } from '../injection-tokens';
 import { KruiChartReSizeEvent, KruiChartWrapperInputs } from '../models';
-import { getKruiWrapperDefaultInputs } from '../constants';
 
 // workGroundHeight - внутренняя часть
 // offsetHeight - внутренняя часть + оси
