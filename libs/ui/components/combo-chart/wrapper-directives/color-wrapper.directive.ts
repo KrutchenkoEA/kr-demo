@@ -4,15 +4,15 @@ import { KRUI_CHART_COLOR_PARSE_SERVICE } from '../injection-tokens';
 import { KruiChartColorParseService } from '../services';
 
 @Directive({
-    selector: '[kruiChartInputColorWrapper]',
-    standalone: false
+  selector: '[kruiChartInputColorWrapper]',
+  standalone: false,
 })
 export class KruiChartColorWrapperDirective implements OnInit {
   @Input() public isDarkTheme: boolean = true;
 
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl | null,
-    @Inject(KRUI_CHART_COLOR_PARSE_SERVICE) public chartColorParseService: KruiChartColorParseService
+    @Inject(KRUI_CHART_COLOR_PARSE_SERVICE) public chartColorParseService: KruiChartColorParseService,
   ) {
   }
 
@@ -23,7 +23,7 @@ export class KruiChartColorWrapperDirective implements OnInit {
       // @ts-ignore
       this.ngControl.control.patchValue(this.chartColorParseService.changeColor(value, this.isDarkTheme), {
         emitEvents: false,
-        onlySelf: true
+        onlySelf: true,
       });
     }
   }

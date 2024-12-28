@@ -10,7 +10,7 @@ export const axisIsEnum = (axis: KruiChartScale, type: KruiChartAxisType): axis 
 
 export const getNumberAxisDomain = (
   axis: KruiChartAxisProvider,
-  layersList: QueryList<KruiChartDataLayerDirective<any, any>>
+  layersList: QueryList<KruiChartDataLayerDirective<any, any>>,
 ): [number, number] => {
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
@@ -32,7 +32,7 @@ export const getNumberAxisDomain = (
 
 export const getEnumAxisDomain = (
   axis: KruiChartAxisProvider,
-  layersList: QueryList<KruiChartDataLayerDirective<any, any>>
+  layersList: QueryList<KruiChartDataLayerDirective<any, any>>,
 ): string[] => {
   let values = new Set<string>([]);
 
@@ -48,7 +48,7 @@ export const getEnumAxisDomain = (
 
 export const getTimeAxisDomain = (
   axis: KruiChartAxisProvider,
-  layersList: QueryList<KruiChartDataLayerDirective<any, any>>
+  layersList: QueryList<KruiChartDataLayerDirective<any, any>>,
 ): [Date, Date] => {
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
@@ -70,15 +70,23 @@ export const getTimeAxisDomain = (
 
 export const getWorkgroundPadding = (
   dataLayersList: QueryList<KruiChartDataLayerDirective<any, any>>,
-  axisType: KruiChartAxisType
+  axisType: KruiChartAxisType,
 ): KruiChartWorkgroundPadding => {
   let workgroundPadding: KruiChartWorkgroundPadding = { top: 0, bottom: 0, left: 0, right: 0 };
   for (const dataLayer of dataLayersList) {
     const layerWorkgroundPadding = dataLayer.getWorkgroundPadding(axisType);
-    workgroundPadding.top = layerWorkgroundPadding.top >= workgroundPadding.top ? layerWorkgroundPadding.top : workgroundPadding.top;
-    workgroundPadding.right = layerWorkgroundPadding.right >= workgroundPadding.right ? layerWorkgroundPadding.right : workgroundPadding.right;
-    workgroundPadding.bottom = layerWorkgroundPadding.bottom >= workgroundPadding.bottom ? layerWorkgroundPadding.bottom : workgroundPadding.bottom;
-    workgroundPadding.left = layerWorkgroundPadding.left >= workgroundPadding.left ? layerWorkgroundPadding.left : workgroundPadding.left;
+    workgroundPadding.top = layerWorkgroundPadding.top >= workgroundPadding.top ?
+      layerWorkgroundPadding.top :
+      workgroundPadding.top;
+    workgroundPadding.right = layerWorkgroundPadding.right >= workgroundPadding.right ?
+      layerWorkgroundPadding.right :
+      workgroundPadding.right;
+    workgroundPadding.bottom = layerWorkgroundPadding.bottom >= workgroundPadding.bottom ?
+      layerWorkgroundPadding.bottom :
+      workgroundPadding.bottom;
+    workgroundPadding.left = layerWorkgroundPadding.left >= workgroundPadding.left ?
+      layerWorkgroundPadding.left :
+      workgroundPadding.left;
   }
   return workgroundPadding;
 };
@@ -86,7 +94,7 @@ export const getWorkgroundPadding = (
 export const getBarMargin = (
   layersList: QueryList<KruiChartDataLayerDirective<any, any>>,
   width: number = KRUI_CHART_DEFAULT_WIDTH,
-  axisType: KruiChartAxisType
+  axisType: KruiChartAxisType,
 ): number => {
   let barMargin = 0;
   for (const layer of layersList) {

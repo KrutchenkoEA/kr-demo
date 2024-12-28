@@ -2,19 +2,19 @@ import {
   KruiChartLegendInputs,
   KruiChartToolbarInputs,
   KruiChartTooltipProviderInputs,
-  KruiChartWrapperInputs
+  KruiChartWrapperInputs,
 } from '../../models';
 import {
   KRUI_CHART_AXIS_COLOR,
   KRUI_CHART_BG_COLOR,
   KRUI_CHART_SMART_SCROLL_COLOR,
-  KRUI_CHART_TOOLTIP_COLOR
+  KRUI_CHART_TOOLTIP_COLOR,
 } from '../export/constants';
 
 export const toolbarDefaultInputs: Partial<KruiChartToolbarInputs> = {
   toolbar: true,
   toolbarPosition: 'top',
-  toolbarJustifyContent: 'flex-end'
+  toolbarJustifyContent: 'flex-end',
 };
 export const tooltipDefaultInputs: Partial<KruiChartTooltipProviderInputs> = {
   tooltip: true,
@@ -29,7 +29,7 @@ export const tooltipDefaultInputs: Partial<KruiChartTooltipProviderInputs> = {
   tooltipDateValuePipeFormat: 'dd.MM.yyyy HH:mm',
   tooltipTitleDateValuePipeFormat: 'dd.MM.yyyy HH:mm:ss',
   tooltipNumberValuePipeFormat: '1.0-0',
-  tooltipTitleNumberValuePipeFormat: '1.0-0'
+  tooltipTitleNumberValuePipeFormat: '1.0-0',
 };
 export const wrapperDefaultInputs: Partial<KruiChartWrapperInputs> = {
   marginLeft: 12,
@@ -48,7 +48,7 @@ export const wrapperDefaultInputs: Partial<KruiChartWrapperInputs> = {
   customResize: null,
   // height: 800,
   // width: 600,
-  isFixedSize: false
+  isFixedSize: false,
 };
 export const legendDefaultInputs: Partial<KruiChartLegendInputs> = {
   legend: true,
@@ -57,7 +57,7 @@ export const legendDefaultInputs: Partial<KruiChartLegendInputs> = {
   legendAxis: false,
   legendTrend: true,
   legendHoverEffect: true,
-  legendType: 'simple-style'
+  legendType: 'simple-style',
 };
 
 export const getKruiToolbarDefaultInputs = (): Partial<KruiChartToolbarInputs> => {

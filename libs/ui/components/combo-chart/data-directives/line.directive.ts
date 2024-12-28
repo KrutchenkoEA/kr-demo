@@ -37,39 +37,39 @@ import { KruiChartWrapperDirective } from '../wrapper-directives/wrapper.directi
 
 
 @Directive({
-    selector: '[kruiChartLine]',
-    exportAs: 'kruiChartLine',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartLineDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartLineDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartLine]',
+  exportAs: 'kruiChartLine',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartLineDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartLineDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartLineDirective implements OnInit,
   OnChanges,
@@ -1126,9 +1126,12 @@ export class KruiChartLineDirective implements OnInit,
             }
             return [
               [
+                notNul((primaryAxis as d3.ScaleBand<any>)(d)) + (this._bandwidth ?? 0) / 2, notNul(secondaryAxis(b)), c,
+                d,
+              ],
+              [
                 notNul((primaryAxis as d3.ScaleBand<any>)(d)) + (this._bandwidth ?? 0) / 2, notNul(secondaryAxis(b)), c, d,
               ],
-              [notNul((primaryAxis as d3.ScaleBand<any>)(d)) + (this._bandwidth ?? 0) / 2, notNul(secondaryAxis(b)), c, d],
             ];
           }
 

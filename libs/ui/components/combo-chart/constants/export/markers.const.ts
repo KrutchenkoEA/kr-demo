@@ -7,7 +7,7 @@ export const KRUI_CHART_POINT_MARKERS_CONFIG: KruiChartLineDataPointConfigType[]
   'dataFillPointReWrite',
   'breakPoint',
   'breakPointTransparentBg',
-  'reWritePoint'
+  'reWritePoint',
 ];
 export const KRUI_CHART_POINT_MARKERS: KruiChartLineDataPointType[] = [
   'symbolX',
@@ -20,5 +20,5 @@ export const KRUI_CHART_POINT_MARKERS: KruiChartLineDataPointType[] = [
   'symbolStar',
   'symbolTriangle',
   'symbolWye',
-  'none'
+  'none',
 ];

@@ -13,22 +13,22 @@ import {
   KruiChartTooltipMarkerType,
   KruiChartTooltipModel,
   KruiChartTooltipProviderInputs,
-  KruiChartTooltipType
+  KruiChartTooltipType,
 } from '../models';
 import { KruiChartWrapperDirective } from './wrapper.directive';
 import { getKruiTooltipDefaultInputs } from '../constants';
 
 @Directive({
-    selector: 'krui-chart',
-    providers: [
-        {
-            provide: KruiChartTooltipModel, useExisting: KruiChartTooltipProviderDirective
-        },
-        {
-            provide: KRUI_CHART_TOOLTIP_PROVIDER_TOKEN, useExisting: KruiChartTooltipProviderDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart',
+  providers: [
+    {
+      provide: KruiChartTooltipModel, useExisting: KruiChartTooltipProviderDirective,
+    },
+    {
+      provide: KRUI_CHART_TOOLTIP_PROVIDER_TOKEN, useExisting: KruiChartTooltipProviderDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartTooltipProviderDirective implements OnInit, KruiChartTooltipModel, KruiChartTooltipProviderInputs {
   @Input() public tooltip: boolean = true;
@@ -59,7 +59,7 @@ export class KruiChartTooltipProviderDirective implements OnInit, KruiChartToolt
   constructor(
     @Inject(KRUI_CHART_WRAP_TOKEN) @Host() public wrap: KruiChartWrapperDirective,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private overlay: Overlay
+    private overlay: Overlay,
   ) {
   }
 
@@ -85,7 +85,7 @@ export class KruiChartTooltipProviderDirective implements OnInit, KruiChartToolt
 
     this._tooltipOverlayRef = this.overlay.create({
       positionStrategy: this._tooltipPositionStrategy,
-      hasBackdrop: false
+      hasBackdrop: false,
     });
 
     this._tooltipPortal = new ComponentPortal(this.tooltipComponentType === 'default' ?
@@ -190,7 +190,7 @@ export class KruiChartTooltipProviderDirective implements OnInit, KruiChartToolt
         .attr('fill', 'transparent')
         .attr('stroke', 'transparent')
         .attr('stroke-width', this.tooltipWidth)
-        .attr('clip-path', `url(#${this.wrap.id}-clipPath)`)
+        .attr('clip-path', `url(#${this.wrap.id}-clipPath)`),
     ];
 
     if (this.tooltipMarkerType === 'line') {
@@ -212,7 +212,7 @@ export class KruiChartTooltipProviderDirective implements OnInit, KruiChartToolt
     y: number = 0,
     pointX: number,
     pointY: number,
-    color: string = 'transparent'
+    color: string = 'transparent',
   ): void {
     const scaleHeight: number[] = [this.wrap.workGroundHeight, 0];
     const scaleWidth: number[] = [0, this.wrap.workGroundWidth];

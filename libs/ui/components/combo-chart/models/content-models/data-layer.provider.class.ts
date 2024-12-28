@@ -2,7 +2,7 @@ import {
   ITluiChartDataLayerAnimationInputs,
   ITluiChartDataLayerColorInputs,
   ITluiChartDataLayerDrawConfigInputs,
-  ITluiChartDataLayerValueShowerInputs
+  ITluiChartDataLayerValueShowerInputs,
 } from './data-layer.model';
 import { KruiChartAxisType } from './axis.model';
 import { KruiChartLegendLabelData } from './legend.model';
@@ -82,7 +82,7 @@ export abstract class KruiChartDataLayerRenderer {
   abstract render(
     target: KruiChartRenderTarget,
     context: KruiChartLayerDrawContext,
-    layerId: string
+    layerId: string,
   ): void;
 
   abstract reScale(
@@ -91,7 +91,7 @@ export abstract class KruiChartDataLayerRenderer {
     event: any,
     zoomXEnable: boolean,
     zoomYEnable: boolean,
-    animation: boolean
+    animation: boolean,
   ): void;
 }
 
@@ -126,7 +126,7 @@ export abstract class KruiChartDataLayerTooltipProvider<U> {
   abstract getTooltipData(
     value: U,
     tooltipType: KruiChartTooltipType,
-    axisType: KruiChartAxisType
+    axisType: KruiChartAxisType,
   ): KruiChartTooltipDataRow[];
 
   abstract getTooltipTitleEnum(): string | null;

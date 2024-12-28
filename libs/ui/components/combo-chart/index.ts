@@ -1,8 +1,8 @@
-export * from './components/chart/chart.component'
-export * from './components/chart-print/chart-print.component'
-export * from './components/chart-wrapper/chart-wrapper.component'
-export * from './components/legend/legend.component'
-export * from './components/tooltip/tooltip.component'
+export * from './components/chart/chart.component';
+export * from './components/chart-print/chart-print.component';
+export * from './components/chart-wrapper/chart-wrapper.component';
+export * from './components/legend/legend.component';
+export * from './components/tooltip/tooltip.component';
 
 export * from './constants';
 

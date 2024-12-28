@@ -14,7 +14,7 @@ export const KRUI_CHART_COLORS_LIST = [
   'var(--color-predictors-8)',
   'var(--color-predictors-9)',
   'var(--color-predictors-10)',
-  'var(--color-predictors-11)'
+  'var(--color-predictors-11)',
 ];
 
 export const KRUI_CHART_AXIS_COLORS_LIST = [
@@ -34,7 +34,7 @@ export const KRUI_CHART_AXIS_COLORS_LIST = [
   'var(--color-text-contrast)',
   'var(--color-index-fact-or-low)',
   'var(--color-color-11)',
-  'var(--color-color-10'
+  'var(--color-color-10',
 ];
 
 export const KRUI_CHART_GRID_COLORS_LIST = [
@@ -54,6 +54,6 @@ export const KRUI_CHART_GRID_COLORS_LIST = [
   'var(--color-color-4)',
   'var(--color-color-6)',
   'var(--color-color-7)',
-  'var(--color-borders-and-icons-stroke-shape)'
+  'var(--color-borders-and-icons-stroke-shape)',
 ];
 

@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
-import { notNul } from "./pure";
+import { notNul } from './pure';
 
 export const line = (
   xScale: d3.ScaleLinear<number, number> | d3.ScaleTime<number, number>,
-  yScale: d3.ScaleLinear<number, number>
+  yScale: d3.ScaleLinear<number, number>,
 ): d3.Line<[number, number]> =>
   d3
     .line()

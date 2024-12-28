@@ -1,7 +1,7 @@
 import {
-  IKruiOptionsFormType,
   IKruiChartDataLayerLineInputs,
   IKruiChartSingleLayerInputModel,
+  IKruiOptionsFormType,
   KruiChartAxisInputs,
   KruiChartDataLayerBarInputs,
   KruiChartDataLayerComboBarInputs,
@@ -12,7 +12,7 @@ import {
   KruiChartLegendInputs,
   KruiChartToolbarInputs,
   KruiChartTooltipProviderInputs,
-  KruiChartWrapperInputs
+  KruiChartWrapperInputs,
 } from '../models';
 import { Inject, Injectable } from '@angular/core';
 import { KRUI_CHART_COLOR_PARSE_SERVICE } from '../injection-tokens';
@@ -25,8 +25,6 @@ import {
   barDefaultCommon,
   barDefaultInputs,
   barStackDefaultInputs,
-  getLineDefaultCommon,
-  getLineDefaultInputs,
   getKruiAxisXDefaultInputs,
   getKruiAxisYDefaultInputs,
   getKruiBarComboDefaultInputs,
@@ -41,6 +39,8 @@ import {
   getKruiToolbarDefaultInputs,
   getKruiTooltipDefaultInputs,
   getKruiWrapperDefaultInputs,
+  getLineDefaultCommon,
+  getLineDefaultInputs,
   gridXDefaultInputs,
   gridYDefaultInputs,
   layerDefaultInputs,
@@ -49,7 +49,7 @@ import {
   lineDefaultInputs,
   toolbarDefaultInputs,
   tooltipDefaultInputs,
-  wrapperDefaultInputs
+  wrapperDefaultInputs,
 } from '../constants';
 
 
@@ -59,7 +59,7 @@ export class KruiChartFormCreateService {
 
   constructor(
     @Inject(KRUI_CHART_COLOR_PARSE_SERVICE) public chartColorParseService: KruiChartColorParseService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
   ) {
   }
 
@@ -78,20 +78,20 @@ export class KruiChartFormCreateService {
       layer: getKruiLayerDefaultInputs() as KruiChartLayerInputs,
       lineLayer: {
         config: getLineDefaultInputs() as IKruiChartDataLayerLineInputs,
-        common: getLineDefaultCommon() as KruiChartDataLayerCommonInputs
+        common: getLineDefaultCommon() as KruiChartDataLayerCommonInputs,
       },
       barLayer: {
         config: getKruiBarDefaultInputs() as KruiChartDataLayerBarInputs,
-        common: getKruiBarDefaultCommon() as KruiChartDataLayerCommonInputs
+        common: getKruiBarDefaultCommon() as KruiChartDataLayerCommonInputs,
       },
       comboBarLayer: {
         config: getKruiBarComboDefaultInputs() as KruiChartDataLayerComboBarInputs,
-        common: getKruiBarDefaultComboCommon() as KruiChartDataLayerCommonInputs
+        common: getKruiBarDefaultComboCommon() as KruiChartDataLayerCommonInputs,
       },
       stackBarLayer: {
         config: getKruiBarStackDefaultInputs() as KruiChartDataLayerStackBarInputs,
-        common: getKruiBarDefaultCommon() as KruiChartDataLayerCommonInputs
-      }
+        common: getKruiBarDefaultCommon() as KruiChartDataLayerCommonInputs,
+      },
     };
   }
 
@@ -103,7 +103,7 @@ export class KruiChartFormCreateService {
     // @ts-ignore
     this.optionsForm = this.formBuilder.group({
       toolbar: this.formBuilder.group<Partial<KruiChartToolbarInputs>>(
-        this.createFormObject<Partial<KruiChartToolbarInputs>>(data?.toolbar, toolbarDefaultInputs)
+        this.createFormObject<Partial<KruiChartToolbarInputs>>(data?.toolbar, toolbarDefaultInputs),
       ),
       tooltip: this.formBuilder.group<Partial<KruiChartTooltipProviderInputs>>(this.createFormObject<Partial<KruiChartTooltipProviderInputs>>(data?.tooltip, tooltipDefaultInputs)),
       wrapper: this.formBuilder.group<Partial<KruiChartWrapperInputs>>(this.createFormObject<Partial<KruiChartWrapperInputs>>(data?.wrapper, wrapperDefaultInputs)),
@@ -118,20 +118,20 @@ export class KruiChartFormCreateService {
       lineLayer: this.formBuilder.group({
         config: this.formBuilder.group<Partial<IKruiChartDataLayerLineInputs>>(
           this.createFormObject<Partial<IKruiChartDataLayerLineInputs>>(data?.lineLayer?.config, lineDefaultInputs)),
-        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.lineLayer?.common, lineDefaultCommon))
+        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.lineLayer?.common, lineDefaultCommon)),
       }),
       barLayer: this.formBuilder.group({
         config: this.formBuilder.group<Partial<KruiChartDataLayerBarInputs>>(this.createFormObject<Partial<KruiChartDataLayerBarInputs>>(data?.barLayer?.config, barDefaultInputs)),
-        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.barLayer?.common, barDefaultCommon))
+        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.barLayer?.common, barDefaultCommon)),
       }),
       comboBarLayer: this.formBuilder.group({
         config: this.formBuilder.group<Partial<KruiChartDataLayerComboBarInputs>>(this.createFormObject<Partial<KruiChartDataLayerComboBarInputs>>(data?.comboBarLayer?.config, barComboDefaultInputs)),
-        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.comboBarLayer?.common, barDefaultCommon))
+        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.comboBarLayer?.common, barDefaultCommon)),
       }),
       stackBarLayer: this.formBuilder.group({
         config: this.formBuilder.group<Partial<KruiChartDataLayerComboBarInputs>>(this.createFormObject<Partial<KruiChartDataLayerStackBarInputs>>(data?.stackBarLayer?.config, barStackDefaultInputs)),
-        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.stackBarLayer?.common, barDefaultCommon))
-      })
+        common: this.formBuilder.group<Partial<KruiChartDataLayerCommonInputs>>(this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.stackBarLayer?.common, barDefaultCommon)),
+      }),
     });
     return this.optionsForm!;
   }
@@ -150,7 +150,7 @@ export class KruiChartFormCreateService {
 
   public compareAndDeleteKey(
     data: IKruiChartSingleLayerInputModel,
-    isDarkTheme: boolean = true
+    isDarkTheme: boolean = true,
   ): IKruiChartSingleLayerInputModel {
     const defaultData = this.createDefaultData();
 
@@ -214,20 +214,20 @@ export class KruiChartFormCreateService {
       layer: this.createFormObject<Partial<KruiChartLayerInputs>>(data?.layer, layerDefaultInputs),
       lineLayer: {
         config: this.createFormObject<Partial<IKruiChartDataLayerLineInputs>>(data?.lineLayer?.config, lineDefaultInputs),
-        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.lineLayer?.common, lineDefaultCommon)
+        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.lineLayer?.common, lineDefaultCommon),
       },
       barLayer: {
         config: this.createFormObject<Partial<KruiChartDataLayerBarInputs>>(data?.barLayer?.config, barDefaultInputs),
-        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.barLayer?.common, barDefaultCommon)
+        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.barLayer?.common, barDefaultCommon),
       },
       comboBarLayer: {
         config: this.createFormObject<Partial<KruiChartDataLayerComboBarInputs>>(data?.comboBarLayer?.config, barComboDefaultInputs),
-        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.comboBarLayer?.common, barDefaultCommon)
+        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.comboBarLayer?.common, barDefaultCommon),
       },
       stackBarLayer: {
         config: this.createFormObject<Partial<KruiChartDataLayerStackBarInputs>>(data?.stackBarLayer?.config, barStackDefaultInputs),
-        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.stackBarLayer?.common, barDefaultCommon)
-      }
+        common: this.createFormObject<Partial<KruiChartDataLayerCommonInputs>>(data?.stackBarLayer?.common, barDefaultCommon),
+      },
     } as IKruiChartSingleLayerInputModel;
   }
 

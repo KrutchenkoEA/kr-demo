@@ -28,7 +28,7 @@ export interface TluiChartDataLayerBarBaseInputs {
   tooltipHoverEffect: boolean;
   tooltipHoverColor: string;
   enablePreviousData: boolean;
-  startInNull: boolean
+  startInNull: boolean;
 }
 
 export interface KruiChartDataLayerBarInputs extends TluiChartDataLayerBarBaseInputs {

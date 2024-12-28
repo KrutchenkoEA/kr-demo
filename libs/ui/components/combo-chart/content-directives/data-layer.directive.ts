@@ -10,18 +10,18 @@ import {
   KruiChartRenderTarget,
   KruiChartTooltipDataRow,
   KruiChartTooltipType,
-  KruiChartWorkgroundPadding
+  KruiChartWorkgroundPadding,
 } from '../models';
 
 
 @Directive({
-    selector: 'krui-chart-data-layer',
-    providers: [
-        {
-            provide: KRUI_CHART_DATA_LAYER_TOKEN, useClass: KruiChartDataLayerDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart-data-layer',
+  providers: [
+    {
+      provide: KRUI_CHART_DATA_LAYER_TOKEN, useClass: KruiChartDataLayerDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartDataLayerDirective<U, V> {
   private static nextId: number = 0;
@@ -33,7 +33,7 @@ export class KruiChartDataLayerDirective<U, V> {
   constructor(
     @Self() public readonly dataProvider: KruiChartDataLayerProvider<U, V>,
     @Self() public readonly dataRenderer: KruiChartDataLayerRenderer,
-    @Self() public readonly dataTooltipProvider: KruiChartDataLayerTooltipProvider<U>
+    @Self() public readonly dataTooltipProvider: KruiChartDataLayerTooltipProvider<U>,
   ) {
   }
 
@@ -56,7 +56,7 @@ export class KruiChartDataLayerDirective<U, V> {
   public getTooltipData(
     value: U,
     tooltipType: KruiChartTooltipType,
-    axisType: KruiChartAxisType
+    axisType: KruiChartAxisType,
   ): KruiChartTooltipDataRow[] {
     return this.dataTooltipProvider.getTooltipData(value, tooltipType, axisType);
   }
@@ -95,7 +95,7 @@ export class KruiChartDataLayerDirective<U, V> {
     event: any,
     zoomXEnable: boolean,
     zoomYEnable: boolean,
-    animation: boolean
+    animation: boolean,
   ): void {
     this.dataRenderer.reScale(target, context, event, zoomXEnable, zoomYEnable, animation);
   }

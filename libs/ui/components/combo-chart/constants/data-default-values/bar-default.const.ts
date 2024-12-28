@@ -2,7 +2,7 @@ import {
   KruiChartDataLayerBarInputs,
   KruiChartDataLayerComboBarInputs,
   KruiChartDataLayerCommonInputs,
-  KruiChartDataLayerStackBarInputs
+  KruiChartDataLayerStackBarInputs,
 } from '../../models';
 import { KRUI_CHART_SMART_SCROLL_COLOR, KRUI_CHART_TEXT_COLOR } from '../export/constants';
 
@@ -18,21 +18,21 @@ export const barDefaultCommon: Partial<KruiChartDataLayerCommonInputs> = {
   durationToggleAnimation: 500,
   reRangeThenLegendClick: true,
   reRangeThenDataChange: true,
-  workgroundPadding: { top: 5, right: 0, left: 0, bottom: 0 }
+  workgroundPadding: { top: 5, right: 0, left: 0, bottom: 0 },
 };
 
 const barDefaultCommonBar: Partial<KruiChartDataLayerCommonInputs> = {
-  workgroundPadding: { top: 5, right: 0, left: 0, bottom: 0 }
+  workgroundPadding: { top: 5, right: 0, left: 0, bottom: 0 },
 };
 
 const barDefaultCommonHorizontal: Partial<KruiChartDataLayerCommonInputs> = {
-  workgroundPadding: { top: 0, right: 5, left: 0, bottom: 0 }
+  workgroundPadding: { top: 0, right: 5, left: 0, bottom: 0 },
 };
 const barDefaultCommonCombo: Partial<KruiChartDataLayerCommonInputs> = {
-  workgroundPadding: { top: 5, right: 10, left: 10, bottom: 0 }
+  workgroundPadding: { top: 5, right: 10, left: 10, bottom: 0 },
 };
 const barDefaultCommonHorizontalCombo: Partial<KruiChartDataLayerCommonInputs> = {
-  workgroundPadding: { top: 5, right: 5, left: 2, bottom: 5 }
+  workgroundPadding: { top: 5, right: 5, left: 2, bottom: 5 },
 };
 
 export const barDefaultInputs: Partial<KruiChartDataLayerBarInputs> = {

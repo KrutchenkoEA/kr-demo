@@ -10,7 +10,7 @@ import {
   KRUI_CHART_DEFAULT_HEIGHT,
   KRUI_CHART_DEFAULT_LEGEND_HEIGHT,
   KRUI_CHART_DEFAULT_WIDTH,
-  KRUI_CHART_SMART_SCROLL_COLOR
+  KRUI_CHART_SMART_SCROLL_COLOR,
 } from '../constants/export/constants';
 import { KRUI_CHART_WRAP_TOKEN } from '../injection-tokens';
 import { KruiChartReSizeEvent, KruiChartWrapperInputs } from '../models';
@@ -21,13 +21,13 @@ import { getKruiWrapperDefaultInputs } from '../constants';
 // height - размер svg
 
 @Directive({
-    selector: 'krui-chart',
-    providers: [
-        {
-            provide: KRUI_CHART_WRAP_TOKEN, useExisting: KruiChartWrapperDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart',
+  providers: [
+    {
+      provide: KRUI_CHART_WRAP_TOKEN, useExisting: KruiChartWrapperDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartWrapperDirective implements OnInit, KruiChartWrapperInputs {
   @Input() public marginLeft: number = 12;
@@ -51,13 +51,13 @@ export class KruiChartWrapperDirective implements OnInit, KruiChartWrapperInputs
     left: 0,
     right: 0,
     top: 0,
-    bottom: 0
+    bottom: 0,
   };
   public axisLevelMap: Map<string, Map<string, number> | null> = new Map();
   public isFixedSize: boolean = false;
 
   constructor(
-    private el: ElementRef
+    private el: ElementRef,
   ) {
   }
 

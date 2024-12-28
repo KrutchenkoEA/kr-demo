@@ -9,21 +9,21 @@ import {
   KruiChartToolbarInputs,
   KruiChartToolbarJustifyContent,
   KruiChartToolbarModel,
-  KruiChartZoomType
+  KruiChartZoomType,
 } from '../models';
 import { KruiChartPopupService } from '../services';
 import { KruiChartWrapperDirective } from './wrapper.directive';
 import { getKruiToolbarDefaultInputs } from '../constants';
 
 @Directive({
-    selector: 'krui-chart', providers: [
-        {
-            provide: KRUI_CHART_TOOLBAR_TOKEN, useExisting: KruiChartToolbarDirective
-        }, {
-            provide: KruiChartToolbarModel, useExisting: KruiChartToolbarDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart', providers: [
+    {
+      provide: KRUI_CHART_TOOLBAR_TOKEN, useExisting: KruiChartToolbarDirective,
+    }, {
+      provide: KruiChartToolbarModel, useExisting: KruiChartToolbarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel, KruiChartToolbarInputs {
   @Input() public toolbar: boolean = true;
@@ -43,7 +43,7 @@ export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel,
     @Inject(KRUI_CHART_POPUP_SERVICE) private readonly popupService: KruiChartPopupService,
     @Inject(KRUI_CHART_WRAP_TOKEN) @Host() public wrap: KruiChartWrapperDirective,
     @Inject(DOCUMENT) private readonly document: Document,
-    private readonly elementRef: ElementRef
+    private readonly elementRef: ElementRef,
   ) {
   }
 
@@ -94,7 +94,7 @@ export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel,
     const ref = this.popupService.open(
       KruiChartPrintComponent,
       {
-        html: this.elementRef.nativeElement.innerHTML
+        html: this.elementRef.nativeElement.innerHTML,
       },
       {
         width: this.document.defaultView!.innerWidth,
@@ -104,12 +104,12 @@ export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel,
             originX: 'center',
             originY: 'center',
             overlayX: 'center',
-            overlayY: 'center'
-          }
+            overlayY: 'center',
+          },
         ],
         hasBackdrop: true,
-        panelClass: 'krui-chart-print-background'
-      }
+        panelClass: 'krui-chart-print-background',
+      },
     );
 
     ref.popupRef.afterClosed().subscribe();
@@ -125,7 +125,7 @@ export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel,
     const canvas = await html2canvas(this.elementRef.nativeElement, {
       foreignObjectRendering: false,
       backgroundColor: bgColor,
-      scale: 4
+      scale: 4,
     });
 
     const fileName = `График-${new Date().toLocaleString('ru')}.png`;
@@ -152,7 +152,7 @@ export class KruiChartToolbarDirective implements OnInit, KruiChartToolbarModel,
   private findNearest(number: number): number {
     return this.zoomArr.reduce((
       closest: number,
-      n: number
+      n: number,
     ) => Math.abs(n - number) > Math.abs(closest - number) ? closest : n, 0);
   }
 }

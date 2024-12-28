@@ -50,39 +50,39 @@ import { getBarHorizontalTextPosition } from '../constants/inner/bar.pure';
 
 
 @Directive({
-    selector: '[kruiChartHorizontalComboBar]',
-    exportAs: 'kruiChartHorizontalComboBar',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartHorizontalComboBarDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartHorizontalComboBar]',
+  exportAs: 'kruiChartHorizontalComboBar',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartHorizontalComboBarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartHorizontalComboBarDirective implements OnInit,
   OnChanges,

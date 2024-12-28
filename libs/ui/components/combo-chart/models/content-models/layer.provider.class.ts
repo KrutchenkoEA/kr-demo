@@ -72,7 +72,7 @@ export abstract class KruiChartLayerTooltip implements ITluiChartLayerTooltipInp
     event: number,
     tooltipType: KruiChartTooltipType,
     primaryAxis: KruiChartAxisProvider,
-    index: number
+    index: number,
   ): {
     tooltip: KruiChartTooltipDataLayer,
     pos: number
@@ -82,7 +82,7 @@ export abstract class KruiChartLayerTooltip implements ITluiChartLayerTooltipInp
     event: number,
     tooltipType: KruiChartTooltipType,
     primaryAxis: KruiChartAxisProvider,
-    index: number
+    index: number,
   ): {
     tooltip: KruiChartTooltipDataLayer,
     pos: number

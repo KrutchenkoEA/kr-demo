@@ -50,39 +50,39 @@ import { getBarTextPosition } from '../constants/inner/bar.pure';
 
 
 @Directive({
-    selector: '[kruiChartComboBar]',
-    exportAs: 'kruiChartComboBar',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartComboBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartComboBarDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartComboBar]',
+  exportAs: 'kruiChartComboBar',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartComboBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartComboBarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartComboBarDirective implements OnInit,
   OnChanges,

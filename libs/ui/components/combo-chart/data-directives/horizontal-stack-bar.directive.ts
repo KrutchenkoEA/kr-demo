@@ -52,39 +52,39 @@ import { getBarHorizontalTextPositionStack } from '../constants/inner/bar.pure';
 
 
 @Directive({
-    selector: '[kruiChartHorizontalStackBar]',
-    exportAs: 'kruiChartHorizontalStackBar',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartHorizontalStackBarDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartHorizontalStackBar]',
+  exportAs: 'kruiChartHorizontalStackBar',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartHorizontalStackBarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartHorizontalStackBarDirective implements OnInit,
   OnChanges,

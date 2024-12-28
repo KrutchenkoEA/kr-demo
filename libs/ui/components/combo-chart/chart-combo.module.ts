@@ -28,13 +28,13 @@ import {
   KRUI_CHART_GRID_PALETTE,
   KRUI_CHART_PALETTE,
   KRUI_CHART_POPUP_SERVICE,
-  KRUI_CHART_STACKED_SERVICE
+  KRUI_CHART_STACKED_SERVICE,
 } from './injection-tokens';
 import {
   KruiChartColorParseService,
   KruiChartFormCreateService,
   KruiChartPopupService,
-  KruiChartStackedService
+  KruiChartStackedService,
 } from './services';
 import { KruiChartSmartScrollDirective } from './wrapper-directives/smart-scroll.directive';
 import { KruiChartToolbarDirective } from './wrapper-directives/toolbar.directive';
@@ -71,7 +71,7 @@ const dataDirectives = [
   KruiChartStackBarDirective,
   KruiChartHorizontalStackBarDirective,
   KruiChartRangeBarDirective,
-  KruiChartHorizontalRangeBarDirective
+  KruiChartHorizontalRangeBarDirective,
 ];
 
 @NgModule({
@@ -80,14 +80,14 @@ const dataDirectives = [
     KruiChartLegendComponent,
     KruiChartPrintComponent,
     ...exportableComponents,
-    ...dataDirectives
+    ...dataDirectives,
   ],
   imports: [
     CommonModule,
     AngularSvgIconModule,
     HttpClientModule,
     OverlayModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     { provide: KRUI_CHART_PALETTE, useValue: KRUI_CHART_COLORS_LIST },
@@ -96,12 +96,12 @@ const dataDirectives = [
     { provide: KRUI_CHART_STACKED_SERVICE, useClass: KruiChartStackedService },
     { provide: KRUI_CHART_POPUP_SERVICE, useClass: KruiChartPopupService },
     { provide: KRUI_CHART_FORM_CREATE_SERVICE, useClass: KruiChartFormCreateService },
-    { provide: KRUI_CHART_COLOR_PARSE_SERVICE, useClass: KruiChartColorParseService }
+    { provide: KRUI_CHART_COLOR_PARSE_SERVICE, useClass: KruiChartColorParseService },
   ],
   exports: [
     ...exportableComponents,
-    ...dataDirectives
-  ]
+    ...dataDirectives,
+  ],
 })
 export class KruiChartComboModule {
 }

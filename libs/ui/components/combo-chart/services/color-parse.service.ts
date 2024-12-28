@@ -54,7 +54,7 @@ export class KruiChartColorParseService {
     return Object.values(object).map((item: string) => {
       return {
         name: this.getEnumKeyByValue(object, item),
-        value: item
+        value: item,
       };
     });
   }

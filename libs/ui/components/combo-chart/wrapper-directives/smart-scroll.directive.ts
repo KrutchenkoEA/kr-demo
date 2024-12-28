@@ -9,13 +9,13 @@ const LINE_PADDING = 8;
 
 
 @Directive({
-    selector: 'krui-chart-smart-scroll',
-    providers: [
-        {
-            provide: KRUI_CHART_SMART_SCROLL_TOKEN, useExisting: KruiChartSmartScrollDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart-smart-scroll',
+  providers: [
+    {
+      provide: KRUI_CHART_SMART_SCROLL_TOKEN, useExisting: KruiChartSmartScrollDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartSmartScrollDirective implements OnInit, KruiChartSmartScrollInputs {
   @Input() public useDefaultCheck: boolean = true;
@@ -115,16 +115,16 @@ export class KruiChartSmartScrollDirective implements OnInit, KruiChartSmartScro
     this.scaleX = isNumber
       ? scaleLinear(
         this.points.map(([x]) => Number(x)),
-        [0, this.wrap.workGroundWidth]
+        [0, this.wrap.workGroundWidth],
       )
       : scaleTime(
         this.points.map(([x]) => x as Date),
-        [0, this.wrap.workGroundWidth]
+        [0, this.wrap.workGroundWidth],
       );
 
     this.scaleY = scaleLinear(
       this.points.map(([, y]) => y),
-      [this.wrap.smartScrollHeight - LINE_PADDING, LINE_PADDING]
+      [this.wrap.smartScrollHeight - LINE_PADDING, LINE_PADDING],
     );
 
     this.defaultSelection = this.scaleX.range();
@@ -162,7 +162,7 @@ export class KruiChartSmartScrollDirective implements OnInit, KruiChartSmartScro
       .brushX()
       .extent([
         [0, 0.5],
-        [this.wrap.workGroundWidth, this.wrap.smartScrollHeight + 0.5]
+        [this.wrap.workGroundWidth, this.wrap.smartScrollHeight + 0.5],
       ])
       .on('end', (event: any) => {
         let selection = event.selection;

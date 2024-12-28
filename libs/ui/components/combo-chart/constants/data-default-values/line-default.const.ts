@@ -12,7 +12,7 @@ export const lineDefaultCommon: Partial<KruiChartDataLayerCommonInputs> = {
   durationToggleAnimation: 500,
   reRangeThenLegendClick: true,
   reRangeThenDataChange: true,
-  workgroundPadding: { top: 5, right: 10, left: 10, bottom: 5 }
+  workgroundPadding: { top: 5, right: 10, left: 10, bottom: 5 },
 };
 
 export const lineDefaultInputs: Partial<IKruiChartDataLayerLineInputs> = {
@@ -33,7 +33,7 @@ export const lineDefaultInputs: Partial<IKruiChartDataLayerLineInputs> = {
   breakPointMarker: 'symbolX',
   endPoint: true,
   endPointSize: 2,
-  endPointStrokeSize: 7
+  endPointStrokeSize: 7,
 };
 
 export const getLineDefaultCommon = (): Partial<KruiChartDataLayerCommonInputs> => JSON.parse(JSON.stringify(lineDefaultCommon));

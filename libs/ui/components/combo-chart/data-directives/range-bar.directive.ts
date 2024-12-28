@@ -52,39 +52,39 @@ import { KruiChartStackedService } from '../services';
 
 
 @Directive({
-    selector: '[kruiChartRangeBar]',
-    exportAs: 'kruiChartRangeBar',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartRangeBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartRangeBarDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartRangeBar]',
+  exportAs: 'kruiChartRangeBar',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartRangeBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartRangeBarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartRangeBarDirective implements OnInit,
   OnChanges,

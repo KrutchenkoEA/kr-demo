@@ -1,4 +1,4 @@
-import { KruiChartLegendInputs, KruiChartLegendGroup, KruiChartLegendType } from './legend.model';
+import { KruiChartLegendGroup, KruiChartLegendInputs, KruiChartLegendType } from './legend.model';
 import { EventEmitter } from '@angular/core';
 
 export abstract class KruiChartLegendProvider implements KruiChartLegendInputs {

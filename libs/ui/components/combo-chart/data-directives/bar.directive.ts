@@ -42,39 +42,39 @@ import { getBarTextPosition } from '../constants/inner/bar.pure';
 
 
 @Directive({
-    selector: '[kruiChartBar]',
-    exportAs: 'kruiChartBar',
-    providers: [
-        {
-            provide: KruiChartDataLayerColorProvider,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerValueShower,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerAnimated,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerProvider,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataPointProvider,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerRenderer,
-            useExisting: KruiChartBarDirective,
-        },
-        {
-            provide: KruiChartDataLayerTooltipProvider,
-            useExisting: KruiChartBarDirective,
-        },
-    ],
-    standalone: false
+  selector: '[kruiChartBar]',
+  exportAs: 'kruiChartBar',
+  providers: [
+    {
+      provide: KruiChartDataLayerColorProvider,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerValueShower,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerAnimated,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerProvider,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataPointProvider,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerRenderer,
+      useExisting: KruiChartBarDirective,
+    },
+    {
+      provide: KruiChartDataLayerTooltipProvider,
+      useExisting: KruiChartBarDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartBarDirective implements OnInit,
   OnChanges,

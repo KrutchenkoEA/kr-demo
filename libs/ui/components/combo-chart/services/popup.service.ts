@@ -6,7 +6,7 @@ import {
   GlobalPositionStrategy,
   Overlay,
   OverlayConfig,
-  OverlayRef
+  OverlayRef,
 } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ElementRef, Injectable, InjectionToken, Injector } from '@angular/core';
@@ -46,14 +46,14 @@ export class KruiChartPopupService {
 
   constructor(
     private readonly overlay: Overlay,
-    private readonly injector: Injector
+    private readonly injector: Injector,
   ) {
   }
 
   public open<T, V = unknown>(
     component: ComponentType<T>,
     data: unknown,
-    config: KruiChartPopupConfiguration = {}
+    config: KruiChartPopupConfiguration = {},
   ): { popupRef: KruiChartPopupReference<V>; overlayRef: OverlayRef } {
     const overlayRef = this.createOverlay(config);
     const popupRef = new KruiChartPopupReference<V>(overlayRef);
@@ -64,9 +64,9 @@ export class KruiChartPopupService {
       fromEvent(document, 'keydown').pipe(
         // @ts-ignore
         takeUntil(popupRef.afterClosed()),
-        filter((event: KeyboardEvent) => event.keyCode === ESCAPE)
+        filter((event: KeyboardEvent) => event.keyCode === ESCAPE),
       ),
-      overlayRef.backdropClick()
+      overlayRef.backdropClick(),
     ).subscribe(() => popupRef.close(null));
 
     return { popupRef, overlayRef };
@@ -82,14 +82,14 @@ export class KruiChartPopupService {
     overlayRef: OverlayRef,
     component: ComponentType<T>,
     data: unknown,
-    popupRef: KruiChartPopupReference<V>
+    popupRef: KruiChartPopupReference<V>,
   ): T {
     const injector = Injector.create({
       providers: [
         { provide: KruiChartPopupReference, useValue: popupRef },
-        { provide: KRUI_CHART_POPUP_DIALOG_DATA, useValue: data }
+        { provide: KRUI_CHART_POPUP_DIALOG_DATA, useValue: data },
       ],
-      parent: this.injector
+      parent: this.injector,
     });
     const containerPortal = new ComponentPortal(component, null, injector);
 
@@ -100,7 +100,7 @@ export class KruiChartPopupService {
     width,
     height,
 
-    panelClass
+    panelClass,
   }: KruiChartPopupConfiguration): OverlayConfig {
     const scrollStrategy = this.overlay.scrollStrategies.reposition();
     let positionStrategy: GlobalPositionStrategy | FlexibleConnectedPositionStrategy = this.overlay
@@ -116,7 +116,7 @@ export class KruiChartPopupService {
       height: height ?? 'auto',
       width: width ?? 'auto',
       scrollStrategy,
-      positionStrategy
+      positionStrategy,
     });
   }
 }

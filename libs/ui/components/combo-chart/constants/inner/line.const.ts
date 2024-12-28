@@ -5,5 +5,5 @@ export const customXSymbol = {
     context.moveTo(size, size);
     context.lineTo(-size, -size);
     context.closePath();
-  }
+  },
 };

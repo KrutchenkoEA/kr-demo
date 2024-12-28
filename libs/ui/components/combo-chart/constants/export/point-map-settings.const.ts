@@ -1,4 +1,4 @@
-export const KRUI_CHART_POINT_MAP_SETTINGS=
+export const KRUI_CHART_POINT_MAP_SETTINGS =
   [
     [
       'dataPoint', {
@@ -8,8 +8,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 5,
       pointStrokeSize: 2,
-      pointLimit: 500
-    }
+      pointLimit: 500,
+    },
     ],
     [
       'dataFillPoint', {
@@ -19,8 +19,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 5,
       pointStrokeSize: 2,
-      pointLimit: 500
-    }
+      pointLimit: 500,
+    },
     ],
     [
       'dataPointReWrite', {
@@ -30,8 +30,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 5,
       pointStrokeSize: 1,
-      pointLimit: 500
-    }
+      pointLimit: 500,
+    },
     ],
     [
       'dataFillPointReWrite', {
@@ -41,8 +41,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 5,
       pointStrokeSize: 1,
-      pointLimit: 500
-    }
+      pointLimit: 500,
+    },
     ],
     [
       'breakPoint', {
@@ -52,8 +52,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 4,
       pointStrokeSize: 0,
-      pointLimit: 50
-    }
+      pointLimit: 50,
+    },
     ],
     [
       'breakPointTransparentBg', {
@@ -63,8 +63,8 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 4,
       pointStrokeSize: 2,
-      pointLimit: 50
-    }
+      pointLimit: 50,
+    },
     ],
     [
       'reWritePoint', {
@@ -74,9 +74,9 @@ export const KRUI_CHART_POINT_MAP_SETTINGS=
       pointStrokeColor: 'auto',
       pointSize: 8,
       pointStrokeSize: 1,
-      pointLimit: 500
-    }
-    ]
+      pointLimit: 500,
+    },
+    ],
   ];
 
 export const getKruiChartPointMapSettings = () => JSON.parse(JSON.stringify(KRUI_CHART_POINT_MAP_SETTINGS));

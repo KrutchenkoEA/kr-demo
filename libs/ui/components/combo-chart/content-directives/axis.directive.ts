@@ -3,17 +3,17 @@ import { Directive, Input } from '@angular/core';
 import { KRUI_CHART_AXIS_TOKEN } from '../injection-tokens';
 
 @Directive({
-    selector: 'krui-chart-axis',
-    exportAs: 'kruiChartAxis',
-    providers: [
-        {
-            provide: KruiChartAxisProvider, useExisting: KruiChartAxisDirective
-        },
-        {
-            provide: KRUI_CHART_AXIS_TOKEN, useExisting: KruiChartAxisDirective
-        }
-    ],
-    standalone: false
+  selector: 'krui-chart-axis',
+  exportAs: 'kruiChartAxis',
+  providers: [
+    {
+      provide: KruiChartAxisProvider, useExisting: KruiChartAxisDirective,
+    },
+    {
+      provide: KRUI_CHART_AXIS_TOKEN, useExisting: KruiChartAxisDirective,
+    },
+  ],
+  standalone: false,
 })
 export class KruiChartAxisDirective implements KruiChartAxisProvider, KruiChartAxisInputs {
   @Input()

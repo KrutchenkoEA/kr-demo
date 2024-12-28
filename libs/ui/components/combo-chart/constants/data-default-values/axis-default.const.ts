@@ -14,7 +14,7 @@ export const axisXDefaultInputs: Partial<KruiChartAxisInputs> = {
   primary: true,
   color: KRUI_CHART_AXIS_COLOR,
   drawAxisLabel: true,
-  drawAxisLabelLine: true
+  drawAxisLabelLine: true,
 };
 
 export const axisYDefaultInputs = {
@@ -30,7 +30,7 @@ export const axisYDefaultInputs = {
   primary: false,
   color: KRUI_CHART_AXIS_COLOR,
   drawAxisLabel: true,
-  drawAxisLabelLine: true
+  drawAxisLabelLine: true,
 };
 
 export const getKruiAxisXDefaultInputs = (): Partial<KruiChartAxisInputs> => {

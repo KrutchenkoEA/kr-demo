@@ -6,11 +6,11 @@ import { IKruiChartSingleLayerInputModel } from '../../models';
 
 //todo add
 @Component({
-    selector: 'krui-chart-wrapper',
-    templateUrl: './chart-wrapper.component.html',
-    styleUrl: './chart-wrapper.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'krui-chart-wrapper',
+  templateUrl: './chart-wrapper.component.html',
+  styleUrl: './chart-wrapper.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class KruiChartWrapperComponent implements OnInit {
   public language$: BehaviorSubject<'ru' | 'en' | 'fa'> = new BehaviorSubject<'ru' | 'en' | 'fa'>('ru');

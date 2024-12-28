@@ -6,7 +6,7 @@ export const layerDefaultInputs: Partial<KruiChartLayerInputs> = {
   tooltipColor: KRUI_CHART_TOOLTIP_COLOR,
   zoomPrimaryEnable: true,
   zoomSecondaryEnable: false,
-  layerTitle: ''
+  layerTitle: '',
 };
 
 export const getKruiLayerDefaultInputs = (): Partial<KruiChartLayerInputs> => {

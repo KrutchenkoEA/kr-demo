@@ -11,5 +11,5 @@ export const KRUI_CHART_LINE_INTERPOLATE: KruiChartLineDynamics[] = [
   'curveNatural',
   'curveStep',
   'curveStepAfter',
-  'curveStepBefore'
+  'curveStepBefore',
 ];

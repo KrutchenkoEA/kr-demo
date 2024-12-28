@@ -15,7 +15,7 @@ import {
   OnInit,
   Output,
   QueryList,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import * as d3 from 'd3';
 import { BehaviorSubject, filter, Subject, takeUntil } from 'rxjs';
@@ -25,7 +25,7 @@ import {
   KRUI_CHART_AXIS_COLOR,
   KRUI_CHART_DEFAULT_LEGEND_HEIGHT,
   KRUI_CHART_DEFAULT_TOOLBAR_HEIGHT,
-  KRUI_CHART_GRID_COLOR
+  KRUI_CHART_GRID_COLOR,
 } from '../../constants';
 import { KruiChartDataLayerDirective } from '../../content-directives/data-layer.directive';
 import { KruiChartLayerDirective } from '../../content-directives/layer.directive';
@@ -39,18 +39,17 @@ import {
   KRUI_CHART_SMART_SCROLL_TOKEN,
   KRUI_CHART_TOOLBAR_TOKEN,
   KRUI_CHART_TOOLTIP_PROVIDER_TOKEN,
-  KRUI_CHART_WRAP_TOKEN
+  KRUI_CHART_WRAP_TOKEN,
 } from '../../injection-tokens';
 import {
   KruiChartAxisPosition,
   KruiChartLegendGroup,
-  KruiChartLegendLabelData,
   KruiChartLegendLabelDataType,
   KruiChartLegendProvider,
   KruiChartLegendType,
   KruiChartPaletteProvider,
   KruiChartReSizeEvent,
-  KruiChartZoomType
+  KruiChartZoomType,
 } from '../../models';
 import { KruiChartSmartScrollDirective } from '../../wrapper-directives/smart-scroll.directive';
 import { KruiChartToolbarDirective } from '../../wrapper-directives/toolbar.directive';
@@ -59,19 +58,19 @@ import { KruiChartWrapperDirective } from '../../wrapper-directives/wrapper.dire
 
 
 @Component({
-    selector: 'krui-chart',
-    templateUrl: './chart.component.html',
-    styleUrls: ['./chart.component.scss'],
-    providers: [
-        {
-            provide: KRUI_CHART_PALETTE_PROVIDER_TOKEN, useExisting: KruiChartComponent
-        },
-        {
-            provide: KRUI_CHART_LEGEND_PROVIDER_TOKEN, useExisting: KruiChartComponent
-        }
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'krui-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.scss'],
+  providers: [
+    {
+      provide: KRUI_CHART_PALETTE_PROVIDER_TOKEN, useExisting: KruiChartComponent,
+    },
+    {
+      provide: KRUI_CHART_LEGEND_PROVIDER_TOKEN, useExisting: KruiChartComponent,
+    },
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, KruiChartPaletteProvider, KruiChartLegendProvider {
   @Input() public legend: boolean = true;
@@ -98,7 +97,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
   public nextColorId: number = -1;
 
   public orders: { toolbar: number, legend: number, chart: number, resizeContainer: number } = {
-    toolbar: 0, legend: 1, chart: 2, resizeContainer: 10
+    toolbar: 0, legend: 1, chart: 2, resizeContainer: 10,
   };
   public zoomK$: BehaviorSubject<string> = new BehaviorSubject<string>('1');
   @ContentChildren(KRUI_CHART_LAYER_TOKEN) private readonly layersList!: QueryList<KruiChartLayerDirective>;
@@ -120,7 +119,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
     @Inject(KRUI_CHART_TOOLBAR_TOKEN) @Host() public toolbarDirective: KruiChartToolbarDirective,
     @Inject(KRUI_CHART_TOOLTIP_PROVIDER_TOKEN) @Host() public tooltipDirective: KruiChartTooltipProviderDirective,
     private readonly elementRef: ElementRef,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
   ) {
   }
 
@@ -129,7 +128,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
     if (this.resizeObserveType === 'resizeObserver') return;
     this._resize$.next({
       width: this.resizer.nativeElement.offsetWidth,
-      height: this.resizer.nativeElement.offsetHeight
+      height: this.resizer.nativeElement.offsetHeight,
     });
   }
 
@@ -162,7 +161,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
         this.tooltipDirective.onGraphMouseLeave();
         this._zoom!.translateExtent([
           [-this.wrap.marginLeft, -this.wrap.marginTop],
-          [this.wrap.width + 8, this.wrap.height + this.wrap.marginBottom]
+          [this.wrap.width + 8, this.wrap.height + this.wrap.marginBottom],
         ]);
         this.layersList.forEach(l => l.reDraw(this._zoomEvent, true, false));
         if (this.wrap.smartScrollEnable) {
@@ -178,7 +177,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
         this.zoomK$.next((k ?? 1).toFixed(1));
         const zoomPoint = this._zoomEvent ? [
           this._zoomEvent.transform.x / this._zoomEvent.transform.k,
-          this._zoomEvent.transform.y / this._zoomEvent.transform.k
+          this._zoomEvent.transform.y / this._zoomEvent.transform.k,
         ] : [-this.wrap.workGroundWidth / 2, -this.wrap.workGroundHeight / 2];
         this.wrap.svg.call(this._zoom!.transform, d3.zoomIdentity.scale(k).translate(zoomPoint[0], zoomPoint[1]));
       });
@@ -218,7 +217,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
     layerId: string,
     layerIndex: number,
     trendIndex: number,
-    hidden: boolean
+    hidden: boolean,
   ): void {
     dataLayer.toggleState(trendIndex, hidden);
 
@@ -251,7 +250,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
   public onTrendMouseEnter(
     dataLayer: KruiChartDataLayerDirective<any, any>,
     trendIndex: number,
-    hidden: boolean
+    hidden: boolean,
   ): void {
     if (!this.legendHoverEffect) return;
     dataLayer.toggleOpacity(trendIndex, hidden);
@@ -261,7 +260,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
   public onTrendMouseLeave(
     dataLayer: KruiChartDataLayerDirective<any, any>,
     trendIndex: number,
-    hidden: boolean
+    hidden: boolean,
   ): void {
     dataLayer.toggleOpacity(trendIndex, hidden);
     this.layersList.forEach(layer => layer.renderOpacity(hidden));
@@ -365,7 +364,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
       .scaleExtent([0.5, 32])
       .translateExtent([
         [-this.wrap.marginLeft, -this.wrap.marginTop],
-        [this.wrap.width + this.wrap.marginRight, this.wrap.height + this.wrap.marginBottom]
+        [this.wrap.width + this.wrap.marginRight, this.wrap.height + this.wrap.marginBottom],
       ])
       .on('start', () => this.tooltipDirective.onGraphMouseLeave())
       .on('zoom', (event: any) => {
@@ -387,7 +386,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
     if (this.zoomType === 'brush') {
       let timer = false;
       const baseExtent: [[number, number], [number, number]] = [
-        [this.wrap.offsetMarginLeft, this.wrap.marginTop], [this.wrap.svgWidth, this.wrap.offsetHeight]
+        [this.wrap.offsetMarginLeft, this.wrap.marginTop], [this.wrap.svgWidth, this.wrap.offsetHeight],
       ];
 
       this._brush = d3.brush()
@@ -406,7 +405,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
             .duration(750)
             .call(
               this._zoom!.transform,
-              d3.zoomIdentity.scale(zoomK).translate(-selection[0][0], -selection[0][1])
+              d3.zoomIdentity.scale(zoomK).translate(-selection[0][0], -selection[0][1]),
             );
 
           this.toolbarDirective.zoomK = zoomK;
@@ -453,7 +452,7 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
         if (entries?.[0]?.contentRect) {
           this._resize$.next({
             width: entries?.[0]?.contentRect.width,
-            height: entries?.[0]?.contentRect.height
+            height: entries?.[0]?.contentRect.height,
           });
         }
       });

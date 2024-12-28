@@ -5,7 +5,7 @@ export const kruiChartNumberMock1 = [
   [4, 302],
   [5, 110],
   [6, 480],
-  [7, 95]
+  [7, 95],
 ] as [number, number][];
 
 export const kruiChartNumberMock2 = [
@@ -15,7 +15,7 @@ export const kruiChartNumberMock2 = [
   [4, 30],
   [5, 40],
   [6, 20],
-  [7, 55]
+  [7, 55],
 ] as [number, number][];
 
 export const kruiChartNumberMock3 = [
@@ -28,7 +28,7 @@ export const kruiChartNumberMock3 = [
   [7, 33],
   [8, 37],
   [9, 38],
-  [10, 43]
+  [10, 43],
 ] as [number, number][];
 
 export const kruiChartNumberMock4 = [
@@ -41,7 +41,7 @@ export const kruiChartNumberMock4 = [
   [7, 20],
   [8, 26],
   [9, 24],
-  [10, 28]
+  [10, 28],
 ] as [number, number][];
 
 export const kruiChartNumberMockMissingValue1 = [
@@ -52,7 +52,7 @@ export const kruiChartNumberMockMissingValue1 = [
   [4, 40],
   [5, 50],
   [6, 30],
-  [7, 65]
+  [7, 65],
 ] as [number, number][];
 
 export const kruiChartLineMockTime1 = [
@@ -67,7 +67,7 @@ export const kruiChartLineMockTime1 = [
   ['2022-09-01T00:00:00.0000000Z', 38],
   ['2022-10-01T00:00:00.0000000Z', 43],
   ['2022-11-01T00:00:00.0000000Z', 44],
-  ['2022-12-01T00:00:00.0000000Z', 48]
+  ['2022-12-01T00:00:00.0000000Z', 48],
 ] as [string, number][];
 
 export const kruiChartLineMockTime2 = [
@@ -82,7 +82,7 @@ export const kruiChartLineMockTime2 = [
   ['2022-09-01T00:00:00.0000000Z', 52],
   ['2022-10-01T00:00:00.0000000Z', 57],
   ['2022-11-01T00:00:00.0000000Z', 55],
-  ['2022-12-01T00:00:00.0000000Z', 54]
+  ['2022-12-01T00:00:00.0000000Z', 54],
 ] as [string, number][];
 
 export const kruiChartLineMockTime3 = [
@@ -115,7 +115,7 @@ export const kruiChartLineMockTime3 = [
   ['2022-12-07T08:54:20.0000000Z', 106],
   ['2022-12-07T08:54:00.0000000Z', 87],
   ['2022-12-07T08:53:40.0000000Z', 70],
-  ['2022-12-07T08:53:20.0000000Z', 22]
+  ['2022-12-07T08:53:20.0000000Z', 22],
 ] as [string, number][];
 
 export const kruiChartLineEnumMock1 = [
@@ -128,7 +128,7 @@ export const kruiChartLineEnumMock1 = [
   [7, 33, null, 'Знач. 7'],
   [8, 37, null, 'Знач. 8'],
   [9, 38, null, 'Знач. 9'],
-  [10, 43, null, 'Знач. 10']
+  [10, 43, null, 'Знач. 10'],
 ] as [number | string | Date, number, string | null, string][];
 
 export const kruiChartBarEnumMock1 = [
@@ -141,7 +141,7 @@ export const kruiChartBarEnumMock1 = [
   [7, 33, 'Зн. 7'],
   [8, 37, 'Зн. 8'],
   [9, 38, 'Зн. 9'],
-  [10, 43, 'Зн. 10']
+  [10, 43, 'Зн. 10'],
 ] as [number, number, string][];
 
 export const kruiChartBarEnumMock2 = [
@@ -154,7 +154,7 @@ export const kruiChartBarEnumMock2 = [
   [7, 20, '7'],
   [8, 26, '8'],
   [9, 24, '9'],
-  [10, 28, '10']
+  [10, 28, '10'],
 ] as [number, number, string][];
 
 export const kruiChartBarEnumMock3 = [
@@ -167,7 +167,7 @@ export const kruiChartBarEnumMock3 = [
   [7, 33, 'Зн. 7'],
   [8, 39, 'Зн. 8'],
   [9, 36, 'Зн. 9'],
-  [10, 32, 'Зн. 10']
+  [10, 32, 'Зн. 10'],
 ] as [number, number, string][];
 
 export const kruiChartStackBarMock1 = [
@@ -175,7 +175,7 @@ export const kruiChartStackBarMock1 = [
   [2, [44, 27, 29], 'Зн. 2'],
   [3, [22, 33, 49], 'Зн. 3'],
   [4, [27, 28, 35], 'Зн. 4'],
-  [5, [35, 26, 33], 'Зн. 5']
+  [5, [35, 26, 33], 'Зн. 5'],
 ] as [number, any[], string][];
 
 export const kruiChartStackBarMock2 = [
@@ -186,7 +186,7 @@ export const kruiChartStackBarMock2 = [
   [4, [10, 170, 20], 'Показатель 4'],
   [5, [110, 90, 100], 'Показатель 5'],
   [6, [100, 10, 200], 'Показатель 6'],
-  [7, [95, 100, 20], 'Показатель 7']
+  [7, [95, 100, 20], 'Показатель 7'],
 ] as [number, any[], string][];
 
 export const kruiChartRangeBarMock1 = [
@@ -197,7 +197,7 @@ export const kruiChartRangeBarMock1 = [
   [4, [10, 170], 'Показатель 4'],
   [5, [110, 90], 'Показатель 5'],
   [6, [100, 10], 'Показатель 6'],
-  [7, [95, 100], 'Показатель 7']
+  [7, [95, 100], 'Показатель 7'],
 ] as [number, [number, number], string][];
 
 export const kruiChartRangeBarMock2 = [
@@ -208,7 +208,7 @@ export const kruiChartRangeBarMock2 = [
   [4, [170, 20], 'Показатель 4'],
   [5, [90, 100], 'Показатель 5'],
   [6, [10, 200], 'Показатель 6'],
-  [7, [100, 20], 'Показатель 7']
+  [7, [100, 20], 'Показатель 7'],
 ] as [number, [number, number], string][];
 
 export const kruiChartRangeBarStackMock = [
@@ -219,7 +219,7 @@ export const kruiChartRangeBarStackMock = [
   [4, [[10, 170], [170, 20]], 'Показатель 4'],
   [5, [[110, 90], [90, 100]], 'Показатель 5'],
   [6, [[100, 10], [10, 200]], 'Показатель 6'],
-  [7, [[95, 100], [100, 20]], 'Показатель 7']
+  [7, [[95, 100], [100, 20]], 'Показатель 7'],
 ] as [number, [number, number][], string][];
 
 export const kruiChartStackBarMissingValueMock1 = [
@@ -230,5 +230,5 @@ export const kruiChartStackBarMissingValueMock1 = [
   [4, [10, null, 20], 'Показатель 4'],
   [5, [110, 90, 100], 'Показатель 5'],
   [6, [null, 10, 200], 'Показатель 6'],
-  [7, [95, 100, 20], 'Показатель 7']
+  [7, [95, 100, 20], 'Показатель 7'],
 ] as [number, any[], string][];

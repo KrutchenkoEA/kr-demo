@@ -5,7 +5,7 @@ export const getBarTextPosition = (
   valuePosition: KruiChartBarTextPosition,
   valuesFontSizePx: number,
   secondaryAxis: KruiChartScale,
-  d: number
+  d: number,
 ): number => {
   const pos = notNul(secondaryAxis(d));
   if (valuePosition === 'top') {
@@ -27,7 +27,7 @@ export const getBarHorizontalTextPosition = (
   valuePosition: KruiChartBarTextPosition,
   valuesFontSizePx: number,
   secondaryAxis: KruiChartScale,
-  d: number
+  d: number,
 ): number => {
   const pos = notNul(secondaryAxis(d));
   if (valuePosition === 'top') {
@@ -62,7 +62,7 @@ export const getBarTextPositionStack = (
   valuePosition: KruiChartBarTextPosition,
   valuesFontSizePx: number,
   secondaryAxis: KruiChartScale,
-  d: [number, number, number] | [number, number]
+  d: [number, number, number] | [number, number],
 ): number => {
   if (valuePosition === 'top') {
     return notNul(secondaryAxis(d[1])) + valuesFontSizePx;
@@ -80,7 +80,7 @@ export const getBarHorizontalTextPositionStack = (
   valuePosition: KruiChartBarTextPosition,
   valuesFontSizePx: number,
   secondaryAxis: KruiChartScale,
-  d: [number, number, number] | [number, number]
+  d: [number, number, number] | [number, number],
 ): number => {
   if (valuePosition === 'top') {
     return notNul(secondaryAxis(d[1])) - valuesFontSizePx;

@@ -7,7 +7,7 @@ import {
   KruiChartColorParseService,
   KruiChartFormCreateService,
   KruiChartPopupService,
-  KruiChartStackedService
+  KruiChartStackedService,
 } from './services';
 import { KruiChartSmartScrollDirective } from './wrapper-directives/smart-scroll.directive';
 import { KruiChartToolbarDirective } from './wrapper-directives/toolbar.directive';

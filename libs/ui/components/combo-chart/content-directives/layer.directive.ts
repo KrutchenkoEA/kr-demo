@@ -9,13 +9,13 @@ import {
   KRUI_CHART_AXIS_WIDTH,
   KRUI_CHART_GRID_COLOR,
   KRUI_CHART_TEXT_COLOR,
-  KRUI_CHART_TOOLTIP_COLOR
+  KRUI_CHART_TOOLTIP_COLOR,
 } from '../constants';
 import {
   getEnumAxisDomain,
   getNumberAxisDomain,
   getTimeAxisDomain,
-  getWorkgroundPadding
+  getWorkgroundPadding,
 } from '../constants/inner/pure';
 import {
   KRUI_CHART_AXIS_TOKEN,
@@ -23,7 +23,7 @@ import {
   KRUI_CHART_GRID_TOKEN,
   KRUI_CHART_LAYER_TOKEN,
   KRUI_CHART_TOOLTIP_PROVIDER_TOKEN,
-  KRUI_CHART_WRAP_TOKEN
+  KRUI_CHART_WRAP_TOKEN,
 } from '../injection-tokens';
 import {
   KruiChartAxis,
@@ -41,33 +41,33 @@ import {
   KruiChartScaleLinear,
   KruiChartTooltipDataLayer,
   KruiChartTooltipDataRow,
-  KruiChartTooltipType
+  KruiChartTooltipType,
 } from '../models';
 import { KruiChartTooltipProviderDirective } from '../wrapper-directives/tooltip-provider.directive';
 import { KruiChartWrapperDirective } from '../wrapper-directives/wrapper.directive';
 import { KruiChartDataLayerDirective } from './data-layer.directive';
 
 @Directive({
-    selector: 'krui-chart-layer',
-    providers: [
-        {
-            provide: KruiChartLayerStateManager, useExisting: KruiChartLayerDirective
-        },
-        {
-            provide: KruiChartLayerDataProvider, useExisting: KruiChartLayerDirective
-        },
-        {
-            provide: KruiChartLayerRenderer, useExisting: KruiChartLayerDirective
-        },
-        {
-            provide: KruiChartLayerZoom, useExisting: KruiChartLayerDirective
-        },
-        {
-            provide: KruiChartLayerTooltip, useExisting: KruiChartLayerDirective
-        },
-        { provide: KRUI_CHART_LAYER_TOKEN, useExisting: KruiChartLayerDirective }
-    ],
-    standalone: false
+  selector: 'krui-chart-layer',
+  providers: [
+    {
+      provide: KruiChartLayerStateManager, useExisting: KruiChartLayerDirective,
+    },
+    {
+      provide: KruiChartLayerDataProvider, useExisting: KruiChartLayerDirective,
+    },
+    {
+      provide: KruiChartLayerRenderer, useExisting: KruiChartLayerDirective,
+    },
+    {
+      provide: KruiChartLayerZoom, useExisting: KruiChartLayerDirective,
+    },
+    {
+      provide: KruiChartLayerTooltip, useExisting: KruiChartLayerDirective,
+    },
+    { provide: KRUI_CHART_LAYER_TOKEN, useExisting: KruiChartLayerDirective },
+  ],
+  standalone: false,
 })
 export class KruiChartLayerDirective implements OnInit,
   AfterViewInit,
@@ -101,7 +101,7 @@ export class KruiChartLayerDirective implements OnInit,
 
   constructor(
     @Inject(KRUI_CHART_WRAP_TOKEN) @Host() public wrap: KruiChartWrapperDirective,
-    @Inject(KRUI_CHART_TOOLTIP_PROVIDER_TOKEN) @Host() public tooltipDirective: KruiChartTooltipProviderDirective
+    @Inject(KRUI_CHART_TOOLTIP_PROVIDER_TOKEN) @Host() public tooltipDirective: KruiChartTooltipProviderDirective,
   ) {
     this.layerId! = `${this.wrap.id}--layer-${++KruiChartLayerDirective.nextId}`;
   }
@@ -145,13 +145,13 @@ export class KruiChartLayerDirective implements OnInit,
       layerTitle: this.layerTitle,
       dataLayer: [],
       axis: this.axisList,
-      grid: this.gridList
+      grid: this.gridList,
     };
 
     for (let layer of this.dataLayerList) {
       this.layerLabels.dataLayer.push({
         layer,
-        data: layer.getLegendData()
+        data: layer.getLegendData(),
       });
     }
     return this.layerLabels;
@@ -375,7 +375,7 @@ export class KruiChartLayerDirective implements OnInit,
   public reDraw(
     event: d3.D3ZoomEvent<any, any> | null = null,
     isResize: boolean = false,
-    animation: boolean = false
+    animation: boolean = false,
   ): void {
     this._scales.clear();
     this.createScales();
@@ -401,15 +401,15 @@ export class KruiChartLayerDirective implements OnInit,
           type: primaryAxis.type,
           position: primaryAxis.position,
           d3Scale: this._scales.get(primaryAxis.name) as KruiChartScale,
-          d3Axis: this._axis.get(primaryAxis.name) as KruiChartAxis
+          d3Axis: this._axis.get(primaryAxis.name) as KruiChartAxis,
         },
         secondaryAxis: {
           name: secondaryAxis.name,
           type: secondaryAxis.type,
           position: secondaryAxis.position,
           d3Scale: this._scales.get(secondaryAxis.name) as KruiChartScale,
-          d3Axis: this._axis.get(secondaryAxis.name) as KruiChartAxis
-        }
+          d3Axis: this._axis.get(secondaryAxis.name) as KruiChartAxis,
+        },
       };
     }
     return null;
@@ -475,7 +475,7 @@ export class KruiChartLayerDirective implements OnInit,
       if (axis.position === 'bottom') {
         if (type === 'enum') {
           scale.range([
-            workgroundPadding.left, this.wrap.workGroundWidth - workgroundPadding.right
+            workgroundPadding.left, this.wrap.workGroundWidth - workgroundPadding.right,
           ].map((d: any) => event.transform.applyX(d)));
         }
         if (isResize) {
@@ -495,7 +495,7 @@ export class KruiChartLayerDirective implements OnInit,
       } else if (axis.position === 'top') {
         if (type === 'enum') {
           scale.range([
-            workgroundPadding.left, this.wrap.workGroundWidth - workgroundPadding.right
+            workgroundPadding.left, this.wrap.workGroundWidth - workgroundPadding.right,
           ].map((d: any) => event.transform.applyX(d)));
         }
 
@@ -514,7 +514,7 @@ export class KruiChartLayerDirective implements OnInit,
       } else if (axis.position === 'left') {
         if (type === 'enum') {
           scale.range([
-            this.wrap.workGroundHeight - workgroundPadding.bottom, workgroundPadding.top
+            this.wrap.workGroundHeight - workgroundPadding.bottom, workgroundPadding.top,
           ].map((d: any) => event.transform.applyY(d)));
         }
 
@@ -533,7 +533,7 @@ export class KruiChartLayerDirective implements OnInit,
       } else {
         if (type === 'enum') {
           scale.range([
-            this.wrap.workGroundHeight - workgroundPadding.bottom, workgroundPadding.top
+            this.wrap.workGroundHeight - workgroundPadding.bottom, workgroundPadding.top,
           ].map((d: any) => event.transform.applyY(d)));
         }
 
@@ -619,7 +619,7 @@ export class KruiChartLayerDirective implements OnInit,
     event: number,
     tooltipType: KruiChartTooltipType,
     primaryAxis: KruiChartAxisProvider,
-    index: number
+    index: number,
   ): {
     tooltip: KruiChartTooltipDataLayer;
     pos: number
@@ -661,9 +661,9 @@ export class KruiChartLayerDirective implements OnInit,
         title: this.layerTitle,
         value: tooltipTitle,
         hidden: hiddenArr.length === rows.length,
-        index
+        index,
       },
-      pos: scaleX(tooltipTitle) === undefined ? event : (scaleX(tooltipTitle) as number) + offset / 2
+      pos: scaleX(tooltipTitle) === undefined ? event : (scaleX(tooltipTitle) as number) + offset / 2,
     };
   }
 
@@ -671,7 +671,7 @@ export class KruiChartLayerDirective implements OnInit,
     event: number,
     tooltipType: KruiChartTooltipType,
     primaryAxis: KruiChartAxisProvider,
-    index: number
+    index: number,
   ): {
     tooltip: KruiChartTooltipDataLayer;
     pos: number
@@ -714,9 +714,9 @@ export class KruiChartLayerDirective implements OnInit,
           title: this.layerTitle,
           value: '',
           hidden: true,
-          index
+          index,
         },
-        pos: !!reScale ? reScale(Number(tooltipTrend?.valueTitle)) : event
+        pos: !!reScale ? reScale(Number(tooltipTrend?.valueTitle)) : event,
       };
     }
 
@@ -744,9 +744,9 @@ export class KruiChartLayerDirective implements OnInit,
         title: this.layerTitle,
         value,
         hidden: hiddenArr.length === rows.length,
-        index: 1
+        index: 1,
       },
-      pos: !!reScale ? reScale(Number(tooltipTrend?.valueTitle)) : event
+      pos: !!reScale ? reScale(Number(tooltipTrend?.valueTitle)) : event,
     };
   }
 }

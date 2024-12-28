@@ -16,7 +16,7 @@ export class KruiChartStackedService {
           } else {
             stackedDataMap.set(i, [v[0], [v[1]], v[2] ?? i + 1]);
           }
-        }
+        },
       );
     });
     return Array.from(stackedDataMap.values());
@@ -38,7 +38,7 @@ export class KruiChartStackedService {
     type: KruiChartStackType,
     data: KruiChartStackedBarData,
     i: number,
-    chartMax: number
+    chartMax: number,
   ): KruiChartStackedBarMap {
     const max = data[1].reduce((acc: number, number: number) => acc + number);
     let res = data[1].map(v => +adaptiveFixed(v * 100 / max, 2));
@@ -51,7 +51,7 @@ export class KruiChartStackedService {
       calculatedNormalized: type === 'stackBar' ? this.stackValues(res, i) : this.stackNormValues(res, i, chartMax),
       delta,
       isSetted: false,
-      enum: data?.[2] ? data[2] : ''
+      enum: data?.[2] ? data[2] : '',
     };
   }
 
@@ -74,7 +74,7 @@ export class KruiChartStackedService {
       .map((a) => a * k)
       .reduce<[number, number, number][]>(
         (p, c, i) => [...p, i ? [p[i - 1][1], c + p[i - 1][1], index] : [0, c, index]],
-        []
+        [],
       );
   }
 
