@@ -19,16 +19,16 @@
     "moduleResolution": "bundler",
     "paths": {
       "@kr-platform/ui": [
-        "dist/@kr-platform/ui"
+        "./dist/@kr-platform/ui"
       ],
       "@kr-platform/ui/*": [
-        "dist/@kr-platform/ui/*"
+        "./dist/@kr-platform/ui/*"
       ],
       "@kr-platform/kit": [
-        "dist/@kr-platform/kit/"
+        "./dist/@kr-platform/kit/"
       ],
       "@kr-platform/kit*": [
-        "dist/@kr-platform/kit/*"
+        "./dist/@kr-platform/kit/*"
       ]
     },
     "importHelpers": true,

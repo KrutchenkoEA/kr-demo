@@ -1,6 +1,6 @@
 {
   "name": "@kr-platform/kr-demo",
-  "version": "0.0.1",
+  "version": "19.0.1",
   "scripts": {
     "ng": "ng",
     "serve:app": "ng serve kr-app --port=4005",
