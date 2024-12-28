@@ -24,16 +24,16 @@
         "./dist/shared/*"
       ],
       "@kr-ui": [
-        "./dist/@kr-platform/ui"
+        "dist/@kr-platform/ui"
       ],
       "@kr-ui/*": [
-        "./dist/@kr-platform/ui/*"
+        "dist/@kr-platform/ui/*"
       ],
       "@kr-kit": [
-        "./dist/@kr-platform/kit/"
+        "dist/@kr-platform/kit/"
       ],
       "@kr-kit/*": [
-        "./dist/@kr-platform/kit/*"
+        "dist/@kr-platform/kit/*"
       ]
     },
     "importHelpers": true,
@@ -42,7 +42,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
