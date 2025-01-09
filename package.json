@@ -23,7 +23,6 @@
     "@angular/platform-browser": "^19.0.5",
     "@angular/platform-browser-dynamic": "^19.0.5",
     "@angular/router": "^19.0.5",
-    "@kr-platform/ui": "file:libs/ui",
     "angular-gridster2": "^19.0.0",
     "angular-split": "^18.0.0",
     "angular-svg-icon": "^19.0.1",
