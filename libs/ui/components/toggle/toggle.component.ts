@@ -1,30 +1,30 @@
 import {
-  Component,
-  Input,
-  ElementRef,
-  Renderer2 as Renderer,
   AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
   forwardRef,
+  Input,
+  Renderer2 as Renderer,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 export type ToggleSize = 'sm' | 'md' | 'lg' | 'xlg';
 
 @Component({
-  selector: 'tlui-toggle',
+  selector: 'krui-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TluiToggleComponent),
+      useExisting: forwardRef(() => KruiToggleComponent),
       multi: true,
     },
   ],
-  standalone: false
+  standalone: false,
 })
-export class TluiToggleComponent implements AfterViewInit {
+export class KruiToggleComponent implements AfterViewInit {
   @Input()
   id!: string;
 
@@ -48,8 +48,9 @@ export class TluiToggleComponent implements AfterViewInit {
   constructor(
     private readonly elementRef: ElementRef,
     private readonly renderer: Renderer,
-    private readonly changeDetector: ChangeDetectorRef
-  ) {}
+    private readonly changeDetector: ChangeDetectorRef,
+  ) {
+  }
 
   ngAfterViewInit() {
     this.renderer.removeAttribute(this.elementRef.nativeElement, 'id');

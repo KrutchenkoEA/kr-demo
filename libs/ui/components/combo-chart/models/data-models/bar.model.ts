@@ -16,7 +16,7 @@ export interface KruiChartBarConfig {
   secondaryAxis: KruiChartScale;
 }
 
-export interface TluiChartDataLayerBarBaseInputs {
+export interface IKruiChartDataLayerBarBaseInputs {
   barType: KruiChartBarColorType;
   barOpacity: number;
   barRadius: number;
@@ -31,7 +31,7 @@ export interface TluiChartDataLayerBarBaseInputs {
   startInNull: boolean;
 }
 
-export interface KruiChartDataLayerBarInputs extends TluiChartDataLayerBarBaseInputs {
+export interface KruiChartDataLayerBarInputs extends IKruiChartDataLayerBarBaseInputs {
   barBorderColor: string;
   barWidthPercent: number;
   color?: string;

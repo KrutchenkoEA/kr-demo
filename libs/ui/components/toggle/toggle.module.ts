@@ -4,10 +4,10 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { TluiToggleComponent } from './toggle.component';
+import { KruiToggleComponent } from './toggle.component';
 
 @NgModule({
-  declarations: [TluiToggleComponent],
+  declarations: [KruiToggleComponent],
   imports: [
     CommonModule,
     AngularSvgIconModule,
@@ -15,6 +15,6 @@ import { TluiToggleComponent } from './toggle.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  exports: [TluiToggleComponent],
+  exports: [KruiToggleComponent],
 })
-export class TluiToggleModule {}
+export class KruiToggleModule {}

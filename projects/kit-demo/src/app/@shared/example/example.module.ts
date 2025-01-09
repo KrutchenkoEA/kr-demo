@@ -10,7 +10,7 @@ import { EXAMPLES, EXAMPLE_FILES } from './constants';
 import { CodeSnippedComponent } from './components/code-snippet/code-snippet.component';
 import { ExampleViewerComponent } from './components/example-viewer/example-viewer.component';
 import { SyntaxPipe } from './pipes/syntax.pipe';
-import { TluiTabsModule } from '@kr-platform/ui';
+import { KruiTabsModule } from '@kr-platform/ui';
 
 @NgModule({
   declarations: [ExampleViewerComponent, CodeSnippedComponent, SyntaxPipe],
@@ -27,7 +27,7 @@ import { TluiTabsModule } from '@kr-platform/ui';
   ],
   imports: [
     CommonModule,
-    TluiTabsModule,
+    KruiTabsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,

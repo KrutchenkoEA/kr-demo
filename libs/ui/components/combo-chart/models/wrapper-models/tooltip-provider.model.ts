@@ -1,4 +1,4 @@
-import { ITluiChartTooltipFormatter } from '../content-models/tooltip.model';
+import { IKruiChartTooltipFormatter } from '../content-models/tooltip.model';
 
 export type KruiChartTooltipType = 'dataPoint' | 'fullLine';
 export type KruiChartTooltipMarkerType = 'line' | 'horizontal-line' | 'smallCross' | 'fullscreenCross' | 'none';
@@ -20,7 +20,7 @@ export abstract class KruiChartTooltipModel implements KruiChartTooltipProviderI
   abstract tooltipTitleNumberValuePipeFormat: string;
 }
 
-export interface KruiChartTooltipProviderInputs extends ITluiChartTooltipFormatter {
+export interface KruiChartTooltipProviderInputs extends IKruiChartTooltipFormatter {
   tooltip: boolean;
   tooltipComponentType: 'custom' | 'default';
   tooltipComponent: any;

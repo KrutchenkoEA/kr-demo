@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { ScaleBand, ZoomTransform } from 'd3';
 import {
   getKruiBarDefaultInputs,
-  getTluiBarDefaultHorizontalComboCommon,
+  getKruiBarDefaultHorizontalComboCommon,
   KRUI_CHART_SMART_SCROLL_COLOR,
   KRUI_CHART_TEXT_COLOR,
 } from '../constants';
@@ -346,7 +346,7 @@ export class KruiChartHorizontalComboBarDirective implements OnInit,
     }
 
     if (this.useDefaultCheck) {
-      Object.entries(getTluiBarDefaultHorizontalComboCommon())?.forEach(([key, value]) => {
+      Object.entries(getKruiBarDefaultHorizontalComboCommon())?.forEach(([key, value]) => {
         // @ts-ignore
         if (this[key] === null || this[key] === undefined) {
           // @ts-ignore

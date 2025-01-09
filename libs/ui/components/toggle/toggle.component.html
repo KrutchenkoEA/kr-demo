@@ -1,11 +1,11 @@
 <label
-  class="tlui-toggle"
-  [class.tlui-disabled]="disabled"
+  class="krui-toggle"
+  [class.krui-disabled]="disabled"
   [class]="{
-    'tlui-toggle--sm': size === 'sm',
-    'tlui-toggle--md': size === 'md',
-    'tlui-toggle--lg': size === 'lg',
-    'tlui-toggle--xlg': size === 'xlg'
+    'krui-toggle--sm': size === 'sm',
+    'krui-toggle--md': size === 'md',
+    'krui-toggle--lg': size === 'lg',
+    'krui-toggle--xlg': size === 'xlg'
   }"
 >
   <input
@@ -15,8 +15,8 @@
     [ngModel]="model"
     (ngModelChange)="onModelChange($event)"
   />
-  <span class="tlui-toggle__switcher">
-    <svg-icon [src]="iconOff" class="tlui-toggle__icon tlui-icon--sm"></svg-icon>
-    <svg-icon [src]="iconOn" class="tlui-toggle__icon tlui-icon--sm"></svg-icon>
+  <span class="krui-toggle__switcher">
+    <svg-icon [src]="iconOff" class="krui-toggle__icon krui-icon--sm"></svg-icon>
+    <svg-icon [src]="iconOn" class="krui-toggle__icon krui-icon--sm"></svg-icon>
   </span>
 </label>

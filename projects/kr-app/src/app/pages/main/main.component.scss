@@ -1,4 +1,4 @@
-@use "../../../theme/mixins/main-page-mixin";
+@import "../../../theme/mixins/main-page-mixin";
 
 @include main-page-mixin();
 

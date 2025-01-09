@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TluiTabsComponent } from './tabs.component';
-import { TluiTabComponent, TluiTabLazyContent } from './tab/tab.component';
-import { TluiTabLabelDirective } from './tab-label.directive';
-import { TabLazyBodyDirective } from './tab-lazy-body.directive';
+import { KruiTabsComponent } from './tabs.component';
+import { KruiTabComponent, KruiTabLazyContent } from './tab/tab.component';
+import { KruiTabLabelDirective } from './tab-label.directive';
+import { KruiTabLazyBodyDirective } from './krui-tab-lazy-body.directive';
 
 @NgModule({
   declarations: [
-    TluiTabsComponent,
-    TluiTabComponent,
-    TluiTabLabelDirective,
-    TluiTabLazyContent,
-    TabLazyBodyDirective
+    KruiTabsComponent,
+    KruiTabComponent,
+    KruiTabLabelDirective,
+    KruiTabLazyContent,
+    KruiTabLazyBodyDirective
   ],
   imports: [CommonModule],
-  exports: [TluiTabsComponent, TluiTabComponent, TluiTabLabelDirective, TluiTabLazyContent]
+  exports: [KruiTabsComponent, KruiTabComponent, KruiTabLabelDirective, KruiTabLazyContent]
 })
-export class TluiTabsModule {
+export class KruiTabsModule {
 }

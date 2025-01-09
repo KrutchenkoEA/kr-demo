@@ -16,14 +16,14 @@ export interface KruiMainMenuItem {
 }
 
 @Component({
-  selector: 'tlui-main-menu',
+  selector: 'krui-main-menu',
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.scss'],
   animations: [SLIDE_INOUT_TOP],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false
 })
-export class TluiMainMenuComponent implements OnInit {
+export class KruiMainMenuComponent implements OnInit {
   @Input()
   public menuItems: KruiMainMenuItem[] = [];
 

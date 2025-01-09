@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[tluiTabLabel]',
+  selector: '[kruiTabLabel]',
   standalone: false
 })
-export class TluiTabLabelDirective {}
+export class KruiTabLabelDirective {}

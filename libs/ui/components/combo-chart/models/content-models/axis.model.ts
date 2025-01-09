@@ -4,7 +4,7 @@ import { KruiChartScale } from '../chart-models/base.model';
 export type KruiChartAxisPosition = 'left' | 'top' | 'right' | 'bottom';
 export type KruiChartAxisType = 'number' | 'time' | 'enum';
 
-export interface TluiChartAxisData {
+export interface KruiChartAxisData {
   name: string;
   type: KruiChartAxisType;
   position: KruiChartAxisPosition;

@@ -6,7 +6,7 @@ import { KruiChartGridProvider } from './grid.provider.class';
 import { KruiChartAxisProvider } from './axis.provider.class';
 import { KruiChartTooltipType } from '../wrapper-models/tooltip-provider.model';
 import { KruiChartTooltipDataLayer } from './tooltip.model';
-import { ITluiChartLayerTooltipInputs, ITluiChartLayerZoomInputs } from './layer.model';
+import { IKruiChartLayerTooltipInputs, IKruiChartLayerZoomInputs } from './layer.model';
 import { KruiChartAxis } from './axis.model';
 import { KruiChartLegendGroup } from './legend.model';
 
@@ -59,7 +59,7 @@ export abstract class KruiChartLayerStateManager {
   abstract renderOpacity(active: boolean): void;
 }
 
-export abstract class KruiChartLayerTooltip implements ITluiChartLayerTooltipInputs {
+export abstract class KruiChartLayerTooltip implements IKruiChartLayerTooltipInputs {
   abstract tooltipEnable: boolean;
   abstract tooltipColor: string;
 
@@ -89,7 +89,7 @@ export abstract class KruiChartLayerTooltip implements ITluiChartLayerTooltipInp
   } | null
 }
 
-export abstract class KruiChartLayerZoom implements ITluiChartLayerZoomInputs {
+export abstract class KruiChartLayerZoom implements IKruiChartLayerZoomInputs {
   abstract zoomPrimaryEnable: boolean;
   abstract zoomSecondaryEnable: boolean;
 

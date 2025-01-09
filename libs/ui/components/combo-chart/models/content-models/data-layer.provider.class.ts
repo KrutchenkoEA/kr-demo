@@ -1,8 +1,8 @@
 import {
-  ITluiChartDataLayerAnimationInputs,
-  ITluiChartDataLayerColorInputs,
-  ITluiChartDataLayerDrawConfigInputs,
-  ITluiChartDataLayerValueShowerInputs,
+  IKruiChartDataLayerAnimationInputs,
+  IKruiChartDataLayerColorInputs,
+  IKruiChartDataLayerDrawConfigInputs,
+  IKruiChartDataLayerValueShowerInputs,
 } from './data-layer.model';
 import { KruiChartAxisType } from './axis.model';
 import { KruiChartLegendLabelData } from './legend.model';
@@ -13,7 +13,7 @@ import { KruiChartTooltipDataRow } from './tooltip.model';
 import { KruiChartWorkgroundPadding } from '../chart-models/chart.model';
 
 
-export abstract class KruiChartDataLayerColorProvider implements ITluiChartDataLayerColorInputs {
+export abstract class KruiChartDataLayerColorProvider implements IKruiChartDataLayerColorInputs {
   abstract _defaultColor: string;
 
   abstract _color: string;
@@ -27,7 +27,7 @@ export abstract class KruiChartDataLayerColorProvider implements ITluiChartDataL
   abstract getColor(i?: number): string;
 }
 
-export abstract class KruiChartDataLayerValueShower implements ITluiChartDataLayerValueShowerInputs {
+export abstract class KruiChartDataLayerValueShower implements IKruiChartDataLayerValueShowerInputs {
   abstract showValues: boolean;
   abstract valuesColor: string;
   abstract valuesFontSizePx: number;
@@ -36,13 +36,13 @@ export abstract class KruiChartDataLayerValueShower implements ITluiChartDataLay
   abstract engUnits: string[];
 }
 
-export abstract class KruiChartDataLayerAnimated implements ITluiChartDataLayerAnimationInputs {
+export abstract class KruiChartDataLayerAnimated implements IKruiChartDataLayerAnimationInputs {
   abstract durationAnimation: number;
   abstract durationToggleAnimation: number;
   abstract animation: boolean;
 }
 
-export abstract class KruiChartDataLayerProvider<U, V> implements ITluiChartDataLayerDrawConfigInputs {
+export abstract class KruiChartDataLayerProvider<U, V> implements IKruiChartDataLayerDrawConfigInputs {
   abstract state: Map<number, boolean>;
   abstract reRangeThenLegendClick: boolean;
   abstract reRangeThenDataChange: boolean;

@@ -1,4 +1,4 @@
-export interface ITluiChartTooltipFormatter {
+export interface IKruiChartTooltipFormatter {
   tooltipShowMilliseconds: boolean;
   tooltipDateValuePipeFormat: string;
   tooltipTitleDateValuePipeFormat: string;
@@ -6,7 +6,7 @@ export interface ITluiChartTooltipFormatter {
   tooltipTitleNumberValuePipeFormat: string;
 }
 
-export interface ITluiChartTooltipBase extends ITluiChartTooltipFormatter {
+export interface IKruiChartTooltipBase extends IKruiChartTooltipFormatter {
   data: KruiChartTooltipDataLayer[];
   engUnits: string;
   delimiterSymbol: string;
@@ -28,10 +28,10 @@ export interface KruiChartTooltipDataRow {
   color: string;
   hidden: boolean;
   engUnits: string;
-  type: TluiChartTooltipDataRowType;
+  type: KruiChartTooltipDataRowType;
 }
 
-export type TluiChartTooltipDataRowType =
+export type KruiChartTooltipDataRowType =
   'line'
   | 'area'
   | 'gradientArea'

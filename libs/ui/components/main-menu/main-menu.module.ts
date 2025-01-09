@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TluiMainMenuComponent } from './main-menu.component';
-import { TluiToggleModule } from '@kr-platform/ui/components';
+import { KruiMainMenuComponent } from './main-menu.component';
+import { KruiToggleModule } from '@kr-platform/ui/components';
 
 @NgModule({
-  declarations: [TluiMainMenuComponent],
+  declarations: [KruiMainMenuComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -17,8 +17,8 @@ import { TluiToggleModule } from '@kr-platform/ui/components';
     AngularSvgIconModule,
     HttpClientModule,
     RouterModule,
-    TluiToggleModule,
+    KruiToggleModule,
   ],
-  exports: [TluiMainMenuComponent],
+  exports: [KruiMainMenuComponent],
 })
 export class KruiMainMenuModule {}

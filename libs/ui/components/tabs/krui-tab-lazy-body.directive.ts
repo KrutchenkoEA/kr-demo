@@ -12,10 +12,10 @@ import { CdkPortalOutlet, TemplatePortal } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 
 @Directive({
-  selector: '[tluiTabLazyBody]',
+  selector: '[kruiTabLazyBody]',
   standalone: false
 })
-export class TabLazyBodyDirective extends CdkPortalOutlet implements OnInit, OnDestroy {
+export class KruiTabLazyBodyDirective extends CdkPortalOutlet implements OnInit, OnDestroy {
   @Input() isNeedDestroy: boolean = false;
   @Input() isSelected: boolean = false;
   @Input('content') _content!: TemplatePortal | null;

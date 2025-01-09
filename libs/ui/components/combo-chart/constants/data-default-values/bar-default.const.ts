@@ -94,7 +94,7 @@ export const getKruiBarDefaultCommon = (): Partial<KruiChartDataLayerCommonInput
   barDefaultCommon.workgroundPadding = barDefaultCommonBar.workgroundPadding;
   return JSON.parse(JSON.stringify(barDefaultCommon));
 };
-export const getTluiBarDefaultHorizontalCommon = (): Partial<KruiChartDataLayerCommonInputs> => {
+export const getKruiBarDefaultHorizontalCommon = (): Partial<KruiChartDataLayerCommonInputs> => {
   barDefaultCommon.workgroundPadding = barDefaultCommonHorizontal.workgroundPadding;
   return JSON.parse(JSON.stringify(barDefaultCommon));
 };
@@ -102,7 +102,7 @@ export const getKruiBarDefaultComboCommon = (): Partial<KruiChartDataLayerCommon
   barDefaultCommon.workgroundPadding = barDefaultCommonCombo.workgroundPadding;
   return JSON.parse(JSON.stringify(barDefaultCommon));
 };
-export const getTluiBarDefaultHorizontalComboCommon = (): Partial<KruiChartDataLayerCommonInputs> => {
+export const getKruiBarDefaultHorizontalComboCommon = (): Partial<KruiChartDataLayerCommonInputs> => {
   barDefaultCommon.workgroundPadding = barDefaultCommonHorizontalCombo.workgroundPadding;
   return JSON.parse(JSON.stringify(barDefaultCommon));
 };

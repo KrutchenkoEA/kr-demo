@@ -43,16 +43,16 @@ export type KruiChartLineData = [number, number, string | null, string | null];
 
 /** Входные значения [x,y, метка точки?, enum-значение?], если enum - то в x передаем порядковый номер */
 export type KruiChartLineInputData =
-  TluiChartLineDataSimple
-  | TluiChartLineDataIcon
-  | TluiChartLineDataIconEnum
+  KruiChartLineDataSimple
+  | KruiChartLineDataIcon
+  | KruiChartLineDataIconEnum
 
 /** Входные значения [x,y] */
-export type TluiChartLineDataSimple = [number | string | Date, number];
+export type KruiChartLineDataSimple = [number | string | Date, number];
 /** Входные значения [x,y, метка точки?] */
-export type TluiChartLineDataIcon = [number | string | Date, number, string | null];
+export type KruiChartLineDataIcon = [number | string | Date, number, string | null];
 /** Входные значения [x,y, метка точки?, enum-значение?], если enum - то в x передаем порядковый номер */
-export type TluiChartLineDataIconEnum = [number | string | Date, number, string | null, string];
+export type KruiChartLineDataIconEnum = [number | string | Date, number, string | null, string];
 
 export interface KruiChartPointDataOptions {
   pointMarkers: KruiChartLineDataPointType[];

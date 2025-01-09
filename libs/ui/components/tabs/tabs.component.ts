@@ -8,22 +8,22 @@ import {
   QueryList
 } from '@angular/core';
 
-import { TluiTabComponent } from './tab/tab.component';
+import { KruiTabComponent } from './tab/tab.component';
 import { FADE_IN } from '@kr-platform/ui/animations';
 
-export type TluiTabsPosition = 'top' | 'right' | 'bottom' | 'left';
-export type TluiTabsAlignment = 'start' | 'center' | 'end' | 'stretch';
-export type TluiTabsSize = 'sm' | 'md' | 'lg' | 'xlg';
+export type KruiTabsPosition = 'top' | 'right' | 'bottom' | 'left';
+export type KruiTabsAlignment = 'start' | 'center' | 'end' | 'stretch';
+export type KruiTabsSize = 'sm' | 'md' | 'lg' | 'xlg';
 
 @Component({
-  selector: 'tlui-tabs',
+  selector: 'krui-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [FADE_IN],
   standalone: false
 })
-export class TluiTabsComponent {
+export class KruiTabsComponent {
   @Input()
   lazyLoading: boolean = false;
 
@@ -31,13 +31,13 @@ export class TluiTabsComponent {
   isNeedDestroy: boolean = true;
 
   @Input()
-  position: TluiTabsPosition = 'top';
+  position: KruiTabsPosition = 'top';
 
   @Input()
-  alignment: TluiTabsAlignment = 'start';
+  alignment: KruiTabsAlignment = 'start';
 
   @Input()
-  size: TluiTabsSize = 'md';
+  size: KruiTabsSize = 'md';
 
   @Input()
   isMenu: boolean = false;
@@ -48,8 +48,8 @@ export class TluiTabsComponent {
   @Output()
   selectedIndexChange = new EventEmitter<number>();
 
-  @ContentChildren(TluiTabComponent)
-  readonly tabs!: QueryList<TluiTabComponent>;
+  @ContentChildren(KruiTabComponent)
+  readonly tabs!: QueryList<KruiTabComponent>;
 
   public _language: string | null = null;
 

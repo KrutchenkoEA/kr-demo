@@ -1,13 +1,13 @@
-<div [class.tlui-tabs--menu]="isMenu"
-     [class]="'tlui-tabs--' + position + ' tlui-tabs--' + alignment + ' tlui-tabs--' + size"
-     class="tlui-tabs">
-  <nav class="tlui-tabs__header">
+<div [class.krui-tabs--menu]="isMenu"
+     [class]="'krui-tabs--' + position + ' krui-tabs--' + alignment + ' krui-tabs--' + size"
+     class="krui-tabs">
+  <nav class="krui-tabs__header">
     <a (click)="onTabSelect(index)"
        *ngFor="let tab of tabs; let index = index"
-       [class.tlui-tabs-label--active]="index === selectedIndex"
-       [class.tlui-tabs-label--disabled]="tab.disabled"
+       [class.krui-tabs-label--active]="index === selectedIndex"
+       [class.krui-tabs-label--disabled]="tab.disabled"
        [title]="tab.title ?? ''"
-       class="tlui-tabs-label">
+       class="krui-tabs-label">
       <ng-container *ngIf="tab?.labelTemplateRef">
         <ng-container *ngTemplateOutlet="tab.labelTemplateRef"></ng-container>
       </ng-container>
@@ -19,13 +19,13 @@
     <ng-content></ng-content>
   </nav>
 
-  <section class="tlui-tabs__body">
+  <section class="krui-tabs__body">
     <ng-container *ngIf="!lazyLoading; else lazyBody">
       <ng-container *ngFor="let tab of tabs; let index = index">
         <div *ngIf="index === selectedIndex"
              [@fadeIn]
              [ngClass]="index === selectedIndex ? tab.tabClass : ''"
-             class="tlui-tabs-pane">
+             class="krui-tabs-pane">
           <ng-container *ngTemplateOutlet="tab.contentTemplateRef"></ng-container>
         </div>
       </ng-container>
@@ -34,14 +34,14 @@
     <ng-template #lazyBody>
       <div *ngFor="let tab of tabs; let index = index"
            [@fadeIn]
-           [class.tlui-tabs-pane_active]="index === selectedIndex"
-           [class.tlui-tabs-pane_hidden]="isNeedDestroy ? false : index !== selectedIndex"
+           [class.krui-tabs-pane_active]="index === selectedIndex"
+           [class.krui-tabs-pane_hidden]="isNeedDestroy ? false : index !== selectedIndex"
            [ngClass]="index === selectedIndex ? tab.tabClass : ''"
-           class="tlui-tabs-pane">
+           class="krui-tabs-pane">
         <ng-container [content]="tab.contentPortal"
                       [isNeedDestroy]="isNeedDestroy"
                       [isSelected]="index === selectedIndex"
-                      tluiTabLazyBody>
+                      kruiTabLazyBody>
         </ng-container>
       </div>
     </ng-template>

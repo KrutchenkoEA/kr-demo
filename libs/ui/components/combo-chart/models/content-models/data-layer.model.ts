@@ -1,6 +1,6 @@
 import { KruiChartWorkgroundPadding } from '../chart-models/chart.model';
 
-export interface ITluiChartDataLayerValueShowerInputs {
+export interface IKruiChartDataLayerValueShowerInputs {
   showValues: boolean;
   valuesColor: string;
   valuesFontSizePx: number;
@@ -9,24 +9,24 @@ export interface ITluiChartDataLayerValueShowerInputs {
   engUnits: string[];
 }
 
-export interface ITluiChartDataLayerColorInputs {
+export interface IKruiChartDataLayerColorInputs {
   color: string | null | undefined;
   colors: string[] | null | undefined;
 }
 
-export interface ITluiChartDataLayerAnimationInputs {
+export interface IKruiChartDataLayerAnimationInputs {
   durationAnimation: number;
   durationToggleAnimation: number;
   animation: boolean;
 }
 
-export interface ITluiChartDataLayerDrawConfigInputs {
+export interface IKruiChartDataLayerDrawConfigInputs {
   reRangeThenLegendClick: boolean;
   reRangeThenDataChange: boolean;
   workgroundPadding: KruiChartWorkgroundPadding;
   useDefaultCheck: boolean;
 }
 
-export interface KruiChartDataLayerCommonInputs extends ITluiChartDataLayerValueShowerInputs,
-  ITluiChartDataLayerColorInputs, ITluiChartDataLayerAnimationInputs, ITluiChartDataLayerDrawConfigInputs {
+export interface KruiChartDataLayerCommonInputs extends IKruiChartDataLayerValueShowerInputs,
+  IKruiChartDataLayerColorInputs, IKruiChartDataLayerAnimationInputs, IKruiChartDataLayerDrawConfigInputs {
 }

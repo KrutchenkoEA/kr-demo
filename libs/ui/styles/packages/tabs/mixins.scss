@@ -1,0 +1,212 @@
+@import "./variables";
+@import "../transition/mixins";
+
+@mixin tabs-base() {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex: 1;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border-style: none;
+    border-width: $tab-border-width;
+    border-color: $tab-border-color;
+  }
+
+  &__body {
+    flex: 1;
+  }
+
+  &-label {
+    @include transition((border-color, color, box-shadow));
+
+    color: $tab-color;
+    display: flex;
+    padding: 0 $tab-padding;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: $atom * 5;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    user-select: none;
+
+    &--active {
+      color: $tab-active-color;
+    }
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+      color: $tab-disabled-color;
+    }
+
+    &:hover,
+    &--hover {
+      color: $tab-active-color;
+    }
+  }
+}
+
+@mixin tabs-pane() {
+  &-pane {
+    &_active {
+      height: 100%;
+    }
+
+    &_hidden {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      display: none;
+    }
+  }
+}
+
+@mixin tabs-top() {
+  $root: &;
+
+  &--top {
+    flex-direction: column;
+
+    #{$root} {
+      &__header {
+        flex-direction: row;
+        border-bottom-style: solid;
+      }
+
+      &-label--active {
+        box-shadow: 0px $tab-border-width 0px 0px $tab-active-border-color;
+      }
+    }
+  }
+}
+
+@mixin tabs-bottom() {
+  $root: &;
+
+  &--bottom {
+    flex-direction: column-reverse;
+
+    #{$root} {
+      &__header {
+        flex-direction: row;
+        border-top-style: solid;
+      }
+
+      &-label--active {
+        box-shadow: 0px #{-$tab-border-width} 0px 0px $tab-active-border-color;
+      }
+    }
+  }
+}
+
+@mixin tabs-left() {
+  $root: &;
+
+  &--left {
+    flex-direction: row;
+
+    #{$root} {
+      &__header {
+        flex-direction: column;
+        border-right-style: solid;
+      }
+
+      &-label--active {
+        box-shadow: $tab-border-width 0px 0px 0px $tab-active-border-color;
+      }
+    }
+  }
+}
+
+@mixin tabs-right() {
+  $root: &;
+
+  &--right {
+    flex-direction: row-reverse;
+
+    #{$root} {
+      &__header {
+        flex-direction: column;
+        border-left-style: solid;
+      }
+
+      &-label--active {
+        box-shadow: -$tab-border-width 0px 0px 0px $tab-active-border-color;
+      }
+    }
+  }
+}
+
+@mixin tabs-stretched() {
+  $root: &;
+
+  &--stretched &-label {
+    flex: 1;
+  }
+}
+
+@mixin tabs-menu() {
+  $root: &;
+
+  &--menu {
+    #{$root}__header {
+      background-color: $tab-menu-background;
+      border: none;
+    }
+
+    #{$root}-label {
+      border-bottom: 1px solid $tab-border-color;
+      padding: 0 $atom * 2;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &#{$root}--left {
+      #{$root}-label {
+        &--active {
+          box-shadow: -3px 0px 0px 0px inset $tab-active-border-color;
+        }
+      }
+    }
+
+    &#{$root}--right {
+      #{$root}-label {
+        &--active {
+          box-shadow: 3px 0px 0px 0px inset $tab-active-border-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin tabs-size-variant($variant, $root) {
+  $height: map-get($tab-sizes, $variant);
+
+  #{$root}-label {
+    height: $height - $tab-border-width;
+  }
+}
+
+@mixin tabs-align-variant($variant, $root) {
+  @if ($variant == "stretch") {
+    #{$root}-label {
+      flex: 1;
+    }
+  } @else {
+    #{$root}__header {
+      justify-content: $variant;
+    }
+  }
+}

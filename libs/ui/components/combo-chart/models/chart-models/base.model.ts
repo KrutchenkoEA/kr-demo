@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { TluiChartAxisData } from '../content-models/axis.model';
+import { KruiChartAxisData } from '../content-models/axis.model';
 
 export type KruiChartScale =
   | d3.ScaleLinear<any, number>
@@ -15,6 +15,6 @@ export type KruiChartRenderTarget = d3.Selection<SVGGElement, unknown, null, unk
 export interface KruiChartLayerDrawContext {
   canvasWidth: number;
   canvasHeight: number;
-  primaryAxis: TluiChartAxisData;
-  secondaryAxis: TluiChartAxisData;
+  primaryAxis: KruiChartAxisData;
+  secondaryAxis: KruiChartAxisData;
 }

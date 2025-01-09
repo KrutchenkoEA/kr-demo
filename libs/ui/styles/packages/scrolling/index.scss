@@ -1,5 +1,5 @@
 @import "./mixins.scss";
 
-.tlui-hover-vertical-scroll {
+.krui-hover-vertical-scroll {
   @include vertical-scroll($hover: true);
 }

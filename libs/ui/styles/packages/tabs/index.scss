@@ -1,0 +1,27 @@
+@import "./mixins";
+@import "./variables";
+
+.krui-tabs {
+  $root: &;
+
+  @include tabs-base();
+  @include tabs-pane();
+  @include tabs-top();
+  @include tabs-bottom();
+  @include tabs-left();
+  @include tabs-right();
+  @include tabs-menu();
+  @include tabs-stretched();
+
+  @each $size in map-keys($tab-sizes) {
+    &--#{$size} {
+      @include tabs-size-variant($size, $root);
+    }
+  }
+
+  @each $align in (start, center, end, stretch) {
+    &--#{$align} {
+      @include tabs-align-variant($align, $root);
+    }
+  }
+}

@@ -59,7 +59,6 @@
             "styles": [
               "projects/kr-app/src/styles.scss",
               "@angular/material/prebuilt-themes/cyan-orange.css",
-              "libs/ui/styles/styles.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
             "stylePreprocessorOptions": {

@@ -1,6 +1,6 @@
 import { KruiChartScale } from '../chart-models/base.model';
 import { KruiChartAxisType } from '../content-models/axis.model';
-import { KruiChartBarInputData, TluiChartDataLayerBarBaseInputs } from './bar.model';
+import { KruiChartBarInputData, IKruiChartDataLayerBarBaseInputs } from './bar.model';
 
 /** Отсортированные значения [x,y, enum-значение] */
 export type KruiChartStackedBarData = [number, number[], any]; //index, dataArr, enum-title
@@ -29,7 +29,7 @@ export interface KruiChartStackBarConfig {
   secondaryAxis: KruiChartScale;
 }
 
-export interface KruiChartDataLayerStackBarInputs extends TluiChartDataLayerBarBaseInputs {
+export interface KruiChartDataLayerStackBarInputs extends IKruiChartDataLayerBarBaseInputs {
   stackType: KruiChartStackType;
   barBorderColors: string[];
   barWidthPercent: number;

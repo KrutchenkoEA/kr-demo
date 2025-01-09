@@ -1,26 +1,26 @@
 import {
   ChangeDetectorRef, Component, ContentChild, Directive, Input, TemplateRef, ViewChild, ViewContainerRef
 } from '@angular/core';
-import { TluiTabLabelDirective } from '../tab-label.directive';
+import { KruiTabLabelDirective } from '../tab-label.directive';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 @Directive({
-  selector: '[tluiTabLazyContent]',
+  selector: '[kruiTabLazyContent]',
   standalone: false
 })
-export class TluiTabLazyContent {
+export class KruiTabLazyContent {
   constructor(public template: TemplateRef<any>) {
   }
 }
 
 
 @Component({
-  selector: 'tlui-tab',
+  selector: 'krui-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
   standalone: false
 })
-export class TluiTabComponent {
+export class KruiTabComponent {
   @Input() label!: string;
 
   @Input() title!: string;
@@ -29,9 +29,9 @@ export class TluiTabComponent {
 
   @Input() tabClass: string = '';
 
-  @ContentChild(TluiTabLabelDirective, { read: TemplateRef }) readonly labelTemplateRef!: TemplateRef<any>;
+  @ContentChild(KruiTabLabelDirective, { read: TemplateRef }) readonly labelTemplateRef!: TemplateRef<any>;
 
-  @ContentChild(TluiTabLazyContent, { read: TemplateRef, static: true }) _explicitContent!: TemplateRef<any>;
+  @ContentChild(KruiTabLazyContent, { read: TemplateRef, static: true }) _explicitContent!: TemplateRef<any>;
 
   @ViewChild(TemplateRef, { static: true }) _implicitContent!: TemplateRef<any>;
 

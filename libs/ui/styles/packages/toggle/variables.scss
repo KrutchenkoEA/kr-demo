@@ -1,0 +1,15 @@
+@import "../typography/variables";
+
+$toggle-color:white;
+$toggle-background: $bg-body;
+$toggle-background-active: map-get($palette, logo);
+$toggle-border: $bg-main;
+$toggle-border-active: map-get($palette, logo);
+$toggle-outline: map-get($palette, logo);
+
+$toggle-sizes: (
+  sm: 16px,
+  md: 20px,
+  lg: 24px,
+  xlg: 32px,
+);

@@ -4,7 +4,7 @@
 </div>
 
 <header class="header">
-  <svg-icon class="tlui-icon--sm" src="tluiIconSearch"></svg-icon>
+  <svg-icon class="krui-icon--sm" src="kruiIconSearch"></svg-icon>
   <input
     (ngModelChange)="filterBroadcast$.next($event)"
     [ngModel]="query"
@@ -24,16 +24,16 @@
 <span *ngIf="!filteredItems.length" class="empty-msg">Нет элеменов</span>
 
 <footer class="footer">
-  <svg-icon class="tlui-icon--sm" src="tluiIconSupportHead"></svg-icon>
+  <svg-icon class="krui-icon--sm" src="kruiIconSupportHead"></svg-icon>
   <span class="flex-divider"></span>
-  <tlui-toggle
+  <krui-toggle
     (ngModelChange)="themeChange.emit($event ? 'light' : 'dark')"
     [ngModel]="theme === 'light'"
-    class="tlui-mr--xs"
-    iconOff="tluiIconThemeLightSun"
-    iconOn="tluiIconThemeDarkMoon"
+    class="krui-mr--xs"
+    iconOff="kruiIconThemeLightSun"
+    iconOn="kruiIconThemeDarkMoon"
     size="lg"
-  ></tlui-toggle>
+  ></krui-toggle>
 </footer>
 
 <ng-template #menu let-items="items" let-level="level">
@@ -47,22 +47,22 @@
       <a (click)="onItemClick(item)" class="menu-item__link">
         <svg-icon
           *ngIf="level === 1"
-          [src]="item.iconUrl ?? 'tluiIconSets'"
-          class="menu-item__link__icon tlui-icon--xs"
+          [src]="item.iconUrl ?? 'kruiIconSets'"
+          class="menu-item__link__icon krui-icon--xs"
         ></svg-icon>
-        <span *ngIf="level !== 1" class="menu-item__link__icon tlui-icon--xs"></span>
+        <span *ngIf="level !== 1" class="menu-item__link__icon krui-icon--xs"></span>
         <span class="menu-item__link__text">{{ item.label }}</span>
-        <span *ngIf="item.badge" class="tlui-tag tlui-tag--primary">
+        <span *ngIf="item.badge" class="krui-tag krui-tag--primary">
           {{ item.badge }}
         </span>
         <svg-icon
           *ngIf="item.children?.length"
           [src]="
             item.expanded
-              ? 'tluiIconArrowDownSimple'
-              : 'tluiIconArrowRightSimple'
+              ? 'kruiIconArrowDownSimple'
+              : 'kruiIconArrowRightSimple'
           "
-          class="menu-item__link__arrow tlui-icon--xs"
+          class="menu-item__link__arrow krui-icon--xs"
         ></svg-icon>
       </a>
 

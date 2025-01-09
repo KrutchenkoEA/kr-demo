@@ -1,6 +1,6 @@
 import { KruiChartScale } from '../chart-models/base.model';
 import { KruiChartAxisType } from '../content-models/axis.model';
-import { KruiChartBarInputData, TluiChartDataLayerBarBaseInputs } from './bar.model';
+import { KruiChartBarInputData, IKruiChartDataLayerBarBaseInputs } from './bar.model';
 import { KruiChartStackedBarInputData } from './stack-bar.model';
 
 
@@ -19,7 +19,7 @@ export interface KruiChartComboBarConfig {
 }
 
 
-export interface KruiChartDataLayerComboBarInputs extends TluiChartDataLayerBarBaseInputs {
+export interface KruiChartDataLayerComboBarInputs extends IKruiChartDataLayerBarBaseInputs {
   barBorderColors: string[];
   stackWidthPercent: number;
   barWidthPercent: number;
