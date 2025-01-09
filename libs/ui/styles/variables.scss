@@ -17,8 +17,8 @@ $icon: #{var(--color-borders-icons)};
 
 $palette: (
   contrast: #{var(--color-text-contrast)},
-  accent: #{var(--color-text-main-and-axis-labels)},
-  subscript: #{var(--color-text-signatures-and-future)},
+  accent: #{var(--color-text-main)},
+  subscript: #{var(--color-text-signatures)},
   gray: #{var(--color-index-gray)},
   info: #{var(--color-index-blue)},
   warning: #{var(--color-index-yellow)},

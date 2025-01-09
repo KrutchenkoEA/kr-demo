@@ -3,20 +3,52 @@
 
   /*Текст*/
   --color-text-contrast: #ffffff;
-  --color-text-main-and-axis-labels: #e0e4eb;
-  --color-text-signatures-and-future: #97a3ba;
+  --color-text-main: #e0e4eb;
+  --color-text-signatures: #97a3ba;
+  --color-text-optional: #727689;
 
   /*Фон*/
   --color-background-main: #181d25;
   --color-background-body: #212631;
+  --color-background-app-header: #2A2F38;
   --color-background-headers: #2d3443;
 
   /*Границы*/
-  --color-borders-light: #2d3443;
   --color-borders-stroke: rgb(36, 42, 54);
+  --color-borders-light: #2d3443;
   --color-borders-icons: #727689;
 
-  /*Индексы*/
+  /*Основной цвет*/
+  --color-color-1: #181d25;
+  --color-color-2: #212631;
+  --color-color-3: #252b37;
+  --color-color-4: #29303d;
+  --color-color-5: #2d3443;
+  --color-color-6: #353e50;
+  --color-color-7: #3d475c;
+  --color-color-8: #455168;
+  --color-color-9: #566481;
+  --color-color-10: #667799;
+  --color-color-11: #7e8da9;
+  --color-color-12: #97a3ba;
+  --color-color-13: #afb8ca;
+  --color-color-14: #c8ceda;
+  --color-color-15: #d4d9e2;
+  --color-color-16: #e0e4eb;
+  --color-color-17: #eaecf1;
+  --color-color-18: #f3f4f7;
+  --color-color-19: #f9fafb;
+
+  --color-color-30: #F3F4F8;
+  --color-color-31: #D3D4D9;
+  --color-color-32: #B2B5BC;
+  --color-color-33: #9496A2;
+  --color-color-34: #777986;
+  --color-color-35: #5B5D6A;
+  --color-color-36: #404251;
+  --color-color-37: #282A39;
+  --color-color-38: #101123;
+
   --color-index-gray: #C8CEDA;
   --color-index-yellow: #FFB30F;
   --color-index-red: #FF4046;

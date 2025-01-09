@@ -1,8 +1,8 @@
-export const KRUI_CHART_AXIS_COLOR = 'var(--color-borders-and-icons-icons)';
-export const KRUI_CHART_GRID_COLOR = 'var(--color-borders-and-icons-stroke-shape)';
+export const KRUI_CHART_AXIS_COLOR = 'var(--color-borders-light)';
+export const KRUI_CHART_GRID_COLOR = 'var(--color-borders-stroke)';
 export const KRUI_CHART_TEXT_COLOR = 'var(--color-text-contrast)';
-export const KRUI_CHART_BG_COLOR = 'var(--color-background-popup-widgets)';
-export const KRUI_CHART_TOOLTIP_COLOR = 'var(--color-color-12)';
+export const KRUI_CHART_BG_COLOR = 'var(--color-background-main)';
+export const KRUI_CHART_TOOLTIP_COLOR = 'var(--color-borders-icons)';
 export const KRUI_CHART_SMART_SCROLL_COLOR = 'var(--color-logo)';
 
 export const KRUI_CHART_AXIS_WIDTH = 40;

@@ -17,8 +17,8 @@ $line-height-paragraph: 1.5em !default;
 
 $text-colors: (
   contrast-text: #{var(--color-text-contrast)},
-  main-text: #{var(--color-text-main-and-axis-labels)},
-  subscript-text: #{var(--color-text-signatures-and-future)},
+  main-text: #{var(--color-text-main)},
+  subscript-text: #{var(--color-text-signatures)},
   black: black,
   white: white
 ) !default;
