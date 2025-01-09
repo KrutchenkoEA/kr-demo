@@ -1,0 +1,23 @@
+<ng-container *ngIf="content$ | async as content; else loading">
+  @if (!error) {
+    <svg-icon
+      (click)="copySource(text?.textContent ?? '')"
+      class="tlui-btn--icon tlui-icon--md"
+      src="tluiIconDouble"
+      title="Копировать в буфер"
+    ></svg-icon>
+  }
+
+  <div #text class="snippet-container">
+    @if (error) {
+      <div>{{ content }}</div>
+    }
+    @if (!error) {
+      <pre><code #text [innerHTML]="content | syntax" class="hljs"></code></pre>
+    }
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="tlui-pv--sm tlui-mh--sm">Загрузка...</div>
+</ng-template>

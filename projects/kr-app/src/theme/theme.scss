@@ -1,4 +1,4 @@
-@use '@kr-platform/ui/styles/index';
+//@use 'index';
 
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -7,13 +7,3 @@ body {
   height: 98vh;
   overflow: hidden;
 }
-
-//:root {
-//  .theme-light {
-//    @include light-variables();
-//  }
-//
-//  .theme-dark {
-//    @include dark-variables();
-//  }
-//}

@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+html {
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+}
+
+body {
+  overflow: hidden;
+  flex-flow: column;
+}
+
+body.theme-dark {
+  @import "hl_dark";
+}
+
+body.theme-light {
+  @import "hl_light";
+}
+
+
+h2.example {
+  font-size: 24px;
+  width: 100%;
+  margin: 16px 0;
+  line-height: normal;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-borders-light);
+}
+
+section.example {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 4px;
+  background: var(--body-background);
+}
+
+.kit-page {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  align-items: flex-start;
+  overflow: visible;
+  height: fit-content;
+}
+
+.kit-page-content {
+  width: 100%;
+  flex-grow: 1;
+}
+
+table-of-contents {
+  top: 35px;
+  min-width: 250px;
+  padding-left: 24px;
+  width: 25%;
+}
+
+@media (max-width: 1024px) {
+  .kit-page {
+    flex-direction: column;
+  }
+
+  table-of-contents {
+    padding-left: 0;
+    padding-top: 24px;
+    width: 100%;
+  }
+}

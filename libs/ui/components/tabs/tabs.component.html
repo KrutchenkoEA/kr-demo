@@ -1,0 +1,49 @@
+<div [class.tlui-tabs--menu]="isMenu"
+     [class]="'tlui-tabs--' + position + ' tlui-tabs--' + alignment + ' tlui-tabs--' + size"
+     class="tlui-tabs">
+  <nav class="tlui-tabs__header">
+    <a (click)="onTabSelect(index)"
+       *ngFor="let tab of tabs; let index = index"
+       [class.tlui-tabs-label--active]="index === selectedIndex"
+       [class.tlui-tabs-label--disabled]="tab.disabled"
+       [title]="tab.title ?? ''"
+       class="tlui-tabs-label">
+      <ng-container *ngIf="tab?.labelTemplateRef">
+        <ng-container *ngTemplateOutlet="tab.labelTemplateRef"></ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="!tab?.labelTemplateRef">
+        {{ tab.label ?? "" }}
+      </ng-container>
+    </a>
+    <ng-content></ng-content>
+  </nav>
+
+  <section class="tlui-tabs__body">
+    <ng-container *ngIf="!lazyLoading; else lazyBody">
+      <ng-container *ngFor="let tab of tabs; let index = index">
+        <div *ngIf="index === selectedIndex"
+             [@fadeIn]
+             [ngClass]="index === selectedIndex ? tab.tabClass : ''"
+             class="tlui-tabs-pane">
+          <ng-container *ngTemplateOutlet="tab.contentTemplateRef"></ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #lazyBody>
+      <div *ngFor="let tab of tabs; let index = index"
+           [@fadeIn]
+           [class.tlui-tabs-pane_active]="index === selectedIndex"
+           [class.tlui-tabs-pane_hidden]="isNeedDestroy ? false : index !== selectedIndex"
+           [ngClass]="index === selectedIndex ? tab.tabClass : ''"
+           class="tlui-tabs-pane">
+        <ng-container [content]="tab.contentPortal"
+                      [isNeedDestroy]="isNeedDestroy"
+                      [isSelected]="index === selectedIndex"
+                      tluiTabLazyBody>
+        </ng-container>
+      </div>
+    </ng-template>
+  </section>
+</div>

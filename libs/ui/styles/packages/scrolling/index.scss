@@ -1,0 +1,5 @@
+@import "./mixins.scss";
+
+.tlui-hover-vertical-scroll {
+  @include vertical-scroll($hover: true);
+}

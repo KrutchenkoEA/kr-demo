@@ -1,0 +1,39 @@
+@import "variables";
+@import "packages/scrolling/mixins";
+
+$snippet-font-size: 13px;
+$snippet-line-height: 20px;
+$snippet-background: $bg-main;
+$snippet-icon-margin: $atom * 3;
+
+:host {
+  @include vertical-scroll();
+
+  display: block;
+  flex: 1;
+  position: relative;
+}
+
+pre {
+  margin: 0;
+  width: 100%;
+}
+
+.snippet-container {
+  margin-top: -$snippet-icon-margin;
+}
+
+code {
+  font-size: $snippet-font-size;
+  line-height: $snippet-line-height;
+  background: $gray-1 !important;
+  white-space: pre-wrap;
+}
+
+.tlui-btn--icon {
+  position: sticky;
+
+  z-index: 2;
+  top: 10px;
+  left: calc(100% - #{$snippet-icon-margin * 2});
+}

@@ -49,13 +49,24 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/kr-app/src/assets",
-              "projects/kr-app/src/theme"
+              "projects/kr-app/src/theme",
+              {
+                "glob": "**",
+                "input": "projects/tl-platform-ui/assets/",
+                "output": "assets"
+              }
             ],
             "styles": [
               "projects/kr-app/src/styles.scss",
               "@angular/material/prebuilt-themes/cyan-orange.css",
-              "@kr-platform/ui/styles/index.scss"
+              "libs/ui/styles/styles.scss",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -106,7 +117,7 @@
             ],
             "tsConfig": "projects/kr-app/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [            ],
+            "assets": [],
             "styles": [
               "projects/kr-app/src/styles.scss",
               "@angular/material/prebuilt-themes/cyan-orange.css"
@@ -182,39 +193,6 @@
         }
       }
     },
-    "kr-kit": {
-      "projectType": "library",
-      "root": "libs/kit",
-      "sourceRoot": "libs/kit/src",
-      "prefix": "kr-kit",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "libs/kit/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/kit/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/kit/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "libs/kit/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
     "kr-kit-demo": {
       "projectType": "application",
       "schematics": {
@@ -239,13 +217,21 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               {
-                "glob": "**/*",
-                "input": "projects/kit-demo/public"
+                "glob": "**",
+                "input": "projects/tl-platform-ui/assets/",
+                "output": "assets"
               }
             ],
             "styles": [
-              "projects/kit-demo/src/styles.scss"
+              "projects/kit-demo/src/styles.scss",
+              "libs/ui/styles/styles.scss",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -276,10 +262,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kit-demo:build:production"
+              "buildTarget": "kr-kit-demo:build:production"
             },
             "development": {
-              "buildTarget": "kit-demo:build:development"
+              "buildTarget": "kr-kit-demo:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,0 +1,34 @@
+<div class="example-viewer">
+  <div class="example-viewer__toolbar">
+    <h3 class="example-viewer__title" [id]="id">{{ title }}</h3>
+    <svg-icon
+      (click)="copyLink()"
+      title="Корировать ссылку на пример"
+      src="tluiIconLinkChainClip"
+      class="tlui-btn--icon tlui-icon--sm tlui-ml--sm"
+    ></svg-icon>
+    <svg-icon
+      (click)="collapsed = !collapsed"
+      [src]="
+        collapsed
+          ? 'tluiIconArrowResizeScaleMax'
+          : 'tluiIconArrowResizeScaleMin'
+      "
+      class="tlui-btn--icon tlui-icon--sm tlui-ml--sm"
+      [title]="collapsed ? 'Развернуть' : 'Свернуть'"
+    ></svg-icon>
+  </div>
+  <div class="example-viewer__source" *ngIf="!collapsed">
+    <tlui-tabs [selectedIndex]="selectedTabIndex">
+      <tlui-tab [label]="tab.title" *ngFor="let tab of tabs">
+        <code-snippet [path]="tab.path"></code-snippet>
+      </tlui-tab>
+    </tlui-tabs>
+  </div>
+  <div class="example-viewer__body">
+    <div
+      [ngComponentOutlet]="componentType"
+      [ngComponentOutletNgModuleFactory]="moduleFactory"
+    ></div>
+  </div>
+</div>

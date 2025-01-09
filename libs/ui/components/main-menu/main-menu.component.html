@@ -1,0 +1,80 @@
+<div class="logo">
+  <svg-icon src="/assets/icons/logo.svg"></svg-icon>
+  <span> | UI-Kit</span><span>&nbsp;| v{{ version }}</span>
+</div>
+
+<header class="header">
+  <svg-icon class="tlui-icon--sm" src="tluiIconSearch"></svg-icon>
+  <input
+    (ngModelChange)="filterBroadcast$.next($event)"
+    [ngModel]="query"
+    class="search"
+    placeholder="Найти"
+    type="text"
+  />
+</header>
+
+<ng-container *ngIf="filteredItems.length">
+  <ng-container
+    *ngTemplateOutlet="menu; context: { level: 1, items: filteredItems }"
+  >
+  </ng-container>
+</ng-container>
+
+<span *ngIf="!filteredItems.length" class="empty-msg">Нет элеменов</span>
+
+<footer class="footer">
+  <svg-icon class="tlui-icon--sm" src="tluiIconSupportHead"></svg-icon>
+  <span class="flex-divider"></span>
+  <tlui-toggle
+    (ngModelChange)="themeChange.emit($event ? 'light' : 'dark')"
+    [ngModel]="theme === 'light'"
+    class="tlui-mr--xs"
+    iconOff="tluiIconThemeLightSun"
+    iconOn="tluiIconThemeDarkMoon"
+    size="lg"
+  ></tlui-toggle>
+</footer>
+
+<ng-template #menu let-items="items" let-level="level">
+  <ul [class]="'menu menu--level-' + level">
+    <li
+      *ngFor="let item of items"
+      [class.menu-item--disabled]="item.disabled"
+      [class.menu-item--selected]="isActive(item.href)"
+      class="menu-item"
+    >
+      <a (click)="onItemClick(item)" class="menu-item__link">
+        <svg-icon
+          *ngIf="level === 1"
+          [src]="item.iconUrl ?? 'tluiIconSets'"
+          class="menu-item__link__icon tlui-icon--xs"
+        ></svg-icon>
+        <span *ngIf="level !== 1" class="menu-item__link__icon tlui-icon--xs"></span>
+        <span class="menu-item__link__text">{{ item.label }}</span>
+        <span *ngIf="item.badge" class="tlui-tag tlui-tag--primary">
+          {{ item.badge }}
+        </span>
+        <svg-icon
+          *ngIf="item.children?.length"
+          [src]="
+            item.expanded
+              ? 'tluiIconArrowDownSimple'
+              : 'tluiIconArrowRightSimple'
+          "
+          class="menu-item__link__arrow tlui-icon--xs"
+        ></svg-icon>
+      </a>
+
+      <div *ngIf="item.children?.length && item.expanded" @slideInOutTop>
+        <ng-container
+          *ngTemplateOutlet="
+            menu;
+            context: { level: level + 1, items: item.children }
+          "
+        >
+        </ng-container>
+      </div>
+    </li>
+  </ul>
+</ng-template>

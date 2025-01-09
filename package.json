@@ -3,13 +3,10 @@
   "version": "19.0.1",
   "scripts": {
     "ng": "ng",
-    "serve:app": "ng serve kr-app --port=4005",
-    "serve:kit-demo": "ng serve kr-kit-demo --port=4006",
-    "watch:ui": "ng build kr-ui --watch",
-    "watch:kit": "ng build kr-kit --watch",
-    "build:ui": "ng build kr-ui",
-    "build:kit": "ng build kr-kit",
-    "kit:compile": ""
+    "app:serve": "ng serve kr-app --port=4005",
+    "kit-demo:serve": "ng serve kr-kit-demo --port=4006",
+    "kit-demo:compile": "node ./projects/kit-demo/scripts/compile.js",
+    "ui:watch": "ng build kr-ui --watch"
   },
   "private": true,
   "dependencies": {
@@ -23,10 +20,14 @@
     "@angular/platform-browser": "^19.0.5",
     "@angular/platform-browser-dynamic": "^19.0.5",
     "@angular/router": "^19.0.5",
+    "@types/file-saver": "^2.0.7",
+    "@types/html2canvas": "^1.0.0",
     "angular-gridster2": "^19.0.0",
     "angular-split": "^18.0.0",
     "angular-svg-icon": "^19.0.1",
+    "d3": "^7.9.0",
     "ngx-skeleton-loader": "^9.0.0",
+    "roboto-fontface": "^0.10.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -35,7 +36,9 @@
     "@angular-devkit/build-angular": "^19.0.6",
     "@angular/cli": "^19.0.6",
     "@angular/compiler-cli": "^19.0.5",
+    "@types/d3": "^7.4.3",
     "@types/jasmine": "~5.1.0",
+    "highlight.js": "^11.11.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -43,6 +46,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.1",
+    "readdir-glob": "^2.0.1",
     "typescript": "~5.5.2"
   }
 }

@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@use "../../variables.scss";
 
 $font-name: "Roboto";
 
@@ -19,6 +19,7 @@ $text-colors: (
   contrast-text: #{var(--color-text-contrast)},
   main-text: #{var(--color-text-main)},
   subscript-text: #{var(--color-text-signatures)},
+  optional-text: #{var(--color-text-optional)},
   black: black,
   white: white
 ) !default;

@@ -23,7 +23,7 @@
       }
 
       <table class="krui-chart-tooltip__list">
-        @for (row of group?.rows; track row.index) {
+        <ng-container *ngFor="let row of group?.rows">
           @if (!row?.hidden && (row?.value !== null)) {
             <tr>
               <td colspan="3">
@@ -76,7 +76,7 @@
               </td>
             </tr>
           }
-        }
+        </ng-container>
       </table>
     }
   </div>

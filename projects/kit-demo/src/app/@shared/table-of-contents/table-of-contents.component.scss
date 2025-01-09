@@ -1,0 +1,64 @@
+@import "variables";
+@import "packages/typography/variables";
+
+$toc-border-radius: 4px;
+$toc-font-size: 13px;
+$toc-border-color: map-get($palette, logo);
+$toc-border-width: 3px;
+$toc-font-color: map-get($text-colors, main-text);
+$toc-head-color: map-get($text-colors, main-text);
+$toc-font-hover-color: map-get($palette, logo);
+$toc-background: $bg-main;
+
+:host {
+  font-size: $toc-font-size;
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.toc-container {
+  width: 100%;
+  border-radius: $toc-border-radius;
+  background: $toc-background;
+  border-left: $toc-border-width solid $toc-border-color;
+  padding-left: $atom;
+  padding-top: $atom;
+  padding-bottom: $atom;
+  box-sizing: border-box;
+
+  & + .toc-container {
+    padding-top: $atom;
+  }
+}
+
+.toc-heading {
+  margin: 0 0 $atom 0;
+  padding: 0;
+  font-size: $toc-font-size;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: $toc-head-color;
+}
+
+a {
+  line-height: $line-height-regular;
+  margin: $atom 0 0;
+  position: relative;
+  text-decoration: none;
+  display: block;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  color: $toc-font-color;
+
+  &:hover {
+    color: $toc-font-hover-color;
+  }
+}
+
+.level-h4 {
+  margin-left: 12px;
+}
