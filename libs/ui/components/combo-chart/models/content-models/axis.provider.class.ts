@@ -12,6 +12,13 @@ export abstract class KruiChartAxisProvider implements KruiChartAxisInputs {
   abstract name: string;
   abstract primary: boolean;
   abstract color: string;
+
+  /** Скрыть деления оси */
   abstract drawAxisLabel: boolean;
+
+  /** Скрыть метки оси */
   abstract drawAxisLabelLine: boolean;
+
+  /** Скрыть ось полностью (отступы не учитываются) */
+  abstract drawAxis: boolean;
 }

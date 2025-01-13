@@ -554,6 +554,8 @@ export class KruiChartLineDirective implements OnInit,
   }
 
   public renderOpacity(active: boolean): void {
+    if (this.opacityState.get(0) || !this._target) return;
+
     if (this.opacityState.get(0)) return;
 
     if (active) {

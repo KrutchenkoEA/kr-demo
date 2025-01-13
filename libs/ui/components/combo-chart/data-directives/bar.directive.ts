@@ -419,7 +419,7 @@ export class KruiChartBarDirective implements OnInit,
   }
 
   public renderOpacity(active: boolean): void {
-    if (this.opacityState.get(0)) return;
+    if (this.opacityState.get(0) || !this._target) return;
     if (active) {
       this._target.attr('class', 'krui-chart-data-layer krui-chart-data-layer--opacity');
     } else {

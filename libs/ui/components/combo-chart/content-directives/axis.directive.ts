@@ -54,4 +54,6 @@ export class KruiChartAxisDirective implements KruiChartAxisProvider, KruiChartA
 
   @Input()
   drawAxisLabelLine: boolean = true;
+
+  @Input() drawAxis: boolean = true;
 }

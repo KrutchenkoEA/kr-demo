@@ -42,7 +42,7 @@ import {
   KRUI_CHART_WRAP_TOKEN,
 } from '../../injection-tokens';
 import {
-  KruiChartAxisPosition,
+  KruiChartAxisProvider,
   KruiChartLegendGroup,
   KruiChartLegendLabelDataType,
   KruiChartLegendProvider,
@@ -275,7 +275,8 @@ export class KruiChartComponent implements OnInit, AfterViewInit, OnDestroy, Kru
       this.legendGroups.push(l.getLegendLabels());
 
       this.wrap.axisLevelMap.set(l.layerId, new Map());
-      l.getAxis().forEach((axis: { position: KruiChartAxisPosition; }) => {
+      l.getAxis().forEach((axis: KruiChartAxisProvider) => {
+        if (!axis.drawAxis) return;
         switch (axis.position) {
           case 'left':
             this.wrap.axisLevelMap.get(l.layerId)?.set('left', this.wrap.axisCounter.left);

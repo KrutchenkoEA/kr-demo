@@ -19,6 +19,7 @@ export const barDefaultCommon: Partial<KruiChartDataLayerCommonInputs> = {
   reRangeThenLegendClick: true,
   reRangeThenDataChange: true,
   workgroundPadding: { top: 5, right: 0, left: 0, bottom: 0 },
+  useDefaultCheck: true
 };
 
 const barDefaultCommonBar: Partial<KruiChartDataLayerCommonInputs> = {

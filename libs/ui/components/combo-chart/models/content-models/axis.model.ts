@@ -29,4 +29,5 @@ export interface KruiChartAxisInputs {
   color: string;
   drawAxisLabel: boolean;
   drawAxisLabelLine: boolean;
+  drawAxis: boolean;
 }

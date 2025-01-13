@@ -2,8 +2,8 @@ import { Directive, Host, Inject, Input, OnChanges, OnInit, SimpleChanges } from
 import * as d3 from 'd3';
 import { ScaleBand, ZoomTransform } from 'd3';
 import {
-  getKruiBarDefaultInputs,
   getKruiBarDefaultHorizontalCommon,
+  getKruiBarDefaultInputs,
   KRUI_CHART_SMART_SCROLL_COLOR,
   KRUI_CHART_TEXT_COLOR,
 } from '../constants';

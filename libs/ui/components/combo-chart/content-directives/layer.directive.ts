@@ -225,6 +225,7 @@ export class KruiChartLayerDirective implements OnInit,
 
   public drawAxis(): void {
     for (const axis of this.axisList?.filter(axis => axis.drawAxisLabel)) {
+      if (!axis.drawAxis) return
       const d3Axis = this._axis.get(axis.name) as KruiChartAxis;
       const g = this._layerSelection
         .append('g')

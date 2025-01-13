@@ -13,6 +13,7 @@ export const lineDefaultCommon: Partial<KruiChartDataLayerCommonInputs> = {
   reRangeThenLegendClick: true,
   reRangeThenDataChange: true,
   workgroundPadding: { top: 5, right: 10, left: 10, bottom: 5 },
+  useDefaultCheck: true
 };
 
 export const lineDefaultInputs: Partial<IKruiChartDataLayerLineInputs> = {

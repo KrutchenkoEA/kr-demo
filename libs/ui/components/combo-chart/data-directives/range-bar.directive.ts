@@ -549,6 +549,8 @@ export class KruiChartRangeBarDirective implements OnInit,
   }
 
   public renderOpacity(active: boolean): void {
+    if (!this._target) return;
+
     for (let i = 0; i < this._groupSize; i++) {
       if (!this.opacityState.get(i) && !this.state.get(i)) {
         this._target.selectAll(`#krui-chart-data-bar-${i}`).attr('class', active ?
