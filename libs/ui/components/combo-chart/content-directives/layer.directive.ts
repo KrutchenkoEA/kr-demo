@@ -481,7 +481,7 @@ export class KruiChartLayerDirective implements OnInit,
         if (isResize) {
           const offset = (this.wrap.axisLevelMap.get(this.layerId)?.get('bottom') ?? 0) * KRUI_CHART_AXIS_HEIGHT;
           axisContainer
-            .attr('transform', `translate(0, ${this.wrap.workGroundHeight + offset * KRUI_CHART_AXIS_HEIGHT})`);
+            .attr('transform', `translate(0, ${this.wrap.workGroundHeight + offset})`);
           clipPathAxis
             .attr('width', this.wrap.workGroundWidth);
 
