@@ -2,39 +2,39 @@
   <div #toolbarContainer [style.order]="orders.toolbar"
        [style.justify-content]="toolbarDirective?.toolbarJustifyContent"
        class="krui-chart-toolbar">
-    <svg-icon (click)="toolbarDirective.toolbarZoomIn()"
+    <mat-icon (click)="toolbarDirective.toolbarZoomIn()"
               class="krui-chart-toolbar__icon"
-              src="kruiIconPlusAddCircle">
-    </svg-icon>
+              fontIcon="zoom_in">
+    </mat-icon>
     <div class="krui-chart-toolbar__zoom-timer">
       x{{ (zoomK$ | async) }}
     </div>
-    <svg-icon (click)="toolbarDirective.toolbarZoomOut()"
+    <mat-icon (click)="toolbarDirective.toolbarZoomOut()"
               class="krui-chart-toolbar__icon"
-              src="kruiIconPlusMinusCircle">
-    </svg-icon>
-    <svg-icon (click)="toolbarDirective.toggleZoomType('scroll')"
+              fontIcon="zoom_out">
+    </mat-icon>
+    <mat-icon (click)="toolbarDirective.toggleZoomType('scroll')"
               [class.krui-chart-toolbar__icon--selected]="zoomType === 'scroll'"
               class="krui-chart-toolbar__icon"
-              src="tluiIconSearchPlus">
-    </svg-icon>
-    <svg-icon (click)="toolbarDirective.toggleZoomType('brush')"
+              fontIcon="pan_zoom">
+    </mat-icon>
+    <mat-icon (click)="toolbarDirective.toggleZoomType('brush')"
               [class.krui-chart-toolbar__icon--selected]="zoomType === 'brush'"
               class="krui-chart-toolbar__icon"
-              src="tluiIconSelectAreaAimTarget">
-    </svg-icon>
-    <svg-icon (click)="toolbarDirective.toolbarRefresh()"
+              fontIcon="crop_free">
+    </mat-icon>
+    <mat-icon (click)="toolbarDirective.toolbarRefresh()"
               class="krui-chart-toolbar__icon"
-              src="tluiIconReturnCircle">
-    </svg-icon>
-    <svg-icon (click)="toolbarDirective.print()"
+              fontIcon="restart_alt">
+    </mat-icon>
+    <mat-icon (click)="toolbarDirective.print()"
               class="krui-chart-toolbar__icon"
-              src="tluiIconPrint">
-    </svg-icon>
-    <svg-icon (click)="toolbarDirective.savePng()"
+              fontIcon="print">
+    </mat-icon>
+    <mat-icon (click)="toolbarDirective.savePng()"
               class="krui-chart-toolbar__icon"
-              src="tluiIconPictureX3">
-    </svg-icon>
+              fontIcon="image">
+    </mat-icon>
   </div>
 }
 

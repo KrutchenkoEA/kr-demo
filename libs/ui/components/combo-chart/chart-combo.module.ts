@@ -1,9 +1,7 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { KruiChartPrintComponent } from './components/chart-print/chart-print.component';
 import { KruiChartWrapperComponent } from './components/chart-wrapper/chart-wrapper.component';
 import { KruiChartComponent } from './components/chart/chart.component';
@@ -45,6 +43,7 @@ import { KruiChartColorWrapperDirective } from './wrapper-directives/color-wrapp
 import { KruiChartRangeBarDirective } from './data-directives/range-bar.directive';
 import { KruiChartHorizontalRangeBarDirective } from './data-directives/horizontal-range-bar.directive';
 import { KruiChartHorizontalStackBarDirective } from './data-directives/horizontal-stack-bar.directive';
+import { MatIcon } from '@angular/material/icon';
 
 const exportableComponents = [
   KruiChartComponent,
@@ -84,10 +83,9 @@ const dataDirectives = [
   ],
   imports: [
     CommonModule,
-    AngularSvgIconModule,
-    HttpClientModule,
     OverlayModule,
     FormsModule,
+    MatIcon,
   ],
   providers: [
     { provide: KRUI_CHART_PALETTE, useValue: KRUI_CHART_COLORS_LIST },

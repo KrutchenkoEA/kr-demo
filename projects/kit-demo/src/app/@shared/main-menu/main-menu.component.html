@@ -1,10 +1,9 @@
 <div class="logo">
-  <svg-icon src="/assets/icons/logo.svg"></svg-icon>
   <span> | KR-UI-Kit</span><span>&nbsp;| v{{ version }}</span>
 </div>
 
 <header class="header">
-  <svg-icon class="krui-icon--sm" src="kruiIconSearch"></svg-icon>
+  <mat-icon class="krui-icon--sm" fontIcon="search"></mat-icon>
   <input
     (ngModelChange)="filterBroadcast$.next($event)"
     [ngModel]="query"
@@ -24,7 +23,6 @@
 <span *ngIf="!filteredItems.length" class="empty-msg">Нет элеменов</span>
 
 <footer class="footer">
-  <svg-icon class="krui-icon--sm" src="kruiIconSupportHead"></svg-icon>
   <span class="flex-divider"></span>
   <krui-toggle
     (ngModelChange)="themeChange.emit($event ? 'light' : 'dark')"
@@ -45,25 +43,16 @@
       class="menu-item"
     >
       <a (click)="onItemClick(item)" class="menu-item__link">
-        <svg-icon
-          *ngIf="level === 1"
-          [src]="item.iconUrl ?? 'kruiIconSets'"
-          class="menu-item__link__icon krui-icon--xs"
-        ></svg-icon>
+        <mat-icon *ngIf="level === 1" [fontIcon]="item.iconUrl ?? 'settings'"
+                  class="menu-item__link__icon krui-icon--xs"></mat-icon>
         <span *ngIf="level !== 1" class="menu-item__link__icon krui-icon--xs"></span>
         <span class="menu-item__link__text">{{ item.label }}</span>
         <span *ngIf="item.badge" class="krui-tag krui-tag--primary">
           {{ item.badge }}
         </span>
-        <svg-icon
-          *ngIf="item.children?.length"
-          [src]="
-            item.expanded
-              ? 'kruiIconArrowDownSimple'
-              : 'kruiIconArrowRightSimple'
-          "
-          class="menu-item__link__arrow krui-icon--xs"
-        ></svg-icon>
+        <mat-icon *ngIf="level === 1" [fontIcon]="   item.expanded
+              ? 'keyboard_arrow_down'
+              : 'keyboard_arrow_right'"></mat-icon>
       </a>
 
       <div *ngIf="item.children?.length && item.expanded" @slideInOutTop>

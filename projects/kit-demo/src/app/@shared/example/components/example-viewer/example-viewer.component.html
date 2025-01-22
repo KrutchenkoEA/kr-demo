@@ -1,34 +1,23 @@
 <div class="example-viewer">
   <div class="example-viewer__toolbar">
-    <h3 class="example-viewer__title" [id]="id">{{ title }}</h3>
-    <svg-icon
-      (click)="copyLink()"
-      title="Корировать ссылку на пример"
-      src="tluiIconLinkChainClip"
-      class="tlui-btn--icon tlui-icon--sm tlui-ml--sm"
-    ></svg-icon>
-    <svg-icon
-      (click)="collapsed = !collapsed"
-      [src]="
-        collapsed
-          ? 'tluiIconArrowResizeScaleMax'
-          : 'tluiIconArrowResizeScaleMin'
-      "
-      class="tlui-btn--icon tlui-icon--sm tlui-ml--sm"
-      [title]="collapsed ? 'Развернуть' : 'Свернуть'"
-    ></svg-icon>
+    <h3 [id]="id" class="example-viewer__title">{{ title }}</h3>
+    <mat-icon (click)="copyLink()" class="krui-btn--icon krui-icon--sm krui-ml--sm" fontIcon="share"
+              title="Корировать ссылку на пример"></mat-icon>
+    <mat-icon (click)="copyLink()"
+              [fontIcon]="collapsed ? 'open_in_full' : 'close_fullscreen'" [title]="collapsed ? 'Развернуть' : 'Свернуть'"
+              class="krui-btn--icon krui-icon--sm krui-ml--sm"></mat-icon>
   </div>
-  <div class="example-viewer__source" *ngIf="!collapsed">
-    <tlui-tabs [selectedIndex]="selectedTabIndex">
-      <tlui-tab [label]="tab.title" *ngFor="let tab of tabs">
+  <div *ngIf="!collapsed" class="example-viewer__source">
+    <krui-tabs [selectedIndex]="selectedTabIndex">
+      <krui-tab *ngFor="let tab of tabs" [label]="tab.title">
         <code-snippet [path]="tab.path"></code-snippet>
-      </tlui-tab>
-    </tlui-tabs>
+      </krui-tab>
+    </krui-tabs>
   </div>
   <div class="example-viewer__body">
     <div
-      [ngComponentOutlet]="componentType"
       [ngComponentOutletNgModuleFactory]="moduleFactory"
+      [ngComponentOutlet]="componentType"
     ></div>
   </div>
 </div>

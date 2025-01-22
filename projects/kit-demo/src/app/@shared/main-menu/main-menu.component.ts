@@ -1,12 +1,20 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
-import {SvgIconComponent} from 'angular-svg-icon';
-import {FormsModule} from '@angular/forms';
-import {NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
-import {KruiToggleModule} from '@kr-platform/ui';
+import { FormsModule } from '@angular/forms';
+import { NgForOf, NgIf, NgTemplateOutlet } from '@angular/common';
+import { KruiToggleModule } from '@kr-platform/ui';
+import { MatIcon } from '@angular/material/icon';
 
 export interface KruiMainMenuItem {
   label: string;
@@ -26,14 +34,14 @@ export interface KruiMainMenuItem {
   animations: [SLIDE_INOUT_TOP],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    SvgIconComponent,
     FormsModule,
     NgTemplateOutlet,
     NgIf,
     KruiToggleModule,
-    NgForOf
+    NgForOf,
+    MatIcon,
   ],
-  standalone: true
+  standalone: true,
 })
 export class KruiMainMenuComponent implements OnInit {
   @Input()
@@ -43,7 +51,7 @@ export class KruiMainMenuComponent implements OnInit {
   public theme: 'light' | 'dark' = 'dark';
 
   @Input()
-  version = '';
+  public version = '';
 
   @Output()
   public themeChange = new EventEmitter<'light' | 'dark'>();
@@ -54,8 +62,9 @@ export class KruiMainMenuComponent implements OnInit {
 
   public constructor(
     public readonly router: Router,
-    private readonly cdr: ChangeDetectorRef
-  ) {}
+    private readonly cdr: ChangeDetectorRef,
+  ) {
+  }
 
   public ngOnInit(): void {
     this.filterBroadcast$
@@ -96,7 +105,7 @@ export class KruiMainMenuComponent implements OnInit {
             iconUrl,
             disabled,
             expanded: (it.expanded = it?.children?.some(
-              (c) => !!c.href && this.isActive(c.href)
+              (c) => !!c.href && this.isActive(c.href),
             )),
             selected,
             children: [],
