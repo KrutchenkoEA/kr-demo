@@ -223,7 +223,7 @@
             ],
             "styles": [
               "projects/kit-demo/src/styles.scss",
-              "libs/ui/styles/styles.scss",
+              "libs/ui/styles/index.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
             "stylePreprocessorOptions": {

@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Inject, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import {DOCUMENT, NgForOf} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -30,6 +30,10 @@ interface Link {
   selector: 'table-of-contents',
   styleUrls: ['./table-of-contents.component.scss'],
   templateUrl: './table-of-contents.component.html',
+  imports: [
+    NgForOf
+  ],
+  standalone: true
 })
 export class TableOfContentsComponent
   implements OnInit, AfterViewInit, OnDestroy {

@@ -11,6 +11,8 @@ import { CodeSnippedComponent } from './components/code-snippet/code-snippet.com
 import { ExampleViewerComponent } from './components/example-viewer/example-viewer.component';
 import { SyntaxPipe } from './pipes/syntax.pipe';
 import { KruiTabsModule } from '@kr-platform/ui';
+import {AngularSvgIconModule} from 'angular-svg-icon';
+import {MatIcon} from '@angular/material/icon';
 
 @NgModule({
   declarations: [ExampleViewerComponent, CodeSnippedComponent, SyntaxPipe],
@@ -31,6 +33,8 @@ import { KruiTabsModule } from '@kr-platform/ui';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    AngularSvgIconModule.forRoot(),
+    MatIcon,
   ],
 })
 export class ExampleModule {}

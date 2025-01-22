@@ -1,7 +1,7 @@
 import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { EXAMPLES } from '../../tokens';
-import { DemoExample } from '../../contracts/demo-example';
+import { DemoExample } from '../../models/demo-example';
 
 interface ExampleTab {
   id: string;

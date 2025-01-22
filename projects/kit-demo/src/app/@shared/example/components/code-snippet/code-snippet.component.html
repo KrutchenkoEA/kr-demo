@@ -1,11 +1,7 @@
 <ng-container *ngIf="content$ | async as content; else loading">
   @if (!error) {
-    <svg-icon
-      (click)="copySource(text?.textContent ?? '')"
-      class="tlui-btn--icon tlui-icon--md"
-      src="tluiIconDouble"
-      title="Копировать в буфер"
-    ></svg-icon>
+    <mat-icon class="krui-btn--icon krui-icon--md" fontIcon="content_copy" (click)="copySource(text?.textContent ?? '')"
+              title="Копировать в буфер"></mat-icon>
   }
 
   <div #text class="snippet-container">
@@ -19,5 +15,5 @@
 </ng-container>
 
 <ng-template #loading>
-  <div class="tlui-pv--sm tlui-mh--sm">Загрузка...</div>
+  <div class="krui-pv--sm krui-mh--sm">Загрузка...</div>
 </ng-template>

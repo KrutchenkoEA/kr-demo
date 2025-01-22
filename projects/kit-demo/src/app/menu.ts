@@ -1,4 +1,4 @@
-import { KruiMainMenuItem } from '@kr-platform/ui';
+import {KruiMainMenuItem} from './@shared/main-menu/main-menu.component';
 
 export default [
   {

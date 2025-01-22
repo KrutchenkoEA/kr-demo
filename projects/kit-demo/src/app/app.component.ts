@@ -1,10 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import packageInfo from '../../../../../kr-demo/package.json';
 import MENU from './menu';
-import { ActivationStart, Router } from '@angular/router';
-import { KruiMainMenuItem } from '@kr-platform/ui';
+import {ActivationStart, Router, RouterOutlet} from '@angular/router';
 import { PageTitleService } from './services/page-title.service';
 import { StorageService } from './services/storage.service';
+import {KruiMainMenuComponent, KruiMainMenuItem} from './@shared/main-menu/main-menu.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {ExampleHttpInterceptor} from './@shared/example/interceptors/example-http.interceptor';
+import {CdkScrollable} from '@angular/cdk/scrolling';
 
 const THEME_KEY = 'kit-theme';
 
@@ -12,7 +15,19 @@ const THEME_KEY = 'kit-theme';
   selector: 'kr-kit-demo-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  standalone: false,
+  standalone: true,
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ExampleHttpInterceptor,
+      multi: true,
+    },
+  ],
+  imports: [
+    RouterOutlet,
+    KruiMainMenuComponent,
+    CdkScrollable
+  ]
 })
 export class AppComponent {
   public version = packageInfo.version;

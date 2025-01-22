@@ -1,4 +1,3 @@
 export * from '@kr-platform/ui/components/combo-chart';
-export * from '@kr-platform/ui/components/main-menu';
 export * from '@kr-platform/ui/components/tabs';
 export * from '@kr-platform/ui/components/toggle';

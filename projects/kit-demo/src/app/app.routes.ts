@@ -6,4 +6,5 @@ export const routes: Routes = [
     path: 'bar-charts',
     component: BarChartsComponent
   },
+  { path: '**', redirectTo: 'bar-charts' },
 ];

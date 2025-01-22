@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
+import {SvgIconComponent} from 'angular-svg-icon';
+import {FormsModule} from '@angular/forms';
+import {NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
+import {KruiToggleModule} from '@kr-platform/ui';
 
 export interface KruiMainMenuItem {
   label: string;
@@ -21,7 +25,15 @@ export interface KruiMainMenuItem {
   styleUrls: ['./main-menu.component.scss'],
   animations: [SLIDE_INOUT_TOP],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false
+  imports: [
+    SvgIconComponent,
+    FormsModule,
+    NgTemplateOutlet,
+    NgIf,
+    KruiToggleModule,
+    NgForOf
+  ],
+  standalone: true
 })
 export class KruiMainMenuComponent implements OnInit {
   @Input()

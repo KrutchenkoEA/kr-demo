@@ -13,7 +13,7 @@ export class PageTitleService {
   set title(title: string) {
     this._title = title;
     if (title !== '') {
-      title = `${title} | krui Kit`;
+      title = `${title} | kr ui kit`;
     } else {
       title = this._originalTitle;
     }
