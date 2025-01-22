@@ -24,6 +24,13 @@
       "@kr-platform/ui/*": [
         "./libs/ui/*"
       ],
+      "kit": [
+        "./dist/kit",
+        "./dist/kit"
+      ],
+      "kr-kit": [
+        "./dist/kr-kit"
+      ],
     },
     "importHelpers": true,
     "target": "ES2022",

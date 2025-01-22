@@ -40,8 +40,7 @@ export class TableOfContentsComponent
 
   public _linkSections: LinkSection[] = [];
   public _links: Link[] = [];
-  // @ts-ignore
-  public _rootUrl = this.router.url.split('#')[0];
+  public _rootUrl: string;
 
   private _scrollContainer: HTMLElement | Window | null = null;
   private _urlFragment = '';
@@ -66,6 +65,7 @@ export class TableOfContentsComponent
         }
       }),
     );
+    this._rootUrl = this.router.url.split('#')[0];
   }
 
   public ngOnInit(): void {

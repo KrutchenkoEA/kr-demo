@@ -44,6 +44,7 @@ import { KruiChartRangeBarDirective } from './data-directives/range-bar.directiv
 import { KruiChartHorizontalRangeBarDirective } from './data-directives/horizontal-range-bar.directive';
 import { KruiChartHorizontalStackBarDirective } from './data-directives/horizontal-stack-bar.directive';
 import { MatIcon } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const exportableComponents = [
   KruiChartComponent,

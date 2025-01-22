@@ -55,18 +55,11 @@
         @if (level === 1) {
           <mat-icon [fontIcon]="item.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'"></mat-icon>
         }
-
       </a>
 
       @if (item.children?.length && item.expanded) {
         <div @slideInOutTop>
-          <ng-container
-            *ngTemplateOutlet="
-            menu;
-            context: { level: level + 1, items: item.children }
-          "
-          >
-          </ng-container>
+          <ng-container *ngTemplateOutlet="menu; context: { level: level + 1, items: item.children }"></ng-container>
         </div>
       }
     </li>

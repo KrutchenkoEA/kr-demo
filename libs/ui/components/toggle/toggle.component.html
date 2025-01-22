@@ -1,5 +1,4 @@
 <label
-  class="krui-toggle"
   [class.krui-disabled]="disabled"
   [class]="{
     'krui-toggle--sm': size === 'sm',
@@ -7,16 +6,17 @@
     'krui-toggle--lg': size === 'lg',
     'krui-toggle--xlg': size === 'xlg'
   }"
+  class="krui-toggle"
 >
   <input
-    type="checkbox"
+    (ngModelChange)="onModelChange($event)"
     [disabled]="disabled"
     [id]="id"
     [ngModel]="model"
-    (ngModelChange)="onModelChange($event)"
+    type="checkbox"
   />
   <span class="krui-toggle__switcher">
-      <mat-icon class="krui-toggle__icon krui-icon--sm" fontIcon="dark_mode"></mat-icon>
-      <mat-icon class="krui-toggle__icon krui-icon--sm" fontIcon="light_mode"></mat-icon>
+      <mat-icon class="krui-toggle__icon krui-icon--sm">dark_mode</mat-icon>
+      <mat-icon class="krui-toggle__icon krui-icon--sm">light_mode</mat-icon>
   </span>
 </label>

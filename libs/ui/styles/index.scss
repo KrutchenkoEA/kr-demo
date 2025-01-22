@@ -7,6 +7,7 @@
 @import "packages/utils";
 @import "packages/chart";
 @import "packages/scrolling";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 .theme-light {
   @include light-variables();

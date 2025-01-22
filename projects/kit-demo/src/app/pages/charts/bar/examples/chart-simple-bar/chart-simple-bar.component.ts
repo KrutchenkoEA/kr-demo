@@ -7,7 +7,8 @@ import { kruiChartBarEnumMock1 } from '@kr-platform/ui';
   selector: 'chart-simple-bar',
   templateUrl: './chart-simple-bar.component.html',
   styleUrls: ['./chart-simple-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class ChartSimpleBarComponent {
   public data = kruiChartBarEnumMock1;

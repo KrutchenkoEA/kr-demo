@@ -4,16 +4,19 @@
     <mat-icon (click)="copyLink()" class="krui-btn--icon krui-icon--sm krui-ml--sm" fontIcon="share"
               title="Корировать ссылку на пример"></mat-icon>
     <mat-icon (click)="copyLink()"
-              [fontIcon]="collapsed ? 'open_in_full' : 'close_fullscreen'" [title]="collapsed ? 'Развернуть' : 'Свернуть'"
+              [fontIcon]="collapsed ? 'open_in_full' : 'close_fullscreen'"
+              [title]="collapsed ? 'Развернуть' : 'Свернуть'"
               class="krui-btn--icon krui-icon--sm krui-ml--sm"></mat-icon>
   </div>
-  <div *ngIf="!collapsed" class="example-viewer__source">
-    <krui-tabs [selectedIndex]="selectedTabIndex">
-      <krui-tab *ngFor="let tab of tabs" [label]="tab.title">
-        <code-snippet [path]="tab.path"></code-snippet>
-      </krui-tab>
-    </krui-tabs>
-  </div>
+  @if (!collapsed) {
+    <div class="example-viewer__source">
+      <krui-tabs [selectedIndex]="selectedTabIndex">
+        <krui-tab *ngFor="let tab of tabs" [label]="tab.title">
+          <code-snippet [path]="tab.path"></code-snippet>
+        </krui-tab>
+      </krui-tabs>
+    </div>
+  }
   <div class="example-viewer__body">
     <div
       [ngComponentOutletNgModuleFactory]="moduleFactory"

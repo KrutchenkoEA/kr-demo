@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
   name: 'syntax',
+  standalone: false
 })
 export class SyntaxPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
