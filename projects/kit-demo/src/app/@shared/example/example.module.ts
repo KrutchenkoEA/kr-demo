@@ -15,7 +15,7 @@ import {MatIcon} from '@angular/material/icon';
 
 @NgModule({
   declarations: [ExampleViewerComponent, CodeSnippedComponent, SyntaxPipe],
-  exports: [ExampleViewerComponent],
+  exports: [ExampleViewerComponent, CodeSnippedComponent, SyntaxPipe],
   providers: [
     {
       provide: EXAMPLES_TOKEN,

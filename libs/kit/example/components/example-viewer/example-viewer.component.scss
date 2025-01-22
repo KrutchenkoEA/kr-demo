@@ -1,0 +1,55 @@
+@import "variables";
+@import "packages/typography/mixins";
+
+$example-viewer-margin: $atom * 4;
+$example-viewer-border: $bg-main;
+$example-viewer-background: $bg-body;
+$example-viewer-toolbar-height: $atom * 6;
+$example-viewer-border-radius: 4px;
+$example-viewer-padding: $atom * 2;
+$example-viewer-source-height: $atom * 100;
+
+:host {
+  display: flex;
+  margin-bottom: $example-viewer-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.example-viewer {
+  border: 1px solid $example-viewer-border;
+  background: $example-viewer-background;
+  border-radius: $example-viewer-border-radius;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__toolbar {
+    display: flex;
+    flex-flow: row;
+    padding: 0 $example-viewer-padding;
+    align-items: center;
+    height: $example-viewer-toolbar-height;
+  }
+
+  &__title {
+    @include typography(regular-lg);
+    @include typography-color(contrast);
+
+    flex: 1;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  code-snippet {
+    max-height: $example-viewer-source-height;
+  }
+
+  &__body {
+    border-top: 1px solid $example-viewer-border;
+    padding: $example-viewer-padding;
+  }
+}
