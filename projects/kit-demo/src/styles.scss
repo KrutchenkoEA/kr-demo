@@ -16,11 +16,11 @@ body {
 }
 
 body.theme-dark {
-  @import "hl_dark";
+  @import "../../../libs/kit/hl_dark";
 }
 
 body.theme-light {
-  @import "hl_light";
+  @import "../../../libs/kit/hl_light";
 }
 
 

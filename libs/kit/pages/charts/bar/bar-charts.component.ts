@@ -1,7 +1,7 @@
-import { Component, HostBinding } from '@angular/core';
-import { AppComponent } from '../../../app.component';
-import { TableOfContentsComponent } from '../../../components/table-of-contents/table-of-contents.component';
-import { ExampleModule } from '../../../example.module';
+import { Component, ElementRef, HostBinding } from '@angular/core';
+import { ComponentType } from '@angular/cdk/portal';
+import { ExampleViewerComponent, TableOfContentsComponent } from '@kr-platform/kit';
+
 
 @Component({
   selector: 'app-bar-charts',
@@ -9,13 +9,13 @@ import { ExampleModule } from '../../../example.module';
   styleUrls: ['./bar-charts.component.scss'],
   standalone: true,
   imports: [
+    ExampleViewerComponent,
     TableOfContentsComponent,
-    ExampleModule,
   ],
 })
 export class BarChartsComponent {
   @HostBinding('class') class = 'kit-page';
 
-  constructor(readonly app: AppComponent) {
-  }
+  // constructor(readonly app: ComponentType) {
+  // }
 }

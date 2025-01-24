@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { BarChartsComponent } from './pages/charts/bar/bar-charts.component';
+import { BarChartsComponent } from '@kr-platform/kit/pages/charts/bar/bar-charts.component';
 
-export const routes: Routes = [
+export const exampleRoutes: Routes = [
   {
     path: 'bar-charts',
     component: BarChartsComponent

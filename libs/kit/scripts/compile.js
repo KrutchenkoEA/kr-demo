@@ -18,8 +18,8 @@ hljs.registerLanguage("ts", ts);
 hljs.registerLanguage("html", xml);
 hljs.registerLanguage("scss", scss);
 
-const srcDir = __dirname + "/../src";
-const destDir = __dirname + "/../src/app/@shared/example/constants";
+const srcDir = __dirname + "/../example";
+const destDir = __dirname + "/../example/constants";
 
 const glob = (root, pattern) =>
   new Promise((r, j) => {

@@ -1,13 +1,20 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import packageInfo from '../../../../../kr-demo/package.json';
-import MENU from './menu';
+import packageInfo from '../../../../libs/kit/package.json';
 import { ActivationStart, Router, RouterOutlet } from '@angular/router';
-import { PageTitleService } from './services/page-title.service';
-import { StorageService } from './services/storage.service';
-import { KruiMainMenuComponent, KruiMainMenuItem } from './@shared/main-menu/main-menu.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ExampleHttpInterceptor } from './@shared/example/interceptors/example-http.interceptor';
 import { CdkScrollable } from '@angular/cdk/scrolling';
+import {
+  EXAMPLE_FILES,
+  EXAMPLE_FILES_TOKEN,
+  ExampleHttpInterceptor,
+  EXAMPLES,
+  EXAMPLES_TOKEN,
+  KruiMainMenuComponent,
+  KruiMainMenuItem,
+  PageTitleService,
+  StorageService,
+} from '@kr-platform/kit';
+import { exampleMenu } from '@kr-platform/kit/example-menu';
 
 const THEME_KEY = 'kit-theme';
 
@@ -22,6 +29,15 @@ const THEME_KEY = 'kit-theme';
       useClass: ExampleHttpInterceptor,
       multi: true,
     },
+    {
+      provide: EXAMPLE_FILES_TOKEN,
+      useValue: EXAMPLE_FILES,
+    }, {
+      provide: EXAMPLES_TOKEN,
+      useValue: EXAMPLES,
+    },
+    StorageService,
+    PageTitleService,
   ],
   imports: [
     RouterOutlet,
@@ -31,7 +47,7 @@ const THEME_KEY = 'kit-theme';
 })
 export class AppComponent {
   public version = packageInfo.version;
-  public menu = MENU.sort();
+  public menu: KruiMainMenuItem[] = exampleMenu.sort();
 
   public set theme(theme: 'dark' | 'light') {
     document
@@ -63,12 +79,12 @@ export class AppComponent {
 
     this.router.events.subscribe((event) => {
       if (event instanceof ActivationStart) {
-        const flattened = MENU.reduce(
+        const flattened = exampleMenu.reduce(
           (acc, item) => [...acc, item, ...(item.children ?? [])],
           [] as KruiMainMenuItem[],
         );
         const url = event.snapshot.url.join('/');
-        const menuItem = flattened.find((item) => item.href === url);
+        const menuItem = flattened.find((item: KruiMainMenuItem) => item.href === url);
         if (menuItem) {
           this.pageTitleService.title = menuItem.label;
         }

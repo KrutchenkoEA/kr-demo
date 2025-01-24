@@ -1,11 +1,11 @@
 import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { EXAMPLES } from '../../tokens';
 import { DemoExample } from '../../models/demo-example';
 import { MatIcon } from '@angular/material/icon';
 import { KruiTabsModule } from '@kr-platform/ui';
 import { NgComponentOutlet, NgForOf } from '@angular/common';
 import { CodeSnippedComponent } from '../code-snippet/code-snippet.component';
+import { EXAMPLES_TOKEN } from '@kr-platform/kit/example';
 
 interface ExampleTab {
   id: string;
@@ -53,7 +53,7 @@ export class ExampleViewerComponent implements OnInit {
   public tabs: ExampleTab[] = [];
 
   constructor(
-    @Inject(EXAMPLES) private readonly examples: { [id: string]: DemoExample },
+    @Inject(EXAMPLES_TOKEN) private readonly examples: { [id: string]: DemoExample },
     private readonly clipboard: Clipboard,
     private readonly compiler: Compiler,
   ) {
