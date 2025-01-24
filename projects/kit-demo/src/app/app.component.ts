@@ -14,7 +14,7 @@ import {
   PageTitleService,
   StorageService,
 } from '@kr-platform/kit';
-import { exampleMenu } from '@kr-platform/kit/example-menu';
+import { KrKitMenu } from '@kr-platform/kit/kit-menu';
 
 const THEME_KEY = 'kit-theme';
 
@@ -47,7 +47,7 @@ const THEME_KEY = 'kit-theme';
 })
 export class AppComponent {
   public version = packageInfo.version;
-  public menu: KruiMainMenuItem[] = exampleMenu.sort();
+  public menu: KruiMainMenuItem[] = KrKitMenu.sort();
 
   public set theme(theme: 'dark' | 'light') {
     document
@@ -79,7 +79,7 @@ export class AppComponent {
 
     this.router.events.subscribe((event) => {
       if (event instanceof ActivationStart) {
-        const flattened = exampleMenu.reduce(
+        const flattened = KrKitMenu.reduce(
           (acc, item) => [...acc, item, ...(item.children ?? [])],
           [] as KruiMainMenuItem[],
         );
