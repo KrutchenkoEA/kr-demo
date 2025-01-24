@@ -1,0 +1,16 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+@each $name, $size in $icon-sizes {
+  .krui-icon--#{$size} {
+    @include icon-size($name);
+  }
+
+  .krui-icon--#{$name} {
+    @include icon-size($name);
+  }
+}
+
+svg-icon {
+  @include icon();
+}

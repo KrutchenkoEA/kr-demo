@@ -16,6 +16,8 @@ import {
 } from '@kr-platform/kit';
 import { KrKitMenu } from '@kr-platform/kit/kit-menu';
 import { KrKitPagesModule } from '@kr-platform/kit/kit-pages.module';
+import { KruiSvgLoader } from '@kr-platform/icons';
+import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 
 const THEME_KEY = 'kit-theme';
 
@@ -27,7 +29,8 @@ const THEME_KEY = 'kit-theme';
   imports: [
     RouterOutlet,
     CdkScrollable,
-    KrKitPagesModule
+    KrKitPagesModule,
+    AngularSvgIconModule
   ],
 })
 export class AppComponent {

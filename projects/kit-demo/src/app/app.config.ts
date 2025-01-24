@@ -10,14 +10,14 @@ import {
 } from '@kr-platform/kit';
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
     provideRouter(KrKitRoutes),
     provideAnimations(),
-    provideAngularSvgIcon(),
     {
       provide: EXAMPLE_FILES_TOKEN,
       useValue: EXAMPLE_FILES,
@@ -30,5 +30,7 @@ export const appConfig: ApplicationConfig = {
       useClass: ExampleHttpInterceptor,
       multi: true,
     },
+    provideAngularSvgIcon(),
+
   ],
 };
