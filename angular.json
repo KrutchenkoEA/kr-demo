@@ -52,11 +52,12 @@
               "projects/kr-app/src/theme",
               {
                 "glob": "**",
-                "input": "projects/tl-platform-ui/assets/",
+                "input": "libs/ui/assets/",
                 "output": "assets"
               }
             ],
             "styles": [
+              "projects/kr-app/src/styles.scss",
               "libs/ui/styles/index.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
               "@angular/material/prebuilt-themes/cyan-orange.css"
@@ -149,13 +150,15 @@
             "tsConfig": "projects/kit-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "projects/kit-demo/src/assets",
               {
                 "glob": "**",
-                "input": "projects/tl-platform-ui/assets/",
+                "input": "libs/ui/assets/",
                 "output": "assets"
               }
             ],
             "styles": [
+              "projects/kit-demo/src/styles.scss",
               "libs/ui/styles/index.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
