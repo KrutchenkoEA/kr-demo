@@ -1,5 +1,5 @@
-@import "packages/typography/mixins";
-@import "packages/scrolling/mixins";
+@import '../../../../../libs/ui/styles/packages/typography/mixins';
+@import '../../../../../libs/ui/styles/packages/scrolling/mixins';
 
 $background: #{var(--color-background-popup-widgets)};
 $text-color: map-get($text-colors, subscript);

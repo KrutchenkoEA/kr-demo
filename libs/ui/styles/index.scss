@@ -2,13 +2,14 @@
 @import "theme/dark-theme";
 @import "variables";
 @import "cdk";
-@import "packages/typography";
-@import "packages/transition";
-@import "packages/utils";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import "packages/chart";
 @import "packages/scrolling";
+@import "packages/tabs";
 @import "packages/toggle";
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "packages/transition";
+@import "packages/typography";
+@import "packages/utils";
 
 .theme-light {
   @include light-variables();

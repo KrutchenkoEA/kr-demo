@@ -1,5 +1,6 @@
-@import "variables";
-@import "packages/typography/mixins";
+@import '../../../../../libs/ui/styles/variables';
+@import '../../../../../libs/ui/styles/packages/typography/variables';
+@import '../../../../../libs/ui/styles/packages/typography/mixins';
 
 $example-viewer-margin: $atom * 4;
 $example-viewer-border: $bg-main;

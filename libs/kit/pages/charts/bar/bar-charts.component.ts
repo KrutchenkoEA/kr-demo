@@ -2,7 +2,7 @@ import { Component, HostBinding } from '@angular/core';
 
 
 @Component({
-  selector: 'app-bar-charts',
+  selector: 'kr-kit-bar-charts',
   templateUrl: './bar-charts.component.html',
   styleUrls: ['./bar-charts.component.scss'],
   standalone: false

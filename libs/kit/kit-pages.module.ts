@@ -13,10 +13,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { KruiTabsModule, KruiToggleModule } from '@kr-platform/ui';
 import { MatIcon } from '@angular/material/icon';
+import { TabsComponent } from '@kr-platform/kit/pages/tabs/tabs.component';
+import { ToggleComponent } from '@kr-platform/kit/pages/toggle/toggle.component';
 
 
 const kitPages = [
   BarChartsComponent,
+  TabsComponent,
+  ToggleComponent
 ];
 
 @NgModule({
