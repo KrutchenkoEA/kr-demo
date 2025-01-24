@@ -1,37 +1,23 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import packageInfo from '../../../../libs/kit/package.json';
 import { ActivationStart, Router, RouterOutlet } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CdkScrollable } from '@angular/cdk/scrolling';
-import {
-  EXAMPLE_FILES,
-  EXAMPLE_FILES_TOKEN,
-  ExampleHttpInterceptor,
-  EXAMPLES,
-  EXAMPLES_TOKEN,
-  KruiMainMenuComponent,
-  KruiMainMenuItem,
-  PageTitleService,
-  StorageService,
-} from '@kr-platform/kit';
+import { KruiMainMenuItem, PageTitleService, StorageService } from '@kr-platform/kit';
 import { KrKitMenu } from '@kr-platform/kit/kit-menu';
 import { KrKitPagesModule } from '@kr-platform/kit/kit-pages.module';
-import { KruiSvgLoader } from '@kr-platform/icons';
-import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 
 const THEME_KEY = 'kit-theme';
 
 @Component({
-  selector: 'kr-kit-demo-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  standalone: true,
   imports: [
     RouterOutlet,
     CdkScrollable,
     KrKitPagesModule,
-    AngularSvgIconModule
   ],
+  selector: 'kr-kit-demo-root',
+  standalone: true,
+  styleUrl: './app.component.scss',
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   public version = packageInfo.version;

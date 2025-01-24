@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideAngularSvgIcon } from 'angular-svg-icon';
+import { provideAngularSvgIcon, SvgLoader } from 'angular-svg-icon';
 import {
   EXAMPLE_FILES,
   EXAMPLE_FILES_TOKEN,
@@ -11,6 +11,7 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { KruiSvgLoader } from '@kr-platform/icons';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,7 +31,11 @@ export const appConfig: ApplicationConfig = {
       useClass: ExampleHttpInterceptor,
       multi: true,
     },
-    provideAngularSvgIcon(),
-
+    provideAngularSvgIcon({
+      loader: {
+        provide: SvgLoader,
+        useClass: KruiSvgLoader,
+      },
+    }),
   ],
 };
