@@ -1,9 +1,10 @@
 <div class="logo">
+  <svg-icon src="/assets/icons/logo.svg"></svg-icon>
   <span> | KR-UI-Kit</span><span>&nbsp;| v{{ version }}</span>
 </div>
 
 <header class="header">
-  <mat-icon class="krui-icon--sm" fontIcon="search"></mat-icon>
+  <svg-icon class="krui-icon--sm" src="kruiIconSearch"></svg-icon>
   <input
     (ngModelChange)="filterBroadcast$.next($event)"
     [ngModel]="query"
@@ -41,7 +42,7 @@
     >
       <a (click)="onItemClick(item)" class="menu-item__link">
         @if (level === 1) {
-          <mat-icon [fontIcon]="item.iconUrl ?? 'settings'" class="menu-item__link__icon krui-icon--xs"></mat-icon>
+          <svg-icon [src]="item.iconUrl ?? 'kruiIconSets'" class="menu-item__link__icon krui-icon--xs"></svg-icon>
         } @else {
           <span class="menu-item__link__icon krui-icon--xs"></span>
         }
@@ -52,8 +53,11 @@
           <span class="krui-tag krui-tag--primary">{{ item.badge }}</span>
         }
 
-        @if (level === 1) {
-          <mat-icon [fontIcon]="item.expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'"></mat-icon>
+        @if (item.children?.length) {
+          <svg-icon
+            [src]="item.expanded ? 'kruiIconArrowDownSimple' : 'kruiIconArrowRightSimple'"
+            class="menu-item__link__arrow krui-icon--xs"
+          ></svg-icon>
         }
       </a>
 

@@ -15,6 +15,8 @@ import { KruiTabsModule, KruiToggleModule } from '@kr-platform/ui';
 import { MatIcon } from '@angular/material/icon';
 import { TabsComponent } from '@kr-platform/kit/pages/tabs/tabs.component';
 import { ToggleComponent } from '@kr-platform/kit/pages/toggle/toggle.component';
+import { KruiSvgLoader } from '@kr-platform/icons';
+import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 
 
 const kitPages = [
@@ -39,6 +41,12 @@ const kitPages = [
     SyntaxPipe,
     KruiToggleModule,
     KruiTabsModule,
+    AngularSvgIconModule.forRoot({
+      loader: {
+        provide: SvgLoader,
+        useClass: KruiSvgLoader
+      }
+    }),
   ],
   providers: [
     StorageService,

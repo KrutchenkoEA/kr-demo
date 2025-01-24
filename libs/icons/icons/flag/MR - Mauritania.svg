@@ -1,0 +1,35 @@
+<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="16" height="12">
+<rect x="3" y="1" width="16" height="12" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1V13H19V1H3Z" fill="#1C7B4D"/>
+<mask id="mask1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="16" height="12">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1V13H19V1H3Z" fill="white"/>
+</mask>
+<g mask="url(#mask1)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1V4H19V1H3Z" fill="#E31D1C"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 10V13H19V10H3Z" fill="#E31D1C"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.121 8.18927C13.7137 8.20364 14.4438 6.03254 14.4438 6.03254C14.297 7.88996 13.2697 9.14955 11.121 9.14955C8.97236 9.14955 8.18338 7.51796 7.79819 5.89038C7.79819 5.89038 8.52837 8.1749 11.121 8.18927Z" fill="#FECA00"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.8186 5.90684L11.9869 6.8886L11.1053 6.42508L10.2236 6.8886L10.392 5.90684L9.67868 5.13994L10.6644 5.13994L11.1053 4.17508L11.5461 5.13994L12.5319 5.13994L11.8186 5.90684Z" fill="#FECA00"/>
+</g>
+</g>
+<rect x="3" y="1" width="16" height="12" fill="url(#paint0_linear)" style="mix-blend-mode:overlay"/>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="22" height="18" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="11" y1="1" x2="11" y2="13" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.7"/>
+<stop offset="1" stop-opacity="0.3"/>
+</linearGradient>
+</defs>
+</svg>

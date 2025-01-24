@@ -43,8 +43,7 @@ import { KruiChartColorWrapperDirective } from './wrapper-directives/color-wrapp
 import { KruiChartRangeBarDirective } from './data-directives/range-bar.directive';
 import { KruiChartHorizontalRangeBarDirective } from './data-directives/horizontal-range-bar.directive';
 import { KruiChartHorizontalStackBarDirective } from './data-directives/horizontal-stack-bar.directive';
-import { MatIcon } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 const exportableComponents = [
   KruiChartComponent,
@@ -86,7 +85,7 @@ const dataDirectives = [
     CommonModule,
     OverlayModule,
     FormsModule,
-    MatIcon,
+    AngularSvgIconModule,
   ],
   providers: [
     { provide: KRUI_CHART_PALETTE, useValue: KRUI_CHART_COLORS_LIST },

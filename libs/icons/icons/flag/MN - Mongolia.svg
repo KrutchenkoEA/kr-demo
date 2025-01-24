@@ -1,0 +1,29 @@
+<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="16" height="12">
+<rect x="3" y="1" width="16" height="12" rx="-1" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 1H14V13H8V1Z" fill="#4C67E8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14 1H19V13H14V1Z" fill="#C51918"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H9V13H3V1Z" fill="#C51918"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00694 4.44211C5.50026 4.44211 5.56677 3.94844 5.56677 3.94844L5.807 3.42964V3.63863V3.94844C5.807 4.01517 5.89805 3.88171 5.89805 3.72106C5.89805 3.5604 6.00694 3.31983 6.00694 3.31983C6.00694 3.31983 6.01131 3.23939 6.01432 3.15996C6.03175 3.20083 6.06668 3.23621 6.11972 3.28993C6.12897 3.2993 6.13877 3.30923 6.14912 3.31983C6.21172 3.38398 6.20327 3.55391 6.19597 3.70093C6.18935 3.83408 6.18367 3.94844 6.23253 3.94844C6.33535 3.94844 6.3277 3.48906 6.3277 3.48906L6.50027 3.94844C6.50027 3.94844 6.51361 4.44211 6.00694 4.44211ZM6.00694 3.03227C6.01983 2.9569 6.0182 3.05759 6.01432 3.15996C5.99977 3.12584 5.99742 3.0879 6.00694 3.03227ZM6.76923 5.3419C6.76923 5.74325 6.43344 6.0686 6.01923 6.0686C5.60502 6.0686 5.26923 5.74325 5.26923 5.3419C5.26923 4.94056 5.60502 4.6152 6.01923 4.6152C6.43344 4.6152 6.76923 4.94056 6.76923 5.3419ZM4.88462 6.70214H4V10.9878H4.88462V6.70214ZM8 6.70214H7.11538V10.9878H8V6.70214ZM5.11538 6.73941L5.97775 7.27333L6.94969 6.73941H5.11538ZM5.97775 11L5.11538 10.4661H6.94969L5.97775 11ZM5.11538 7.44747H6.92308V7.78287H5.11538V7.44747ZM6.92308 9.94435H5.11538V10.2797H6.92308V9.94435ZM6.03846 9.75801C6.54826 9.75801 6.96154 9.35757 6.96154 8.86361C6.96154 8.36965 6.54826 7.96921 6.03846 7.96921C5.52866 7.96921 5.11538 8.36965 5.11538 8.86361C5.11538 9.35757 5.52866 9.75801 6.03846 9.75801ZM5.0016 5.6081C5.0016 5.6081 5.03268 6.54177 5.95293 6.54177C6.87319 6.54177 7.02172 5.6081 7.02172 5.6081C7.02172 5.6081 6.66552 6.18004 6.01166 6.18004C5.3578 6.18004 5.0016 5.6081 5.0016 5.6081Z" fill="#F8D000"/>
+</g>
+<rect x="3" y="1" width="16" height="12" fill="url(#paint0_linear)" style="mix-blend-mode:overlay"/>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="22" height="18" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="11" y1="1" x2="11" y2="13" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.7"/>
+<stop offset="1" stop-opacity="0.3"/>
+</linearGradient>
+</defs>
+</svg>

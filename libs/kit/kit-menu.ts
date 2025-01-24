@@ -6,11 +6,11 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     href: 'bar-charts',
   },
   {
-    label: 'tabs',
-    href: 'Tabs',
+    label: 'Tabs',
+    href: 'tabs',
   },
   {
-    label: 'toggle',
-    href: 'Toggle',
+    label: 'Toggle',
+    href: 'toggle',
   },
 ];

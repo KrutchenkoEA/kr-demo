@@ -11,10 +11,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
-import { FormsModule } from '@angular/forms';
-import { NgForOf, NgIf, NgTemplateOutlet } from '@angular/common';
-import { KruiToggleModule } from '@kr-platform/ui';
-import { MatIcon } from '@angular/material/icon';
 
 export interface KruiMainMenuItem {
   label: string;
@@ -64,14 +60,14 @@ export class KruiMainMenuComponent implements OnInit {
       .subscribe((q) => this.filter(q));
   }
 
-  public onItemClick(item: KruiMainMenuItem) {
+  public onItemClick(item: KruiMainMenuItem): void {
     item.expanded = !item.expanded;
     if (item.href) {
       this.router.navigate([item.href]);
     }
   }
 
-  public isActive(url: string) {
+  public isActive(url: string): boolean {
     return this.router.isActive(url, {
       queryParams: 'ignored',
       paths: 'exact',
@@ -80,7 +76,7 @@ export class KruiMainMenuComponent implements OnInit {
     });
   }
 
-  private filter(query: string) {
+  private filter(query: string): void {
     const pattern = new RegExp(query, 'i');
 
     const filterTree = (from?: KruiMainMenuItem[], to?: KruiMainMenuItem[]) => {
@@ -108,7 +104,6 @@ export class KruiMainMenuComponent implements OnInit {
         });
     };
     filterTree(this.menuItems, (this.filteredItems = []));
-
     this.cdr.markForCheck();
   }
 }

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { KruiToggleComponent } from './toggle.component';
-import { MatIconModule } from '@angular/material/icon';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [KruiToggleComponent],
@@ -11,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule,
+    AngularSvgIconModule,
   ],
   exports: [KruiToggleComponent],
 })

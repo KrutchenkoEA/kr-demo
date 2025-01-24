@@ -29,6 +29,12 @@
       ],
       "@kr-platform/kit/*": [
         "./libs/kit/*"
+      ],
+      "@kr-platform/icons": [
+        "./libs/icons"
+      ],
+      "@kr-platform/icons/*": [
+        "./libs/icons/*"
       ]
     },
     "importHelpers": true,
