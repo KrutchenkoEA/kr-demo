@@ -18,8 +18,8 @@ hljs.registerLanguage("ts", ts);
 hljs.registerLanguage("html", xml);
 hljs.registerLanguage("scss", scss);
 
-const srcDir = __dirname + "/../example";
-const destDir = __dirname + "/../example/constants";
+const srcDir = path.join(__dirname, "/../pages");
+const destDir = path.join(__dirname, "/../example/constants");
 
 const glob = (root, pattern) =>
   new Promise((r, j) => {
@@ -47,7 +47,7 @@ const parseExampleModule = (filePath) => {
   const content = fs.readFileSync(filePath).toString();
   const root = path.dirname(filePath);
   const moduleRegExpr = /@NgModule\([\s\S]*\)[\s\S]*export class (\w+)/i;
-  const packagePath = filePath.split("/").slice(-3, 4).join();
+  const packagePath = filePath.split("/").slice(-1, 4).join();
   const moduleName = content.match(moduleRegExpr)?.[1];
   const importPath = path.relative(destDir, root).replaceAll("\\", "/");
   let components = [];
@@ -169,6 +169,7 @@ const build = async (src, dest) => {
   fs.mkdirSync(dest);
   console.log("Compiling packs...");
   const packs = await compile(src, dest);
+  console.log("packs", packs);
   console.log("Assembling...");
   assembly(packs, dest);
 };

@@ -1,11 +1,10 @@
 import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
-import { Clipboard } from '@angular/cdk/clipboard';
-import { DemoExample } from '../../models/demo-example';
+import { CommonModule, NgComponentOutlet, NgForOf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { KruiTabsModule } from '@kr-platform/ui';
-import { NgComponentOutlet, NgForOf } from '@angular/common';
-import { CodeSnippedComponent } from '../code-snippet/code-snippet.component';
-import { EXAMPLES_TOKEN } from '@kr-platform/kit/example';
+import { CodeSnippedComponent, EXAMPLES_TOKEN } from '@kr-platform/kit/example';
+import { DemoExample } from '@kr-platform/kit/example/models/demo-example';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 interface ExampleTab {
   id: string;
@@ -21,6 +20,7 @@ const fileExtensionRegex = /(.*)\.(\w+)/;
   styleUrls: ['./example-viewer.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     MatIcon,
     KruiTabsModule,
     NgComponentOutlet,
