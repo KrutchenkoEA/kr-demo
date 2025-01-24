@@ -33,15 +33,7 @@ export interface KruiMainMenuItem {
   styleUrls: ['./main-menu.component.scss'],
   animations: [SLIDE_INOUT_TOP],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    FormsModule,
-    NgTemplateOutlet,
-    NgIf,
-    KruiToggleModule,
-    NgForOf,
-    MatIcon,
-  ],
-  standalone: true,
+  standalone: false,
 })
 export class KruiMainMenuComponent implements OnInit {
   @Input()

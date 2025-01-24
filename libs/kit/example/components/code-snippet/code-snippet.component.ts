@@ -13,13 +13,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
   templateUrl: './code-snippet.component.html',
   styleUrls: ['./code-snippet.component.scss'],
   exportAs: 'code-snippet',
-  standalone: true,
-  imports: [
-    MatIcon,
-    SyntaxPipe,
-    AsyncPipe,
-    NgIf,
-  ],
+  standalone: false,
 })
 export class CodeSnippedComponent implements OnInit {
   @Input()

@@ -1,28 +1,50 @@
 import { NgModule } from '@angular/core';
 import { BarChartsComponent } from '@kr-platform/kit/pages/charts/bar/bar-charts.component';
-import { ExampleHttpInterceptor, ExampleViewerComponent, TableOfContentsComponent } from '@kr-platform/kit/index';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  CodeSnippedComponent,
+  ExampleViewerComponent,
+  KruiMainMenuComponent,
+  PageTitleService,
+  StorageService,
+  SyntaxPipe,
+  TableOfContentsComponent,
+} from '@kr-platform/kit/index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { KrKitRoutingModule } from '@kr-platform/kit/kit-routing.module';
+import { CommonModule } from '@angular/common';
+import { KruiTabsModule, KruiToggleModule } from '@kr-platform/ui';
+import { MatIcon } from '@angular/material/icon';
 
+
+const kitPages = [
+  BarChartsComponent,
+];
 
 @NgModule({
-  declarations: [BarChartsComponent],
+  declarations: [
+    ExampleViewerComponent,
+    CodeSnippedComponent,
+    KruiMainMenuComponent,
+    TableOfContentsComponent,
+    ...kitPages,
+  ],
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    KrKitRoutingModule,
-    ExampleViewerComponent,
-    TableOfContentsComponent,
+    MatIcon,
+    SyntaxPipe,
+    KruiToggleModule,
+    KruiTabsModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ExampleHttpInterceptor,
-      multi: true,
-    },
+    StorageService,
+    PageTitleService,
+  ],
+  exports: [
+    ExampleViewerComponent,
+    CodeSnippedComponent,
+    KruiMainMenuComponent,
+    TableOfContentsComponent,
   ],
 })
 export class KrKitPagesModule {

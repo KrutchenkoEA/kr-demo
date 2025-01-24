@@ -15,6 +15,7 @@ import {
   StorageService,
 } from '@kr-platform/kit';
 import { KrKitMenu } from '@kr-platform/kit/kit-menu';
+import { KrKitPagesModule } from '@kr-platform/kit/kit-pages.module';
 
 const THEME_KEY = 'kit-theme';
 
@@ -23,26 +24,10 @@ const THEME_KEY = 'kit-theme';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ExampleHttpInterceptor,
-      multi: true,
-    },
-    {
-      provide: EXAMPLE_FILES_TOKEN,
-      useValue: EXAMPLE_FILES,
-    }, {
-      provide: EXAMPLES_TOKEN,
-      useValue: EXAMPLES,
-    },
-    StorageService,
-    PageTitleService,
-  ],
   imports: [
     RouterOutlet,
-    KruiMainMenuComponent,
     CdkScrollable,
+    KrKitPagesModule
   ],
 })
 export class AppComponent {

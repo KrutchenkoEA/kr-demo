@@ -1,8 +1,5 @@
 import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
-import { CommonModule, NgComponentOutlet, NgForOf } from '@angular/common';
-import { MatIcon } from '@angular/material/icon';
-import { KruiTabsModule } from '@kr-platform/ui';
-import { CodeSnippedComponent, EXAMPLES_TOKEN } from '@kr-platform/kit/example';
+import { EXAMPLES, EXAMPLES_TOKEN } from '@kr-platform/kit/example';
 import { DemoExample } from '@kr-platform/kit/example/models/demo-example';
 import { Clipboard } from '@angular/cdk/clipboard';
 
@@ -18,15 +15,7 @@ const fileExtensionRegex = /(.*)\.(\w+)/;
   selector: 'example-viewer',
   templateUrl: './example-viewer.component.html',
   styleUrls: ['./example-viewer.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatIcon,
-    KruiTabsModule,
-    NgComponentOutlet,
-    NgForOf,
-    CodeSnippedComponent,
-  ],
+  standalone: false,
 })
 export class ExampleViewerComponent implements OnInit {
   @Input()
