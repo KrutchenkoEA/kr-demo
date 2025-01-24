@@ -26,21 +26,21 @@ export type ToggleSize = 'sm' | 'md' | 'lg' | 'xlg';
 })
 export class KruiToggleComponent implements AfterViewInit {
   @Input()
-  id!: string;
+  public id!: string;
 
   @Input()
-  size: string = 'md';
+  public size: string = 'md';
 
   @Input()
-  iconOn!: string;
+  public iconOn!: string;
 
   @Input()
-  iconOff!: string;
+  public iconOff!: string;
 
   @Input()
-  disabled: boolean = false;
+  public disabled: boolean = false;
 
-  model!: boolean;
+  public model!: boolean;
 
   private onChange!: (value: boolean) => void;
   private onTouched!: () => void;
@@ -52,28 +52,28 @@ export class KruiToggleComponent implements AfterViewInit {
   ) {
   }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.renderer.removeAttribute(this.elementRef.nativeElement, 'id');
   }
 
-  writeValue(value: boolean): void {
+  public writeValue(value: boolean): void {
     this.model = !!value;
     this.changeDetector.markForCheck();
   }
 
-  registerOnChange(onChange: (value: boolean) => void) {
+  public registerOnChange(onChange: (value: boolean) => void) {
     this.onChange = onChange;
   }
 
-  registerOnTouched(onTouched: () => void): void {
+  public registerOnTouched(onTouched: () => void): void {
     this.onTouched = onTouched;
   }
 
-  setDisabledState(disabled: boolean): void {
+  public setDisabledState(disabled: boolean): void {
     this.disabled = disabled;
   }
 
-  onModelChange(value: boolean) {
+  public onModelChange(value: boolean): void {
     if (this.onChange) {
       this.onChange(value);
     }
