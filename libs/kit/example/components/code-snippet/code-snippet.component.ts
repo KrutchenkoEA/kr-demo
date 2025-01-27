@@ -4,9 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { MatIcon } from '@angular/material/icon';
-import { SyntaxPipe } from '../../pipes/syntax.pipe';
-import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   selector: 'code-snippet',
@@ -33,7 +30,9 @@ export class CodeSnippedComponent implements OnInit {
       .get<string>(this.path)
       .pipe(
         catchError((e) => ((this.error = e), of('Не удалось загрузить данные'))),
-        map(content => content || '\n'),
+        map(content => {
+          return content || '\n'
+        }),
       );
   }
 

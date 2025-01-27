@@ -47,7 +47,7 @@ const parseExampleModule = (filePath) => {
   const content = fs.readFileSync(filePath).toString();
   const root = path.dirname(filePath);
   const moduleRegExpr = /@NgModule\([\s\S]*\)[\s\S]*export class (\w+)/i;
-  const packagePath = filePath.split("/").slice(-1, 4).join();
+  const packagePath = filePath.split("/").slice(-3, 2).join();
   const moduleName = content.match(moduleRegExpr)?.[1];
   const importPath = path.relative(destDir, root).replaceAll("\\", "/");
   let components = [];

@@ -12,7 +12,7 @@ export const EXAMPLES = {
   },
   'tabs-simple-example' : {
     title: 'Базовый компонент',
-    packagePath: 'index.ts',
+    packagePath: 'tabs',
     moduleName: 'TabsExampleModule',
     componentName: 'TabsSimpleExample',
     selector: 'tabs-simple-example',
@@ -21,7 +21,7 @@ export const EXAMPLES = {
   },
   'toggle-simple-example' : {
     title: 'Базовый компонент',
-    packagePath: 'index.ts',
+    packagePath: 'toggle',
     moduleName: 'ToggleExampleModule',
     componentName: 'ToggleSimpleExample',
     selector: 'toggle-simple-example',
@@ -30,7 +30,7 @@ export const EXAMPLES = {
   },
   'toggle-size-example' : {
     title: 'Размеры',
-    packagePath: 'index.ts',
+    packagePath: 'toggle',
     moduleName: 'ToggleExampleModule',
     componentName: 'ToggleSizeExample',
     selector: 'toggle-size-example',

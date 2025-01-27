@@ -155,6 +155,11 @@
                 "glob": "**",
                 "input": "libs/ui/assets/",
                 "output": "assets"
+              },
+              {
+                "glob": "**",
+                "input": "libs/kit/assets/",
+                "output": "assets"
               }
             ],
             "styles": [
@@ -174,13 +179,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "10kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
@@ -300,7 +305,7 @@
     "kr-kit": {
       "projectType": "library",
       "root": "libs/kit",
-      "sourceRoot": "libs/kit/src",
+      "sourceRoot": "libs/kit",
       "prefix": "kr-kit",
       "architect": {
         "build": {

@@ -1,5 +1,5 @@
 import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
-import { EXAMPLES, EXAMPLES_TOKEN } from '@kr-platform/kit/example';
+import { EXAMPLES_TOKEN } from '@kr-platform/kit/example';
 import { DemoExample } from '@kr-platform/kit/example/models/demo-example';
 import { Clipboard } from '@angular/cdk/clipboard';
 
