@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { getDefaultKrAppConfig, KrKitRoutes } from '@kr-platform/kit';
+import { EXAMPLE_ROUTES, getDefaultKrAppConfig } from '@kr-platform/kit';
 import { Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'kit',
     loadComponent: () => import('../../../kit-demo/src/app/app.component').then((m) => m.KitDemoComponent),
-    children: KrKitRoutes,
+    children: EXAMPLE_ROUTES,
   },
   {
     path: '**',

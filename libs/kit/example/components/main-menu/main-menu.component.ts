@@ -7,7 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
@@ -50,6 +50,7 @@ export class KruiMainMenuComponent implements OnInit {
 
   public constructor(
     public readonly router: Router,
+    public readonly route: ActivatedRoute,
     private readonly cdr: ChangeDetectorRef,
   ) {
   }
@@ -63,7 +64,7 @@ export class KruiMainMenuComponent implements OnInit {
   public onItemClick(item: KruiMainMenuItem): void {
     item.expanded = !item.expanded;
     if (item.href) {
-      this.router.navigate([item.href]);
+      this.router.navigate([item.href], { relativeTo: this.route });
     }
   }
 

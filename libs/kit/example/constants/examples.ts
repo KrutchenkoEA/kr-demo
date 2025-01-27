@@ -3,12 +3,12 @@
 export const EXAMPLES = {
   'chart-simple-bar' : {
     title: 'Базовый график',
-    packagePath: '',
+    packagePath: 'bars',
     moduleName: 'BarChartExampleModule',
     componentName: 'ChartSimpleBarComponent',
     selector: 'chart-simple-bar',
     files: ['chart-simple-bar.component.html','chart-simple-bar.component.scss','chart-simple-bar.component.ts'],
-    loadAsync: () => import('../../pages/charts/bar/examples'),
+    loadAsync: () => import('../../pages/bars/examples'),
   },
   'tabs-simple-example' : {
     title: 'Базовый компонент',

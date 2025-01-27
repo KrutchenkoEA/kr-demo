@@ -60,12 +60,39 @@ const parseExampleModule = (filePath) => {
       let dirPath = root + "/" + d.name;
       components.push(parseExampleComponent(dirPath));
     });
+  const parentComponent = parseExampleParentComponent(root.split("/").slice(0, -1).join("\\"));
 
   return {
     components,
     packagePath,
     moduleName,
-    importPath
+    importPath,
+    parentComponent
+  };
+};
+
+const parseExampleParentComponent = (root) => {
+  const selector = path.basename(root);
+  let componentName = "";
+  let fileName = "";
+  const tsRegExpr = /\.ts/i;
+  const componentRegExpr = new RegExp(
+    `@Component[\\s\\S]*selector:\\s*['"]kr-kit-${selector}['"][\\s\\S]*export class (\\w+)`,
+    "i"
+  );
+  for (const file of fs.readdirSync(root, {
+    withFileTypes: true
+  })) {
+    if (tsRegExpr.test(file.name)) {
+      const content = fs.readFileSync(root + "/" + file.name).toString();
+      componentName = content.match(componentRegExpr)?.[1];
+      fileName = file.name.slice(0, -3);
+
+    }
+  }
+  return {
+    name: componentName,
+    fileName
   };
 };
 
@@ -115,7 +142,17 @@ const writeFile = (output, data, fileName) => {
 const assembly = (input, output) => {
   const examples = [];
   const exampleFiles = [];
+  const exampleRoutes = [];
+  const exampleRoutesImports = [];
   for (const module of input) {
+    exampleRoutesImports.push(`import { ${module.parentComponent.name}} from '@kr-platform/kit/pages/${module.packagePath}/${module.parentComponent.fileName}';`);
+    exampleRoutes.push(
+      `{
+        path: '${module.packagePath}',
+        component: ${module.parentComponent.name},
+      }`
+    );
+
     for (const component of module.components) {
       examples.push(
         `  '${component.selector}' : {
@@ -140,6 +177,13 @@ const assembly = (input, output) => {
     }
   }
 
+  exampleRoutes.push(
+    `{
+        path: '**',
+        redirectTo: 'typography',
+      }`
+  );
+
   const header =
     "/** Don't edit this file! It has been generated automatically. */";
 
@@ -147,7 +191,14 @@ const assembly = (input, output) => {
   writeFile(output, `${header}\n\nexport const EXAMPLE_FILES = {\n${exampleFiles.join(",\n")}\n};`, "example-files.ts");
   writeFile(
     output,
-    `${header}\n\nexport * from './examples';\nexport * from './example-files';\n`,
+    `${header}\n
+    ${exampleRoutesImports.join("\n")}\n
+    export const EXAMPLE_ROUTES = [\n${exampleRoutes.join(",\n")}\n];`,
+    "example-routes.ts"
+  );
+  writeFile(
+    output,
+    `${header}\n\nexport * from './examples';\nexport * from './example-files';\nexport * from './example-routes';\n`,
     "index.ts"
   );
 };

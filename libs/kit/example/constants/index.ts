@@ -2,3 +2,4 @@
 
 export * from './examples';
 export * from './example-files';
+export * from './example-routes';
