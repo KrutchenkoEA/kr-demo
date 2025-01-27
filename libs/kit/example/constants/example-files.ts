@@ -150,5 +150,37 @@ tlui-toggle {
   <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ToggleSizeExample</span> {}
+`,
+	'typography/typography-header-example/typography-header-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>h1. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>h2. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>h3. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>h4. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>h5. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+`,	'typography/typography-header-example/typography-header-example.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">ChangeDetectionStrategy</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Заголовок */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;typography-header-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./typography-header-example.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TypographyHeaderExample</span> {}
+`,
+	'typography/typography-link-example/typography-link-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;javascript:&quot;</span>&gt;</span>Ссылка<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+`,	'typography/typography-link-example/typography-link-example.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">ChangeDetectionStrategy</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Ссылка */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;typography-link-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./typography-link-example.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TypographyLinkExample</span> {}
 `
 };

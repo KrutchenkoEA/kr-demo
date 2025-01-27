@@ -100,6 +100,18 @@ const compile = async (input) => {
   return paths.map((m) => parseExampleModule(m.absolute));
 };
 
+const writeFile = (output, data, fileName) => {
+  fs.writeFileSync(
+    output + "/" + fileName,
+    data
+  );
+
+  console.log(
+    "\x1b[32m✔ \x1b[37m %s \x1b[0m",
+    path.normalize(output + "/" + fileName)
+  );
+};
+
 const assembly = (input, output) => {
   const examples = [];
   const exampleFiles = [];
@@ -131,36 +143,12 @@ const assembly = (input, output) => {
   const header =
     "/** Don't edit this file! It has been generated automatically. */";
 
-  fs.writeFileSync(
-    output + "/examples.ts",
-    `${header}\n\nexport const EXAMPLES = {\n${examples.join(",\n")}\n};`
-  );
-
-  console.log(
-    "\x1b[32m✔ \x1b[37m %s \x1b[0m",
-    path.normalize(output + "/examples.ts")
-  );
-
-  fs.writeFileSync(
-    output + "/example-files.ts",
-    `${header}\n\nexport const EXAMPLE_FILES = {\n${exampleFiles.join(
-      ",\n"
-    )}\n};`
-  );
-
-  console.log(
-    "\x1b[32m✔ \x1b[37m %s \x1b[0m",
-    path.normalize(output + "/example-files.ts")
-  );
-
-  fs.writeFileSync(
-    output + "/index.ts",
-    `${header}\n\nexport * from './examples';\nexport * from './example-files';\n`
-  );
-
-  console.log(
-    "\x1b[32m✔ \x1b[37m %s \x1b[0m",
-    path.normalize(output + "/index.ts")
+  writeFile(output, `${header}\n\nexport const EXAMPLES = {\n${examples.join(",\n")}\n};`, "examples.ts");
+  writeFile(output, `${header}\n\nexport const EXAMPLE_FILES = {\n${exampleFiles.join(",\n")}\n};`, "example-files.ts");
+  writeFile(
+    output,
+    `${header}\n\nexport * from './examples';\nexport * from './example-files';\n`,
+    "index.ts"
   );
 };
 
@@ -169,7 +157,6 @@ const build = async (src, dest) => {
   fs.mkdirSync(dest);
   console.log("Compiling packs...");
   const packs = await compile(src, dest);
-  console.log("packs", packs);
   console.log("Assembling...");
   assembly(packs, dest);
 };

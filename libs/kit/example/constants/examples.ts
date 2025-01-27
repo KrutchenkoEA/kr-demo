@@ -36,5 +36,23 @@ export const EXAMPLES = {
     selector: 'toggle-size-example',
     files: ['toggle-size-example.html','toggle-size-example.scss','toggle-size-example.ts'],
     loadAsync: () => import('../../pages/toggle/examples'),
+  },
+  'typography-header-example' : {
+    title: 'Заголовок',
+    packagePath: 'typography',
+    moduleName: 'TypographyExampleModule',
+    componentName: 'TypographyHeaderExample',
+    selector: 'typography-header-example',
+    files: ['typography-header-example.html','typography-header-example.ts'],
+    loadAsync: () => import('../../pages/typography/examples'),
+  },
+  'typography-link-example' : {
+    title: 'Ссылка',
+    packagePath: 'typography',
+    moduleName: 'TypographyExampleModule',
+    componentName: 'TypographyLinkExample',
+    selector: 'typography-link-example',
+    files: ['typography-link-example.html','typography-link-example.ts'],
+    loadAsync: () => import('../../pages/typography/examples'),
   }
 };
