@@ -69,7 +69,8 @@ export class KruiMainMenuComponent implements OnInit {
   }
 
   public isActive(url: string): boolean {
-    return this.router.isActive(url, {
+    const parentSegment = this.route.snapshot?.url?.[0]?.path;
+    return this.router.isActive(parentSegment ? parentSegment + '/' + url : url, {
       queryParams: 'ignored',
       paths: 'exact',
       fragment: 'ignored',
