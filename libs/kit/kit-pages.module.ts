@@ -22,7 +22,7 @@ import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 const kitPages = [
   BarChartsComponent,
   TabsComponent,
-  ToggleComponent
+  ToggleComponent,
 ];
 
 @NgModule({
@@ -44,8 +44,8 @@ const kitPages = [
     AngularSvgIconModule.forRoot({
       loader: {
         provide: SvgLoader,
-        useClass: KruiSvgLoader
-      }
+        useClass: KruiSvgLoader,
+      },
     }),
   ],
   providers: [

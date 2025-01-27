@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { getDefaultKrAppConfig, KrKitRoutes } from '@kr-platform/kit';
+import { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -28,14 +29,14 @@ const routes: Routes = [
     loadComponent: () => import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
   },
   {
+    path: 'kit',
+    loadComponent: () => import('../../../kit-demo/src/app/app.component').then((m) => m.KitDemoComponent),
+    children: KrKitRoutes,
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found.component').then((m) => m.NotFoundComponent),
   },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {
-}
+export const appConfig: ApplicationConfig = getDefaultKrAppConfig(routes);

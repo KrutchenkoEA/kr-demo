@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { KitDemoComponent } from './app/app.component';
+import { getDefaultKrAppConfig, KrKitRoutes } from '@kr-platform/kit';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(KitDemoComponent, getDefaultKrAppConfig(KrKitRoutes))
   .catch((err) => console.error(err));

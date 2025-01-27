@@ -19,7 +19,7 @@ const THEME_KEY = 'kit-theme';
   styleUrl: './app.component.scss',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class KitDemoComponent {
   public version = packageInfo.version;
   public menu: KruiMainMenuItem[] = KrKitMenu.sort();
 
