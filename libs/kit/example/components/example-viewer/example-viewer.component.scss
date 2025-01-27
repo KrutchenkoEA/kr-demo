@@ -3,10 +3,10 @@
 @import '../../../../../libs/ui/styles/packages/typography/mixins';
 
 $example-viewer-margin: $atom * 4;
-$example-viewer-border: $bg-main;
+$example-viewer-border: $br-stroke;
 $example-viewer-background: $bg-body;
 $example-viewer-toolbar-height: $atom * 6;
-$example-viewer-border-radius: 4px;
+$example-viewer-border-radius: 2rem;
 $example-viewer-padding: $atom * 2;
 $example-viewer-source-height: $atom * 100;
 
@@ -25,6 +25,7 @@ $example-viewer-source-height: $atom * 100;
   border-radius: $example-viewer-border-radius;
   width: 100%;
   box-sizing: border-box;
+
 
   &__toolbar {
     display: flex;

@@ -1,0 +1,83 @@
+@mixin light-variables-old() {
+  --color-logo: rgba(24, 56, 229, 0.6);
+
+  /*Текст*/
+  --color-text-contrast: #212631;
+  --color-text-main: #455168;
+  --color-text-signatures: #667799;
+  --color-text-optional: #97a3ba;
+
+  /*Фон*/
+  --color-background-main: #f9fafb;
+  --color-background-body: #eaecf1;
+  --color-background-app-header: #EAECF1;
+  --color-background-headers: rgb(226, 217, 209);
+
+  /*Границы*/
+  --color-borders-stroke: #f3f4f7;
+  --color-borders-light: #eaecf1;
+  --color-borders-icons: #97a3ba;
+
+  /*Тень*/
+  --color-shadows: rgba(140,153,178,0.549);
+
+  /*Основной цвет*/
+  --color-color-1: #f9fafb;
+  --color-color-2: #f3f4f7;
+  --color-color-3: #eaecf1;
+  --color-color-4: #e0e4eb;
+  --color-color-5: #d4d9e2;
+  --color-color-6: #c8ceda;
+  --color-color-7: #afb8ca;
+  --color-color-8: #97a3ba;
+  --color-color-9: #7e8da9;
+
+  --color-color-10: #667799;
+  --color-color-11: #566481;
+  --color-color-12: #455168;
+  --color-color-13: #3d475c;
+  --color-color-14: #353e50;
+  --color-color-15: #2d3443;
+  --color-color-16: #29303d;
+  --color-color-17: #252b37;
+  --color-color-18: #212631;
+  --color-color-19: #181d25;
+
+  --color-color-30: #F3F4F8;
+  --color-color-31: #D3D4D9;
+  --color-color-32: #B2B5BC;
+  --color-color-33: #9496A2;
+  --color-color-34: #777986;
+  --color-color-35: #5B5D6A;
+  --color-color-36: #404251;
+  --color-color-37: #282A39;
+  --color-color-38: #101123;
+
+  --color-index-gray: #323B4D;
+  --color-index-yellow: #FFB30F;
+  --color-index-red: #D9363C;
+  --color-index-green: #4CB944;
+  --color-index-blue: #2779CC;
+
+  --color-additional-1: #9A88BA;
+  --color-additional-2: #50A166;
+  --color-additional-3: #DE6D83;
+  --color-additional-4: #3698C2;
+  --color-additional-5: #E6BC35;
+  --color-additional-6: #885ABF;
+  --color-additional-7: #6F7ED1;
+  --color-additional-8: #658ED6;
+  --color-additional-9: #06A19E;
+  --color-additional-10: #006B68;
+  --color-additional-11: #7860A8;
+  --color-additional-12: #007D23;
+  --color-additional-13: #D12771;
+  --color-additional-14: #00B4FF;
+  --color-additional-15: #FDD13A;
+  --color-additional-16: #8A3CEC;
+  --color-additional-17: #3147C0;
+  --color-additional-18: #F585FF;
+  --color-additional-19: #00FFFB;
+  --color-additional-20: #C2FF84;
+  --color-additional-21: #118F3F;
+}

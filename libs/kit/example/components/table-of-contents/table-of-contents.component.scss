@@ -1,8 +1,8 @@
 @import '../../../../../libs/ui/styles/variables';
 @import '../../../../../libs/ui/styles/packages/typography/variables';
 
-$toc-border-radius: 4px;
-$toc-font-size: 13px;
+$toc-border-radius: 1rem;
+$toc-font-size: 1rem;
 $toc-border-color: map-get($palette, logo);
 $toc-border-width: 3px;
 $toc-font-color: map-get($text-colors, main-text);

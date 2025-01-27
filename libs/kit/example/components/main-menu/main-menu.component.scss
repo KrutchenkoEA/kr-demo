@@ -1,27 +1,32 @@
 @import '../../../../../libs/ui/styles/packages/typography/mixins';
+@import '../../../../../libs/ui/styles/packages/typography/variables';
 @import '../../../../../libs/ui/styles/packages/scrolling/mixins';
+@import '../../../../../libs/ui/styles/variables';
 
 $item-height: 40px;
+$padding: 1rem;
+$gap: 0.2rem;
+$main-text: map-get($text-colors, main-text);
+$secondary-text: map-get($text-colors, subscript-text);
 
 :host {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: $gap;
 }
 
 .logo {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  padding: 12px;
-  color: var(--color-background-headers);
-  background: var(--color-color-2);
-  border-radius: 2rem;
+  margin-top: $padding;
+  padding: $padding;
+  background: $bg-app-header;
+  border-radius: $padding;
 
   span {
-    margin-bottom: 0.5rem;
-    color: var(--color-text-signatures);
+    color: $secondary-text;
     font-size: $font-size-sm;
   }
 }
@@ -31,11 +36,11 @@ footer {
   flex-shrink: 0;
   display: flex;
   height: $item-height;
-  background: var(--color-background-headers);
+  background: $bg-header;
   width: 100%;
   flex-flow: row;
   align-items: center;
-  border-radius: 2rem;
+  border-radius: $padding;
 }
 
 .header {
@@ -47,7 +52,7 @@ footer {
 
     &[src="kruiIconSupportHead"],
     &[src="kruiIconSearch"] {
-      margin-left: 10px;
+      margin-left: $padding;
     }
   }
 
@@ -59,7 +64,7 @@ footer {
     outline: none;
     margin: 0;
     padding-left: 18px;
-    background: var(--color-background-headers);
+    background: $bg-header;
     width: 80%;
     height: 100%;
 
@@ -81,8 +86,8 @@ footer {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: var(--color-borders-light);
-  box-shadow: 0 0 0 2px var(--color-shadows);
+  background-color: $br-light;
+  box-shadow: 0 0 0 2px $shadow;
 }
 
 .menu {
@@ -90,7 +95,7 @@ footer {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  gap: 0.2rem;
+  gap: $gap;
 
   &--level-1 {
     @include vertical-scroll(
@@ -148,11 +153,11 @@ footer {
     flex-shrink: 0;
     align-items: center;
     justify-content: flex-start;
-    color: var(--color-text-signatures);
+    color: $secondary-text;
     text-decoration: none;
-    background-color: var(--color-background-app-header);
+    background-color: $bg-app-header;
     cursor: pointer;
-    border-radius: 2rem;
+    border-radius: $padding;
 
     &__icon,
     &__arrow {
@@ -162,45 +167,45 @@ footer {
     }
 
     &__icon {
-      padding: 14px;
+      padding: $padding;
       position: relative;
     }
 
     &__arrow {
-      margin-right: 16px;
+      margin-right: $padding;
     }
 
     &__text {
       @include text-ellipsis();
 
       flex: 1;
-      padding-left: 1rem;
+      padding-left: $padding;
     }
 
     &:hover{
-      background-color: var(--color-background-headers);
+      background-color: $bg-header;
     }
   }
 
   &__link:hover,
   &--active > &__link,
   &--selected > &__link {
-    box-shadow: 2px 0 0 0 inset var(--color-logo);
-    color: var(--color-text-contrast);
+    box-shadow: 5px 0 3px 0 inset $logo;
+    color: $main-text;
 
     .menu-item__link__icon {
-      color: var(--color-logo) !important;
+      color: $logo !important;
     }
   }
 
   &--disabled {
-    color: var(--color-text-signatures);
+    color: $secondary-text;
     pointer-events: none;
   }
 
   &__link:active,
   &--active > &__link {
-    background-color: var(--color-logo) !important;
+    background-color: $logo !important;
   }
 }
 
