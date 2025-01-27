@@ -17,12 +17,14 @@ import { TabsComponent } from '@kr-platform/kit/pages/tabs/tabs.component';
 import { ToggleComponent } from '@kr-platform/kit/pages/toggle/toggle.component';
 import { KruiSvgLoader } from '@kr-platform/icons';
 import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
+import { TypographyComponent } from '@kr-platform/kit/pages/typography/typography.component';
 
 
 const kitPages = [
   BarChartsComponent,
   TabsComponent,
   ToggleComponent,
+  TypographyComponent
 ];
 
 @NgModule({
