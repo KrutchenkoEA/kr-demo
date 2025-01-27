@@ -12,8 +12,10 @@ $size-xxlg: $atom * 7;
 $bg-main: #{var(--color-background-main)};
 $bg-body: #{var(--color-background-body)};
 $bg-header: #{var(--color-background-headers)};
+$bg-app-header: #{var(--color-background-app-header)};
 $br-stroke: #{var(--color-borders-stroke)};
-$icon: #{var(--color-borders-icons)};
+$br-light: #{var(--color-borders-stroke)};
+$br-icon: #{var(--color-borders-icons)};
 
 $palette: (
   contrast: #{var(--color-text-contrast)},
@@ -25,4 +27,4 @@ $palette: (
   error: #{var(--color-index-red)},
   success: #{var(--color-index-green)},
   logo: #{var(--color-logo)},
-)
+);

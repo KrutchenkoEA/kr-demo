@@ -1,5 +1,7 @@
 @mixin dark-variables() {
-  --color-logo: #1838e5;
+  //--color-logo: rgba(202, 205, 222, 0.6);
+  //--color-logo: rgba(121, 247, 17, 0.6);
+  --color-logo: rgba(90, 114, 255, 0.6);
 
   /*Текст*/
   --color-text-contrast: #ffffff;
@@ -17,6 +19,9 @@
   --color-borders-stroke: rgb(36, 42, 54);
   --color-borders-light: #2d3443;
   --color-borders-icons: #727689;
+
+  /*Тень*/
+  --color-shadows: rgba(1,1,1,0.004);
 
   /*Основной цвет*/
   --color-color-1: #181d25;
