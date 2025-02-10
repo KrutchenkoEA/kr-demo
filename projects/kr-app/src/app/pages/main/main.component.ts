@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
+import { SvgIconComponent } from 'angular-svg-icon';
+
 @Component({
   selector: 'kr-app-main',
   imports: [
     RouterLink,
-    MatIcon,
+    MatTooltip,
+    SvgIconComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',

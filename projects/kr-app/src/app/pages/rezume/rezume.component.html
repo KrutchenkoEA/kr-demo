@@ -2,14 +2,9 @@
   <img [src]="'assets/my-foto-2.png'" alt="" class="avo">
 </div>
 <div class="card card_5">
-  <mat-icon (click)="link.click()"
-            class="download-icon"
-            fontIcon="download"
-            aria-hidden="false"
-            matTooltip="Скачать"
-            aria-label="Logo">
+  <svg-icon (click)="link.click()" class="download-icon" matTooltip="Скачать" src="kruiIconDownloadArrowDownSimple">
     <a #link href="assets/rezume.pdf"></a>
-  </mat-icon>
+  </svg-icon>
   <h2>Крютченко Евгений Александрович, 27 лет.</h2>
   <div class="info-grid">
     <div>
@@ -34,13 +29,12 @@
   <section class="achievements">
     <h3>Написал собственную библиотеку для создания <span routerLink="/charts">графиков</span>, на основе d3.js</h3>
     <p class="card_flexible-row">Графики включают в себя тренды
-      <mat-icon>show_chart</mat-icon>
+      <svg-icon src="kruiIconChartMountain"></svg-icon>
       , бары
-      <mat-icon>bar_chart</mat-icon>
+      <svg-icon src="kruiIconChartColumns"></svg-icon>
       , стек-бары
-      <mat-icon>stacked_bar_chart</mat-icon>
+      <svg-icon src="kruiIconChartColumnsRows"></svg-icon>
       и их комбинации
-      <mat-icon>multiline_chart</mat-icon>
     </p>
     <p>Поддерживают перерисовку в реальном времени, анимацию, стилизацию через UI, легенду, тулбар, распечатку</p>
     <p>Используется во всех нижеперечисленных проектах</p>
@@ -116,8 +110,7 @@
   </section>
   <button (click)="showPreviousJobs=!showPreviousJobs" class="job__expander" mat-button>
     {{ !showPreviousJobs ? 'Раскрыть список' : 'Свернуть' }}
-    <mat-icon [fontIcon]="!showPreviousJobs ? 'keyboard_arrow_down' : 'keyboard_arrow_up'" aria-hidden="false"
-              aria-label="Logo"></mat-icon>
+    <svg-icon [src]="!showPreviousJobs ? 'kruiIconArrowUpSimple' : 'kruiIconArrowDownSimple'"></svg-icon>
   </button>
   <section [class.job_hidden]="!showPreviousJobs" class="job">
     <div class="date"><p>март 2022</p>-<p>август 2022</p></div>

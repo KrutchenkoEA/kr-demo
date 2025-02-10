@@ -2,6 +2,11 @@ import { KruiMainMenuItem } from '@kr-platform/kit/example';
 
 export const KrKitMenu: KruiMainMenuItem[] = [
   {
+    label: 'Accordion',
+    href: 'accordion',
+    iconUrl: 'kruiIconTeble5rows',
+  },
+  {
     label: 'Chart line',
     iconUrl: 'kruiIconChartMountainCorner',
     children: [
@@ -56,5 +61,5 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     label: 'Typography',
     href: 'typography',
     iconUrl: 'kruiIconEditText',
-  }
+  },
 ];

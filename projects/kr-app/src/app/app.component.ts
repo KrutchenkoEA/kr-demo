@@ -6,7 +6,7 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 import { PlatformHeaderComponent } from './components/platform-header/platform-header.component';
 import { MatButton } from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SvgIconComponent } from 'angular-svg-icon';
 
 @Component({
   selector: 'kr-app-root',
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterOutlet,
     PlatformHeaderComponent,
     MatButton,
+    SvgIconComponent,
   ],
   standalone: true,
 })

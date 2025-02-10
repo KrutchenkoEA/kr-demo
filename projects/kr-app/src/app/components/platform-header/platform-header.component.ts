@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { ThemeConfiguratorService } from '../../services/theme-configurator.service';
 import { MatTooltip } from '@angular/material/tooltip';
+import { SvgIconComponent } from 'angular-svg-icon';
 
 @Component({
   selector: 'kr-app-platform-header',
@@ -14,6 +15,7 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIcon,
     MatSlideToggle,
     MatTooltip,
+    SvgIconComponent,
   ],
   templateUrl: './platform-header.component.html',
   styleUrl: './platform-header.component.scss',
@@ -28,5 +30,4 @@ export class PlatformHeaderComponent {
   public changeTheme(): void {
     this.themeConfiguratorService.changeTheme();
   }
-
 }

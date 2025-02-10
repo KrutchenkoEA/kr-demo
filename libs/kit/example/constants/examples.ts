@@ -1,6 +1,15 @@
 /** Don't edit this file! It has been generated automatically. */
 
 export const EXAMPLES = {
+  'accordion-simple-example' : {
+    title: 'Базовый компонент',
+    packagePath: 'accordion',
+    moduleName: 'AccordionExampleModule',
+    componentName: 'AccordionSimpleExample',
+    selector: 'accordion-simple-example',
+    files: ['accordion-simple-example.html','accordion-simple-example.scss','accordion-simple-example.ts'],
+    loadAsync: () => import('../../pages/accordion/examples'),
+  },
   'chart-simple-bar' : {
     title: 'Базовый график',
     packagePath: 'bars',

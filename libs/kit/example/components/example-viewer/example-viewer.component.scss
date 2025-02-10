@@ -4,7 +4,7 @@
 
 $example-viewer-margin: $atom * 4;
 $example-viewer-border: $br-stroke;
-$example-viewer-background: $bg-body;
+$example-viewer-background: var(--color-color-3);
 $example-viewer-toolbar-height: $atom * 6;
 $example-viewer-border-radius: 2rem;
 $example-viewer-padding: $atom * 2;

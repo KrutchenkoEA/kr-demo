@@ -1,6 +1,57 @@
 /** Don't edit this file! It has been generated automatically. */
 
 export const EXAMPLE_FILES = {
+	'accordion/accordion-simple-example/accordion-simple-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-accordion</span> [<span class="hljs-attr">multiple</span>]=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span>
+    [<span class="hljs-attr">kruiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span>
+    [<span class="hljs-attr">kruiAccordionItem</span>]=<span class="hljs-string">&quot;&#x27;Инфо 1&#x27;&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-content&quot;</span>&gt;</span>
+      В данном разделе представлены правила (пунктуации) русского языка. Мы
+      рекомендуем использовать их в текстовых блоках. Не используйте знаки
+      препинания, если список является функциональным (список чекбоксов,
+      радио-кнопок и т.д.)
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItemRightIconText</span>]=<span class="hljs-string">&quot;1&quot;</span>
+               [<span class="hljs-attr">kruiAccordionItemRightIcon</span>]=<span class="hljs-string">&quot;&#x27;kruiIconAlertAlarm&#x27;&quot;</span>
+               [<span class="hljs-attr">kruiAccordionItem</span>]=<span class="hljs-string">&quot;&#x27;Инфо 2&#x27;&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-content&quot;</span>&gt;</span>
+      Каждый пункт маркированного списка пишем со строчной буквы и заканчиваем
+      запятой. Если внутри одного пункта уже есть запятая, в конце каждого
+      пункта ставим точку с запятой. В последнем пункте списка — точка.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItem</span>]=<span class="hljs-string">&quot;&#x27;Инфо 3&#x27;&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-content&quot;</span>&gt;</span>
+      При составлении перечней следует обязательно обращать внимание на то,
+      чтобы начальные слова каждого элемента списка были согласованы между собой
+      в роде, числе и падеже.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-accordion</span>&gt;</span>
+`,	'accordion/accordion-simple-example/accordion-simple-example.scss': `tlui-accordion {
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">450px</span>;
+}
+
+<span class="hljs-selector-class">.example-content</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;
+}
+`,	'accordion/accordion-simple-example/accordion-simple-example.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">ChangeDetectionStrategy</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Базовый компонент */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;accordion-simple-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./accordion-simple-example.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./accordion-simple-example.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AccordionSimpleExample</span> {}
+`,
 	'bars/chart-simple-bar/chart-simple-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;fullLine&#x27;&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>

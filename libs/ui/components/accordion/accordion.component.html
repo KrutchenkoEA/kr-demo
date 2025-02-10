@@ -1,0 +1,56 @@
+<cdk-accordion [multi]="multiple" class="krui-accordion">
+  <cdk-accordion-item
+    #accordionItem="cdkAccordionItem"
+    *ngFor="let item of items; let index = index"
+    [class.krui-accordion-tab--expanded]="accordionItem.expanded"
+    [disabled]="item.kruiAccordionItemDisabled"
+    [expanded]="item.kruiAccordionItemExpanded"
+    class="krui-accordion-tab"
+  >
+    <header (click)="onClickItem(accordionItem, item)"
+            [class.krui-accordion-tab__header_disabled]="accordionItem.disabled"
+            [ngClass]="item.kruiAccordionItemHeaderClass"
+            [ngStyle]="{ 'padding-left': padding + 'px' }"
+            class="krui-accordion-tab__header">
+      <svg-icon
+        *ngIf="accordionItem.expanded && !accordionItem.disabled"
+        class="krui-icon--xs"
+        src="kruiIconArrowDownSimple"
+      ></svg-icon>
+      <svg-icon
+        *ngIf="!accordionItem.expanded && !accordionItem.disabled"
+        class="krui-icon--xs"
+        src="kruiIconArrowRightSimple"
+      ></svg-icon>
+
+      <span [title]="item.kruiAccordionItem">
+        {{ item.kruiAccordionItem }}
+      </span>
+
+      @if (item?.kruiAccordionTemplateRef) {
+        <ng-container *ngTemplateOutlet="item.kruiAccordionTemplateRef; context: item.kruiAccordionTemplateRefContext"></ng-container>
+      } @else {
+        <span></span>
+      }
+
+      <svg-icon
+        *ngIf="item.kruiAccordionItemRightIcon?.length"
+        [src]="item.kruiAccordionItemRightIcon"
+        class="krui-icon--xs krui-accordion-tab__right-icon"
+      ></svg-icon>
+      <span *ngIf="item.kruiAccordionItemRightIconText?.length"
+            class="krui-accordion-tab__right-icon-text">
+        {{ item.kruiAccordionItemRightIconText }}
+      </span>
+    </header>
+
+    <section
+      *ngIf="accordionItem.expanded"
+      @slideInOutTop
+      [ngClass]="item.kruiAccordionItemBodyClass"
+      class="krui-accordion-tab__body"
+    >
+      <ng-container *ngTemplateOutlet="item.templateRef"></ng-container>
+    </section>
+  </cdk-accordion-item>
+</cdk-accordion>

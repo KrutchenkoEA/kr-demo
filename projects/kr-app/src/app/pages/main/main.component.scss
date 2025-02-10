@@ -12,3 +12,9 @@
   aspect-ratio: auto;
   height: 100px;
 }
+
+.card__section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}

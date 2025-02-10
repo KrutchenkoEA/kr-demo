@@ -23,10 +23,12 @@
   border-radius: 2.2rem;
   margin-left: auto;
   margin-right: 20px;
+  min-width: unset;
+  transition: width 0.5s;
+  width: 4%;
 
-  //&:hover {
-  //  width: 97%;
-  //  margin: 0 auto;
-  //}
+  &:hover {
+    width: 97%;
+  }
 }
 

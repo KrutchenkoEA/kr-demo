@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { MatTooltip } from '@angular/material/tooltip';
 
@@ -10,7 +9,6 @@ import { MatTooltip } from '@angular/material/tooltip';
   imports: [
     MatButton,
     RouterLink,
-    MatIcon,
     SvgIconComponent,
     MatTooltip,
   ],

@@ -18,9 +18,11 @@ import { KruiSvgLoader } from '@kr-platform/icons';
 import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 import { TypographyComponent } from '@kr-platform/kit/pages/typography/typography.component';
 import { BarChartsComponent } from '@kr-platform/kit/pages/bars/bar-charts.component';
+import { AccordionComponent } from '@kr-platform/kit/pages/accordion/accordion.component';
 
 
 const kitPages = [
+  AccordionComponent,
   BarChartsComponent,
   TabsComponent,
   ToggleComponent,

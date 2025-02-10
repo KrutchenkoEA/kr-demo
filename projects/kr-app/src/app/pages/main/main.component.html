@@ -22,15 +22,17 @@
 
 <div class="card card_clickable card_flexible-row" routerLink="/charts">
   <img [src]="'assets/favicon.ico'" alt="" class="image">
-  <section>
+  <section class="card__section">
     Графики: line
-    <mat-icon>show_chart</mat-icon>
+    <svg-icon src="kruiIconChartMountain"></svg-icon>
     , bar
-    <mat-icon>bar_chart</mat-icon>
-    , combo bar, stack bar
-    <mat-icon>stacked_bar_chart</mat-icon>
+    <svg-icon src="kruiIconChartColumns"></svg-icon>
+    , combo bar
+    <svg-icon src="kruiIconChartGantt"></svg-icon>
+    , stack bar
+    <svg-icon src="kruiIconChartColumnsRows"></svg-icon>
     , pie
-    <mat-icon>pie_chart</mat-icon>
+    <svg-icon src="kruiIconChartDiagramPie"></svg-icon>
     , написанные с нуля на d3.js.
     <p> В базовом варианте графики поддерживают множество настройк с помощью UI и обновление данных в
       реальном времени</p>
@@ -38,7 +40,7 @@
   </section>
 </div>
 
-<div class="card card_clickable card_flexible-row" routerLink="/mnemo">
+<div [matTooltip]="'В разработке'" class="card card_clickable card_flexible-row">
   <img [src]="'assets/favicon.ico'" alt="" class="image">
   <section>
     <p>mxGraph является open source библиотекой, которую использую как основу для:</p>
@@ -59,7 +61,7 @@
   </section>
 </div>
 
-<div class="card card_clickable card_flexible-row" routerLink="/dashboard">
+<div [matTooltip]="'В разработке'" class="card card_clickable card_flexible-row">
   <img [src]="'assets/favicon.ico'" alt="" class="image">
   <section>
     <p>Конструктор и портал дашбордов, основанный на Angular Gridster.</p>

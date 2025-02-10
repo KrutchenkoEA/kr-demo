@@ -3,7 +3,7 @@
 $toggle-color: map-get($palette, gray);
 $toggle-background: $bg-body;
 $toggle-background-active: map-get($palette, logo);
-$toggle-border: $br-stroke;
+$toggle-border: $br-light;
 $toggle-border-active: $br-stroke;
 $toggle-outline: map-get($palette, logo);
 
