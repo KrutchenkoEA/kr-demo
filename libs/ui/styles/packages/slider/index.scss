@@ -1,0 +1,6 @@
+@import "./mixins";
+@import "./variables";
+
+.krui-slider {
+  @include slider();
+}

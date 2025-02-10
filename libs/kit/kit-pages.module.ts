@@ -19,11 +19,23 @@ import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 import { TypographyComponent } from '@kr-platform/kit/pages/typography/typography.component';
 import { BarChartsComponent } from '@kr-platform/kit/pages/bars/bar-charts.component';
 import { AccordionComponent } from '@kr-platform/kit/pages/accordion/accordion.component';
+import { CheckboxComponent } from '@kr-platform/kit/pages/checkbox/checkbox.component';
+import { InputComponent } from '@kr-platform/kit/pages/input/input.component';
+import { RangeComponent } from '@kr-platform/kit/pages/range/range.component';
+import { SelectComponent } from '@kr-platform/kit/pages/select/select.component';
+import { SliderComponent } from '@kr-platform/kit/pages/slider/slider.component';
+import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.component';
 
 
 const kitPages = [
   AccordionComponent,
   BarChartsComponent,
+  CheckboxComponent,
+  InputComponent,
+  RangeComponent,
+  SelectComponent,
+  SliderComponent,
+  SpinnerComponent,
   TabsComponent,
   ToggleComponent,
   TypographyComponent,

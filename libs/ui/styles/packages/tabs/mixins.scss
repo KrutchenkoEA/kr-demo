@@ -25,7 +25,6 @@
     @include transition((border-color, color, box-shadow));
 
     color: $tab-color;
-    display: flex;
     padding: 0 $tab-padding;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -84,7 +83,7 @@
       }
 
       &-label--active {
-        box-shadow: 0px $tab-border-width 0px 0px $tab-active-border-color;
+        box-shadow: 0 $tab-border-width 0 0 $tab-active-border-color;
       }
     }
   }
@@ -103,7 +102,7 @@
       }
 
       &-label--active {
-        box-shadow: 0px #{-$tab-border-width} 0px 0px $tab-active-border-color;
+        box-shadow: 0 #{-$tab-border-width} 0 0 $tab-active-border-color;
       }
     }
   }
@@ -122,7 +121,7 @@
       }
 
       &-label--active {
-        box-shadow: $tab-border-width 0px 0px 0px $tab-active-border-color;
+        box-shadow: $tab-border-width 0 0 0 $tab-active-border-color;
       }
     }
   }
@@ -176,7 +175,7 @@
     &#{$root}--left {
       #{$root}-label {
         &--active {
-          box-shadow: -3px 0px 0px 0px inset $tab-active-border-color;
+          box-shadow: -3px 0 0 0 inset $tab-active-border-color;
         }
       }
     }
@@ -184,7 +183,7 @@
     &#{$root}--right {
       #{$root}-label {
         &--active {
-          box-shadow: 3px 0px 0px 0px inset $tab-active-border-color;
+          box-shadow: 3px 0 0 0 inset $tab-active-border-color;
         }
       }
     }

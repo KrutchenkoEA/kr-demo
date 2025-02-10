@@ -1,0 +1,93 @@
+<div
+  (dragstart)="$event.preventDefault()"
+  [class.krui-disabled]="disabled"
+  class="slider-container"
+>
+  <krui-form-field *ngIf="inputs" class="slider-input krui-mr--xs">
+    <input
+      (blur)="onControlBlur(startControl)"
+      [attr.max]="endValue"
+      [formControl]="startControl"
+      [min]="min"
+      [step]="step"
+      class="krui-input--no-appearance"
+      kruiInput
+      size="sm"
+      tabindex="0"
+      type="number"
+    />
+  </krui-form-field>
+
+  <svg-icon
+    (click)="onDecrease(startControl)"
+    *ngIf="buttons"
+    class="krui-btn--icon krui-icon--sm krui-mr--xs"
+    src="kruiIconPlusMinusCircle"
+  ></svg-icon>
+
+  <label
+    *ngIf="labels"
+    class="krui-typography--regular krui-text--default krui-mr--xs"
+  >
+    {{ min }}
+  </label>
+
+  <div #slider (mousedown)="onBarMouseDown($event)" class="krui-slider">
+    <div class="krui-slider__bar"></div>
+    <div
+      [style.left.%]="startPercent"
+      [style.width.%]="endPercent - startPercent"
+      class="krui-slider__range"
+    ></div>
+
+    <a
+      #start
+      (keydown)="onHandleKeyDown($event, start)"
+      (mousedown)="onHandleMouseDown($event, start)"
+      [class.krui-slider__handle--active]="active === start"
+      [style.left.%]="startPercent"
+      cdkMonitorElementFocus
+      class="krui-slider__handle"
+      tabindex="0"
+    ></a>
+    <a
+      #end
+      (keydown)="onHandleKeyDown($event, end)"
+      (mousedown)="onHandleMouseDown($event, end)"
+      [class.krui-slider__handle--active]="active === end"
+      [style.left.%]="endPercent"
+      cdkMonitorElementFocus
+      class="krui-slider__handle"
+      tabindex="0"
+    ></a>
+  </div>
+
+  <label
+    *ngIf="labels"
+    class="krui-typography--regular krui-text--default krui-ml--xs"
+  >
+    {{ max }}
+  </label>
+
+  <svg-icon
+    (click)="onIncrease(endControl)"
+    *ngIf="buttons"
+    class="krui-btn--icon krui-icon--sm krui-ml--xs"
+    src="kruiIconPlusAddCircle"
+  ></svg-icon>
+
+  <krui-form-field *ngIf="inputs" class="slider-input krui-ml--xs">
+    <input
+      (blur)="onControlBlur(endControl)"
+      [attr.min]="startValue"
+      [formControl]="endControl"
+      [max]="max"
+      [step]="step"
+      class="krui-input--no-appearance"
+      kruiInput
+      size="sm"
+      tabindex="0"
+      type="number"
+    />
+  </krui-form-field>
+</div>

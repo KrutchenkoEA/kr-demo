@@ -1,0 +1,139 @@
+<ng-container *ngIf="SELECT_LABELS.get(language) as labels">
+  <div #trigger="cdkOverlayOrigin"
+       cdkOverlayOrigin
+       [ngStyle]="{height: useIcon ? '100%' : 'unset', width: useIcon ? '100%' : 'unset'}">
+    <div #input
+         class="krui-input-group"
+         [ngStyle]="{height: useIcon ? '100%' : 'unset', width: useIcon ? '100%' : 'unset'}"
+         (click)="onDropdownToggle()">
+      @if (!useIcon) {
+        <button #button
+                class="krui-input krui-cursor--pointer"
+                cdkOverlayOrigin
+                type="button"
+                [id]="id"
+                [class]="'krui-input--' + size">
+          @if (clearTag && multiple && selectionModel.selected.length) {
+            <label class="krui-tag krui-tag--info krui-ph--xxs krui-mr--xs"
+                   (click)="$event.stopPropagation()">
+              @if (selectionModel.selected.length > 1) {
+                <span class="krui-tag__text">{{ selectionModel.selected.length }} </span>
+              }
+              <svg-icon class="krui-tag__icon krui-icon--xs krui-cursor--pointer"
+                        src="kruiIconClose"
+                        [title]="labels?.['clear']"
+                        (click)="onClearSelection($event)"></svg-icon>
+            </label>
+          }
+          <span
+            class="krui-placeholder-float"
+            [class.selected-value]="!!viewValue && floatPlaceholder && size !='sm'"
+            [class.--xlg]="!!viewValue && floatPlaceholder && size === 'xlg'"
+            [class.--lg]="!!viewValue && floatPlaceholder && size === 'lg'"
+            [class.--md]="!!viewValue && floatPlaceholder && size === 'md'"
+          >
+              @if (floatPlaceholder && viewValue && size !='sm') {
+                <span class="krui-text--ellipsis krui-text--subscript krui-user-select--none">
+                  {{ (!!placeholder.length ? placeholder : labels?.['placeholder']) }}
+                </span>
+              }
+              <span class="krui-text--ellipsis krui-user-select--none"
+                    [class.krui-text--subscript]="!viewValue">
+                {{ viewValue || (!!placeholder.length ? placeholder : labels?.['placeholder']) }}
+              </span>
+            </span>
+
+        </button>
+        <svg-icon class="krui-input-group__icon krui-cursor--pointer"
+                  [src]="useViewvalueIcon ? useViewvalueIcon : (isOpen ? 'kruiIconArrowUpSimple' : 'kruiIconArrowDownSimple')"
+                  [class.krui-text--logo]="isOpen"
+                  [class.krui-text--default]="!isOpen"></svg-icon>
+      }
+      @else {
+        <div class="sets-container">
+          <svg-icon
+            #button
+            class="krui-cursor--pointer krui-icon--md"
+            src="kruiIconSets"
+          ></svg-icon>
+        </div>
+      }
+    </div>
+  </div>
+
+  <ng-template #overlay="cdkConnectedOverlay"
+               cdkConnectedOverlay
+               [cdkConnectedOverlayOrigin]="formField?.overlayOrigin ?? trigger"
+               [cdkConnectedOverlayOpen]="isOpen"
+               [cdkConnectedOverlayFlexibleDimensions]="false"
+               [cdkConnectedOverlayLockPosition]="false"
+               [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+               [cdkConnectedOverlayPositions]="customPositions || POSITIONS"
+               [cdkConnectedOverlayHasBackdrop]="hasBackdrop"
+               [cdkConnectedOverlayBackdropClass]="backdropClass"
+               (overlayKeydown)="onKeydown($event)"
+               (attach)="onOpen()"
+               (detach)="onClose()"
+               (overlayOutsideClick)="onOutsideClick($event)">
+    <div class="krui-dropdown"
+         [style.width]="useIcon ? 'unset' : (formField ?? trigger).elementRef.nativeElement.offsetWidth + 'px'"
+         [style.min-width]="useIcon ? (dropdownMinWidthWithIcon ? (dropdownMinWidthWithIcon + 'px') : '250px') : 'unset'"
+    >
+      @if (isLoading) {
+        <div class="loading-shade">
+          <krui-spinner></krui-spinner>
+        </div>
+      }
+      @if (searchEnabled) {
+        <krui-select-search class="krui-dropdown__search krui-dropdown__search--top krui-form-field krui-form-field--block"
+                            [language]="language"
+                            [query]="searchQuery"
+                            (queryChange)="onSearch($event)"></krui-select-search>
+      }
+      @if (togglerEnabled) {
+        <div class="krui-dropdown-list__item krui-dropdown__toggler krui-dropdown__toggler--top">
+          <label>
+            <input class="krui-checkbox krui-checkbox--md"
+                  type="checkbox"
+                  [ngModel]="allSelected"
+                  [indeterminate]="indeterminateSelected"
+                  (ngModelChange)="toggleAll()" />
+            {{ labels?.[allSelected ? "removeAll" : "selectAll"] }}
+          </label>
+        </div>
+      }
+      <ul #list
+          class="krui-dropdown-list krui-popup"
+          [style.min-height.px]="dropdownMinLength * ITEM_SIZE"
+          [style.max-height.px]="dropdownMaxLength * ITEM_SIZE"
+          [style.overflow]="isLoading ? 'hidden' : 'overlay'"
+          (scroll)="onScroll($event)"
+      >
+        <ng-content></ng-content>
+        @if (isSearchEmpty) {
+          <li class="krui-text--subscript search-empty">
+            {{ !!emptySearchMessage?.length ? emptySearchMessage : labels?.['emptySearchMessage'] }}
+          </li>
+        }
+      </ul>
+      @if (togglerEnabled) {
+        <div class="krui-dropdown-list__item krui-dropdown__toggler krui-dropdown__toggler--bottom">
+          <label>
+            <input class="krui-checkbox krui-checkbox--md"
+                  type="checkbox"
+                  [ngModel]="allSelected"
+                  [indeterminate]="indeterminateSelected"
+                  (ngModelChange)="toggleAll()" />
+            {{ labels?.[allSelected ? "removeAll" : "selectAll"] }}
+          </label>
+        </div>
+      }
+      @if (searchEnabled) {
+        <krui-select-search class="krui-dropdown__search krui-dropdown__search--bottom krui-form-field krui-form-field--block"
+                            [query]="searchQuery"
+                            [language]="language"
+                            (queryChange)="onSearch($event)"></krui-select-search>
+      }
+    </div>
+  </ng-template>
+</ng-container>

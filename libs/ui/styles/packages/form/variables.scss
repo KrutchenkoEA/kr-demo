@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+
+$checkbox-checked-svg: url("data:image/svg+xml,%3Csvg width='9' height='6' viewBox='0 0 9 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.84836 0.172914C9.06054 0.392952 9.0486 0.73812 8.82168 0.943869L3.40762 5.85296C3.19142 6.049 2.85553 6.04902 2.6393 5.853L0.178363 3.62209C-0.0485737 3.41637 -0.060558 3.0712 0.151596 2.85114C0.36375 2.63108 0.719703 2.61946 0.94664 2.82518L3.0234 4.70782L8.05331 0.147043C8.28023 -0.058706 8.63618 -0.0471232 8.84836 0.172914Z' fill='%23F05C34'/%3E%3C/svg%3E%0A");
+$checkbox-indeterminate-svg: #{var(--input-indeterminate)};
+
+$input-border-radius: 4px;
+$input-border-color: $br-stroke;
+$input-background: $bg-main;
+$input-hover-border-color: map-get($palette, logo);
+$input-active-border-color: map-get($palette, logo);
+$input-outline-color: map-get($palette, logo);
+$input-disabled-opacity: 0.5;
+$input-group-gap: 7px;
+
+$input-colors: (
+  default: map-get($palette, subscript),
+  warning: map-get($palette, warning),
+  success: map-get($palette, success),
+  info: map-get($palette, logo),
+  error: map-get($palette, error),
+);
+
+$input-sizes: (
+  auto: auto,
+  xlg: $size-xxlg,
+  lg: $size-xlg,
+  md: $size-lg,
+  sm: $size-md,
+);
+
+$checkbox-sizes: (
+  lg: $atom * 3,
+  md: $atom * 2,
+  sm: $atom * 1.5,
+);
+
+$radio-sizes: (
+  lg: $atom * 3,
+  md: $atom * 2,
+  sm: $atom * 1.5,
+);

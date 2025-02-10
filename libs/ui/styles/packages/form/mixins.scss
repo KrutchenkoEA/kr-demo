@@ -1,0 +1,326 @@
+@import "./variables";
+@import "../scrolling/mixins";
+@import "../typography/mixins";
+@import "../icon/mixins";
+@import "../transition/mixins";
+
+@mixin appearance($appearance) {
+  -moz-appearance: $appearance;
+  -webkit-appearance: $appearance;
+  appearance: $appearance;
+
+  @if ($appearance == none) {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+}
+
+@mixin input-base() {
+  @include typography(regular);
+  @include typography-color(contrast);
+
+  display: flex;
+  width: 100%;
+  border-radius: $input-border-radius;
+  border-width: 0;
+  height: $atom * 4 - 2px;
+  padding: 0;
+  background-color: transparent;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  position: relative;
+  align-items: center;
+
+  &::placeholder {
+    @include typography-color(subscript);
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: $input-disabled-opacity;
+    pointer-events: none;
+  }
+}
+
+@mixin input-group($root) {
+  display: flex;
+  flex-flow: row;
+  flex: 1;
+  align-items: center;
+  gap: $input-group-gap;
+
+  &__icon {
+    @include icon();
+    @include icon-size(sm);
+  }
+
+  &--textarea {
+    align-items: flex-start;
+
+    #{$root} {
+      @include vertical-scroll($hover: true);
+    }
+
+    #{$root}-group__icon {
+      margin: $size-xs;
+    }
+  }
+
+  &--right-icon {
+    flex-direction: row-reverse;
+  }
+}
+
+@mixin input-size-variant($name) {
+  height: map-get($input-sizes, $name) - 2px;
+}
+
+@mixin input-size-float-placeholder-variant($name) {
+  padding-top: calc(map-get($input-sizes, $name) / 4 + 2px);
+}
+
+@mixin checkbox-base() {
+  @include transition((border-color, box-shadow, background-color));
+  @include appearance(none);
+
+  width: $size-sm;
+  height: $size-sm;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75%;
+  border-radius: $input-border-radius;
+  border: 1px solid $input-border-color;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &:hover {
+    border-color: map-get($palette, logo);
+  }
+
+  &:checked,
+  &:indeterminate {
+    border-color: map-get($palette, logo);
+  }
+
+  &:checked {
+    background-size: 60%;
+    background-image: $checkbox-checked-svg;
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: $input-disabled-opacity;
+    pointer-events: none;
+  }
+
+  &:indeterminate {
+    background-image: $checkbox-indeterminate-svg;
+  }
+}
+
+@mixin checkbox-size-variant($name) {
+  $size: map-get($checkbox-sizes, $name);
+
+  height: $size;
+  width: $size;
+  background-size: ceil($size * 0.7) ceil($size * 0.7);
+}
+
+@mixin radio-base() {
+  @include transition((border-color, box-shadow, background-color));
+  @include appearance(none);
+
+  display: inline-block;
+  width: $size-sm;
+  height: $size-sm;
+  border-radius: 50%;
+  border: 1px solid $input-border-color;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    @include transition((opacity));
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: unset;
+    height: unset;
+    scale: 0.6;
+    border-radius: 50%;
+    border: 1px solid map-get($palette, logo);
+    background: transparent;
+    opacity: 0;
+  }
+
+  &:hover {
+    border-color: map-get($palette, logo);
+  }
+
+  &:checked {
+    border-color: map-get($palette, logo);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: $input-disabled-opacity;
+    pointer-events: none;
+  }
+}
+
+@mixin radio-size-variant($name) {
+  $size: map-get($radio-sizes, $name);
+  height: $size;
+  width: $size;
+}
+
+@mixin input-chips() {
+  $root: &;
+
+  &--chips {
+    height: auto;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: $atom * 0.25;
+
+    &:last-child {
+      padding: $atom * 0.25;
+    }
+  }
+
+  &__chip {
+    margin: $atom * 0.25;
+    display: flex;
+  }
+
+  &__chips-input {
+    @include typography(regular);
+    @include typography-color(contrast);
+    @include transition((color));
+    @include appearance(none);
+
+    border: none;
+    height: $size-md;
+    background-color: $input-background;
+    margin-left: $atom * 0.25;
+    padding: 0;
+    outline: none;
+    display: flex;
+    flex: 1;
+
+    &::placeholder {
+      @include typography-color(subscript);
+    }
+  }
+}
+
+@mixin input-outline() {
+  box-shadow: 0 0 0 1px $input-outline-color;
+}
+
+@mixin form-field() {
+  @include transition((color, box-shadow, border-color));
+
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  gap: $input-group-gap;
+  align-items: center;
+  border-radius: $input-border-radius;
+  border-width: 1px;
+  background-color: $input-background;
+  border-style: solid;
+  border-color: $input-border-color;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  position: relative;
+  padding: 0 $input-group-gap;
+
+  &:hover,
+  &--hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &--focus {
+    border-color: $input-active-border-color !important;
+  }
+
+  &--disabled {
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &--select,
+  &--textarea {
+    .krui-input {
+      @include vertical-scroll(
+        $scrollbar-margin-y: 2px,
+        $scrollbar-margin-x: 2px
+      );
+
+      margin-left: -$input-group-gap;
+      margin-right: -$input-group-gap;
+      padding-left: $input-group-gap;
+      padding-right: $input-group-gap;
+      width: calc(100% + #{$input-group-gap * 2});
+      position: relative;
+      background-color: $input-background;
+    }
+  }
+  .krui-input-float-placeholder {
+    @include typography-color(subscript);
+    position: absolute;
+    top: 0;
+    padding-top: 2px;
+    font-size: 11px;
+    z-index: 1;
+
+    word-break: normal;
+    text-overflow: ellipsis;
+    width: calc(100% - 16px);
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+}
+
+@mixin form-field-label() {
+  @include typography(regular-sm);
+  @include typography-color(default);
+
+  margin-bottom: $atom;
+  display: inline-block;
+  user-select: none;
+}
+
+@mixin form-field-hint() {
+  @include typography(regular-sm);
+
+  color: map-get($text-colors, subscript);
+  margin-top: $atom * 0.5;
+  display: block;
+}
+
+@mixin form-field-color-variant($name) {
+  border-color: map-get($input-colors, $name);
+}

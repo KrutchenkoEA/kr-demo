@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  flex: 1;
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.search-empty {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  min-height: 64px;
+}
+
+.input {
+  max-width: calc(100% - 23px);
+}
+
+.input-group__icon {
+  flex-shrink: 0;
+}
+
+.krui-placeholder-float {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 11px;
+
+  &.selected-value {
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 100%;
+
+    &.--xlg {
+      padding: 4px 0 8px;
+    }
+
+    &.--lg {
+      padding: 2px 0 4px;
+    }
+
+    &.--md {
+      padding: 1px 0 2px;
+    }
+  }
+}
+
+.sets-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-borders-and-icons-icons);
+  background-color: var(--color-special-color-white-background);
+}
+
+.loading-shade {
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background-color: var(--color-background-dashboards-forms);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}

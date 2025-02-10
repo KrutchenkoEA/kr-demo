@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+$slider-width: $atom * 10;
+$slider-bar-color: map-get($palette, subscript);
+$slider-bar-height: 3px;
+$slider-default-color: map-get($palette, info);
+$slider-handle-color: white;
+$slider-handle-border: $br-light;
+$slider-handle-focus-border: $br-stroke;
+$slider-handle-size: $size-xs * 1.5;

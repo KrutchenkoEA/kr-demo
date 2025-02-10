@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+$slider-input-width: $atom * 6;
+$slider-width: $atom * 15;
+
+:host {
+  display: inline-block;
+  color: map-get($palette, logo);
+  min-width: $slider-width;
+}
+
+.slider-container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2px;
+}
+
+.slider-input {
+  width: $slider-input-width;
+  max-width: $slider-input-width;
+  flex-shrink: 0;
+}
+
+input:disabled {
+  opacity: 1;
+}

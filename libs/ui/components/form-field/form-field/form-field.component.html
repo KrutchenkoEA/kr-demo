@@ -1,0 +1,38 @@
+<label *ngIf="label" [for]="id" class="krui-form-field-label">
+  <ng-content select="krui-label"></ng-content>
+</label>
+
+<div
+  [class]="
+    'krui-form-field krui-form-field--' +
+    color +
+    ' krui-form-field--' +
+    controlType
+  "
+  [ngClass]="{
+    'krui-btn krui-btn--input': isButton,
+    'krui-form-field--focus': focused,
+    'krui-form-field--focus-date-picker': controlType === 'krui-date-time-picker' || controlType === 'krui-date-range-picker',
+    'krui-form-field--disabled': disabled,
+    'krui-form-field--error': hasError || color === 'error'
+  }"
+  cdkOverlayOrigin
+>
+  <ng-content select="[kruiPrefix]"></ng-content>
+  <ng-content
+    select=":not([kruiSuffix]):not([kruiPrefix]):not(krui-label):not(krui-error):not(krui-hint)"
+  ></ng-content>
+  <ng-content select="[kruiSuffix]"></ng-content>
+</div>
+
+<span *ngIf="hint && !hasError" @fadeIn class="krui-form-field-hint">
+  <ng-content select="krui-hint"></ng-content>
+</span>
+
+<span
+  *ngIf="error && hasError"
+  @fadeIn
+  class="krui-form-field-hint krui-text--error"
+>
+  <ng-content select="krui-error"></ng-content>
+</span>

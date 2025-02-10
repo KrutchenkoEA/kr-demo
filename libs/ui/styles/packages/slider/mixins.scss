@@ -1,0 +1,57 @@
+@import "./variables";
+@import "../transition/mixins";
+
+@mixin slider() {
+  height: $slider-handle-size;
+  position: relative;
+  min-width: $slider-width;
+  cursor: pointer;
+  flex: 1;
+  color: inherit;
+
+  &__bar,
+  &__range {
+    height: $slider-bar-height;
+    border-radius: $slider-bar-height * 0.5;
+    position: absolute;
+    top: ($slider-handle-size - $slider-bar-height) * 0.5;
+    left: 0;
+    right: 0;
+  }
+
+  &__bar {
+    background-color: $slider-bar-color;
+  }
+
+  &__range {
+    background-color: currentColor;
+  }
+
+  &__handle {
+    @include transition((background-color, border-color, box-shadow));
+
+    position: absolute;
+    background-color: $slider-handle-color;
+    width: $slider-handle-size;
+    height: $slider-handle-size;
+    border-radius: 50%;
+    border: 1px solid $slider-handle-border;
+    box-shadow: 0 0 0 1px transparent;
+    box-sizing: border-box;
+    display: block;
+    outline: none;
+    color: inherit;
+    transform: translateX(-#{$slider-handle-size * 0.5});
+
+    &--active,
+    &:active {
+      background-color: currentColor;
+      border-color: $slider-handle-focus-border;
+      z-index: 1;
+    }
+
+    &.cdk-focused {
+      box-shadow: 0 0 0 1px $slider-default-color;
+    }
+  }
+}

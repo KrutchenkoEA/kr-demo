@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.krui-form-field {
+  &-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &--focus {
+    position: relative;
+    z-index: 101;
+
+    &-date-picker {
+      z-index: 100;
+    }
+  }
+}

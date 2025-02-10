@@ -48,6 +48,41 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     iconUrl: 'kruiIconChartDiagramPie',
   },
   {
+    label: 'Checkbox',
+    iconUrl: 'kruiIconOk',
+    href: 'checkbox',
+  },
+  {
+    label: 'Crawlers',
+    iconUrl: 'kruiIconSettingsSliders',
+    children: [
+      {
+        label: 'Slider',
+        href: 'slider',
+      },
+
+      {
+        label: 'Range',
+        href: 'range',
+      },
+    ],
+  },
+  {
+    label: 'Form field',
+    iconUrl: 'kruiIconCard',
+    href: 'input',
+  },
+  {
+    label: 'Select',
+    iconUrl: 'kruiIconOk',
+    href: 'select',
+  },
+  {
+    label: 'Spinner',
+    iconUrl: 'kruiIconCircleArrowsCycle',
+    href: 'spinner',
+  },
+  {
     label: 'Tabs',
     href: 'tabs',
     iconUrl: 'kruiIconLayers',

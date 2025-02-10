@@ -1,0 +1,24 @@
+<li
+  [class.krui-dropdown-list__item--disabled]="disabled"
+  [class.krui-dropdown-list__item--focus]="isFocused"
+  [class.krui-dropdown-list__item--selected]="isSelected"
+  class="krui-dropdown-list__item"
+>
+  <label (click)="$event.preventDefault()">
+    <input
+      *ngIf="select.multiple"
+      [checked]="isSelected"
+      class="krui-checkbox krui-checkbox--md"
+      type="checkbox"
+    />
+    <span #content class="option-content"><ng-content></ng-content></span>
+    <ng-container *ngIf="!select.multiple">
+      <span class="krui-dropdown-list__delimeter"></span>
+      <svg-icon
+        *ngIf="isSelected"
+        class="krui-text--logo"
+        src="kruiIconOk"
+      ></svg-icon>
+    </ng-container>
+  </label>
+</li>

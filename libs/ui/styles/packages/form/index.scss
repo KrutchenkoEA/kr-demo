@@ -1,0 +1,82 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "../transition/mixins";
+
+.krui-input {
+  $root: &;
+
+  @include input-base();
+
+  @each $variant in map-keys($input-sizes) {
+    &--#{$variant} {
+      @include input-size-variant($variant);
+    }
+  }
+
+  @each $variant in map-keys($input-sizes) {
+    &--padding-#{$variant} {
+      @include input-size-float-placeholder-variant($variant);
+    }
+  }
+
+  &-group {
+    @include input-group($root);
+  }
+
+  @include input-chips();
+
+  &--no-appearance {
+    @include appearance(none);
+  }
+
+  &--outlined {
+    @include input-outline();
+  }
+}
+
+.krui-checkbox {
+  @include checkbox-base();
+
+  @each $variant in map-keys($checkbox-sizes) {
+    &--#{$variant} {
+      @include checkbox-size-variant($variant);
+    }
+  }
+}
+
+.krui-radio {
+  @include radio-base();
+
+  @each $variant in map-keys($radio-sizes) {
+    &--#{$variant} {
+      @include radio-size-variant($variant);
+    }
+  }
+}
+
+textarea.krui-input {
+  padding: $input-group-gap 0;
+  resize: none;
+}
+
+.krui-form-field {
+  @include form-field();
+
+  @each $variant in map-keys($input-colors) {
+    &--#{$variant} {
+      @include form-field-color-variant($variant);
+    }
+  }
+
+  &-label {
+    @include form-field-label();
+  }
+
+  &-hint {
+    @include form-field-hint();
+  }
+
+  &--block {
+    display: block;
+  }
+}
