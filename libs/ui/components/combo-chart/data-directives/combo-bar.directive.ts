@@ -26,7 +26,7 @@ import {
   KruiChartComboBarConfig,
   KruiChartDataLayerAnimated,
   KruiChartDataLayerColorProvider,
-  KruiChartDataLayerComboBarInputs,
+  KruiChartDataLayerComboBarInputs, KruiChartDataLayerCommonInputs,
   KruiChartDataLayerProvider,
   KruiChartDataLayerRenderer,
   KruiChartDataLayerTooltipProvider,
@@ -92,7 +92,8 @@ export class KruiChartComboBarDirective implements OnInit,
   KruiChartDataLayerProvider<number | string, number>,
   KruiChartDataLayerRenderer,
   KruiChartDataLayerTooltipProvider<number | string>,
-  KruiChartDataLayerComboBarInputs {
+  KruiChartDataLayerComboBarInputs,
+  KruiChartDataLayerCommonInputs {
 
   // region definition
 
@@ -117,6 +118,7 @@ export class KruiChartComboBarDirective implements OnInit,
   @Input() public reRangeThenDataChange: boolean = false;
   @Input() public workgroundPadding: KruiChartWorkgroundPadding = { top: 5, right: 10, left: 10, bottom: 0 };
   @Input() public useDefaultCheck: boolean = true;
+  @Input() public withMinMaxCoef: boolean = false;
   public _minValue: number = 0;
   public _maxValueCurrent: number = 0;
   public _maxValueAbsolute: number = 0;
@@ -402,7 +404,11 @@ export class KruiChartComboBarDirective implements OnInit,
     if (min === 0) {
       this._minValue = 0.001;
     } else {
-      this._minValue = min - min * 0.001;
+      if (this.withMinMaxCoef) {
+        this._minValue = min - min * 0.001;
+      } else {
+        this._minValue = min;
+      }
     }
   }
 
@@ -410,31 +416,34 @@ export class KruiChartComboBarDirective implements OnInit,
     let max = Number.NEGATIVE_INFINITY;
     this._stackedData?.map(([, b]) => {
       if (b != null) {
-        max = Math.max(max, b.reduce((p, c, i) => p + c, 0));
+        max = Math.max(max, ...b.map((v: number) => v));
       } else {
         max = Math.max(max, this._minValue);
       }
     });
-    this._maxValueAbsolute = max + max * 0.001;
-    this._maxValueCurrent = max + max * 0.001;
+    if (this.withMinMaxCoef) {
+      this._maxValueAbsolute = max + max * 0.001;
+      this._maxValueCurrent = max + max * 0.001;
+    } else {
+      this._maxValueAbsolute = max;
+      this._maxValueCurrent = max;
+    }
   }
 
   public _getMaxCurrent(): void {
     let max = Number.NEGATIVE_INFINITY;
-
     this._stackedData?.forEach(v => v.forEach(([, b]) => {
       if (b != null) {
-        max = Math.max(max, b.reduce((p: number, c: number, i: number) => {
-          if (!!this.state.get(i)) {
-            return p;
-          }
-          return p + c;
-        }, 0));
+        max = Math.max(max, ...b.map((v: number) => v));
       } else {
         max = Math.max(max, this._minValue);
       }
     }));
-    this._maxValueCurrent = max + max * 0.001;
+    if (this.withMinMaxCoef) {
+      this._maxValueCurrent = max + max * 0.001;
+    } else {
+      this._maxValueCurrent = max;
+    }
   }
 
   public getWorkgroundPadding(axisType: KruiChartAxisType): KruiChartWorkgroundPadding {

@@ -25,6 +25,7 @@ export interface IKruiChartDataLayerDrawConfigInputs {
   reRangeThenDataChange: boolean;
   workgroundPadding: KruiChartWorkgroundPadding;
   useDefaultCheck: boolean;
+  withMinMaxCoef: boolean;
 }
 
 export interface KruiChartDataLayerCommonInputs extends IKruiChartDataLayerValueShowerInputs,

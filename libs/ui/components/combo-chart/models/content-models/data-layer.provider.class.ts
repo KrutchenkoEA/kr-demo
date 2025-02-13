@@ -48,6 +48,7 @@ export abstract class KruiChartDataLayerProvider<U, V> implements IKruiChartData
   abstract reRangeThenDataChange: boolean;
   abstract useDefaultCheck: boolean;
   abstract workgroundPadding: KruiChartWorkgroundPadding;
+  abstract withMinMaxCoef: boolean;
   abstract _minValue: number;
   abstract _maxValueCurrent: number;
   abstract _maxValueAbsolute: number;

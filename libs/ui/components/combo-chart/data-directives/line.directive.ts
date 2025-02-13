@@ -12,6 +12,7 @@ import {
   KruiChartAxisType,
   KruiChartDataLayerAnimated,
   KruiChartDataLayerColorProvider,
+  KruiChartDataLayerCommonInputs,
   KruiChartDataLayerProvider,
   KruiChartDataLayerRenderer,
   KruiChartDataLayerTooltipProvider,
@@ -80,7 +81,8 @@ export class KruiChartLineDirective implements OnInit,
   KruiChartDataPointProvider,
   KruiChartDataLayerRenderer,
   KruiChartDataLayerTooltipProvider<number | string>,
-  IKruiChartDataLayerLineInputs {
+  IKruiChartDataLayerLineInputs,
+  KruiChartDataLayerCommonInputs {
 
   // region definition
 
@@ -105,6 +107,7 @@ export class KruiChartLineDirective implements OnInit,
   @Input() public reRangeThenDataChange: boolean = true;
   @Input() public workgroundPadding: KruiChartWorkgroundPadding = { top: 5, right: 10, left: 10, bottom: 5 };
   @Input() public useDefaultCheck: boolean = true;
+  @Input() public withMinMaxCoef: boolean = false;
   public _minValue: number = 0;
   public _maxValueCurrent: number = 0;
   public _maxValueAbsolute: number = 0;
@@ -443,7 +446,11 @@ export class KruiChartLineDirective implements OnInit,
     if (min === 0) {
       this._minValue = 0.001;
     } else {
-      this._minValue = min > 0 ? this.getCoefficient(min, '0') * min : this.getCoefficient(min, '1') * min;
+      if (this.withMinMaxCoef) {
+        this._minValue = min > 0 ? this.getCoefficient(min, '0') * min : this.getCoefficient(min, '1') * min;
+      } else {
+        this._minValue = min;
+      }
     }
   }
 
@@ -456,8 +463,13 @@ export class KruiChartLineDirective implements OnInit,
         max = Math.max(max, this._minValue);
       }
     });
-    this._maxValueAbsolute = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
-    this._maxValueCurrent = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
+    if (this.withMinMaxCoef) {
+      this._maxValueAbsolute = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
+      this._maxValueCurrent = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
+    } else {
+      this._maxValueAbsolute = max;
+      this._maxValueCurrent = max;
+    }
   }
 
   public _getMaxCurrent(): void {
@@ -473,7 +485,11 @@ export class KruiChartLineDirective implements OnInit,
         max = Math.max(max, this._minValue);
       }
     });
-    this._maxValueCurrent = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
+    if (this.withMinMaxCoef) {
+      this._maxValueCurrent = max > 0 ? this.getCoefficient(max, '1') * max : this.getCoefficient(max, '0') * max;
+    } else {
+      this._maxValueCurrent = max;
+    }
   }
 
   public getWorkgroundPadding(): KruiChartWorkgroundPadding {
@@ -1132,7 +1148,8 @@ export class KruiChartLineDirective implements OnInit,
                 d,
               ],
               [
-                notNul((primaryAxis as d3.ScaleBand<any>)(d)) + (this._bandwidth ?? 0) / 2, notNul(secondaryAxis(b)), c, d,
+                notNul((primaryAxis as d3.ScaleBand<any>)(d)) + (this._bandwidth ?? 0) / 2, notNul(secondaryAxis(b)), c,
+                d,
               ],
             ];
           }
