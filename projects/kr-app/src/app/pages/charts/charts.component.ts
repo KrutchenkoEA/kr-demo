@@ -2,40 +2,31 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@
 import {
   IKruiChartSingleLayerInputModel,
   IKruiOptionsFormType,
-  KRUI_CHART_FORM_CREATE_SERVICE,
-  KRUI_CHART_LINE_INTERPOLATE,
-  KRUI_CHART_POINT_MARKERS,
-  KRUI_CHART_POINT_MARKERS_CONFIG,
-  KruiAccordionModule, KruiButtonModule,
-  KruiChartComboModule,
+  KRUI_CHART_FORM_CREATE_SERVICE, KruiButtonModule,
   KruiChartFormCreateService,
   kruiChartRandomDateArray,
   kruiChartRdmNumberData,
-  KruiCheckboxModule,
-  KruiFormFieldModule,
-  KruiSliderModule,
 } from '@kr-platform/ui';
 import { BehaviorSubject, debounceTime, Subscription } from 'rxjs';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SvgIconComponent } from 'angular-svg-icon';
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { SplitAreaComponent, SplitComponent } from 'angular-split';
+import { ComboChartGeneratorComponent } from './components/combo-chart-generator/combo-chart-generator.component';
+import { ComboChartSettingsComponent } from './components/combo-chart-settings/combo-chart-settings.component';
 
 @Component({
   selector: 'kr-app-charts',
   imports: [
-    KruiChartComboModule,
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     SvgIconComponent,
-    AsyncPipe,
-    NgForOf,
-    KruiAccordionModule,
-    KruiFormFieldModule,
-    KruiCheckboxModule,
-    KruiSliderModule,
-    KruiButtonModule,
     SplitComponent,
     SplitAreaComponent,
+    ComboChartGeneratorComponent,
+    ComboChartSettingsComponent,
+    KruiButtonModule,
   ],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss',
@@ -43,10 +34,11 @@ import { SplitAreaComponent, SplitComponent } from 'angular-split';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChartsComponent implements OnInit, OnDestroy {
-  public interpolation = KRUI_CHART_LINE_INTERPOLATE;
-  public markers = KRUI_CHART_POINT_MARKERS;
-  public dataMarkers = KRUI_CHART_POINT_MARKERS_CONFIG;
-  public optionsForm: IKruiOptionsFormType;
+  public form!: FormGroup<{ optionsForm: IKruiOptionsFormType }>;
+
+  public get optionsForm(): IKruiOptionsFormType {
+    return this.form?.controls.optionsForm;
+  }
 
   public options: BehaviorSubject<{
     data: [any, number | null, any][]; view: IKruiChartSingleLayerInputModel;
@@ -54,8 +46,14 @@ export class ChartsComponent implements OnInit, OnDestroy {
 
   public subscription: Subscription | undefined;
 
-  constructor(@Inject(KRUI_CHART_FORM_CREATE_SERVICE) private readonly formCreateService: KruiChartFormCreateService) {
-    this.optionsForm = this.formCreateService.createSettingFormDefault();
+  constructor(
+    @Inject(KRUI_CHART_FORM_CREATE_SERVICE) private readonly formCreateService: KruiChartFormCreateService,
+    private readonly fb: FormBuilder,
+  ) {
+    this.form = this.fb.group({
+        optionsForm: this.formCreateService.createSettingFormDefault(),
+      },
+    );
   }
 
 
