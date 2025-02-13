@@ -8,6 +8,7 @@ import { ComboBarChartsComponent} from '@kr-platform/kit/pages/combo-bar-charts/
 import { InputComponent} from '@kr-platform/kit/pages/input/input.component';
 import { LineChartsComponent} from '@kr-platform/kit/pages/line-charts/line-charts.component';
 import { RangeComponent} from '@kr-platform/kit/pages/range/range.component';
+import { RangeBarChartsComponent} from '@kr-platform/kit/pages/range-bar-charts/range-bar-charts.component';
 import { SelectComponent} from '@kr-platform/kit/pages/select/select.component';
 import { SliderComponent} from '@kr-platform/kit/pages/slider/slider.component';
 import { SpinnerComponent} from '@kr-platform/kit/pages/spinner/spinner.component';
@@ -48,6 +49,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'range',
         component: RangeComponent,
+      },
+{
+        path: 'range-bar-charts',
+        component: RangeBarChartsComponent,
       },
 {
         path: 'select',

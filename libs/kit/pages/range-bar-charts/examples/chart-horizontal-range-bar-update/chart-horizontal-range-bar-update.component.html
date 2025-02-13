@@ -1,12 +1,14 @@
-<krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'dataPoint'">
+<krui-chart [chartOrientation]="'horizontal'" [height]="600" [legendType]="'simple-style'" [toolbar]="true"
+            [tooltipMarkerType]="'horizontal-line'"
+            [tooltipType]="'dataPoint'">
   <krui-chart-layer>
     <krui-chart-axis
-      [primary]="true"
       name="x"
       position="bottom"
       type="number"
     ></krui-chart-axis>
     <krui-chart-axis
+      [primary]="true"
       name="y"
       position="left"
       type="number"
@@ -20,20 +22,25 @@
       [barBorderColors]="['rgb(45, 141, 237)']"
       [barBorder]="true"
       [barRadius]="4"
-      [captions]="[2020,2021,2022,2023]"
-      [color]="'rgba(45, 141, 237,0.5)'"
-      [colors]="['darkkhaki', 'darkmagenta', 'darkolivegreen']"
-      [data]="[data, data2, data3]"
-      [showValues]="false"
-      [tooltipHoverEffect]="true"
+      [captions]="[2020,2021]"
+      [color]="'rgba(237,199,45,0.5)'"
+      [colors]="['#8b0019', '#0bb80e']"
+      [data]="[data, data2]"
+      [showValues]="true"
+      [tooltipHoverEffect]="false"
+      [valuePosition]="'center'"
       [workgroundPadding]="{
         top: 5,
         right: 15,
         bottom: 0,
         left: 15
       }"
-      kruiChartComboBar
+      kruiChartHorizontalRangeBar
     >
     </krui-chart-data-layer>
   </krui-chart-layer>
 </krui-chart>
+
+<div class="update-button">
+  <button (click)="update()" kruiButton> Обновить данные</button>
+</div>

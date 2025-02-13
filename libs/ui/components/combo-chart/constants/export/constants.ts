@@ -1,4 +1,4 @@
-export const KRUI_CHART_AXIS_COLOR = 'var(--color-borders-light)';
+export const KRUI_CHART_AXIS_COLOR = 'var(--color-borders-icons)';
 export const KRUI_CHART_GRID_COLOR = 'var(--color-borders-stroke)';
 export const KRUI_CHART_TEXT_COLOR = 'var(--color-text-contrast)';
 export const KRUI_CHART_BG_COLOR = 'var(--color-background-main)';

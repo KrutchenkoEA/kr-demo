@@ -20,11 +20,12 @@
       [barBorderColors]="['rgb(45, 141, 237)']"
       [barBorder]="true"
       [barRadius]="4"
-      [captions]="[2020,2021,2022,2023]"
+      [captions]="[2020,2021]"
       [color]="'rgba(45, 141, 237,0.5)'"
-      [colors]="['darkkhaki', 'darkmagenta', 'darkolivegreen']"
-      [data]="[data, data2, data3]"
-      [showValues]="false"
+      [colors]="['cyan', 'blue']"
+      [data]="[data, data2]"
+      [showValues]="true"
+      [valuePosition]="'center'"
       [tooltipHoverEffect]="true"
       [workgroundPadding]="{
         top: 5,
@@ -32,8 +33,12 @@
         bottom: 0,
         left: 15
       }"
-      kruiChartComboBar
+      kruiChartRangeBar
     >
     </krui-chart-data-layer>
   </krui-chart-layer>
 </krui-chart>
+
+<div class="update-button">
+  <button (click)="update()" kruiButton> Обновить данные</button>
+</div>

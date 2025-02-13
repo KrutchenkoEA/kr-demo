@@ -29,6 +29,7 @@ import { LineChartsComponent } from '@kr-platform/kit/pages/line-charts/line-cha
 import { BarChartsComponent } from '@kr-platform/kit/pages/bar-charts/bar-charts.component';
 import { StackBarChartsComponent } from '@kr-platform/kit/pages/stack-bar-charts/stack-bar-charts.component';
 import { ComboBarChartsComponent } from '@kr-platform/kit/pages/combo-bar-charts/combo-bar-charts.component';
+import { RangeBarChartsComponent } from '@kr-platform/kit/pages/range-bar-charts/range-bar-charts.component';
 
 
 const kitPages = [
@@ -49,7 +50,8 @@ const kitPagesCharts = [
   LineChartsComponent,
   BarChartsComponent,
   StackBarChartsComponent,
-  ComboBarChartsComponent
+  ComboBarChartsComponent,
+  RangeBarChartsComponent
 ];
 
 @NgModule({
