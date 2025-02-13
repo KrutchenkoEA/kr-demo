@@ -1,8 +1,16 @@
+@import '../../../theme/mixins/split-mixin';
+
 :host {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 1rem;
+
+  ::ng-deep {
+    @include split();
+  }
 }
+
 
 
 .button {
@@ -11,6 +19,7 @@
 }
 
 .container {
+  padding: 0 1rem;
   box-sizing: border-box;
 
   &__accordion {

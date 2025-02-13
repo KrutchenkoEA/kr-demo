@@ -19,6 +19,7 @@ import { BehaviorSubject, debounceTime, Subscription } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { AsyncPipe, NgForOf } from '@angular/common';
+import { SplitAreaComponent, SplitComponent } from 'angular-split';
 
 @Component({
   selector: 'kr-app-charts',
@@ -33,6 +34,8 @@ import { AsyncPipe, NgForOf } from '@angular/common';
     KruiCheckboxModule,
     KruiSliderModule,
     KruiButtonModule,
+    SplitComponent,
+    SplitAreaComponent,
   ],
   templateUrl: './charts.component.html',
   styleUrl: './charts.component.scss',

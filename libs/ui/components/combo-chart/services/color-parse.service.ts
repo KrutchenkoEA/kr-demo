@@ -3,20 +3,22 @@ import { Injectable } from '@angular/core';
 
 export enum KruiChartDarkColorsEnum {
   'var(--color-text-contrast)' = '#ffffff',
-  'var(--color-borders-and-icons-icons)' = '#727689',
-  'var(--color-borders-and-icons-stroke-shape)' = '#2d3443',
-  'var(--color-background-popup-widgets)' = '#212631',
-  'var(--color-color-12)' = '#97a3ba',
-  'var(--color-logo)' = '#f0643e',
+  'var(--color-background-main)' = '#22262f',
+  'var(--color-borders-light)' = '#3e4859',
+  'var(--color-borders-stroke)' = '#2c333d',
+  'var(--color-borders-icons)' = '#a0b0c9',
+  'var(--color-color-12)' = '#d6dbe5',
+  'var(--color-logo)' = '#5A72FF',
 }
 
 export enum KruiChartLightColorsEnum {
-  'var(--color-text-contrast)' = '#212631',
-  'var(--color-borders-and-icons-icons)' = '#97a3ba',
-  'var(--color-borders-and-icons-stroke-shape)' = '#eaecf1',
-  'var(--color-background-popup-widgets)' = '#ffffff',
-  'var(--color-color-12)' = '#455168',
-  'var(--color-logo)' = '#f0643e',
+  'var(--color-text-contrast)' = '#181d25',
+  'var(--color-background-main)' = '#f9fafb',
+  'var(--color-borders-light)' = '#e5e9f2',
+  'var(--color-borders-stroke)' = '#d3d9e4',
+  'var(--color-borders-icons)' = '#b5c1d0',
+  'var(--color-color-12)' = '#98a6ba',
+  'var(--color-logo)' = '#5A72FF',
 }
 
 @Injectable()
