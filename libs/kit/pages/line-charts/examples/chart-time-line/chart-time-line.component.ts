@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { formatter, stream1 } from './const';
 
-/** @title Формат даты */
+/** @title Временной */
 
 @Component({
   selector: 'chart-time-line',

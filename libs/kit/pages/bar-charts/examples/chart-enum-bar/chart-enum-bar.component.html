@@ -1,0 +1,53 @@
+<krui-chart [borderColor]="'transparent'"
+            [height]="600"
+            [legendAxis]="false"
+            [legendLayer]="false"
+            [toolbar]="false"
+            [tooltipType]="'dataPoint'">
+  <krui-chart-layer [layerTitle]="'Группа 1'" [zoomPrimaryEnable]="false" [zoomSecondaryEnable]="false">
+    <krui-chart-axis
+      [drawAxisLabelLine]="false"
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="enum"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [drawAxisLabel]="false"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid [drawGrid]="false" axis="x"></krui-chart-grid>
+    <krui-chart-grid [drawGrid]="false" axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animationType]="'growth'"
+      [barRadius]="6"
+      [barWidthPercent]="80"
+      [captions]="['Факт']"
+      [color]="'rgba(114, 118, 137, 1)'"
+      [data]="data"
+      [showEnumValues]="false"
+      [showValues]="true"
+      [valuePosition]="'center'"
+      kruiChartBar
+    >
+    </krui-chart-data-layer>
+
+    <krui-chart-data-layer
+      [animationType]="'growth'"
+      [barRadius]="6"
+      [barWidthPercent]="80"
+      [captions]="['План']"
+      [color]="'rgba(93, 212, 37, 1)'"
+      [data]="data2"
+      [showEnumValues]="false"
+      [showValues]="true"
+      [valuePosition]="'center'"
+      kruiChartBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

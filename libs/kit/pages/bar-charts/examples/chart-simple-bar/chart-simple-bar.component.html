@@ -1,0 +1,32 @@
+<krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorderColor]="'rgb(45, 141, 237)'"
+      [barBorder]="true"
+      [barRadius]="4"
+      [captions]="[2022]"
+      [color]="'rgba(45, 141, 237,0.5)'"
+      [data]="data"
+      [showValues]="true"
+      [valuePosition]="'top'"
+      kruiChartBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

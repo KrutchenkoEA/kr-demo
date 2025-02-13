@@ -1,0 +1,63 @@
+<krui-chart [height]="600" [legendAxis]="true" [legendLayer]="true" [legendType]="'default'" [toolbar]="true"
+            [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      [ticks]="8"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [ticks]="8"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorder]="true"
+      [barRadius]="4"
+      [captions]="[2022]"
+      [data]="data"
+      [showValues]="true"
+      [valuePosition]="'center'"
+      kruiChartBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      [ticks]="8"
+      name="x"
+      position="top"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [ticks]="6"
+      name="y"
+      position="right"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid [drawGrid]="false" axis="x"></krui-chart-grid>
+    <krui-chart-grid [drawGrid]="false" axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorder]="true"
+      [barRadius]="4"
+      [captions]="[2023]"
+      [color]="'rgba(45, 141, 237, 0.3)'"
+      [data]="data2"
+      kruiChartBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

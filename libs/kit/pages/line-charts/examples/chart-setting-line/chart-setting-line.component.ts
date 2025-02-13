@@ -13,7 +13,7 @@ import {
   kruiChartRdmNumberData,
 } from '@kr-platform/ui';
 
-/** @title Настройки графика */
+/** @title Настройки */
 
 @Component({
   selector: 'chart-setting-line',

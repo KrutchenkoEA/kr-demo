@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { kruiChartLineEnumMock1 } from '@kr-platform/ui';
 
-/** @title Enum ось */
+/** @title Enum */
 
 @Component({
   selector: 'chart-enum-line',

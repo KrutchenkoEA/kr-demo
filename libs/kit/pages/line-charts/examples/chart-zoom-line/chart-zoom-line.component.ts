@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { kruiChartNumberMock4 } from '@kr-platform/ui';
 
-/** @title График с зумом областью */
+/** @title Zoom */
 
 @Component({
   selector: 'chart-zoom-line',

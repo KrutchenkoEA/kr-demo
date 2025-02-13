@@ -3,7 +3,7 @@ import { stream0, stream1, stream2, stream3 } from './data';
 import { KruiChartPointDataOptions } from '@kr-platform/ui';
 
 
-/** @title График с метками точек */
+/** @title Точки */
 
 @Component({
   selector: 'chart-point-line',

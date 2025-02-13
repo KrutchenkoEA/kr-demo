@@ -1,0 +1,32 @@
+:host {
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.tooltip {
+  background: var(--color-background-popup-widgets);
+  border: 1px solid var(--color-borders-and-icons-stroke-shape);
+  border-radius: 6px;
+  padding: 4px;
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__marker {
+    width: 14px;
+    height: 8px;
+    border-radius: 1px;
+  }
+
+  &__value {
+    color: var(--color-text-contrast);
+  }
+
+  &__label {
+    color: var(--color-text-signatures-and-future);
+  }
+}

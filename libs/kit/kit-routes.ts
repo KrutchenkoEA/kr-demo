@@ -11,6 +11,7 @@ import { SliderComponent } from '@kr-platform/kit/pages/slider/slider.component'
 import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.component';
 import { ButtonComponent } from '@kr-platform/kit/pages/button/button.component';
 import { LineChartsComponent } from '@kr-platform/kit/pages/line-charts/line-charts.component';
+import { BarChartsComponent } from '@kr-platform/kit/pages/bar-charts/bar-charts.component';
 
 export const KrKitRoutes: Routes = [
   {
@@ -32,6 +33,10 @@ export const KrKitRoutes: Routes = [
   {
     path: 'line-charts',
     component: LineChartsComponent,
+  },
+  {
+    path: 'bar-charts',
+    component: BarChartsComponent,
   },
   {
     path: 'range',
