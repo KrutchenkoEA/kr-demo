@@ -35,7 +35,7 @@ export const KrKitMenu: KruiMainMenuItem[] = [
       },
       {
         label: 'Combo bar charts',
-        href: 'bar-combo-charts',
+        href: 'combo-bar-charts',
       },
       {
         label: 'Stack bar charts',

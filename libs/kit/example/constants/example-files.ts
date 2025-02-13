@@ -877,7 +877,7 @@ export const EXAMPLE_FILES = {
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;barLayer&quot;</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Столбец&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;barLayer&quot;</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Столбец&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;config&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -1418,8 +1418,8 @@ export const EXAMPLE_FILES = {
 }
 
 <span class="hljs-selector-class">.tooltip</span> {
-  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-background-popup-widgets);
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-background-body);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-stroke);
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span>;
 
@@ -1441,7 +1441,7 @@ export const EXAMPLE_FILES = {
   }
 
   &amp;__label {
-    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main);
   }
 }
 `,	'bar-charts/chart-tooltip-horizontal-bar/tooltip.component.ts': `<span class="hljs-keyword">import</span> { animate, state, style, transition, trigger } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/animations&#x27;</span>;
@@ -1776,6 +1776,1328 @@ export const EXAMPLE_FILES = {
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CheckboxSimpleExample</span> {}
+`,
+	'combo-bar-charts/chart-combo-bar/chart-combo-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(45, 141, 237)&#x27;]&quot;</span>
+      [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022,2023]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;red&#x27;, &#x27;yellow&#x27;, &#x27;green&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2, data3]&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 15
+      }&quot;</span>
+      <span class="hljs-attr">kruiChartComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'combo-bar-charts/chart-combo-bar/chart-combo-bar.component.scss': ``,	'combo-bar-charts/chart-combo-bar/chart-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  kruiChartNumberMock1,
+  kruiChartNumberMock2,
+  kruiChartNumberMock3,
+  kruiChartNumberMock4,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Базовый */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartComboBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartNumberMock2;
+  <span class="hljs-keyword">public</span> data3 = kruiChartNumberMock3;
+  <span class="hljs-keyword">public</span> data4 = kruiChartNumberMock4;
+}
+`,
+	'combo-bar-charts/chart-combo-horizontal-bar/chart-combo-horizontal-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">chartOrientation</span>]=<span class="hljs-string">&quot;&#x27;horizontal&#x27;&quot;</span>
+            [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span>
+            [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span>
+            [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">tooltipMarkerType</span>]=<span class="hljs-string">&quot;&#x27;none&#x27;&quot;</span>
+            [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span> [<span class="hljs-attr">zoomPrimaryEnable</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">zoomSecondaryEnable</span>]=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(45, 141, 237)&#x27;]&quot;</span>
+      [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022,2023]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2, data3]&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">kruiChartHorizontalComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'combo-bar-charts/chart-combo-horizontal-bar/chart-combo-horizontal-bar.component.scss': ``,	'combo-bar-charts/chart-combo-horizontal-bar/chart-combo-horizontal-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { data, data2, data3, data4 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./const&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Горизонтальный */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-combo-horizontal-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-combo-horizontal-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-combo-horizontal-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartComboHorizontalBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = data;
+  <span class="hljs-keyword">public</span> data2 = data2;
+  <span class="hljs-keyword">public</span> data3 = data3;
+  <span class="hljs-keyword">public</span> data4 = data4;
+}
+`,	'combo-bar-charts/chart-combo-horizontal-bar/const.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiChartBarInputData</span>, <span class="hljs-title class_">KruiChartStackedBarInputData</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> data = [
+  [<span class="hljs-number">1</span>, <span class="hljs-number">48</span>, <span class="hljs-string">&#x27;1&#x27;</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">44</span>, <span class="hljs-string">&#x27;2&#x27;</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-number">40</span>, <span class="hljs-string">&#x27;3&#x27;</span>],
+  [<span class="hljs-number">4</span>, <span class="hljs-number">39</span>, <span class="hljs-string">&#x27;4&#x27;</span>],
+  [<span class="hljs-number">5</span>, <span class="hljs-number">35</span>, <span class="hljs-string">&#x27;5&#x27;</span>],
+  [<span class="hljs-number">6</span>, <span class="hljs-number">34</span>, <span class="hljs-string">&#x27;6&#x27;</span>],
+  [<span class="hljs-number">7</span>, <span class="hljs-number">33</span>, <span class="hljs-string">&#x27;7&#x27;</span>],
+  [<span class="hljs-number">8</span>, <span class="hljs-number">37</span>, <span class="hljs-string">&#x27;8&#x27;</span>],
+  [<span class="hljs-number">9</span>, <span class="hljs-number">38</span>, <span class="hljs-string">&#x27;9&#x27;</span>],
+  [<span class="hljs-number">10</span>, <span class="hljs-number">43</span>, <span class="hljs-string">&#x27;10&#x27;</span>]
+] <span class="hljs-keyword">as</span> <span class="hljs-title class_">KruiChartBarInputData</span>[];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> data2 = [
+  [<span class="hljs-number">1</span>, <span class="hljs-number">22</span>, <span class="hljs-string">&#x27;1&#x27;</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">27</span>, <span class="hljs-string">&#x27;2&#x27;</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-number">33</span>, <span class="hljs-string">&#x27;3&#x27;</span>],
+  [<span class="hljs-number">4</span>, <span class="hljs-number">28</span>, <span class="hljs-string">&#x27;4&#x27;</span>],
+  [<span class="hljs-number">5</span>, <span class="hljs-number">26</span>, <span class="hljs-string">&#x27;5&#x27;</span>],
+  [<span class="hljs-number">6</span>, <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;6&#x27;</span>],
+  [<span class="hljs-number">7</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;7&#x27;</span>],
+  [<span class="hljs-number">8</span>, <span class="hljs-number">26</span>, <span class="hljs-string">&#x27;8&#x27;</span>],
+  [<span class="hljs-number">9</span>, <span class="hljs-number">24</span>, <span class="hljs-string">&#x27;9&#x27;</span>],
+  [<span class="hljs-number">10</span>, <span class="hljs-number">28</span>, <span class="hljs-string">&#x27;10&#x27;</span>]
+] <span class="hljs-keyword">as</span> <span class="hljs-title class_">KruiChartBarInputData</span>[];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> data3 = [
+  [<span class="hljs-number">1</span>, <span class="hljs-number">34</span>, <span class="hljs-string">&#x27;1&#x27;</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-number">33</span>, <span class="hljs-string">&#x27;2&#x27;</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-number">36</span>, <span class="hljs-string">&#x27;3&#x27;</span>],
+  [<span class="hljs-number">4</span>, <span class="hljs-number">35</span>, <span class="hljs-string">&#x27;4&#x27;</span>],
+  [<span class="hljs-number">5</span>, <span class="hljs-number">33</span>, <span class="hljs-string">&#x27;5&#x27;</span>],
+  [<span class="hljs-number">6</span>, <span class="hljs-number">38</span>, <span class="hljs-string">&#x27;6&#x27;</span>],
+  [<span class="hljs-number">7</span>, <span class="hljs-number">33</span>, <span class="hljs-string">&#x27;7&#x27;</span>],
+  [<span class="hljs-number">8</span>, <span class="hljs-number">39</span>, <span class="hljs-string">&#x27;8&#x27;</span>],
+  [<span class="hljs-number">9</span>, <span class="hljs-number">36</span>, <span class="hljs-string">&#x27;9&#x27;</span>],
+  [<span class="hljs-number">10</span>, <span class="hljs-number">32</span>, <span class="hljs-string">&#x27;10&#x27;</span>]
+] <span class="hljs-keyword">as</span> <span class="hljs-title class_">KruiChartBarInputData</span>[];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> data4 = [
+  [<span class="hljs-number">1</span>, [<span class="hljs-number">48</span>, <span class="hljs-number">22</span>, <span class="hljs-number">34</span>], <span class="hljs-string">&#x27;1&#x27;</span>],
+  [<span class="hljs-number">2</span>, [<span class="hljs-number">44</span>, <span class="hljs-number">27</span>, <span class="hljs-number">33</span>], <span class="hljs-string">&#x27;2&#x27;</span>],
+  [<span class="hljs-number">3</span>, [<span class="hljs-number">40</span>, <span class="hljs-number">33</span>, <span class="hljs-number">36</span>], <span class="hljs-string">&#x27;3&#x27;</span>],
+  [<span class="hljs-number">4</span>, [<span class="hljs-number">39</span>, <span class="hljs-number">28</span>, <span class="hljs-number">35</span>], <span class="hljs-string">&#x27;4&#x27;</span>],
+  [<span class="hljs-number">5</span>, [<span class="hljs-number">35</span>, <span class="hljs-number">26</span>, <span class="hljs-number">33</span>], <span class="hljs-string">&#x27;5&#x27;</span>]
+] <span class="hljs-keyword">as</span> <span class="hljs-title class_">KruiChartStackedBarInputData</span>[];
+`,
+	'combo-bar-charts/chart-enum-horizontal-combo-bar/chart-enum-horizontal-combo-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">chartOrientation</span>]=<span class="hljs-string">&quot;&#x27;horizontal&#x27;&quot;</span>
+            [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span>
+            [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span>
+            [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;false&quot;</span>
+            [<span class="hljs-attr">tooltipMarkerType</span>]=<span class="hljs-string">&quot;&#x27;horizontal-line&#x27;&quot;</span>
+            [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span> [<span class="hljs-attr">zoomPrimaryEnable</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">zoomSecondaryEnable</span>]=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;enum&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;1&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2018,2020]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;&#x27;top&#x27;&quot;</span>
+      [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{
+        top: 10,
+        right: 15,
+        bottom: 10,
+        left: 0
+      }&quot;</span>
+      <span class="hljs-attr">kruiChartHorizontalComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'combo-bar-charts/chart-enum-horizontal-combo-bar/chart-enum-horizontal-combo-bar.component.scss': ``,	'combo-bar-charts/chart-enum-horizontal-combo-bar/chart-enum-horizontal-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartBarEnumMock1, kruiChartBarEnumMock3 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Enum */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-enum-horizontal-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-enum-horizontal-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-enum-horizontal-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartEnumHorizontalComboBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartBarEnumMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartBarEnumMock3;
+}
+`,
+	'combo-bar-charts/chart-setting-combo-bar/chart-setting-combo-bar.component.html': `@if ((options | async); as chartOptions) {
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span>
+    [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span>
+    [<span class="hljs-attr">setDefIfContainerSizeInvalid</span>]=<span class="hljs-string">&quot;true&quot;</span>
+    [<span class="hljs-attr">bgColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.bgColor&quot;</span>
+    [<span class="hljs-attr">borderColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.borderColor&quot;</span>
+    [<span class="hljs-attr">borderRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.borderRadius&quot;</span>
+    [<span class="hljs-attr">chartOrientation</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.chartOrientation&quot;</span>
+    [<span class="hljs-attr">legendAxis</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendAxis&quot;</span>
+    [<span class="hljs-attr">legendLayer</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendLayer&quot;</span>
+    [<span class="hljs-attr">legendPosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendPosition&quot;</span>
+    [<span class="hljs-attr">legendTrend</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendTrend&quot;</span>
+    [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendType&quot;</span>
+    [<span class="hljs-attr">legend</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legend&quot;</span>
+    [<span class="hljs-attr">marginBottom</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginBottom&quot;</span>
+    [<span class="hljs-attr">marginLeft</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginLeft&quot;</span>
+    [<span class="hljs-attr">marginRight</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginRight&quot;</span>
+    [<span class="hljs-attr">marginTop</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginTop&quot;</span>
+    [<span class="hljs-attr">resizeObserveType</span>]=<span class="hljs-string">&quot;chartOptions.view?.resizeObserveType&quot;</span>
+    [<span class="hljs-attr">smartScrollEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.smartScrollEnable&quot;</span>
+    [<span class="hljs-attr">smartScrollHeight</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.smartScrollHeight&quot;</span>
+    [<span class="hljs-attr">toolbarJustifyContent</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbarJustifyContent&quot;</span>
+    [<span class="hljs-attr">toolbarPosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbarPosition&quot;</span>
+    [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbar&quot;</span>
+    [<span class="hljs-attr">tooltipColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipColor&quot;</span>
+    [<span class="hljs-attr">tooltipMarkerCrossSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipMarkerCrossSize&quot;</span>
+    [<span class="hljs-attr">tooltipMarkerType</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipMarkerType&quot;</span>
+    [<span class="hljs-attr">tooltipShowMilliseconds</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipShowMilliseconds&quot;</span>
+    [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipType&quot;</span>
+    [<span class="hljs-attr">tooltipWidth</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipWidth&quot;</span>
+    [<span class="hljs-attr">tooltip</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltip&quot;</span>
+    [<span class="hljs-attr">zoomType</span>]=<span class="hljs-string">&quot;chartOptions.view?.zoomType&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>
+      [<span class="hljs-attr">layerTitle</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.layerTitle&quot;</span>
+      [<span class="hljs-attr">tooltipColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipColor&quot;</span>
+      [<span class="hljs-attr">tooltipEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipEnable&quot;</span>
+      [<span class="hljs-attr">zoomPrimaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomPrimaryEnable&quot;</span>
+      [<span class="hljs-attr">zoomSecondaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomSecondaryEnable&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.color&quot;</span>
+        [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabelLine&quot;</span>
+        [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabel&quot;</span>
+        [<span class="hljs-attr">fontColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.fontColor&quot;</span>
+        [<span class="hljs-attr">position</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.position&quot;</span>
+        [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.primary&quot;</span>
+        [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.ticks&quot;</span>
+        [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.type&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.color&quot;</span>
+        [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabelLine&quot;</span>
+        [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabel&quot;</span>
+        [<span class="hljs-attr">fontColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.fontColor&quot;</span>
+        [<span class="hljs-attr">position</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.position&quot;</span>
+        [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.primary&quot;</span>
+        [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.ticks&quot;</span>
+        [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.type&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.color&quot;</span>
+        [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.drawGrid&quot;</span>
+        <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.color&quot;</span>
+        [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.drawGrid&quot;</span>
+        <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+
+      @if (isChartHorizontal.value) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;Тестовый пример&#x27;, &#x27;Тестовый пример 2&#x27;]&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions.data&quot;</span>
+          [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;bgColor&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[bgColor, bgColor2]&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[brColor, brColor2]&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barOpacity&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">stackWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.stackWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartHorizontalComboBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      } @else {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;Тестовый пример&#x27;, &#x27;Тестовый пример 2&#x27;]&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions.data&quot;</span>
+          [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;bgColor&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[bgColor, bgColor2]&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[brColor, brColor2]&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barOpacity&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">stackWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.stackWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartComboBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__chart-toggle&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Вертикальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-toggle</span>
+      [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">&quot;isChartHorizontal&quot;</span>
+      [<span class="hljs-attr">iconOff</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartGantt&#x27;&quot;</span>
+      [<span class="hljs-attr">iconOn</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartColumns&#x27;&quot;</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-toggle</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Горизонтальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__color-toggle&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;bgColor&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
+          <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;brColor&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
+          <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;bgColor2&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
+          <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;brColor2&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
+          <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+        /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-accordion</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;optionsForm&quot;</span> [<span class="hljs-attr">multiple</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__accordion&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;График&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;wrapper&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;bgColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;borderColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;smartScrollEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Смарт-скролл
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет смарт-скролла<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;smartScrollColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Тоолтип&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;tooltip&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltip&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Тултип<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipShowMilliseconds&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать миллисекунды<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип тултипа<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;fullLine&#x27;, &#x27;dataPoint&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Маркер тултипа<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipMarkerType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;line&#x27;, &#x27;horizontal-line&#x27;, &#x27;smallCross&#x27;, &#x27;fullscreenCross&#x27;, &#x27;none&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет маркера<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+          [<span class="hljs-attr">class.krui-disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.tooltip.controls.tooltipMarkerType.value !== &#x27;smallCross&#x27;&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>
+        &gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Размер маркера<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipMarkerCrossSize&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Толщина линии<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipWidth&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Панель управления&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;toolbar&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbar&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Панель управления<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarPosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Выравнивание<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarJustifyContent&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span>
+                *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;
+                  let option of [&#x27;center&#x27;, &#x27;flex-start&#x27;, &#x27;flex-end&#x27;, &#x27;space-between&#x27;, &#x27;space-around&#x27;, &#x27;space-evenly&#x27;]
+                &quot;</span>
+              &gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Легенда&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;legend&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Легенда<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span>
+            [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.legend.controls.legendType.value === &#x27;simple-style&#x27;&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendLayer&quot;</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Метки слоя
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span>
+            [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.legend.controls.legendType.value === &#x27;simple-style&#x27;&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendAxis&quot;</span>
+            <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Метки осей
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendTrend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Метки трендов и столбцов
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendHoverEffect&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Эффект подстветки трендов
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип легенды<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;default&#x27;, &#x27;simple-style&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendPosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Зум&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;layer&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomPrimaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси х<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomSecondaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси y<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип зума<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;none&#x27;, &#x27;brush&#x27;, &#x27;scroll&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Ось Х&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;axisX&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип оси х<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;time&#x27;, &#x27;number&#x27;, &#x27;enum&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет Оси<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;fontColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Количество меток<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;10&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;ticks&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;gridX&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений сетки<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Ось Y&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;axisY&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип оси у<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;time&#x27;, &#x27;number&#x27;, &#x27;enum&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;left&#x27;, &#x27;right&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет Оси<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;fontColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Количество меток<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;10&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;ticks&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;gridY&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений сетки<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;comboBarLayer&quot;</span>
+                 <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Комбинированный столбец&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;config&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип анимации<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animationType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;growth&#x27;, &#x27;none&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Заливка столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;gradient&#x27;, &#x27;solidColor&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Ширина столбца, %<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barWidthPercent&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Ширина группы, %<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;stackWidthPercent&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Скругление столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barRadius&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barBorder&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Обводка столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Прозрачность<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;0.1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barOpacity&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipHoverEffect&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Эффект наведения курсора<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет эффекта наведения<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipHoverColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
+              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
+              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+            /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Положение значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;valuePosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;over&#x27;, &#x27;top&#x27;, &#x27;center&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showEnumValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать расчетные значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;startInNull&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Начинать с нуля<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;common&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать значения столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Размер значений точек, пх<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;18&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;valuesFontSizePx&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animation&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать анимацию<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Длительность анимации отрисовки<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;durationAnimation&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Длительность анимации переключения<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
+            [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
+            [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;100&quot;</span>
+            <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;durationToggleAnimation&quot;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenDataChange&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Перестраивать при изменение значений
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenLegendClick&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          &gt;</span>Перестраивать при клике на легенду
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-accordion</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-form-field-label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">kruiBtnIcon</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconReloadCycle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'combo-bar-charts/chart-setting-combo-bar/chart-setting-combo-bar.component.scss': `<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+
+<span class="hljs-selector-class">.button</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+}
+
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+
+  &amp;__chart-toggle {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span>;
+
+    <span class="hljs-selector-tag">label</span> {
+      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">11px</span>;
+    }
+  }
+
+  &amp;__color-toggle {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+
+    <span class="hljs-selector-class">.color-item</span> {
+      <span class="hljs-attribute">display</span>: flex;
+      <span class="hljs-attribute">align-items</span>: center;
+
+      tlui-<span class="hljs-selector-tag">form</span>-field {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
+      }
+    }
+  }
+
+
+  &amp;__accordion {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+    <span class="hljs-selector-class">.tab-content</span> {
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">box-sizing</span>: border-box;
+      <span class="hljs-attribute">display</span>: flex;
+      <span class="hljs-attribute">flex-direction</span>: column;
+      <span class="hljs-attribute">gap</span>: <span class="hljs-number">5px</span>;
+
+      &amp;__item {
+        <span class="hljs-attribute">display</span>: flex;
+        <span class="hljs-attribute">gap</span>: <span class="hljs-number">15px</span>;
+        <span class="hljs-attribute">align-items</span>: center;
+        <span class="hljs-attribute">justify-content</span>: space-between;
+
+        <span class="hljs-selector-class">.color-select</span> {
+          <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
+        }
+      }
+    }
+
+    hr<span class="hljs-selector-class">.tab-delimeter</span> {
+      <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">96%</span>;
+    }
+  }
+
+}
+`,	'combo-bar-charts/chart-setting-combo-bar/chart-setting-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">Inject</span>, <span class="hljs-title class_">OnDestroy</span>, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">BehaviorSubject</span>, <span class="hljs-title class_">Subscription</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+<span class="hljs-keyword">import</span> { debounceTime } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormControl</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>, <span class="hljs-title class_">IKruiOptionsFormType</span>,
+  <span class="hljs-variable constant_">KRUI_CHART_FORM_CREATE_SERVICE</span>,
+  <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>,
+  <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS</span>,
+  <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS_CONFIG</span>,
+  <span class="hljs-title class_">KruiChartFormCreateService</span>,
+  kruiChartRandomDateArray,
+  kruiChartRdmNumberData,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Настройки */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-setting-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-setting-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-setting-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartSettingComboBarComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">OnDestroy</span> {
+  <span class="hljs-keyword">public</span> interpolation = <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>;
+  <span class="hljs-keyword">public</span> markers = <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS</span>;
+  <span class="hljs-keyword">public</span> dataMarkers = <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS_CONFIG</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">optionsForm</span>: <span class="hljs-title class_">IKruiOptionsFormType</span>;
+  <span class="hljs-keyword">public</span> isChartHorizontal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-keyword">public</span> bgColor = <span class="hljs-string">&#x27;#FFB30F&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor = <span class="hljs-string">&#x27;#FFB30F&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor2 = <span class="hljs-string">&#x27;#4CB944&#x27;</span>;
+  <span class="hljs-keyword">public</span> bgColor2 = <span class="hljs-string">&#x27;#FF4046&#x27;</span>;
+
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: <span class="hljs-title class_">BehaviorSubject</span>&lt;{
+    <span class="hljs-attr">data</span>: [<span class="hljs-built_in">any</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][][]; <span class="hljs-attr">view</span>: <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>;
+  }&gt; | <span class="hljs-literal">undefined</span>;
+
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">subscription</span>: <span class="hljs-title class_">Subscription</span>[] = [];
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-meta">@Inject</span>(KRUI_CHART_FORM_CREATE_SERVICE) <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">formCreateService</span>: <span class="hljs-title class_">KruiChartFormCreateService</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">formCreateService</span>.<span class="hljs-title function_">createSettingFormDefault</span>();
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>({
+      <span class="hljs-attr">data</span>: [
+        <span class="hljs-title function_">kruiChartRandomDateArray</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&#x27;2022-09-01T00:00:00.0000000Z&#x27;</span>)),
+        <span class="hljs-title function_">kruiChartRandomDateArray</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&#x27;2022-09-01T00:00:00.0000000Z&#x27;</span>)),
+      ],
+      <span class="hljs-attr">view</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-title function_">getRawValue</span>(),
+    });
+    <span class="hljs-keyword">const</span> sub1 = <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-property">valueChanges</span>.<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">debounceTime</span>(<span class="hljs-number">300</span>)).<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">update</span>());
+
+    <span class="hljs-keyword">const</span> sub2 = <span class="hljs-variable language_">this</span>.<span class="hljs-property">isChartHorizontal</span>.<span class="hljs-property">valueChanges</span>.<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">debounceTime</span>(<span class="hljs-number">300</span>)).<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (v) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-title function_">patchValue</span>({
+          <span class="hljs-attr">tooltip</span>: { <span class="hljs-attr">chartOrientation</span>: <span class="hljs-string">&#x27;horizontal&#x27;</span>, <span class="hljs-attr">tooltipMarkerType</span>: <span class="hljs-string">&#x27;horizontal-line&#x27;</span> },
+          <span class="hljs-attr">axisX</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;number&#x27;</span> },
+          <span class="hljs-attr">axisY</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;number&#x27;</span> },
+        });
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-title function_">patchValue</span>({
+          <span class="hljs-attr">tooltip</span>: { <span class="hljs-attr">chartOrientation</span>: <span class="hljs-string">&#x27;vertical&#x27;</span>, <span class="hljs-attr">tooltipMarkerType</span>: <span class="hljs-string">&#x27;line&#x27;</span> },
+          <span class="hljs-attr">axisX</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;time&#x27;</span> },
+          <span class="hljs-attr">axisY</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;number&#x27;</span> },
+        });
+      }
+    });
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subscription</span> = [sub1, sub2];
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnDestroy</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subscription</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">sub</span> =&gt;</span> sub.<span class="hljs-title function_">unsubscribe</span>());
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-comment">// @ts-ignore</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>!.<span class="hljs-title function_">next</span>(<span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>!.<span class="hljs-title function_">next</span>({
+      <span class="hljs-attr">data</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-title function_">getRawValue</span>().<span class="hljs-property">axisX</span>.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;number&#x27;</span> ?
+        [<span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-number">10</span>), <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-number">10</span>)] :
+        [
+          <span class="hljs-title function_">kruiChartRandomDateArray</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&#x27;2022-09-01T00:00:00.0000000Z&#x27;</span>)),
+          <span class="hljs-title function_">kruiChartRandomDateArray</span>(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&#x27;2022-09-01T00:00:00.0000000Z&#x27;</span>)),
+        ],
+      <span class="hljs-attr">view</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-title function_">getRawValue</span>(),
+    }));
+  }
+}
+`,
+	'combo-bar-charts/chart-stack-combo-bar/chart-stack-combo-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;12&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-additional-17)&#x27;, &#x27;var(--color-additional-11)&#x27;, &#x27;var(--color-additional-9)&#x27;]&quot;</span>
+      [<span class="hljs-attr">dataStack</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 15
+      }&quot;</span>
+      <span class="hljs-attr">kruiChartComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'combo-bar-charts/chart-stack-combo-bar/chart-stack-combo-bar.component.scss': ``,	'combo-bar-charts/chart-stack-combo-bar/chart-stack-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartStackBarMock1 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Базовый*/</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-stack-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-stack-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-stack-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartStackComboBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartStackBarMock1;
+}
+`,
+	'combo-bar-charts/chart-update-combo-bar/chart-update-combo-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;2&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022,2023]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 15
+      }&quot;</span>
+      <span class="hljs-attr">kruiChartComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;update-button&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span> Обновить данные<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'combo-bar-charts/chart-update-combo-bar/chart-update-combo-bar.component.scss': ``,	'combo-bar-charts/chart-update-combo-bar/chart-update-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMock1, kruiChartNumberMock2, kruiChartRandomValue } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Обновление данных */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-update-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-update-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-update-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartUpdateComboBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartNumberMock2;
+
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span> = [...<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>, [<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>, <span class="hljs-title function_">kruiChartRandomValue</span>(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)]];
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span> = [...<span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span>, [<span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span>.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>, <span class="hljs-title function_">kruiChartRandomValue</span>(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)]];
+  }
+}
+`,
+	'combo-bar-charts/chart-update-horizontal-combo-bar/chart-update-horizontal-combo-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">chartOrientation</span>]=<span class="hljs-string">&quot;&#x27;horizontal&#x27;&quot;</span>
+            [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span>
+            [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span>
+            [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">tooltipMarkerType</span>]=<span class="hljs-string">&quot;&#x27;smallCross&#x27;&quot;</span>
+            [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;2&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2022]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">kruiChartHorizontalComboBar</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;update-button&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span> Обновить данные<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'combo-bar-charts/chart-update-horizontal-combo-bar/chart-update-horizontal-combo-bar.component.scss': ``,	'combo-bar-charts/chart-update-horizontal-combo-bar/chart-update-horizontal-combo-bar.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMock1, kruiChartNumberMock2, kruiChartRandomValue } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Обновление данных */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-update-horizontal-combo-bar&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-update-horizontal-combo-bar.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-update-horizontal-combo-bar.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartUpdateHorizontalComboBarComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartNumberMock2;
+
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span> = [...<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>, [<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>, <span class="hljs-title function_">kruiChartRandomValue</span>(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)]];
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span> = [...<span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span>, [<span class="hljs-variable language_">this</span>.<span class="hljs-property">data2</span>.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>, <span class="hljs-title function_">kruiChartRandomValue</span>(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)]];
+  }
+}
 `,
 	'input/input-native-example/input-native-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-form-field&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-label</span>&gt;</span>Text<span class="hljs-tag">&lt;/<span class="hljs-name">krui-label</span>&gt;</span>
@@ -2232,7 +3554,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-predictors-1)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-1)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{ top: 15, right: 10, left: 10, bottom: 0 }&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -2993,7 +4315,7 @@ export const EXAMPLE_FILES = {
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;lineLayer&quot;</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Тренд&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;lineLayer&quot;</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Тренд&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;config&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3532,17 +4854,11 @@ export const EXAMPLE_FILES = {
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartTypeLineComponent</span> {
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream0</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream1</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream2</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream3</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">stream0</span> = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">stream1</span> = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">stream2</span> = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">stream3</span> = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
-  }
+  <span class="hljs-keyword">private</span> randomInt = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">10</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream0</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">randomInt</span>);
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream1</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">randomInt</span>);
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream2</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">randomInt</span>);
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">stream3</span>: [<span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">any</span>][] = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">randomInt</span>);
 }
 `,
 	'line-charts/chart-update-line/chart-update-line.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;fullLine&#x27;&quot;</span>&gt;</span>
@@ -3865,7 +5181,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;12&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022]&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-predictors-5)&#x27;, &#x27;var(--color-predictors-12)&#x27;, &#x27;var(--color-predictors-14)&#x27;]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-additional-5)&#x27;, &#x27;var(--color-additional-12)&#x27;, &#x27;var(--color-additional-14)&#x27;]&quot;</span>
       [<span class="hljs-attr">dataStack</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">stackType</span>]=<span class="hljs-string">&quot;&#x27;stackBar&#x27;&quot;</span>
@@ -3969,7 +5285,7 @@ export const EXAMPLE_FILES = {
 }
 `,
 	'stack-bar-charts/chart-setting-stack-bar/chart-setting-stack-bar.component.html': `@if ((options | async); as chartOptions) {
-  <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span>
     [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span>
     [<span class="hljs-attr">setDefIfContainerSizeInvalid</span>]=<span class="hljs-string">&quot;true&quot;</span>
     [<span class="hljs-attr">bgColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.bgColor&quot;</span>
@@ -4001,13 +5317,13 @@ export const EXAMPLE_FILES = {
     [<span class="hljs-attr">tooltip</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltip&quot;</span>
     [<span class="hljs-attr">zoomType</span>]=<span class="hljs-string">&quot;chartOptions.view?.zoomType&quot;</span>
   &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-layer</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>
       [<span class="hljs-attr">layerTitle</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.layerTitle&quot;</span>
       [<span class="hljs-attr">tooltipColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipColor&quot;</span>
       [<span class="hljs-attr">tooltipEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipEnable&quot;</span>
       [<span class="hljs-attr">zoomPrimaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomPrimaryEnable&quot;</span>
       [<span class="hljs-attr">zoomSecondaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomSecondaryEnable&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-axis</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
         [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.color&quot;</span>
         [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabelLine&quot;</span>
         [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabel&quot;</span>
@@ -4017,8 +5333,8 @@ export const EXAMPLE_FILES = {
         [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.ticks&quot;</span>
         [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.type&quot;</span>
         <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
-      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-axis</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-axis</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
         [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.color&quot;</span>
         [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabelLine&quot;</span>
         [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabel&quot;</span>
@@ -4028,22 +5344,22 @@ export const EXAMPLE_FILES = {
         [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.ticks&quot;</span>
         [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.type&quot;</span>
         <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
-      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-axis</span>&gt;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
 
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-grid</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
         [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.color&quot;</span>
         [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.drawGrid&quot;</span>
         <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>
-      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-grid</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-grid</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
         [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.color&quot;</span>
         [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.drawGrid&quot;</span>
         <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>
-      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-grid</span>&gt;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
 
 
       @if (isChartHorizontal.value) {
-        <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-data-layer</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;Тестовый пример&#x27;, &#x27;Тестовый пример 2&#x27;]&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions.data&quot;</span>
           [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;bgColor&quot;</span>
@@ -4068,11 +5384,11 @@ export const EXAMPLE_FILES = {
           [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.valuePosition&quot;</span>
           [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx&quot;</span>
           [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.workgroundPadding&quot;</span>
-          <span class="hljs-attr">tluiChartHorizontalStackBar</span>
+          <span class="hljs-attr">kruiChartHorizontalStackBar</span>
         &gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-data-layer</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
       } @else {
-        <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-data-layer</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;Тестовый пример&#x27;, &#x27;Тестовый пример 2&#x27;]&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions.data&quot;</span>
           [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;bgColor&quot;</span>
@@ -4097,205 +5413,205 @@ export const EXAMPLE_FILES = {
           [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.valuePosition&quot;</span>
           [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx&quot;</span>
           [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.workgroundPadding&quot;</span>
-          <span class="hljs-attr">tluiChartStackBar</span>
+          <span class="hljs-attr">kruiChartStackBar</span>
         &gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-data-layer</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
       }
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-layer</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
 }
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__chart-toggle&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Вертикальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-toggle</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-toggle</span>
       [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">&quot;isChartHorizontal&quot;</span>
-      [<span class="hljs-attr">iconOff</span>]=<span class="hljs-string">&quot;&#x27;tluiIconChartGantt&#x27;&quot;</span>
-      [<span class="hljs-attr">iconOn</span>]=<span class="hljs-string">&quot;&#x27;tluiIconChartColumns&#x27;&quot;</span>
+      [<span class="hljs-attr">iconOff</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartGantt&#x27;&quot;</span>
+      [<span class="hljs-attr">iconOn</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartColumns&#x27;&quot;</span>
       <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>
-    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-toggle</span>&gt;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-toggle</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Горизонтальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__color-toggle&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
           [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;bgColor&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
           <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-          <span class="hljs-attr">tluiInput</span>
           <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
         /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
           [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;brColor&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
           <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-          <span class="hljs-attr">tluiInput</span>
           <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
         /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
           [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;bgColor2&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
           <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-          <span class="hljs-attr">tluiInput</span>
           <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
         /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-item&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
           [(<span class="hljs-attr">ngModel</span>)]=<span class="hljs-string">&quot;brColor2&quot;</span>
+          <span class="hljs-attr">kruiInput</span>
           <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-          <span class="hljs-attr">tluiInput</span>
           <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
         /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">tlui-accordion</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;optionsForm&quot;</span> [<span class="hljs-attr">multiple</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__accordion&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;График&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-accordion</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;optionsForm&quot;</span> [<span class="hljs-attr">multiple</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__accordion&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;График&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;wrapper&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет фона<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;bgColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет границы<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;borderColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;smartScrollEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Смарт-скролл
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;smartScrollEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Смарт-скролл
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет смарт-скролла<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-disabled&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;smartScrollColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Тоолтип&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Тоолтип&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;tooltip&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltip&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Тултип<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltip&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Тултип<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipShowMilliseconds&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать миллисекунды<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipShowMilliseconds&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать миллисекунды<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип тултипа<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;fullLine&#x27;, &#x27;dataPoint&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Маркер тултипа<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipMarkerType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipMarkerType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;line&#x27;, &#x27;horizontal-line&#x27;, &#x27;smallCross&#x27;, &#x27;fullscreenCross&#x27;, &#x27;none&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет маркера<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-          [<span class="hljs-attr">class.tlui-disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.tooltip.controls.tooltipMarkerType.value !== &#x27;smallCross&#x27;&quot;</span>
+          [<span class="hljs-attr">class.krui-disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.tooltip.controls.tooltipMarkerType.value !== &#x27;smallCross&#x27;&quot;</span>
           <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>
         &gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Размер маркера<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipMarkerCrossSize&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Толщина линии<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipWidth&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Панель управления&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Панель управления&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;toolbar&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbar&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Панель управления<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbar&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Панель управления<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarPosition&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarPosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Выравнивание<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarJustifyContent&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;toolbarJustifyContent&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span>
                 *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;
                   let option of [&#x27;center&#x27;, &#x27;flex-start&#x27;, &#x27;flex-end&#x27;, &#x27;space-between&#x27;, &#x27;space-around&#x27;, &#x27;space-evenly&#x27;]
@@ -4304,414 +5620,414 @@ export const EXAMPLE_FILES = {
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Легенда&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Легенда&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;legend&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Легенда<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Легенда<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span>
             [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.legend.controls.legendType.value === &#x27;simple-style&#x27;&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendLayer&quot;</span>
             <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
           &gt;</span>Метки слоя
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span>
             [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">&quot;optionsForm.controls.legend.controls.legendType.value === &#x27;simple-style&#x27;&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendAxis&quot;</span>
             <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
           &gt;</span>Метки осей
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendTrend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendTrend&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
           &gt;</span>Метки трендов и столбцов
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип легенды<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;default&#x27;, &#x27;simple-style&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendPosition&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;legendPosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Зум&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Зум&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;layer&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomPrimaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси х<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomPrimaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси х<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomSecondaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси y<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomSecondaryEnable&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Зум по оси y<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип зума<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;zoomType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;none&#x27;, &#x27;brush&#x27;, &#x27;scroll&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Ось Х&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Ось Х&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;axisX&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип оси х<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;time&#x27;, &#x27;number&#x27;, &#x27;enum&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;top&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет Оси<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;fontColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Количество меток<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;10&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;ticks&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;gridX&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений сетки<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Ось Y&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Ось Y&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;axisY&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип оси у<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;time&#x27;, &#x27;number&#x27;, &#x27;enum&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Позиция<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;position&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;left&#x27;, &#x27;right&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-disabled&quot;</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Главная ось<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabel&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawAxisLabelLine&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать метки значений<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет Оси<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;fontColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Количество меток<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;10&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;ticks&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;gridY&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;drawGrid&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Отображать сетку<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет значений сетки<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">tluiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;stackBarLayer&quot;</span> <span class="hljs-attr">tluiAccordionItem</span>=<span class="hljs-string">&quot;Стековый столбец&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;stackBarLayer&quot;</span> <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Стековый столбец&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;config&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип анимации<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animationType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animationType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;growth&#x27;, &#x27;none&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Тип столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;stackType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;stackType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;stackBar&#x27;, &#x27;fullStackBar&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Заливка столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barType&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barType&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;gradient&#x27;, &#x27;solidColor&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Ширина столбца, %<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;100&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barWidthPercent&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Скругление столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;20&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barRadius&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barBorder&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Обводка столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barBorder&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Обводка столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Прозрачность<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;1&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;0.1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;barOpacity&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipHoverEffect&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Эффект наведения курсора<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipHoverEffect&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Эффект наведения курсора<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Цвет эффекта наведения<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;color-select&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;tooltipHoverColor&quot;</span>
+              <span class="hljs-attr">kruiChartInputColorWrapper</span>
+              <span class="hljs-attr">kruiInput</span>
               <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>
-              <span class="hljs-attr">tluiChartInputColorWrapper</span>
-              <span class="hljs-attr">tluiInput</span>
               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
             /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Положение значений<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-form-field</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;valuePosition&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span> <span class="hljs-attr">tluiInput</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;valuePosition&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;sm&quot;</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of [&#x27;over&#x27;, &#x27;top&#x27;, &#x27;center&#x27;, &#x27;bottom&#x27;]&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-form-field</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showEnumValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать расчетные значения<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showEnumValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать расчетные значения<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;startInNull&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Начинать с нуля<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;startInNull&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Начинать с нуля<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-delimeter&quot;</span> /&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;common&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать значения столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;showValues&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать значения столбцов<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Размер значений точек, пх<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;18&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;1&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;1&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;valuesFontSizePx&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animation&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать анимацию<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;animation&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>Показывать анимацию<span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Длительность анимации отрисовки<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;100&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;100&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;durationAnimation&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Длительность анимации переключения<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-slider</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
             [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
             [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
             [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;100&quot;</span>
             [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;100&quot;</span>
             <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;durationToggleAnimation&quot;</span>
-          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-slider</span>&gt;</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenDataChange&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenDataChange&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
           &gt;</span>Перестраивать при изменение значений
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">tlui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenLegendClick&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-checkbox</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;reRangeThenLegendClick&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
           &gt;</span>Перестраивать при клике на легенду
-          <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-checkbox</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-checkbox</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-accordion</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-accordion</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tlui-form-field-label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">tluiButton</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;tluiIconReloadCycle&quot;</span> <span class="hljs-attr">tluiBtnIcon</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-form-field-label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">kruiBtnIcon</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconReloadCycle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 `,	'stack-bar-charts/chart-setting-stack-bar/chart-setting-stack-bar.component.scss': `<span class="hljs-selector-pseudo">:host</span> {
@@ -4738,7 +6054,7 @@ export const EXAMPLE_FILES = {
       <span class="hljs-attribute">display</span>: flex;
       <span class="hljs-attribute">align-items</span>: center;
 
-      tlui-<span class="hljs-selector-tag">form</span>-field {
+      krui-<span class="hljs-selector-tag">form</span>-field {
         <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
       }
     }
@@ -4796,6 +6112,7 @@ export const EXAMPLE_FILES = {
   <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-setting-stack-bar.component.html&#x27;</span>,
   <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-setting-stack-bar.component.scss&#x27;</span>],
   <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartSettingStackBarComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">OnDestroy</span> {
   <span class="hljs-keyword">public</span> interpolation = <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>;
