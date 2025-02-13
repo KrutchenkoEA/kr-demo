@@ -1,0 +1,39 @@
+<krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="enum"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [min]="0"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barRadius]="1"
+      [captions]="[2018,2019,2020]"
+      [colors]="['var(--color-additional-1)', 'var(--color-additional-4)', 'var(--color-additional-8)']"
+      [dataStack]="data"
+      [showValues]="true"
+      [showEnumValues]="false"
+      [valuePosition]="'top'"
+      [stackType]="'stackBar'"
+      [workgroundPadding]="{
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 15
+      }"
+      kruiChartStackBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

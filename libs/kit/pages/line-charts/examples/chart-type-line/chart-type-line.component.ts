@@ -11,15 +11,9 @@ import { kruiChartRdmNumberData } from '@kr-platform/ui';
   standalone: false,
 })
 export class ChartTypeLineComponent {
-  public stream0: [number, number, any][] = kruiChartRdmNumberData(Math.random() * 20);
-  public stream1: [number, number, any][] = kruiChartRdmNumberData(Math.random() * 20);
-  public stream2: [number, number, any][] = kruiChartRdmNumberData(Math.random() * 20);
-  public stream3: [number, number, any][] = kruiChartRdmNumberData(Math.random() * 20);
-
-  public update(): void {
-    this.stream0 = kruiChartRdmNumberData(Math.random() * 20);
-    this.stream1 = kruiChartRdmNumberData(Math.random() * 20);
-    this.stream2 = kruiChartRdmNumberData(Math.random() * 20);
-    this.stream3 = kruiChartRdmNumberData(Math.random() * 20);
-  }
+  private randomInt = Math.random() * 10;
+  public stream0: [number, number, any][] = kruiChartRdmNumberData(this.randomInt);
+  public stream1: [number, number, any][] = kruiChartRdmNumberData(this.randomInt);
+  public stream2: [number, number, any][] = kruiChartRdmNumberData(this.randomInt);
+  public stream3: [number, number, any][] = kruiChartRdmNumberData(this.randomInt);
 }

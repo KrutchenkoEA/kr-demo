@@ -27,6 +27,7 @@ import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.compone
 import { ButtonComponent } from '@kr-platform/kit/pages/button/button.component';
 import { LineChartsComponent } from '@kr-platform/kit/pages/line-charts/line-charts.component';
 import { BarChartsComponent } from '@kr-platform/kit/pages/bar-charts/bar-charts.component';
+import { StackBarChartsComponent } from '@kr-platform/kit/pages/stack-bar-charts/stack-bar-charts.component';
 
 
 const kitPages = [
@@ -45,7 +46,8 @@ const kitPages = [
 
 const kitPagesCharts = [
   LineChartsComponent,
-  BarChartsComponent
+  BarChartsComponent,
+  StackBarChartsComponent
 ];
 
 @NgModule({

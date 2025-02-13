@@ -10,6 +10,7 @@ import { RangeComponent} from '@kr-platform/kit/pages/range/range.component';
 import { SelectComponent} from '@kr-platform/kit/pages/select/select.component';
 import { SliderComponent} from '@kr-platform/kit/pages/slider/slider.component';
 import { SpinnerComponent} from '@kr-platform/kit/pages/spinner/spinner.component';
+import { StackBarChartsComponent} from '@kr-platform/kit/pages/stack-bar-charts/stack-bar-charts.component';
 import { TabsComponent} from '@kr-platform/kit/pages/tabs/tabs.component';
 import { ToggleComponent} from '@kr-platform/kit/pages/toggle/toggle.component';
 import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography.component';
@@ -54,6 +55,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'spinner',
         component: SpinnerComponent,
+      },
+{
+        path: 'stack-bar-charts',
+        component: StackBarChartsComponent,
       },
 {
         path: 'tabs',

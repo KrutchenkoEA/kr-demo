@@ -4,8 +4,8 @@
 }
 
 .tooltip {
-  background: var(--color-background-popup-widgets);
-  border: 1px solid var(--color-borders-and-icons-stroke-shape);
+  background: var(--color-background-body);
+  border: 1px solid var(--color-borders-stroke);
   border-radius: 6px;
   padding: 4px;
 
@@ -27,6 +27,6 @@
   }
 
   &__label {
-    color: var(--color-text-signatures-and-future);
+    color: var(--color-text-main);
   }
 }
