@@ -1,0 +1,11 @@
+<div class="tooltip">
+  @for (group of data; track group.title) {
+    @for (row of group.rows; track row.title) {
+      <div class="tooltip__item">
+        <div [style.background-color]="row.color" class="tooltip__marker"></div>
+        <div class="tooltip__value">{{ row.value }}</div>
+        <div class="tooltip__label">{{ row.title }}</div>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,55 @@
+<krui-chart [height]="600" [legendType]="'simple-style'" [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="[2020]"
+      [data]="stream0"
+      [lineDynamics]="'curveLinear'"
+      [showValues]="false"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="[2021]"
+      [data]="stream1"
+      [lineDynamics]="'curveMonotoneX'"
+      [showValues]="false"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="[2022]"
+      [data]="stream2"
+      [lineDynamics]="'curveStep'"
+      [showValues]="false"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="[2023]"
+      [data]="stream3"
+      [lineDynamics]="'curveBasis'"
+      [showValues]="false"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

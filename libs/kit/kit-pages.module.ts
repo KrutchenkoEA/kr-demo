@@ -17,7 +17,6 @@ import { ToggleComponent } from '@kr-platform/kit/pages/toggle/toggle.component'
 import { KruiSvgLoader } from '@kr-platform/icons';
 import { AngularSvgIconModule, SvgLoader } from 'angular-svg-icon';
 import { TypographyComponent } from '@kr-platform/kit/pages/typography/typography.component';
-import { BarChartsComponent } from '@kr-platform/kit/pages/bars/bar-charts.component';
 import { AccordionComponent } from '@kr-platform/kit/pages/accordion/accordion.component';
 import { CheckboxComponent } from '@kr-platform/kit/pages/checkbox/checkbox.component';
 import { InputComponent } from '@kr-platform/kit/pages/input/input.component';
@@ -26,12 +25,12 @@ import { SelectComponent } from '@kr-platform/kit/pages/select/select.component'
 import { SliderComponent } from '@kr-platform/kit/pages/slider/slider.component';
 import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.component';
 import { ButtonComponent } from '@kr-platform/kit/pages/button/button.component';
+import { LineChartsComponent } from '@kr-platform/kit/pages/line-charts/line-charts.component';
 
 
 const kitPages = [
   AccordionComponent,
   ButtonComponent,
-  BarChartsComponent,
   CheckboxComponent,
   InputComponent,
   RangeComponent,
@@ -43,6 +42,10 @@ const kitPages = [
   TypographyComponent,
 ];
 
+const kitPagesCharts = [
+  LineChartsComponent,
+];
+
 @NgModule({
   declarations: [
     ExampleViewerComponent,
@@ -50,6 +53,7 @@ const kitPages = [
     KruiMainMenuComponent,
     TableOfContentsComponent,
     ...kitPages,
+    ...kitPagesCharts,
   ],
   imports: [
     CommonModule,
