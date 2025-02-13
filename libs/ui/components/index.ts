@@ -1,4 +1,5 @@
 export * from '@kr-platform/ui/components/accordion';
+export * from '@kr-platform/ui/components/button';
 export * from '@kr-platform/ui/components/checkbox';
 export * from '@kr-platform/ui/components/combo-chart';
 export * from '@kr-platform/ui/components/form-field';

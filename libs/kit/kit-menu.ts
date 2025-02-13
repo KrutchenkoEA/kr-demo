@@ -7,6 +7,11 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     iconUrl: 'kruiIconTeble5rows',
   },
   {
+    label: 'Button',
+    iconUrl: 'kruiIconArrowCircleDown',
+    href: 'button'
+  },
+  {
     label: 'Chart line',
     iconUrl: 'kruiIconChartMountainCorner',
     children: [

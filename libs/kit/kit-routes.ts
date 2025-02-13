@@ -10,11 +10,16 @@ import { CheckboxComponent } from '@kr-platform/kit/pages/checkbox/checkbox.comp
 import { RangeComponent } from '@kr-platform/kit/pages/range/range.component';
 import { SliderComponent } from '@kr-platform/kit/pages/slider/slider.component';
 import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.component';
+import { ButtonComponent } from '@kr-platform/kit/pages/button/button.component';
 
 export const KrKitRoutes: Routes = [
   {
     path: 'accordion',
     component: AccordionComponent,
+  },
+  {
+    path: 'button',
+    component: ButtonComponent
   },
   {
     path: 'bars',

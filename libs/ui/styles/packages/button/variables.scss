@@ -1,0 +1,125 @@
+@import "../typography/variables.scss";
+@import "../../variables.scss";
+
+$btn-icon-color: map-get($text-colors, subscript-text);
+$btn-icon-color-hover: map-get($text-colors, main-text);
+$btn-icon-color-active: map-get($text-colors, main-text);
+$btn-shadow: 0px 4px 9px rgba(93, 117, 147, 0.110);
+$btn-border-radius: 1rem;
+$btn-padding: 2rem;
+$btn-outline-color: map-get($palette, error);
+$btn-outline-border-color: map-get($palette, logo);
+
+$button-styles: (
+  primary: (
+    default: (
+      color: map-get($text-colors, white),
+      background: map-get($palette, logo),
+      border: map-get($palette, logo),
+    ),
+    disabled: (
+      color: map-get($text-colors, subscript-text),
+      background: $bg-header,
+      border: map-get($palette, subscript),
+    ),
+    focus: (
+      color: map-get($text-colors, white),
+      background: map-get($palette, logo),
+      border: $br-light,
+    ),
+    active: (
+      color: map-get($text-colors, white),
+      background: map-get($palette, logo),
+      border: $br-light,
+    ),
+  ),
+  secondary: (
+    default: (
+      color: map-get($text-colors, main-text),
+      background: $bg-header,
+      border: map-get($palette, logo),
+    ),
+    disabled: (
+      color: map-get($text-colors, subscript-text),
+      background: $bg-header,
+      border: map-get($palette, subscript),
+    ),
+    focus: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+    active: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+  ),
+  tertiary: (
+    default: (
+      color: map-get($text-colors, main-text),
+      background: $bg-header,
+      border: $bg-header,
+    ),
+    disabled: (
+      color: map-get($text-colors, subscript-text),
+      background: $bg-header,
+      border: map-get($palette, subscript),
+    ),
+    focus: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+    active: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+  ),
+  ghost: (
+    default: (
+      color: map-get($text-colors, main-text),
+      background: transparent,
+      border: transparent,
+    ),
+    disabled: (
+      color: map-get($text-colors, subscript-text),
+      background: $bg-header,
+      border: map-get($palette, subscript),
+    ),
+    focus: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+    active: (
+      color: map-get($text-colors, contrast-text),
+      background: $bg-app-header,
+      border: map-get($palette, logo),
+    ),
+  ),
+);
+
+$button-sizes: (
+  sm: (
+    height: $size-md,
+    padding: 12px,
+    font-size: 13px,
+  ),
+  md: (
+    height: $size-lg,
+    padding: 16px,
+    font-size: 14px,
+  ),
+  lg: (
+    height: $size-xlg,
+    padding: 20px,
+    font-size: 15px,
+  ),
+  xlg: (
+    height: $size-xxlg,
+    padding: 24px,
+    font-size: 16px,
+  ),
+);

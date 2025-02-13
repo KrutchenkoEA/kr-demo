@@ -1,8 +1,8 @@
 @import "../../variables.scss";
 @import "../typography/variables";
 
-$accordion-background: $bg-main;
-$accordion-body-background: $bg-body;
+$accordion-background: $bg-body;
+$accordion-body-background: $bg-main;
 $accordion-border: $br-stroke;
 $accordion-active-color: map-get($palette, accent);
 $accordion-active-icon: map-get($palette, logo);

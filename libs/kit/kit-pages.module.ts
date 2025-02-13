@@ -25,10 +25,12 @@ import { RangeComponent } from '@kr-platform/kit/pages/range/range.component';
 import { SelectComponent } from '@kr-platform/kit/pages/select/select.component';
 import { SliderComponent } from '@kr-platform/kit/pages/slider/slider.component';
 import { SpinnerComponent } from '@kr-platform/kit/pages/spinner/spinner.component';
+import { ButtonComponent } from '@kr-platform/kit/pages/button/button.component';
 
 
 const kitPages = [
   AccordionComponent,
+  ButtonComponent,
   BarChartsComponent,
   CheckboxComponent,
   InputComponent,

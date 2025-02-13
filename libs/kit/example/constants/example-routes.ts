@@ -2,6 +2,7 @@
 
     import { AccordionComponent} from '@kr-platform/kit/pages/accordion/accordion.component';
 import { BarChartsComponent} from '@kr-platform/kit/pages/bars/bar-charts.component';
+import { ButtonComponent} from '@kr-platform/kit/pages/button/button.component';
 import { CheckboxComponent} from '@kr-platform/kit/pages/checkbox/checkbox.component';
 import { InputComponent} from '@kr-platform/kit/pages/input/input.component';
 import { RangeComponent} from '@kr-platform/kit/pages/range/range.component';
@@ -20,6 +21,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'bars',
         component: BarChartsComponent,
+      },
+{
+        path: 'button',
+        component: ButtonComponent,
       },
 {
         path: 'checkbox',
