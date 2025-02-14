@@ -15,6 +15,7 @@ import { SpinnerComponent} from '@kr-platform/kit/pages/spinner/spinner.componen
 import { StackBarChartsComponent} from '@kr-platform/kit/pages/stack-bar-charts/stack-bar-charts.component';
 import { TabsComponent} from '@kr-platform/kit/pages/tabs/tabs.component';
 import { ToggleComponent} from '@kr-platform/kit/pages/toggle/toggle.component';
+import { TooltipComponent} from '@kr-platform/kit/pages/tooltip/tooltip.component';
 import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography.component';
 
     export const EXAMPLE_ROUTES = [
@@ -77,6 +78,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'toggle',
         component: ToggleComponent,
+      },
+{
+        path: 'tooltip',
+        component: TooltipComponent,
       },
 {
         path: 'typography',

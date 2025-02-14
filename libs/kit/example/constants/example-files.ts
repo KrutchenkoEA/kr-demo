@@ -210,7 +210,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;6&quot;</span>
       [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;80&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;План&#x27;]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(93, 212, 37, 1)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgb(36,84,13)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data2&quot;</span>
       [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -309,7 +309,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237, 0.3)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,77,237,0.3)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data2&quot;</span>
       <span class="hljs-attr">kruiChartBar</span>
     &gt;</span>
@@ -1210,11 +1210,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45, 141, 237)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(237,80,45)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(237,151,45,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;&#x27;top&#x27;&quot;</span>
@@ -1264,11 +1264,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45, 141, 237)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45,237,234)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;2022&#x27;]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,221,237,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">kruiChartHorizontalBar</span>
@@ -1311,11 +1311,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45, 141, 237)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(237,45,45)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;9&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,237,163,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(237,45,87,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;&#x27;center&#x27;&quot;</span>
@@ -1372,11 +1372,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45, 141, 237)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(237,237,45)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;2022&#x27;]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(237,202,45,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">kruiChartHorizontalBar</span>
@@ -1484,11 +1484,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,237,48,1)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(96,45,237)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,237,48,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(74,45,237,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">kruiChartBar</span>
@@ -1552,11 +1552,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,237,48,1)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(131,237,45)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;2022&#x27;]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45,237,48,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(173,237,45,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">kruiChartHorizontalBar</span>
@@ -1615,11 +1615,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(45, 141, 237)&#x27;&quot;</span>
+      [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;&#x27;rgb(48,237,45)&#x27;&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(218,45,237,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;&#x27;top&#x27;&quot;</span>
@@ -1801,7 +1801,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022,2023]&quot;</span>
       [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;red&#x27;, &#x27;yellow&#x27;, &#x27;green&#x27;]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;darkkhaki&#x27;, &#x27;darkmagenta&#x27;, &#x27;darkolivegreen&#x27;]&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2, data3]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -1866,11 +1866,11 @@ export const EXAMPLE_FILES = {
 
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
-      [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(45, 141, 237)&#x27;]&quot;</span>
+      [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(45,64,237)&#x27;]&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021,2022,2023]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(7,125,237,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2, data3]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -2858,9 +2858,9 @@ export const EXAMPLE_FILES = {
   <span class="hljs-keyword">public</span> <span class="hljs-attr">optionsForm</span>: <span class="hljs-title class_">IKruiOptionsFormType</span>;
   <span class="hljs-keyword">public</span> isChartHorizontal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
 
-  <span class="hljs-keyword">public</span> bgColor = <span class="hljs-string">&#x27;#FFB30F&#x27;</span>;
-  <span class="hljs-keyword">public</span> brColor = <span class="hljs-string">&#x27;#FFB30F&#x27;</span>;
-  <span class="hljs-keyword">public</span> brColor2 = <span class="hljs-string">&#x27;#4CB944&#x27;</span>;
+  <span class="hljs-keyword">public</span> bgColor = <span class="hljs-string">&#x27;#0f37ff&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor = <span class="hljs-string">&#x27;#3fff0f&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor2 = <span class="hljs-string">&#x27;#4465b9&#x27;</span>;
   <span class="hljs-keyword">public</span> bgColor2 = <span class="hljs-string">&#x27;#FF4046&#x27;</span>;
 
   <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: <span class="hljs-title class_">BehaviorSubject</span>&lt;{
@@ -3399,7 +3399,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[&#x27;план&#x27;]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(93, 212, 37, 0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(104,37,212,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;stream1&quot;</span>
       [<span class="hljs-attr">interpolateEnable</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
@@ -3492,7 +3492,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-1)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-4)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -3556,7 +3556,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-1)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{ top: 15, right: 10, left: 10, bottom: 0 }&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -4620,7 +4620,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(93, 212, 37, 0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(37,81,212,0.5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -4630,7 +4630,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(37,81,212,1)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgb(37,212,171)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data2&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -4677,7 +4677,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-18)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-13)&#x27;&quot;</span>
       [<span class="hljs-attr">dataPointType</span>]=<span class="hljs-string">&quot;&#x27;all&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -4945,7 +4945,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-12)&#x27;&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-5)&#x27;&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
       <span class="hljs-attr">kruiChartLine</span>
@@ -5015,7 +5015,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021]&quot;</span>
       [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;grey&#x27;, &#x27;pink&#x27;]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;red&#x27;, &#x27;yellow&#x27;]&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -5068,8 +5068,8 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021]&quot;</span>
-      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;#008B8B&#x27;, &#x27;#B8860B&#x27;]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(237,199,45,0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;#8b0019&#x27;, &#x27;#0bb80e&#x27;]&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;false&quot;</span>
@@ -5139,7 +5139,7 @@ export const EXAMPLE_FILES = {
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021]&quot;</span>
       [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;red&#x27;, &#x27;green&#x27;, &#x27;pink&#x27;]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;grey&#x27;, &#x27;brown&#x27;, &#x27;pink&#x27;]&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;true&quot;</span>
@@ -5759,7 +5759,7 @@ export const EXAMPLE_FILES = {
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> [<span class="hljs-attr">kruiAccordionItemExpanded</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;comboBarLayer&quot;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;comboBarLayer&quot;</span>
                  <span class="hljs-attr">kruiAccordionItem</span>=<span class="hljs-string">&quot;Комбинированный столбец&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content&quot;</span> <span class="hljs-attr">formGroupName</span>=<span class="hljs-string">&quot;config&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tab-content__item&quot;</span>&gt;</span>
@@ -5958,7 +5958,7 @@ export const EXAMPLE_FILES = {
       <span class="hljs-attribute">display</span>: flex;
       <span class="hljs-attribute">align-items</span>: center;
 
-      tlui-<span class="hljs-selector-tag">form</span>-field {
+      krui-<span class="hljs-selector-tag">form</span>-field {
         <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
       }
     }
@@ -6014,7 +6014,7 @@ export const EXAMPLE_FILES = {
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
 
 
-<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Настройки графика */</span>
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Настройки */</span>
 
 <span class="hljs-meta">@Component</span>({
   <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-range-bar-setting&#x27;</span>,
@@ -6035,10 +6035,10 @@ export const EXAMPLE_FILES = {
   <span class="hljs-keyword">public</span> <span class="hljs-attr">optionsForm</span>: <span class="hljs-title class_">IKruiOptionsFormType</span>;
   <span class="hljs-keyword">public</span> isChartHorizontal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
 
-  <span class="hljs-keyword">public</span> bgColor = <span class="hljs-string">&#x27;#004864&#x27;</span>;
-  <span class="hljs-keyword">public</span> brColor = <span class="hljs-string">&#x27;#556B2F&#x27;</span>;
-  <span class="hljs-keyword">public</span> brColor2 = <span class="hljs-string">&#x27;#696969&#x27;</span>;
-  <span class="hljs-keyword">public</span> bgColor2 = <span class="hljs-string">&#x27;#696969&#x27;</span>;
+  <span class="hljs-keyword">public</span> bgColor = <span class="hljs-string">&#x27;#4b66c2&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor = <span class="hljs-string">&#x27;#bb5362&#x27;</span>;
+  <span class="hljs-keyword">public</span> brColor2 = <span class="hljs-string">&#x27;rgb(242,171,171)&#x27;</span>;
+  <span class="hljs-keyword">public</span> bgColor2 = <span class="hljs-string">&#x27;rgb(237,112,112)&#x27;</span>;
 
   <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: <span class="hljs-title class_">BehaviorSubject</span>&lt;{
     <span class="hljs-attr">data</span>: [<span class="hljs-built_in">any</span>, <span class="hljs-built_in">any</span>, <span class="hljs-built_in">any</span>][][]; <span class="hljs-attr">view</span>: <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>;
@@ -6112,31 +6112,31 @@ export const EXAMPLE_FILES = {
   }
 }
 `,
-	'range-bar-charts/chart-range-bar-update/chart-range-bar-update.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-layer</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-axis</span>
+	'range-bar-charts/chart-range-bar-update/chart-range-bar-update.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
       [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
       <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
       <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
-    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-axis</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-axis</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
       <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
       <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
-    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-axis</span>&gt;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-grid</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">tlui-chart-data-layer</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
       [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(45, 141, 237)&#x27;]&quot;</span>
       [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;4&quot;</span>
       [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2020,2021]&quot;</span>
       [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(45, 141, 237,0.5)&#x27;&quot;</span>
-      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;CornflowerBlue&#x27;, &#x27;Chocolate&#x27;]&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;cyan&#x27;, &#x27;blue&#x27;]&quot;</span>
       [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;[data, data2]&quot;</span>
       [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
       [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;&#x27;center&#x27;&quot;</span>
@@ -6147,14 +6147,14 @@ export const EXAMPLE_FILES = {
         bottom: 0,
         left: 15
       }&quot;</span>
-      <span class="hljs-attr">tluiChartRangeBar</span>
+      <span class="hljs-attr">kruiChartRangeBar</span>
     &gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-data-layer</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart-layer</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">tlui-chart</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;update-button&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">tluiButton</span>&gt;</span> Обновить данные<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span> Обновить данные<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 `,	'range-bar-charts/chart-range-bar-update/chart-range-bar-update.component.scss': ``,	'range-bar-charts/chart-range-bar-update/chart-range-bar-update.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 <span class="hljs-keyword">import</span> { kruiChartRandomValue, kruiChartRangeBarMock1, kruiChartRangeBarMock2 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
@@ -7696,6 +7696,223 @@ tlui-toggle {
   <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ToggleSizeExample</span> {}
+`,
+	'tooltip/sides-small-example/sides-small-example.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>
+  &gt;</span>Сверху<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters2&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Слева
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters3&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Справа
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters4&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Снизу
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipDisabled</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters4&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Disabled
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'tooltip/sides-small-example/sides-small-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;packages/utils/tooltip&quot;</span>;
+
+<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-keyword">@include</span> tooltip();
+}
+
+<span class="hljs-selector-class">.item</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">display</span>: inline-block;
+}
+`,	'tooltip/sides-small-example/sides-small-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiTooltipParameters</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Базовый */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;sides-small-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./sides-small-example.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./sides-small-example.component.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SidesSmallExampleComponent</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">tooltipParameters1</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;top&#x27;</span>,
+  };
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">tooltipParameters2</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;left&#x27;</span>,
+  };
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">tooltipParameters3</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;right&#x27;</span>,
+  };
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">tooltipParameters4</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;bottom&#x27;</span>,
+  };
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+  }
+}
+`,
+	'tooltip/sides-small-template-example/sides-small-template-example.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">templateRef</span>]=<span class="hljs-string">&quot;defaultCell&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTemplateTooltip</span> <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;top&quot;</span>
+  &gt;</span>Сверху<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">templateRef</span>]=<span class="hljs-string">&quot;defaultCell&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTemplateTooltip</span> <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>
+    Слева
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">templateRef</span>]=<span class="hljs-string">&quot;defaultCell&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTemplateTooltip</span> <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>
+    Справа
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">templateRef</span>]=<span class="hljs-string">&quot;defaultCell&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTemplateTooltip</span> <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>&gt;</span>
+    Снизу
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ng-template</span> #<span class="hljs-attr">defaultCell</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table-container&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;good&quot;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
+`,	'tooltip/sides-small-template-example/sides-small-template-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;packages/utils/tooltip&quot;</span>;
+
+<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-keyword">@include</span> tooltip();
+}
+
+<span class="hljs-selector-class">.item</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">display</span>: inline-block;
+}
+
+<span class="hljs-selector-class">.table-container</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">border-collapse</span>: collapse;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-color-<span class="hljs-number">1</span>);
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">93</span>, <span class="hljs-number">117</span>, <span class="hljs-number">147</span>, <span class="hljs-number">0.110</span>);
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+  <span class="hljs-selector-tag">line</span>-<span class="hljs-attribute">height</span>: <span class="hljs-number">15px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main-and-axis-labels);
+}
+
+<span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.good</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-index-green);
+}
+`,	'tooltip/sides-small-template-example/sides-small-template-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Шаблон */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;sides-small-template-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./sides-small-template-example.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./sides-small-template-example.component.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SidesSmallTemplateExampleComponent</span> {
+}
+`,
+	'tooltip/title-example/title-example.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>
+  &gt;</span>Сверху<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters2&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Слева
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters3&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Справа
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">tooltipParameters</span>]=<span class="hljs-string">&quot;tooltipParameters4&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">kruiTooltip</span>&gt;</span>
+    Снизу
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'tooltip/title-example/title-example.component.scss': `<span class="hljs-selector-class">.item</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">display</span>: inline-block;
+}
+`,	'tooltip/title-example/title-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiTooltipParameters</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Заголовок */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;title-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./title-example.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./title-example.component.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TitleExampleComponent</span> {
+  <span class="hljs-attr">tooltipParameters1</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;top&#x27;</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;412&#x27;</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;21.09.2022 20:00&#x27;</span>,
+  };
+  <span class="hljs-attr">tooltipParameters2</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;left&#x27;</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;412&#x27;</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;21.09.2022 20:00&#x27;</span>,
+  };
+  <span class="hljs-attr">tooltipParameters3</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;right&#x27;</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;412&#x27;</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;21.09.2022 20:00&#x27;</span>,
+  };
+  <span class="hljs-attr">tooltipParameters4</span>: <span class="hljs-title class_">KruiTooltipParameters</span> = {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;text&#x27;</span>,
+    <span class="hljs-attr">size</span>: <span class="hljs-string">&#x27;sm&#x27;</span>,
+    <span class="hljs-attr">position</span>: <span class="hljs-string">&#x27;bottom&#x27;</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;412&#x27;</span>,
+    <span class="hljs-attr">description</span>: <span class="hljs-string">&#x27;21.09.2022 20:00&#x27;</span>,
+  };
+}
 `,
 	'typography/typography-header-example/typography-header-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>h1. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>h2. Заголовок<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>

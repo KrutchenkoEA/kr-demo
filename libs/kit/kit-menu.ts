@@ -102,4 +102,9 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     href: 'typography',
     iconUrl: 'kruiIconEditText',
   },
+  {
+    label: 'Tooltip',
+    iconUrl: 'kruiIconThemeLightSun',
+    href: 'tooltip'
+  },
 ];

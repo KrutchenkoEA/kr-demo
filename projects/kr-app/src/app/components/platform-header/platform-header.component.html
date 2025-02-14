@@ -1,14 +1,30 @@
-<button mat-button routerLink="">
+<button [btnStyle]="'ghost'" kruiButton routerLink="">
   <svg-icon src="kruiIconHomeOutlineSquare"></svg-icon>
 </button>
 <div class="menu">
-  <button mat-button routerLink="">Главная</button>
-  <button mat-button routerLink="/rezume">Резюме</button>
-  <button mat-button routerLink="/charts">Графики</button>
-  <button [matTooltip]="'В разработке'" class="menu_disabled" mat-button>Схемы</button>
-  <button [matTooltip]="'В разработке'" class="menu_disabled" mat-button>Дашборды</button>
-  <button mat-button routerLink="/kit">UI KIT</button>
+  <krui-button-group [btnStyle]="'ghost'">
+    <button kruiButton routerLink="">Главная</button>
+    <button kruiButton routerLink="/rezume">Резюме</button>
+    <button kruiButton routerLink="/charts">Графики</button>
+    <button [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}" class="menu_disabled"
+            kruiButton
+            kruiTooltip>Схемы
+    </button>
+    <button [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+            class="menu_disabled"
+            kruiButton
+            kruiTooltip>Дашборды
+    </button>
+    <button kruiButton routerLink="/kit">UI KIT</button>
+  </krui-button-group>
 </div>
 <div class="options">
-  <mat-slide-toggle (toggleChange)="changeTheme()" matTooltip="Переключить тему"></mat-slide-toggle>
+  <krui-toggle (change)="changeTheme()"
+               [tooltipParameters]="{size: 'sm',  text: 'Переключить тему', position: 'bottom'}"
+               class="krui-mr--xs"
+               iconOff="kruiIconThemeLightSun"
+               iconOn="kruiIconThemeDarkMoon"
+               kruiTooltip
+               size="xlg">
+  </krui-toggle>
 </div>

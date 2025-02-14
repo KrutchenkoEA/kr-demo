@@ -2,7 +2,9 @@
   <img [src]="'assets/my-foto-2.png'" alt="" class="avo">
 </div>
 <div class="card card_5">
-  <svg-icon (click)="link.click()" class="download-icon" matTooltip="Скачать" src="kruiIconDownloadArrowDownSimple">
+  <svg-icon (click)="link.click()" [tooltipParameters]="{size: 'sm',   text: 'Скачать', position: 'bottom'}"
+            class="download-icon"
+            kruiTooltip src="kruiIconDownloadArrowDownSimple">
     <a #link href="assets/rezume.pdf"></a>
   </svg-icon>
   <h2>Крютченко Евгений Александрович, 27 лет.</h2>
@@ -108,7 +110,7 @@
       </ul>
     </div>
   </section>
-  <button (click)="showPreviousJobs=!showPreviousJobs" class="job__expander" mat-button>
+  <button (click)="showPreviousJobs=!showPreviousJobs" [btnStyle]="'tertiary'" class="job__expander" kruiButton>
     {{ !showPreviousJobs ? 'Раскрыть список' : 'Свернуть' }}
     <svg-icon [src]="!showPreviousJobs ? 'kruiIconArrowUpSimple' : 'kruiIconArrowDownSimple'"></svg-icon>
   </button>

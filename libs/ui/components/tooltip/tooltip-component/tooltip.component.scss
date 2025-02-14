@@ -1,0 +1,97 @@
+$mediumWidthHalf: 10.5px;
+$mediumHeight: 14px;
+
+$smallWidthHalf: 7.5px;
+$smallHeight: 9px;
+
+@mixin positions($widthHalf: widthHalf,$height: height) {
+  &.right {
+    flex-direction: row-reverse;
+    .triangle {
+      border-bottom: $widthHalf solid transparent;
+      border-top: $widthHalf solid transparent;
+      border-right: $height solid var(--color-borders-icons);
+    }
+  }
+  &.left {
+    flex-direction: row;
+    .triangle {
+      border-bottom: $widthHalf solid transparent;
+      border-top: $widthHalf solid transparent;
+      border-left: $height solid var(--color-borders-icons);
+    }
+  }
+  &.top {
+    flex-direction: column;
+    .triangle {
+      border-left: $widthHalf solid transparent;
+      border-right: $widthHalf solid transparent;
+      border-top: $height solid var(--color-borders-icons);
+    }
+  }
+  &.bottom {
+    flex-direction: column-reverse;
+    .triangle {
+      border-left: $widthHalf solid transparent;
+      border-right: $widthHalf solid transparent;
+      border-bottom: $height solid var(--color-borders-icons);
+    }
+  }
+}
+
+.tooltip {
+  display: flex;
+  align-items: center;
+
+  &-content {
+    background-color: var(--color-background-main);
+    color: var(--color-text-main);
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-borders-icons);
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    .title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: var(--color-text-main);
+      margin: 0;
+      margin-bottom: 6px;
+
+      &.showBorder {
+        border-left: 2px solid var(--color-logo);
+        padding-left: 8px;
+        &:nth-child(2n) {
+          border-color: var(--color-color-14);
+        }
+      }
+    }
+
+    .description {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--color-text-signatures);
+    }
+  }
+
+  &.sm {
+    @include positions($smallWidthHalf, $smallHeight);
+  }
+
+  &.md {
+    @include positions($mediumWidthHalf, $mediumHeight);
+  }
+
+  .triangle {
+    width: 0;
+    height: 0;
+  }
+}

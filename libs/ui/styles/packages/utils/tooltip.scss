@@ -1,0 +1,143 @@
+$mediumWidthHalf: 10.5px;
+$mediumHeight: 14px;
+
+$smallWidthHalf: 7.5px;
+$smallHeight: 9px;
+
+@mixin tooltip {
+  ::ng-deep .krui-tooltip {
+    display: inline-block;
+    position: absolute;
+    background-color: var(--color-background-app-header);
+    color: var(--color-text-main);
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-borders-stroke);
+    opacity: 0;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    z-index: 1;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    &__title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: var(--color-text-main);
+      margin: 0;
+      margin-bottom: 6px;
+
+      &.--show-border {
+        border-left: 4px solid var(--color-logo);
+        padding-left: 8px;
+        &:nth-child(2) {
+          border-color: var(--color-color-14);
+        }
+      }
+    }
+
+    &__description {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--color-text-signatures);
+    }
+
+    &.--show {
+      visibility: visible;
+      opacity: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &.krui-show-title {
+      padding: 10px 12px 14px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      visibility: visible;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    &.--medium {
+      @include positions($mediumWidthHalf, $mediumHeight);
+    }
+
+    &.--small {
+      @include positions($smallWidthHalf, $smallHeight);
+    }
+  }
+}
+
+@mixin positions($widthHalf: widthHalf,$height: height) {
+  &.--top {
+    transform: translate(-50%, -100%);
+    left: 50%;
+
+    top: -$height;
+    &::before {
+      top: 100%;
+      left: calc(50% - $widthHalf);
+      border-left: $widthHalf solid transparent;
+      border-right: $widthHalf solid transparent;
+      border-top: $height solid var(--color-color-5);
+    }
+  }
+
+  &.--bottom {
+    left: 50%;
+    transform: translate(-50%);
+    top: calc(100% + $height);
+    &::before {
+      top: -$height;
+      left: calc(50% - $widthHalf);
+      border-left: $widthHalf solid transparent;
+      border-right: $widthHalf solid transparent;
+      border-bottom: $height solid var(--color-color-5);
+    }
+  }
+
+  &.--left {
+    top: 50%;
+    transform: translate(-100%, -50%);
+    left: -$height;
+    &::before {
+      top: calc(50% - $widthHalf);
+      left: 100%;
+      border-bottom: $widthHalf solid transparent;
+      border-top: $widthHalf solid transparent;
+      border-left: $height solid var(--color-color-5);
+    }
+  }
+
+  &.--right {
+    top: 50%;
+    transform: translate(0, -50%);
+
+    left: calc(100% + $height);
+    &::before {
+      top: calc(50% - $widthHalf);
+      left: -$height;
+      border-bottom: $widthHalf solid transparent;
+      border-top: $widthHalf solid transparent;
+      border-right: $height solid var(--color-color-5);
+    }
+  }
+}

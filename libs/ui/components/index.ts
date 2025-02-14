@@ -8,3 +8,4 @@ export * from '@kr-platform/ui/components/slider';
 export * from '@kr-platform/ui/components/spinner';
 export * from '@kr-platform/ui/components/tabs';
 export * from '@kr-platform/ui/components/toggle';
+export * from '@kr-platform/ui/components/tooltip';

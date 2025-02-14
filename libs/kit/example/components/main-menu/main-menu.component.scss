@@ -86,8 +86,8 @@ footer {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: $br-light;
-  box-shadow: 0 0 0 2px $shadow;
+  background-color: $br-icon;
+  box-shadow: 0 0 0 2px $logo;
 }
 
 .menu {
@@ -112,8 +112,9 @@ footer {
 
   &--level-2 {
     .menu-item {
+      padding-top: $gap;
       &__link {
-        background-color: var(--color-color-4);
+        background-color: var(--color-color-5);
 
         &__icon {
           &::before {
@@ -126,8 +127,9 @@ footer {
 
   &--level-3 {
     .menu-item {
+      padding-top: $gap;
       &__link {
-        background-color: var(--color-color-5);
+        background-color: var(--color-color-6);
 
         &__icon {
           &::before,
@@ -182,7 +184,7 @@ footer {
       padding-left: $padding;
     }
 
-    &:hover{
+    &:hover {
       background-color: $bg-header;
     }
   }

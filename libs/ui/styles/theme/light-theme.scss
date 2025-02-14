@@ -1,83 +1,84 @@
 @mixin light-variables() {
-  --color-logo: rgba(90, 114, 255, 0.6);
+  --color-logo: rgba(50, 80, 255, 0.75); /* Чуть темнее для контраста */
 
-  /*Текст*/
-  --color-text-contrast: #181d25; /* Тёмный цвет для контраста */
-  --color-text-main: #333c49; /* Темно-серый для основного текста */
-  --color-text-signatures: #5e6a7d; /* Светло-серый для подписей */
-  --color-text-optional: #7d8b99; /* Светло-серый для неважного текста */
+  /* Текст */
+  --color-text-contrast: #0f141a; /* Ещё темнее для лучшей читаемости */
+  --color-text-main: #252b36; /* Чуть насыщеннее */
+  --color-text-signatures: #4a5568; /* Темнее для удобства чтения */
+  --color-text-optional: #5c6b7d; /* Увеличен контраст */
 
-  /*Фон*/
-  --color-background-main: #f9fafb; /* Очень светлый фон для основной области */
-  --color-background-body: #ffffff; /* Белый фон для всего контента */
-  --color-background-app-header: #f0f4f8; /* Светлый фон для хедера */
-  --color-background-headers: #e1e5eb; /* Тонкий серый для заголовков */
+  /* Фон */
+  --color-background-main: #f6f8fa; /* Чуть темнее, меньше белизны */
+  --color-background-body: #ffffff; /* Оставил белым */
+  --color-background-app-header: #e8edf4; /* Чуть более насыщенный */
+  --color-background-headers: #d0d5de; /* Более отчетливый серый */
 
-  /*Границы*/
-  --color-borders-stroke: #d3d9e4; /* Светло-серые границы */
-  --color-borders-light: #e5e9f2; /* Очень светлые границы */
-  --color-borders-icons: #b5c1d0; /* Цвет для иконок, чуть темнее */
+  /* Границы */
+  --color-borders-stroke: #bfc6d3; /* Чуть темнее для визуального разделения */
+  --color-borders-light: #d6dbe5; /* Чуть заметнее */
+  --color-borders-icons: #98a6b8; /* Сделал выразительнее */
 
-  /*Тень*/
-  --color-shadows: rgba(0,0,0,0.1); /* Легкая тень */
+  /* Тень */
+  --color-shadows: rgba(0, 0, 0, 0.15); /* Немного увеличил тень */
 
-  /*Основной цвет*/
-  --color-color-1: #ffffff; /* Белый для основного фона */
-  --color-color-2: #f4f8fe; /* Очень светлый синий оттенок */
-  --color-color-3: #e8ecf3; /* Тоже светлый синий оттенок */
-  --color-color-4: #dde1ec; /* Ещё один светлый оттенок для контента */
-  --color-color-5: #d0d4e5; /* Светлый серый для акцентов */
-  --color-color-6: #a6b4c7; /* Легкий синий оттенок */
-  --color-color-7: #7f8da1; /* Тоже синий, но чуть более насыщенный */
-  --color-color-8: #3e5065; /* Темный синий для некоторых элементов */
-  --color-color-9: #2f3a4a; /* Очень темный синий для акцентов */
-  --color-color-10: #1f2636; /* Почти черный для фокуса */
+  /* Основной цвет */
+  --color-color-1: #ffffff;
+  --color-color-2: #eaf0fc; /* Более выраженный синий оттенок */
+  --color-color-3: #d8e0f0; /* Усиленный оттенок */
+  --color-color-4: #c5cde0;
+  --color-color-5: #b0b7c9;
+  --color-color-6: #8a98b0;
+  --color-color-7: #667389;
+  --color-color-8: #4a5c78;
+  --color-color-9: #36465d;
+  --color-color-10: #252e3d;
 
-  --color-color-11: #7a8ea9;
-  --color-color-12: #98a6ba;
-  --color-color-13: #b1c0d0;
-  --color-color-14: #ccd2e0;
-  --color-color-15: #dde2f1;
-  --color-color-16: #f1f3f7; /* Очень светлый фон */
-  --color-color-17: #e6e9f1;
-  --color-color-18: #f4f5f9;
+  --color-color-11: #697d99;
+  --color-color-12: #8596b3;
+  --color-color-13: #9eafc7;
+  --color-color-14: #bac4dc;
+  --color-color-15: #d2d8ea;
+  --color-color-16: #e9edf5;
+  --color-color-17: #d9deec;
+  --color-color-18: #f1f3f8;
   --color-color-19: #ffffff;
 
   --color-color-30: #ffffff;
-  --color-color-31: #e1e3e7;
-  --color-color-32: #ccd0d8;
-  --color-color-33: #b7bdc9;
-  --color-color-34: #a0a8b8;
-  --color-color-35: #8a92a3;
-  --color-color-36: #748093;
-  --color-color-37: #607380;
-  --color-color-38: #4d5c6f;
+  --color-color-31: #cdd2db;
+  --color-color-32: #b7bdc9;
+  --color-color-33: #a0a8b8;
+  --color-color-34: #8a92a3;
+  --color-color-35: #747f93;
+  --color-color-36: #5f6b80;
+  --color-color-37: #4a5466;
+  --color-color-38: #384253;
 
-  --color-index-gray: #d0d9e4; /* Светло-серый для серых элементов */
-  --color-index-yellow: #FFB30F;
-  --color-index-red: #FF4046;
-  --color-index-green: #4CB944;
-  --color-index-blue: #2D8DED;
+  --color-index-gray: #bfc6d3;
+  --color-index-yellow: #e09b00; /* Чуть глубже цвет */
+  --color-index-red: #e03036;
+  --color-index-green: #38a534;
+  --color-index-blue: #2178d0;
 
-  --color-additional-1: #D4BBFF;
-  --color-additional-2: #6FDC8C;
-  --color-additional-3: #FF7D96;
-  --color-additional-4: #45C5FA;
-  --color-additional-5: #FDD13A;
-  --color-additional-6: #9362D0;
-  --color-additional-7: #8090F0;
-  --color-additional-8: #78A9FF;
-  --color-additional-9: #08BDBA;
-  --color-additional-10: #007D79;
-  --color-additional-11: #D0C4E8;
-  --color-additional-12: #69E88B;
-  --color-additional-13: #FF9090;
-  --color-additional-14: #53CDFF;
-  --color-additional-15: #FFDD66;
-  --color-additional-16: #AC7EE6;
-  --color-additional-17: #7282DD;
-  --color-additional-18: #DA8AE1;
-  --color-additional-19: #8DF2F1;
-  --color-additional-20: #B6FF6D;
-  --color-additional-21: #118F3F;
+  /* Дополнительные цвета */
+  --color-additional-1: #b480ff;
+  --color-additional-2: #38b44a;
+  --color-additional-3: #ff3f69;
+  --color-additional-4: #009eea;
+  --color-additional-5: #e5a500;
+  --color-additional-6: #7325b3;
+  --color-additional-7: #4f6af2;
+  --color-additional-8: #267dff;
+  --color-additional-9: #00a39f;
+  --color-additional-10: #005a57;
+  --color-additional-11: #b09ad7;
+  --color-additional-12: #32d966;
+  --color-additional-13: #ff5c5c;
+  --color-additional-14: #00b8ff;
+  --color-additional-15: #ffc400;
+  --color-additional-16: #8a4ade;
+  --color-additional-17: #4f66d3;
+  --color-additional-18: #c24bcf;
+  --color-additional-19: #4ae7e6;
+  --color-additional-20: #8fff2f;
+  --color-additional-21: #007a2e;
 }

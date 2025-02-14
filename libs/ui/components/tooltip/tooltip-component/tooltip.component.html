@@ -1,0 +1,28 @@
+<div
+  @popup
+  [@.disabled]="!usePopupAnimation"
+  [class.bottom]="position === 'bottom'"
+  [class.left]="position === 'left'"
+  [class.md]="size === 'md'"
+  [class.right]="position === 'right'"
+  [class.sm]="size === 'sm'"
+  [class.top]="position === 'top'"
+  class="tooltip"
+>
+  <div class="tooltip-content">
+    <ng-container *ngIf="titles.length > 0">
+      <div
+        *ngFor="let title of titles"
+        [class.showBorder]="showBorder"
+        class="title"
+      >
+        {{ title }}
+      </div>
+    </ng-container>
+    <div *ngIf="description" class="description">
+      {{ description }}
+    </div>
+    {{ text }}
+  </div>
+  <div class="triangle"></div>
+</div>

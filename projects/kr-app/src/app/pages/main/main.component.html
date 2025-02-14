@@ -40,7 +40,8 @@
   </section>
 </div>
 
-<div [matTooltip]="'В разработке'" class="card card_clickable card_flexible-row">
+<div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+     class="card card_clickable card_flexible-row" kruiTooltip>
   <img [src]="'assets/favicon.ico'" alt="" class="image">
   <section>
     <p>mxGraph является open source библиотекой, которую использую как основу для:</p>
@@ -61,7 +62,8 @@
   </section>
 </div>
 
-<div [matTooltip]="'В разработке'" class="card card_clickable card_flexible-row">
+<div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+     class="card card_clickable card_flexible-row" kruiTooltip>
   <img [src]="'assets/favicon.ico'" alt="" class="image">
   <section>
     <p>Конструктор и портал дашбордов, основанный на Angular Gridster.</p>

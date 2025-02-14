@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { SvgIconComponent } from 'angular-svg-icon';
-import { MatTooltip } from '@angular/material/tooltip';
+import { KruiButtonModule, KruiTooltipModule } from '@kr-platform/ui';
 
 @Component({
   selector: 'kr-app-rezume',
   imports: [
-    MatButton,
     RouterLink,
     SvgIconComponent,
-    MatTooltip,
+    KruiTooltipModule,
+    KruiButtonModule,
   ],
   templateUrl: './rezume.component.html',
   styleUrl: './rezume.component.scss',
