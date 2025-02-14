@@ -13,8 +13,20 @@
   height: 100px;
 }
 
-.card__section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 8px;
+.card {
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    width: 70%;
+  }
+
+  &__image {
+    height: 300px;
+    padding: 1rem;
+    border: 1px dashed var(--color-borders-light);
+    border-radius: 0.8rem;
+    display: flex;
+  }
 }
+

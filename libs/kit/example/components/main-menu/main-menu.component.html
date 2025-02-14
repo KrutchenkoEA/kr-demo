@@ -23,8 +23,8 @@
 <footer class="footer">
   <span class="flex-divider"></span>
   <krui-toggle
-    (ngModelChange)="themeChange.emit($event ? 'light' : 'dark')"
-    [ngModel]="theme === 'light'"
+    (change)="changeTheme()"
+    [ngModel]="themeService.isDarkTheme$ | async"
     class="krui-mr--xs"
     iconOff="kruiIconThemeLightSun"
     iconOn="kruiIconThemeDarkMoon"

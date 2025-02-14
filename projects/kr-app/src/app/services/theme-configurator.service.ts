@@ -1,6 +1,8 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+const THEME_KEY = 'kr-theme';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -29,16 +31,16 @@ export class ThemeConfigurator {
 
   constructor(private document: Document, private renderer: Renderer2) {
     this.isDarkThemeObservable.subscribe((ref) => this.setTheme(ref));
-    const theme = localStorage.getItem('theme');
+    const theme = localStorage.getItem(THEME_KEY);
     if (!theme) {
       this.theme = true;
     } else {
-      this.theme = localStorage.getItem('theme') === 'true';
+      this.theme = localStorage.getItem(THEME_KEY) === 'true';
     }
   }
 
   public set theme(value: boolean) {
-    localStorage.setItem('theme', value.toString());
+    localStorage.setItem(THEME_KEY, value.toString());
     this.isDarkTheme$.next(value);
   }
 

@@ -1,16 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
+import { ThemeConfiguratorService } from '../../../../../projects/kr-app/src/app/services/theme-configurator.service';
 
 export interface KruiMainMenuItem {
   label: string;
@@ -36,19 +29,14 @@ export class KruiMainMenuComponent implements OnInit {
   public menuItems: KruiMainMenuItem[] = [];
 
   @Input()
-  public theme: 'light' | 'dark' = 'dark';
-
-  @Input()
   public version = '';
-
-  @Output()
-  public themeChange = new EventEmitter<'light' | 'dark'>();
 
   public filteredItems: KruiMainMenuItem[] = [];
   public query: string = '';
   public readonly filterBroadcast$ = new BehaviorSubject<string>('');
 
   public constructor(
+    public themeService: ThemeConfiguratorService,
     public readonly router: Router,
     public readonly route: ActivatedRoute,
     private readonly cdr: ChangeDetectorRef,
@@ -76,6 +64,10 @@ export class KruiMainMenuComponent implements OnInit {
       fragment: 'ignored',
       matrixParams: 'ignored',
     });
+  }
+
+  public changeTheme(): void {
+    this.themeService.changeTheme();
   }
 
   private filter(query: string): void {

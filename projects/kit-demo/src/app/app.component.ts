@@ -1,12 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import packageInfo from '../../../../libs/kit/package.json';
 import { ActivationStart, Router, RouterOutlet } from '@angular/router';
 import { CdkScrollable } from '@angular/cdk/scrolling';
-import { KruiMainMenuItem, PageTitleService, StorageService } from '@kr-platform/kit';
+import { KruiMainMenuItem, PageTitleService } from '@kr-platform/kit';
 import { KrKitMenu } from '@kr-platform/kit/kit-menu';
 import { KrKitPagesModule } from '@kr-platform/kit/kit-pages.module';
-
-const THEME_KEY = 'kit-theme';
+import { DOCUMENT } from '@angular/common';
+import { ThemeConfiguratorService } from '../../../kr-app/src/app/services/theme-configurator.service';
 
 @Component({
   imports: [
@@ -23,33 +23,18 @@ export class KitDemoComponent {
   public version = packageInfo.version;
   public menu: KruiMainMenuItem[] = KrKitMenu.sort();
 
-  public set theme(theme: 'dark' | 'light') {
-    document
-      .querySelector('body')
-      ?.classList.remove('theme-dark', 'theme-light');
-
-    document.querySelector('body')?.classList.add(`theme-${theme}`);
-    this.storageService.setItem(THEME_KEY, (this._theme = theme));
-  }
-
-  public get theme() {
-    return this._theme;
-  }
-
-  private _theme: 'dark' | 'light' = 'dark';
-
-  @ViewChild('container')
-  container!: ElementRef<HTMLElement>;
+  @ViewChild('container') container!: ElementRef<HTMLElement>;
 
   public constructor(
-    private readonly storageService: StorageService,
+    @Inject(DOCUMENT) private document: Document,
+    private readonly themeService: ThemeConfiguratorService,
     private readonly pageTitleService: PageTitleService,
     private readonly router: Router,
   ) {
   }
 
-  ngOnInit() {
-    this.theme = this.storageService.getItem(THEME_KEY, 'dark');
+  public ngOnInit(): void {
+    this.themeService.setThemeConfiguratorRoot(this.document);
 
     this.router.events.subscribe((event) => {
       if (event instanceof ActivationStart) {

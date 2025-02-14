@@ -5,7 +5,7 @@
   <krui-button-group [btnStyle]="'ghost'">
     <button kruiButton routerLink="">Главная</button>
     <button kruiButton routerLink="/rezume">Резюме</button>
-    <button kruiButton routerLink="/charts">Графики</button>
+    <button kruiButton routerLink="/kit/combo-charts">Графики</button>
     <button [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}" class="menu_disabled"
             kruiButton
             kruiTooltip>Схемы
@@ -20,6 +20,7 @@
 </div>
 <div class="options">
   <krui-toggle (change)="changeTheme()"
+               [ngModel]="themeService.isDarkTheme$ | async"
                [tooltipParameters]="{size: 'sm',  text: 'Переключить тему', position: 'bottom'}"
                class="krui-mr--xs"
                iconOff="kruiIconThemeLightSun"

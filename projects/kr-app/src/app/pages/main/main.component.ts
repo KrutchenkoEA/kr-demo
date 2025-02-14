@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiTooltipModule } from '@kr-platform/ui';
+import { MainChartComponent } from './chart-combo-line-bar/main-chart.component';
 
 @Component({
   selector: 'kr-app-main',
@@ -10,6 +11,7 @@ import { KruiTooltipModule } from '@kr-platform/ui';
     RouterLink,
     SvgIconComponent,
     KruiTooltipModule,
+    MainChartComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',

@@ -20,8 +20,8 @@
   <p>В этом направление, могу предствать свои собственные проекты:</p>
 </div>
 
-<div class="card card_clickable card_flexible-row" routerLink="/charts">
-  <img [src]="'assets/favicon.ico'" alt="" class="image">
+<div class="card card_clickable card_flexible-row" routerLink="/kit/combo-charts">
+  <kr-app-main-chart class="card__image"></kr-app-main-chart>
   <section class="card__section">
     Графики: line
     <svg-icon src="kruiIconChartMountain"></svg-icon>
@@ -43,7 +43,7 @@
 <div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
      class="card card_clickable card_flexible-row" kruiTooltip>
   <img [src]="'assets/favicon.ico'" alt="" class="image">
-  <section>
+  <section class="card__section">
     <p>mxGraph является open source библиотекой, которую использую как основу для:</p>
 
     <p>Конструктор схем.</p>
@@ -65,7 +65,7 @@
 <div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
      class="card card_clickable card_flexible-row" kruiTooltip>
   <img [src]="'assets/favicon.ico'" alt="" class="image">
-  <section>
+  <section class="card__section">
     <p>Конструктор и портал дашбордов, основанный на Angular Gridster.</p>
     <p>Построен на основе тех же графиков, с использованием дополнительной обертки для gridster`a.</p>
   </section>
