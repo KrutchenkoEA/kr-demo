@@ -280,6 +280,15 @@ export const EXAMPLES = {
     files: ['chart-update-horizontal-combo-bar.component.html','chart-update-horizontal-combo-bar.component.scss','chart-update-horizontal-combo-bar.component.ts'],
     loadAsync: () => import('../../pages/combo-bar-charts/examples'),
   },
+  'chart-combo-line-bar' : {
+    title: 'Настраиваемый',
+    packagePath: 'combo-charts',
+    moduleName: 'ChartsExampleModule',
+    componentName: 'ChartComboLineBarComponent',
+    selector: 'chart-combo-line-bar',
+    files: ['chart-combo-line-bar.component.html','chart-combo-line-bar.component.scss','chart-combo-line-bar.component.ts'],
+    loadAsync: () => import('../../pages/combo-charts/examples'),
+  },
   'input-native-example' : {
     title: 'Нативные контроллы',
     packagePath: 'input',

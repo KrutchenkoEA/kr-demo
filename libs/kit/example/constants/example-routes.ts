@@ -6,6 +6,7 @@ import { BarChartsComponent} from '@kr-platform/kit/pages/bar-charts/bar-charts.
 import { ButtonComponent} from '@kr-platform/kit/pages/button/button.component';
 import { CheckboxComponent} from '@kr-platform/kit/pages/checkbox/checkbox.component';
 import { ComboBarChartsComponent} from '@kr-platform/kit/pages/combo-bar-charts/combo-bar-charts.component';
+import { ComboChartsComponent} from '@kr-platform/kit/pages/combo-charts/combo-charts.component';
 import { InputComponent} from '@kr-platform/kit/pages/input/input.component';
 import { LineChartsComponent} from '@kr-platform/kit/pages/line-charts/line-charts.component';
 import { RangeComponent} from '@kr-platform/kit/pages/range/range.component';
@@ -43,6 +44,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'combo-bar-charts',
         component: ComboBarChartsComponent,
+      },
+{
+        path: 'combo-charts',
+        component: ComboChartsComponent,
       },
 {
         path: 'input',

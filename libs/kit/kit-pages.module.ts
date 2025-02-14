@@ -32,6 +32,7 @@ import { ComboBarChartsComponent } from '@kr-platform/kit/pages/combo-bar-charts
 import { RangeBarChartsComponent } from '@kr-platform/kit/pages/range-bar-charts/range-bar-charts.component';
 import { TooltipComponent } from '@kr-platform/kit/pages/tooltip/tooltip.component';
 import { AreaChartsComponent } from '@kr-platform/kit/pages/area-charts/area-charts.component';
+import { ComboChartsComponent } from '@kr-platform/kit/pages/combo-charts/combo-charts.component';
 
 
 const kitPages = [
@@ -46,7 +47,7 @@ const kitPages = [
   TabsComponent,
   ToggleComponent,
   TypographyComponent,
-  TooltipComponent
+  TooltipComponent,
 ];
 
 const kitPagesCharts = [
@@ -55,7 +56,8 @@ const kitPagesCharts = [
   StackBarChartsComponent,
   ComboBarChartsComponent,
   RangeBarChartsComponent,
-  AreaChartsComponent
+  AreaChartsComponent,
+  ComboChartsComponent,
 ];
 
 @NgModule({
