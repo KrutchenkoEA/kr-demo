@@ -1,6 +1,7 @@
 /** Don't edit this file! It has been generated automatically. */
 
     import { AccordionComponent} from '@kr-platform/kit/pages/accordion/accordion.component';
+import { AreaChartsComponent} from '@kr-platform/kit/pages/area-charts/area-charts.component';
 import { BarChartsComponent} from '@kr-platform/kit/pages/bar-charts/bar-charts.component';
 import { ButtonComponent} from '@kr-platform/kit/pages/button/button.component';
 import { CheckboxComponent} from '@kr-platform/kit/pages/checkbox/checkbox.component';
@@ -22,6 +23,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
 {
         path: 'accordion',
         component: AccordionComponent,
+      },
+{
+        path: 'area-charts',
+        component: AreaChartsComponent,
       },
 {
         path: 'bar-charts',

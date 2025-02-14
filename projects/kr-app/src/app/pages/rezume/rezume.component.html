@@ -112,7 +112,7 @@
   </section>
   <button (click)="showPreviousJobs=!showPreviousJobs" [btnStyle]="'tertiary'" class="job__expander" kruiButton>
     {{ !showPreviousJobs ? 'Раскрыть список' : 'Свернуть' }}
-    <svg-icon [src]="!showPreviousJobs ? 'kruiIconArrowUpSimple' : 'kruiIconArrowDownSimple'"></svg-icon>
+    <svg-icon [src]="showPreviousJobs ? 'kruiIconArrowUpSimple' : 'kruiIconArrowDownSimple'"></svg-icon>
   </button>
   <section [class.job_hidden]="!showPreviousJobs" class="job">
     <div class="date"><p>март 2022</p>-<p>август 2022</p></div>

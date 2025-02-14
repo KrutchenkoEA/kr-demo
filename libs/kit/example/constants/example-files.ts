@@ -52,6 +52,548 @@ export const EXAMPLE_FILES = {
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AccordionSimpleExample</span> {}
 `,
+	'area-charts/chart-enum-area/chart-enum-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;false&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;top&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;enum&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;right&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-2)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-additional-2)&#x27;, &#x27;var(--color-additional-12)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-enum-area/chart-enum-area.component.scss': ``,	'area-charts/chart-enum-area/chart-enum-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartLineEnumMock1 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Enum */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-enum-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-enum-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-enum-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartEnumAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartLineEnumMock1;
+}
+`,
+	'area-charts/chart-layer-area/chart-layer-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendAxis</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">legendLayer</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;default&#x27;&quot;</span> [<span class="hljs-attr">legend</span>]=<span class="hljs-string">&quot;true&quot;</span>
+            [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data2&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-layer-area/chart-layer-area.component.scss': ``,	'area-charts/chart-layer-area/chart-layer-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMock1, kruiChartNumberMock3 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Слои */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-layer-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-layer-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-layer-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartLayerAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartNumberMock3;
+}
+`,
+	'area-charts/chart-legend-area/chart-legend-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendPosition</span>]=<span class="hljs-string">&quot;&#x27;top&#x27;&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;custom&#x27;&quot;</span>
+            [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;false&quot;</span> [<span class="hljs-attr">tooltipComponentType</span>]=<span class="hljs-string">&quot;&#x27;custom&#x27;&quot;</span> [<span class="hljs-attr">tooltipComponent</span>]=<span class="hljs-string">&quot;tooltipComponent&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-legend-directive</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-legend&quot;</span>&gt;</span>
+    @for (layer of chart?.legendGroups; track layer.layerId; let layerIndex = $index) {
+      @for (label of layer.dataLayer; track label.layer.id) {
+        @for (lab of label.data; track lab.title; let trendIndex = $index) {
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-legend__item&quot;</span>
+               (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;chart?.onTrendInactivityChange(lab.type, label.layer, layer.layerId, layerIndex, trendIndex, lab.disabled = !lab.disabled)&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">style.background-color</span>]=<span class="hljs-string">&quot;lab.color&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-legend__icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-legend__title&quot;</span>&gt;</span>{{ lab.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        }
+      }
+    }
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-legend-directive</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-7)&#x27;&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;{ top: 15, right: 10, left: 10, bottom: 0 }&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-legend-area/chart-legend-area.component.scss': `tlui-<span class="hljs-selector-tag">line</span>-chart {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">0</span>;
+}
+
+
+<span class="hljs-selector-class">.custom-legend</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: row;
+  <span class="hljs-attribute">justify-content</span>: flex-end;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>;
+
+  &amp;__item {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: row;
+    <span class="hljs-attribute">justify-content</span>: center;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">cursor</span>: pointer;
+
+    &amp;<span class="hljs-selector-pseudo">:hover</span> {
+      <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
+    }
+  }
+
+  &amp;__icon {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">18px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">18px</span>;
+  }
+
+  &amp;__title {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+  }
+}
+`,	'area-charts/chart-legend-area/chart-legend-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">ViewChild</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiChartComponent</span>, kruiChartNumberMock1 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">CustomAreaTooltipComponent</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/kit/pages/area-charts/examples&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Легенда */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-legend-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-legend-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-legend-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartLegendAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-meta">@ViewChild</span>(<span class="hljs-title class_">KruiChartComponent</span>) <span class="hljs-keyword">public</span> <span class="hljs-attr">chart</span>: <span class="hljs-title class_">KruiChartComponent</span> | <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">readonly</span> tooltipComponent = <span class="hljs-title class_">CustomAreaTooltipComponent</span>;
+}
+`,	'area-charts/chart-legend-area/tooltip.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tooltip&quot;</span>&gt;</span>
+  @for (group of data; track group.title) {
+    @for (row of group.rows; track row.title) {
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tooltip__item&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">style.background-color</span>]=<span class="hljs-string">&quot;row.color&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tooltip__marker&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tooltip__value&quot;</span>&gt;</span>{{ row.value }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tooltip__label&quot;</span>&gt;</span>{{ row.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    }
+  }
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'area-charts/chart-legend-area/tooltip.component.scss': `<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">10px</span>;
+}
+
+<span class="hljs-selector-class">.tooltip</span> {
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-background-popup-widgets);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span>;
+
+  &amp;__item {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: row;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+  }
+
+  &amp;__marker {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+  }
+
+  &amp;__value {
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
+  }
+
+  &amp;__label {
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  }
+}
+`,	'area-charts/chart-legend-area/tooltip.component.ts': `<span class="hljs-keyword">import</span> { animate, state, style, transition, trigger } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/animations&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiChartTooltipBaseDirective</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;krui-area-tooltip-custom&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./tooltip.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./tooltip.component.scss&#x27;</span>],
+  <span class="hljs-attr">animations</span>: [
+    <span class="hljs-title function_">trigger</span>(<span class="hljs-string">&#x27;popup&#x27;</span>, [
+      <span class="hljs-title function_">state</span>(<span class="hljs-string">&#x27;void&#x27;</span>, <span class="hljs-title function_">style</span>({ <span class="hljs-attr">opacity</span>: <span class="hljs-number">0</span> })),
+      <span class="hljs-title function_">state</span>(<span class="hljs-string">&#x27;enter&#x27;</span>, <span class="hljs-title function_">style</span>({ <span class="hljs-attr">opacity</span>: <span class="hljs-number">1</span> })),
+      <span class="hljs-title function_">transition</span>(<span class="hljs-string">&#x27;* =&gt; *&#x27;</span>, <span class="hljs-title function_">animate</span>(<span class="hljs-string">&#x27;200ms cubic-bezier(0.25, 0.8, 0.25, 1)&#x27;</span>)),
+    ]),
+  ],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomAreaTooltipComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">KruiChartTooltipBaseDirective</span> {
+}
+`,
+	'area-charts/chart-point-area/chart-point-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;dataPoint&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-point-area/chart-point-area.component.scss': ``,	'area-charts/chart-point-area/chart-point-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMockMissingValue1 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Пропущенные значения */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-point-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-point-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-point-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartPointAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMockMissingValue1;
+}
+`,
+	'area-charts/chart-simple-area/chart-simple-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;fullLine&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgba(37,72,212, 0.5)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(37,72,212)&#x27;, &#x27;rgba(37,72,212, 0.5)&#x27;, &#x27;rgba(37,72,212, 0)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;rgb(212,57,37)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;rgb(212,57,37)&#x27;, &#x27;rgba(37,81,212,0.1)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data2&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-simple-area/chart-simple-area.component.scss': ``,	'area-charts/chart-simple-area/chart-simple-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMock1, kruiChartNumberMock2 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Базовый */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-simple-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-simple-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-simple-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartSimpleAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock1;
+  <span class="hljs-keyword">public</span> data2 = kruiChartNumberMock2;
+}
+`,
+	'area-charts/chart-time-area/chart-time-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;time&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-12)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-additional-12)&#x27;, &#x27;var(--color-additional-13)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-time-area/chart-time-area.component.scss': ``,	'area-charts/chart-time-area/chart-time-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartLineMockTime1 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Временной */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-time-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-time-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-time-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartTimeAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartLineMockTime1;
+}
+`,
+	'area-charts/chart-update-area/chart-update-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;fullLine&#x27;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;bottom&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;left&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2022]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-additional-8)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-additional-7)&#x27;, &#x27;var(--color-additional-9)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;update-button&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span> Обновить данные<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'area-charts/chart-update-area/chart-update-area.component.scss': `<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">640px</span>;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">8px</span>;
+}
+`,	'area-charts/chart-update-area/chart-update-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartRdmNumberData } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Обновление данных */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-update-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-update-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-update-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartUpdateAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span> = <span class="hljs-title function_">kruiChartRdmNumberData</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">20</span>);
+  }
+}
+`,
+	'area-charts/chart-zoom-area/chart-zoom-area.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">zoomType</span>]=<span class="hljs-string">&quot;&#x27;brush&#x27;&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;top&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      <span class="hljs-attr">position</span>=<span class="hljs-string">&quot;right&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span> [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+      [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;true&quot;</span>
+      [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[2023]&quot;</span>
+      [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;&#x27;var(--color-index-blue)&#x27;&quot;</span>
+      [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[&#x27;var(--color-index-blue)&#x27;, &#x27;var(--color-index-green)&#x27;]&quot;</span>
+      [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data&quot;</span>
+      [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+      [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;false&quot;</span>
+      <span class="hljs-attr">kruiChartLine</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+`,	'area-charts/chart-zoom-area/chart-zoom-area.component.scss': ``,	'area-charts/chart-zoom-area/chart-zoom-area.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { kruiChartNumberMock4 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Zoom */</span>
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;chart-zoom-area&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./chart-zoom-area.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./chart-zoom-area.component.scss&#x27;</span>],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChartZoomAreaComponent</span> {
+  <span class="hljs-keyword">public</span> data = kruiChartNumberMock4;
+}
+`,
 	'bar-charts/chart-animation-bar/chart-animation-bar.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span> [<span class="hljs-attr">height</span>]=<span class="hljs-string">&quot;600&quot;</span> [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;&#x27;simple-style&#x27;&quot;</span> [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;true&quot;</span> [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;&#x27;fullLine&#x27;&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
@@ -7717,19 +8259,13 @@ tlui-toggle {
     Disabled
   <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-`,	'tooltip/sides-small-example/sides-small-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;packages/utils/tooltip&quot;</span>;
-
-<span class="hljs-selector-pseudo">:host</span> {
-  <span class="hljs-keyword">@include</span> tooltip();
-}
-
-<span class="hljs-selector-class">.item</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+`,	'tooltip/sides-small-example/sides-small-example.component.scss': `<span class="hljs-selector-class">.item</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-background-body);
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
   <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures);
   <span class="hljs-attribute">display</span>: inline-block;
 }
 `,	'tooltip/sides-small-example/sides-small-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
@@ -7802,19 +8338,19 @@ tlui-toggle {
     <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ng-template</span>&gt;</span>
-`,	'tooltip/sides-small-template-example/sides-small-template-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;packages/utils/tooltip&quot;</span>;
+`,	'tooltip/sides-small-template-example/sides-small-template-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;../../../../../ui/styles/packages/utils/tooltip&quot;</span>;
 
 <span class="hljs-selector-pseudo">:host</span> {
   <span class="hljs-keyword">@include</span> tooltip();
 }
 
 <span class="hljs-selector-class">.item</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-background-app-header);
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
   <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures);
   <span class="hljs-attribute">display</span>: inline-block;
 }
 
@@ -7823,12 +8359,12 @@ tlui-toggle {
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
   <span class="hljs-attribute">border-collapse</span>: collapse;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-and-icons-stroke-shape);
-  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-color-<span class="hljs-number">1</span>);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-borders-light);
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--color-borders-icons);
   <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">93</span>, <span class="hljs-number">117</span>, <span class="hljs-number">147</span>, <span class="hljs-number">0.110</span>);
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
   <span class="hljs-selector-tag">line</span>-<span class="hljs-attribute">height</span>: <span class="hljs-number">15px</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main-and-axis-labels);
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main);
 }
 
 <span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.good</span> {
@@ -7864,12 +8400,12 @@ tlui-toggle {
   <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 `,	'tooltip/title-example/title-example.component.scss': `<span class="hljs-selector-class">.item</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-special-color-standard-button);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-background-body);
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-contrast);
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
   <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">30px</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures-and-future);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--color-text-signatures);
   <span class="hljs-attribute">display</span>: inline-block;
 }
 `,	'tooltip/title-example/title-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
