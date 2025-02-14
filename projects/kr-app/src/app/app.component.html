@@ -2,8 +2,9 @@
 
 <main class="main">
   <router-outlet></router-outlet>
+
+  <button (click)="scrollTop()" [btnStyle]="'tertiary'" class="footer" kruiButton matTooltip="Вверх">
+    <svg-icon src="kruiIconArrowUp"></svg-icon>
+  </button>
 </main>
 
-<button (click)="scrollTop()" [btnStyle]="'tertiary'" class="footer" kruiButton matTooltip="Вверх">
-  <svg-icon src="kruiIconArrowUp"></svg-icon>
-</button>

@@ -22,7 +22,7 @@ import { ThemeConfiguratorService } from '../../../kr-app/src/app/services/theme
 export class KitDemoComponent {
   public version = packageInfo.version;
   public menu: KruiMainMenuItem[] = KrKitMenu.sort();
-
+  public showFooter: boolean = true;
   @ViewChild('container') container!: ElementRef<HTMLElement>;
 
   public constructor(
@@ -35,6 +35,7 @@ export class KitDemoComponent {
 
   public ngOnInit(): void {
     this.themeService.setThemeConfiguratorRoot(this.document);
+    this.showFooter = this.router.url.split('/')?.[1] !== 'kit';
 
     this.router.events.subscribe((event) => {
       if (event instanceof ActivationStart) {

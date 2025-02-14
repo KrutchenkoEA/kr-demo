@@ -25,11 +25,9 @@ export interface KruiMainMenuItem {
   standalone: false,
 })
 export class KruiMainMenuComponent implements OnInit {
-  @Input()
-  public menuItems: KruiMainMenuItem[] = [];
-
-  @Input()
-  public version = '';
+  @Input() public menuItems: KruiMainMenuItem[] = [];
+  @Input() public version = '';
+  @Input() public showFooter = true;
 
   public filteredItems: KruiMainMenuItem[] = [];
   public query: string = '';

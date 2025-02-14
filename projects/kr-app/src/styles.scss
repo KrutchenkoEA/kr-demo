@@ -1,6 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @use "theme/theme";
 
+html, body {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  flex-flow: column;
+}
+
 a:any-link {
   color: var(--color-additional-8);
 

@@ -20,17 +20,19 @@
   <span class="empty-msg">Нет элеменов</span>
 }
 
-<footer class="footer">
-  <span class="flex-divider"></span>
-  <krui-toggle
-    (change)="changeTheme()"
-    [ngModel]="themeService.isDarkTheme$ | async"
-    class="krui-mr--xs"
-    iconOff="kruiIconThemeLightSun"
-    iconOn="kruiIconThemeDarkMoon"
-    size="lg"
-  ></krui-toggle>
-</footer>
+@if (showFooter) {
+  <footer class="footer">
+    <span class="flex-divider"></span>
+    <krui-toggle
+      (change)="changeTheme()"
+      [ngModel]="themeService.isDarkTheme$ | async"
+      class="krui-mr--xs"
+      iconOff="kruiIconThemeLightSun"
+      iconOn="kruiIconThemeDarkMoon"
+      size="lg"
+    ></krui-toggle>
+  </footer>
+}
 
 <ng-template #menu let-items="items" let-level="level">
   <ul [class]="'menu menu--level-' + level">

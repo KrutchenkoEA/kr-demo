@@ -114,8 +114,6 @@ footer {
     .menu-item {
       padding-top: $gap;
       &__link {
-        background-color: var(--color-color-5);
-
         &__icon {
           &::before {
             @include dot();
@@ -129,8 +127,6 @@ footer {
     .menu-item {
       padding-top: $gap;
       &__link {
-        background-color: var(--color-color-6);
-
         &__icon {
           &::before,
           &::after {
