@@ -2,6 +2,10 @@
 
 @include main-page-mixin();
 
+p {
+  margin: 16px 0;
+}
+
 .card_clickable {
   margin: 0 2rem;
 }
@@ -27,6 +31,10 @@
     border: 1px dashed var(--color-borders-light);
     border-radius: 0.8rem;
     display: flex;
+  }
+
+  &__column {
+    flex-direction: column;
   }
 }
 

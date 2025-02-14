@@ -1,0 +1,19 @@
+<div></div>
+
+<as-split [formGroup]="form" direction="horizontal">
+  <as-split-area>
+    <combo-chart-generator [formGroupName]="'dataForm'"></combo-chart-generator>
+
+  </as-split-area>
+  <as-split-area>
+    <combo-chart-settings [formGroupName]="'optionsForm'"></combo-chart-settings>
+  </as-split-area>
+</as-split>
+
+
+<div class="button">
+  <label class="krui-form-field-label"></label>
+  <button (click)="update()" kruiButton>
+    <svg-icon kruiBtnIcon src="kruiIconReloadCycle"></svg-icon>
+  </button>
+</div>

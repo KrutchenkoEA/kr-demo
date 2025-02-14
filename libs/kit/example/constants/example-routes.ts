@@ -50,6 +50,10 @@ import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography
         component: ComboChartsComponent,
       },
 {
+        path: 'combo-charts',
+        component: ComboChartsComponent,
+      },
+{
         path: 'input',
         component: InputComponent,
       },

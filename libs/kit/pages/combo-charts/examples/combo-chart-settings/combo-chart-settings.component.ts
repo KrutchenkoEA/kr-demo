@@ -4,32 +4,15 @@ import {
   KRUI_CHART_LINE_INTERPOLATE,
   KRUI_CHART_POINT_MARKERS,
   KRUI_CHART_POINT_MARKERS_CONFIG,
-  KruiAccordionModule,
-  KruiChartComboModule,
-  KruiCheckboxModule,
-  KruiFormFieldModule,
-  KruiSliderModule,
 } from '@kr-platform/ui';
-import { FormGroupDirective, FormGroupName, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule, NgForOf } from '@angular/common';
+import { FormGroupDirective, FormGroupName } from '@angular/forms';
 
 @Component({
-  selector: 'kr-app-combo-chart-settings',
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgForOf,
-    KruiAccordionModule,
-    KruiFormFieldModule,
-    KruiChartComboModule,
-    KruiCheckboxModule,
-    KruiSliderModule,
-  ],
+  selector: 'combo-chart-settings',
   templateUrl: './combo-chart-settings.component.html',
   styleUrl: './combo-chart-settings.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+  standalone: false,
 })
 export class ComboChartSettingsComponent implements OnInit {
   protected readonly interpolation = KRUI_CHART_LINE_INTERPOLATE;

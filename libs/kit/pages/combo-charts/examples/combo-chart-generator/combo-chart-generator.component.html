@@ -1,0 +1,117 @@
+<div class="chart-toggle">
+  <label for="chart-orientation-toggle"> Вертикальный </label>
+  <krui-toggle
+    [formControl]="isChartHorizontal"
+    [iconOff]="'kruiIconChartGantt'"
+    [iconOn]="'kruiIconChartColumns'"
+    id="chart-orientation-toggle"
+  ></krui-toggle>
+  <label for="chart-orientation-toggle"> Горизонтальный </label>
+</div>
+<div [formGroup]="dataParamsForm" class="data-params">
+  <label>Минимальное значение</label>
+  <krui-slider
+    [buttons]="true"
+    [inputs]="true"
+    [labels]="true"
+    [max]="1000"
+    [min]="0"
+    [step]="2"
+    formControlName="minValue"
+  ></krui-slider>
+
+  <label>Максимальное значение</label>
+  <krui-slider
+    [buttons]="true"
+    [inputs]="true"
+    [labels]="true"
+    [max]="5000"
+    [min]="2"
+    [step]="2"
+    formControlName="maxValue"
+  ></krui-slider>
+
+  <label>Количество точек</label>
+  <krui-slider
+    [buttons]="true"
+    [inputs]="true"
+    [labels]="true"
+    [max]="9999"
+    [min]="0"
+    [step]="2"
+    formControlName="dataLength"
+  ></krui-slider>
+</div>
+<div [formGroup]="dataForm" class="container">
+  <ng-container *ngFor="let group of dataSources.controls; let ruleIndex = index" formArrayName="dataSources">
+    <ng-container [formGroupName]="ruleIndex">
+      <div class="container__row">
+
+        <krui-form-field class="big-width">
+          <input formControlName="name" kruiInput placeholder="Наименование" size="md" />
+        </krui-form-field>
+
+        <action-selector-control
+          #typeValue
+          [options]="typeOptionsParsed$ | async"
+          formControlName="type"
+        ></action-selector-control>
+
+        <krui-form-field class="small-width">
+          <input
+            [value]="group.value.color"
+            kruiInput
+            size="md"
+            type="color"
+          />
+        </krui-form-field>
+
+        <krui-slider
+          [inputs]="false"
+          [labels]="true"
+          [max]="1"
+          [min]="0"
+          [step]="0.1"
+          formControlName="opacity"
+        ></krui-slider>
+
+        @if (typeValue.name === typeOptions.Line ||
+        typeValue.name === typeOptions.Area ||
+        typeValue.name === typeOptions.GradientArea) {
+          <krui-form-field class="medium-width">
+            <select formControlName="interpolation" kruiInput size="md">
+              <ng-container *ngFor="let option of interpolation">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        }
+        @if (typeValue.name === typeOptions.Bar ||
+        typeValue.name === typeOptions.BarHorizontal ||
+        typeValue.name === typeOptions.ComboBar ||
+        typeValue.name === typeOptions.ComboBarHorizontal ||
+        typeValue.name === typeOptions.StackBar ||
+        typeValue.name === typeOptions.StackBarHorizontal) {
+          <krui-form-field class="medium-width">
+            <krui-label class="small-text">Обводка</krui-label>
+            <input
+              class="small-input"
+              formControlName="secondColor"
+              size="md"
+              kruiInput
+              type="color"
+            />
+          </krui-form-field>
+        }
+
+        <svg-icon (click)="deleteDataSource(ruleIndex)"
+                  class="krui-cursor--pointer"
+                  src="kruiIconDeleteTrash"></svg-icon>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div class="container__add-row">
+    <svg-icon (click)="addDataSource()" class="icon" src="kruiIconPlusAddCircle"></svg-icon>
+    <span (click)="addDataSource()">Добавить источник</span>
+  </div>
+</div>
