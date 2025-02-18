@@ -64,7 +64,9 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "libs/ui/styles"
+                "libs/ui/styles",
+                "libs/kit",
+                "projects/kr-app/src/theme"
               ]
             },
             "scripts": []
@@ -169,7 +171,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "libs/ui/styles"
+                "libs/ui/styles",
+                "libs/kit"
               ]
             },
             "scripts": []
@@ -311,7 +314,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "libs/kit/ng-package.json"
+            "project": "libs/kit/ng-package.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {

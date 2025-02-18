@@ -1,7 +1,7 @@
-@import '../../../../../libs/ui/styles/packages/typography/mixins';
-@import '../../../../../libs/ui/styles/packages/typography/variables';
-@import '../../../../../libs/ui/styles/packages/scrolling/mixins';
-@import '../../../../../libs/ui/styles/variables';
+@import 'packages/typography/mixins';
+@import 'packages/typography/variables';
+@import 'packages/scrolling/mixins';
+@import 'variables';
 
 $item-height: 40px;
 $padding: 1rem;
