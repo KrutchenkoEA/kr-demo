@@ -1,7 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService } from '@kr-platform/ui';
-import { KruiDataSourceFormType } from '../model';
+import { KruiDataSourceFormType } from './model';
 
 /** @title Настройки */
 

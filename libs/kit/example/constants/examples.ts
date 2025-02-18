@@ -304,7 +304,7 @@ export const EXAMPLES = {
     moduleName: 'ChartsExampleModule',
     componentName: 'ComboChartGraphComponent',
     selector: 'combo-chart-graph',
-    files: ['combo-chart-graph.component.html','combo-chart-graph.component.scss','combo-chart-graph.component.ts'],
+    files: ['combo-chart-graph.component.html','combo-chart-graph.component.scss','combo-chart-graph.component.ts','model.ts'],
     loadAsync: () => import('../../pages/combo-charts/examples'),
   },
   'combo-chart-settings' : {

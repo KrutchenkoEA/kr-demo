@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { KRUI_CHART_LINE_INTERPOLATE, kruiChartRandomDateArray, kruiChartRdmNumberData } from '@kr-platform/ui';
-import { KruiDataItemTypeEnum, KruiDataSourceFormType } from '../model';
+import { KruiDataItemTypeEnum, KruiDataSourceFormType } from '../combo-chart-graph/model';
 import { BehaviorSubject } from 'rxjs';
 
 enum KruiDataItemTypeEnumVertical {
