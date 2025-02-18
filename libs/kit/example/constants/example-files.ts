@@ -3644,238 +3644,44 @@ export const EXAMPLE_FILES = {
   }
 }
 `,
-	'combo-charts/action-selector-control/action-selector-control.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">class.disabled</span>]=<span class="hljs-string">&quot;disabled&quot;</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">&quot;menu&quot;</span> [<span class="hljs-attr">ngClass</span>]=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;chart-preview&quot;</span>&gt;</span>
-      {{ name }}
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">menu</span>=<span class="hljs-string">&quot;matMenu&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu&quot;</span>&gt;</span>
-    @for (option of options; track option.name) {
-      @if (isColors) {
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">className</span>]=<span class="hljs-string">&quot;&#x27;color-example &#x27; + option.name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      } @else {
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu-item&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
-          {{ option.name }}
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      }
-    }
-  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
-`,	'combo-charts/action-selector-control/action-selector-control.component.scss': `<span class="hljs-selector-tag">span</span> {
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
-  <span class="hljs-attribute">box-sizing</span>: border-box;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">7px</span> <span class="hljs-number">5px</span>;
-  <span class="hljs-selector-tag">text</span>-<span class="hljs-attribute">transform</span>: uppercase;
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-color-<span class="hljs-number">3</span>);
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-logo);
-
-  &amp;<span class="hljs-selector-pseudo">:hover</span> {
-    <span class="hljs-selector-tag">text</span>-decoration: underline;
-    <span class="hljs-selector-tag">text</span>-decoration-style: dotted;
-    <span class="hljs-attribute">cursor</span>: pointer;
-  }
-}
-
-::ng-deep {
-  <span class="hljs-selector-class">.mat-menu</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-background-main);
-    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main);
-  }
-
-  <span class="hljs-selector-class">.mat-mdc-menu-item</span> {
-    <span class="hljs-selector-tag">text</span>-align: initial;
-  }
-}
-
-<span class="hljs-selector-class">.color-preview</span>,
-<span class="hljs-selector-class">.color-example</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">80px</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">30px</span>;
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">3px</span>;
-  <span class="hljs-attribute">cursor</span>: pointer;
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
-}
-
-<span class="hljs-selector-class">.default</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-gray);
-}
-
-<span class="hljs-selector-class">.info</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-yellow);
-}
-
-<span class="hljs-selector-class">.warning</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f7931e</span>;
-}
-
-<span class="hljs-selector-class">.error</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-red);
-}
-
-<span class="hljs-selector-class">.success</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-green);
-}
-
-<span class="hljs-selector-class">.comboBar</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">1</span>);
-}
-
-<span class="hljs-selector-class">.comboBarHorizontal</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">2</span>);
-}
-
-<span class="hljs-selector-class">.stackBar</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">4</span>);
-}
-
-<span class="hljs-selector-class">.fullStackBar</span>,
-<span class="hljs-selector-class">.stackBarHorizontal</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">5</span>);
-}
-
-<span class="hljs-selector-class">.barHorizontal</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">7</span>);
-}
-
-<span class="hljs-selector-class">.null</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">13</span>);
-}
-
-<span class="hljs-selector-class">.disabled</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-signatures);
-  <span class="hljs-attribute">cursor</span>: not-allowed;
-  <span class="hljs-attribute">pointer-events</span>: none;
-}
-`,	'combo-charts/action-selector-control/action-selector-control.component.ts': `<span class="hljs-comment">/* eslint-disable import/no-extraneous-dependencies */</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">ChangeDetectorRef</span>, <span class="hljs-title class_">Component</span>, forwardRef, <span class="hljs-title class_">Input</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ControlValueAccessor</span>, <span class="hljs-title class_">FormControl</span>, <span class="hljs-variable constant_">NG_VALUE_ACCESSOR</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
-
-<span class="hljs-meta">@Component</span>({
-  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;action-selector-control&#x27;</span>,
-  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./action-selector-control.component.html&#x27;</span>,
-  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./action-selector-control.component.scss&#x27;</span>],
-  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">providers</span>: [
-    {
-      <span class="hljs-attr">provide</span>: <span class="hljs-variable constant_">NG_VALUE_ACCESSOR</span>,
-      <span class="hljs-attr">useExisting</span>: <span class="hljs-title function_">forwardRef</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">MnActionSelectorControlComponent</span>),
-      <span class="hljs-attr">multi</span>: <span class="hljs-literal">true</span>,
-    },
-  ],
-  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MnActionSelectorControlComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ControlValueAccessor</span> {
-  <span class="hljs-meta">@Input</span>()
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }[] = [];
-
-  <span class="hljs-meta">@Input</span>()
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">isColors</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
-
-  <span class="hljs-meta">@Input</span>()
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">disabled</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
-
-  <span class="hljs-keyword">private</span> <span class="hljs-attr">selectedOption</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> } | <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span>;
-
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> control = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>();
-
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">get</span> <span class="hljs-title function_">name</span>(): <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span>?.<span class="hljs-property">name</span>;
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">get</span> <span class="hljs-title function_">value</span>(): <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span>?.<span class="hljs-property">value</span>;
-  }
-
-  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">changeDetectorRef</span>: <span class="hljs-title class_">ChangeDetectorRef</span></span>) {
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-property">valueChanges</span>.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span></span>) =&gt;</span> {
-      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">onChange</span>(value);
-      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">onTouched</span>();
-    });
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">registerOnChange</span>(<span class="hljs-attr">fn</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onChange</span> = fn;
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">registerOnTouched</span>(<span class="hljs-attr">fn</span>: <span class="hljs-function">() =&gt;</span> {}): <span class="hljs-built_in">void</span> {
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onTouched</span> = fn;
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">writeValue</span>(<span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>): <span class="hljs-built_in">void</span> {
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-title function_">setValue</span>(value);
-    <span class="hljs-keyword">const</span> option = <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">it</span>) =&gt;</span> it.<span class="hljs-property">name</span> === value);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span> = option;
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">changeDetectorRef</span>.<span class="hljs-title function_">markForCheck</span>();
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">edit</span>(): <span class="hljs-built_in">void</span> {
-    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">disabled</span>) {
-      <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-title function_">patchValue</span>(<span class="hljs-string">&#x27;&#x27;</span>);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">changeDetectorRef</span>.<span class="hljs-title function_">markForCheck</span>();
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">setValue</span>(<span class="hljs-attr">option</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }): <span class="hljs-built_in">void</span> {
-    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">disabled</span>) {
-      <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">writeValue</span>(option.<span class="hljs-property">name</span>);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span> = option;
-  }
-
-  <span class="hljs-comment">// eslint-disable-next-line @typescript-eslint/no-unused-vars</span>
-  <span class="hljs-keyword">private</span> onChange = (<span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
-  };
-  <span class="hljs-keyword">private</span> onTouched = (): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
-  };
-}
-`,
 	'combo-charts/combo-chart-generator/combo-chart-generator.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;chart-toggle&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Вертикальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">krui-toggle</span>
-    [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">&quot;isChartHorizontal&quot;</span>
-    [<span class="hljs-attr">iconOff</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartGantt&#x27;&quot;</span>
-    [<span class="hljs-attr">iconOn</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartColumns&#x27;&quot;</span>
-    <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-toggle</span> [<span class="hljs-attr">formControl</span>]=<span class="hljs-string">&quot;isChartHorizontal&quot;</span>
+               [<span class="hljs-attr">iconOff</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartGantt&#x27;&quot;</span>
+               [<span class="hljs-attr">iconOn</span>]=<span class="hljs-string">&quot;&#x27;kruiIconChartColumns&#x27;&quot;</span>
+               <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>
   &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-toggle</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;chart-orientation-toggle&quot;</span>&gt;</span> Горизонтальный <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;dataParamsForm&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;data-params&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Минимальное значение<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
-    [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;1000&quot;</span>
-    [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
-    [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
-    <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;minValue&quot;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span> [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;1000&quot;</span>
+               [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+               [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
+               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;minValue&quot;</span>
   &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Максимальное значение<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
-    [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
-    [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
-    [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
-    <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;maxValue&quot;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span> [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;5000&quot;</span>
+               [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;2&quot;</span>
+               [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
+               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;maxValue&quot;</span>
   &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Количество точек<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
-    [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
-    [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;9999&quot;</span>
-    [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
-    [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
-    <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;dataLength&quot;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span> [<span class="hljs-attr">buttons</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
+               [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;9999&quot;</span>
+               [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
+               [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;2&quot;</span>
+               <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;dataLength&quot;</span>
   &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;dataForm&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
@@ -3884,65 +3690,26 @@ export const EXAMPLE_FILES = {
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__row&quot;</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;big-width&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Наименование&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Наименование&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>/&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">action-selector-control</span>
-          #<span class="hljs-attr">typeValue</span>
-          [<span class="hljs-attr">options</span>]=<span class="hljs-string">&quot;typeOptionsParsed$ | async&quot;</span>
-          <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">action-selector-control</span> #<span class="hljs-attr">typeValue</span>
+                                 [<span class="hljs-attr">options</span>]=<span class="hljs-string">&quot;typeOptionsParsed$ | async&quot;</span>
+                                 <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span>
         &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">action-selector-control</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-width&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-            [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;group.value.color&quot;</span>
-            <span class="hljs-attr">kruiInput</span>
-            <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
-            <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;group.value.color&quot;</span>
+                 <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;color&quot;</span>
+                 <span class="hljs-attr">kruiInput</span>
+                 <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
+                 <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
           /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">krui-slider</span>
-          [<span class="hljs-attr">inputs</span>]=<span class="hljs-string">&quot;false&quot;</span>
-          [<span class="hljs-attr">labels</span>]=<span class="hljs-string">&quot;true&quot;</span>
-          [<span class="hljs-attr">max</span>]=<span class="hljs-string">&quot;1&quot;</span>
-          [<span class="hljs-attr">min</span>]=<span class="hljs-string">&quot;0&quot;</span>
-          [<span class="hljs-attr">step</span>]=<span class="hljs-string">&quot;0.1&quot;</span>
-          <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;opacity&quot;</span>
-        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-slider</span>&gt;</span>
-
-        @if (typeValue.name === typeOptions.Line ||
-        typeValue.name === typeOptions.Area ||
-        typeValue.name === typeOptions.GradientArea) {
-          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;medium-width&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;interpolation&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let option of interpolation&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">option</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;option&quot;</span>&gt;</span>{{ option }}<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-              <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
-        }
-        @if (typeValue.name === typeOptions.Bar ||
-        typeValue.name === typeOptions.BarHorizontal ||
-        typeValue.name === typeOptions.ComboBar ||
-        typeValue.name === typeOptions.ComboBarHorizontal ||
-        typeValue.name === typeOptions.StackBar ||
-        typeValue.name === typeOptions.StackBarHorizontal) {
-          <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;medium-width&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">krui-label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-text&quot;</span>&gt;</span>Обводка<span class="hljs-tag">&lt;/<span class="hljs-name">krui-label</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-input&quot;</span>
-              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;secondColor&quot;</span>
-              <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>
-              <span class="hljs-attr">kruiInput</span>
-              <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;color&quot;</span>
-            /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
-        }
-
         <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;deleteDataSource(ruleIndex)&quot;</span>
                   <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-cursor--pointer&quot;</span>
-                  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconDeleteTrash&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+                  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconDeleteTrash&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
@@ -4232,7 +3999,7 @@ export const EXAMPLE_FILES = {
   }
 }
 `,
-	'combo-charts/combo-chart-graph/combo-chart-graph.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	'combo-charts/combo-chart-graph/combo-chart-graph.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">combo-chart-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">combo-chart-view</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">as-split</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;form&quot;</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">as-split-area</span>&gt;</span>
@@ -4325,17 +4092,13 @@ as-split-area {
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;form&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">form</span>.<span class="hljs-title function_">getRawValue</span>());
   }
 }
-`,	'combo-charts/combo-chart-graph/model.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormGroup</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ToFormControls</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+`,	'combo-charts/combo-chart-graph/model.ts': `<span class="hljs-keyword">import</span> {<span class="hljs-title class_">FormGroup</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
+<span class="hljs-keyword">import</span> {<span class="hljs-title class_">ToFormControls</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">KruiGeneratorForm</span> {
   <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
-  <span class="hljs-attr">color</span>: <span class="hljs-built_in">string</span>;
   <span class="hljs-attr">type</span>: <span class="hljs-title class_">KruiDataItemTypeEnum</span>;
-  <span class="hljs-attr">palette</span>?: <span class="hljs-built_in">string</span>[];
-  <span class="hljs-attr">interpolation</span>?:<span class="hljs-built_in">string</span>;
-  <span class="hljs-attr">secondColor</span>?: <span class="hljs-built_in">string</span>;
-  <span class="hljs-attr">opacity</span>?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">color</span>: <span class="hljs-built_in">string</span>;
   <span class="hljs-attr">chartData</span>?: <span class="hljs-built_in">any</span>;
 }
 
@@ -4352,6 +4115,196 @@ as-split-area {
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">KruiDataSourceFormType</span> = <span class="hljs-title class_">FormGroup</span>&lt;<span class="hljs-title class_">ToFormControls</span>&lt;<span class="hljs-title class_">KruiGeneratorForm</span>&gt;&gt;;
+`,
+	'combo-charts/combo-chart-selector/combo-chart-selector.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> [<span class="hljs-attr">class.disabled</span>]=<span class="hljs-string">&quot;disabled&quot;</span> [<span class="hljs-attr">matMenuTriggerFor</span>]=<span class="hljs-string">&quot;menu&quot;</span> [<span class="hljs-attr">ngClass</span>]=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;chart-preview&quot;</span>&gt;</span>
+      {{ name }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">menu</span>=<span class="hljs-string">&quot;matMenu&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu&quot;</span>&gt;</span>
+    @for (option of options; track option.name) {
+      @if (isColors) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">className</span>]=<span class="hljs-string">&quot;&#x27;color-example &#x27; + option.name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      } @else {
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu-item&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
+          {{ option.name }}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      }
+    }
+  <span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+`,	'combo-charts/combo-chart-selector/combo-chart-selector.component.scss': `<span class="hljs-selector-tag">span</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">7px</span> <span class="hljs-number">5px</span>;
+  <span class="hljs-selector-tag">text</span>-<span class="hljs-attribute">transform</span>: uppercase;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-color-<span class="hljs-number">3</span>);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-logo);
+
+  &amp;<span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-selector-tag">text</span>-decoration: underline;
+    <span class="hljs-selector-tag">text</span>-decoration-style: dotted;
+    <span class="hljs-attribute">cursor</span>: pointer;
+  }
+}
+
+::ng-deep {
+  <span class="hljs-selector-class">.mat-menu</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-background-main);
+    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-main);
+  }
+
+  <span class="hljs-selector-class">.mat-mdc-menu-item</span> {
+    <span class="hljs-selector-tag">text</span>-align: initial;
+  }
+}
+
+<span class="hljs-selector-class">.color-preview</span>,
+<span class="hljs-selector-class">.color-example</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">80px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">30px</span>;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
+}
+
+<span class="hljs-selector-class">.default</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-gray);
+}
+
+<span class="hljs-selector-class">.info</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-yellow);
+}
+
+<span class="hljs-selector-class">.warning</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f7931e</span>;
+}
+
+<span class="hljs-selector-class">.error</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-red);
+}
+
+<span class="hljs-selector-class">.success</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--color-index-green);
+}
+
+<span class="hljs-selector-class">.comboBar</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">1</span>);
+}
+
+<span class="hljs-selector-class">.comboBarHorizontal</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">2</span>);
+}
+
+<span class="hljs-selector-class">.stackBar</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">4</span>);
+}
+
+<span class="hljs-selector-class">.fullStackBar</span>,
+<span class="hljs-selector-class">.stackBarHorizontal</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">5</span>);
+}
+
+<span class="hljs-selector-class">.barHorizontal</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">7</span>);
+}
+
+<span class="hljs-selector-class">.null</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-additional-<span class="hljs-number">13</span>);
+}
+
+<span class="hljs-selector-class">.disabled</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color-text-signatures);
+  <span class="hljs-attribute">cursor</span>: not-allowed;
+  <span class="hljs-attribute">pointer-events</span>: none;
+}
+`,	'combo-charts/combo-chart-selector/combo-chart-selector.component.ts': `<span class="hljs-comment">/* eslint-disable import/no-extraneous-dependencies */</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">ChangeDetectorRef</span>, <span class="hljs-title class_">Component</span>, forwardRef, <span class="hljs-title class_">Input</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ControlValueAccessor</span>, <span class="hljs-title class_">FormControl</span>, <span class="hljs-variable constant_">NG_VALUE_ACCESSOR</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;combo-chart-selector&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./combo-chart-selector.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./combo-chart-selector.component.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">providers</span>: [
+    {
+      <span class="hljs-attr">provide</span>: <span class="hljs-variable constant_">NG_VALUE_ACCESSOR</span>,
+      <span class="hljs-attr">useExisting</span>: <span class="hljs-title function_">forwardRef</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">ComboChartSelectorComponent</span>),
+      <span class="hljs-attr">multi</span>: <span class="hljs-literal">true</span>,
+    },
+  ],
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartSelectorComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ControlValueAccessor</span> {
+  <span class="hljs-meta">@Input</span>()
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }[] = [];
+
+  <span class="hljs-meta">@Input</span>()
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">isColors</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-meta">@Input</span>()
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">disabled</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">selectedOption</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> } | <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span>;
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> control = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>();
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">get</span> <span class="hljs-title function_">name</span>(): <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span>?.<span class="hljs-property">name</span>;
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">get</span> <span class="hljs-title function_">value</span>(): <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span>?.<span class="hljs-property">value</span>;
+  }
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">changeDetectorRef</span>: <span class="hljs-title class_">ChangeDetectorRef</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-property">valueChanges</span>.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span></span>) =&gt;</span> {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">onChange</span>(value);
+      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">onTouched</span>();
+    });
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">registerOnChange</span>(<span class="hljs-attr">fn</span>: <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onChange</span> = fn;
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">registerOnTouched</span>(<span class="hljs-attr">fn</span>: <span class="hljs-function">() =&gt;</span> {}): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">onTouched</span> = fn;
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">writeValue</span>(<span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-title function_">setValue</span>(value);
+    <span class="hljs-keyword">const</span> option = <span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">it</span>) =&gt;</span> it.<span class="hljs-property">name</span> === value);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span> = option;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">changeDetectorRef</span>.<span class="hljs-title function_">markForCheck</span>();
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">edit</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">disabled</span>) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">control</span>.<span class="hljs-title function_">patchValue</span>(<span class="hljs-string">&#x27;&#x27;</span>);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">changeDetectorRef</span>.<span class="hljs-title function_">markForCheck</span>();
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">setValue</span>(<span class="hljs-attr">option</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">disabled</span>) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">writeValue</span>(option.<span class="hljs-property">name</span>);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span> = option;
+  }
+
+  <span class="hljs-comment">// eslint-disable-next-line @typescript-eslint/no-unused-vars</span>
+  <span class="hljs-keyword">private</span> onChange = (<span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
+  };
+  <span class="hljs-keyword">private</span> onTouched = (): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
+  };
+}
 `,
 	'combo-charts/combo-chart-settings/combo-chart-settings.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;optionsForm&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-accordion</span> [<span class="hljs-attr">multiple</span>]=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__accordion&quot;</span>&gt;</span>
@@ -5461,6 +5414,20 @@ as-split-area {
       <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legend</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legendAxis</span>.<span class="hljs-title function_">disable</span>();
     }
   }
+}
+`,
+	'combo-charts/combo-chart-view/combo-chart-view.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>combo-chart-view works!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+`,	'combo-charts/combo-chart-view/combo-chart-view.component.scss': ``,	'combo-charts/combo-chart-view/combo-chart-view.component.ts': `<span class="hljs-keyword">import</span> {<span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;combo-chart-view&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./combo-chart-view.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrl</span>: <span class="hljs-string">&#x27;./combo-chart-view.component.scss&#x27;</span>,
+  <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartViewComponent</span> {
+
 }
 `,
 	'input/input-native-example/input-native-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-form-field&quot;</span>&gt;</span>

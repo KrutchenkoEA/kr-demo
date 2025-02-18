@@ -280,15 +280,6 @@ export const EXAMPLES = {
     files: ['chart-update-horizontal-combo-bar.component.html','chart-update-horizontal-combo-bar.component.scss','chart-update-horizontal-combo-bar.component.ts'],
     loadAsync: () => import('../../pages/combo-bar-charts/examples'),
   },
-  'action-selector-control' : {
-    title: 'undefined',
-    packagePath: 'combo-charts',
-    moduleName: 'ChartsExampleModule',
-    componentName: 'MnActionSelectorControlComponent',
-    selector: 'action-selector-control',
-    files: ['action-selector-control.component.html','action-selector-control.component.scss','action-selector-control.component.ts'],
-    loadAsync: () => import('../../pages/combo-charts/examples'),
-  },
   'combo-chart-generator' : {
     title: 'undefined',
     packagePath: 'combo-charts',
@@ -307,6 +298,15 @@ export const EXAMPLES = {
     files: ['combo-chart-graph.component.html','combo-chart-graph.component.scss','combo-chart-graph.component.ts','model.ts'],
     loadAsync: () => import('../../pages/combo-charts/examples'),
   },
+  'combo-chart-selector' : {
+    title: 'undefined',
+    packagePath: 'combo-charts',
+    moduleName: 'ChartsExampleModule',
+    componentName: 'ComboChartSelectorComponent',
+    selector: 'combo-chart-selector',
+    files: ['combo-chart-selector.component.html','combo-chart-selector.component.scss','combo-chart-selector.component.ts'],
+    loadAsync: () => import('../../pages/combo-charts/examples'),
+  },
   'combo-chart-settings' : {
     title: 'undefined',
     packagePath: 'combo-charts',
@@ -314,6 +314,15 @@ export const EXAMPLES = {
     componentName: 'ComboChartSettingsComponent',
     selector: 'combo-chart-settings',
     files: ['combo-chart-settings.component.html','combo-chart-settings.component.scss','combo-chart-settings.component.ts'],
+    loadAsync: () => import('../../pages/combo-charts/examples'),
+  },
+  'combo-chart-view' : {
+    title: 'undefined',
+    packagePath: 'combo-charts',
+    moduleName: 'ChartsExampleModule',
+    componentName: 'ComboChartViewComponent',
+    selector: 'combo-chart-view',
+    files: ['combo-chart-view.component.html','combo-chart-view.component.scss','combo-chart-view.component.ts'],
     loadAsync: () => import('../../pages/combo-charts/examples'),
   },
   'input-native-example' : {

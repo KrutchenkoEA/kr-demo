@@ -281,7 +281,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "libs/ui/ng-package.json"
+            "project": "libs/ui/ng-package.json",
+            "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
@@ -315,6 +316,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "libs/kit/ng-package.json",
+            "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
               "includePaths": [
                 "libs/ui/styles"

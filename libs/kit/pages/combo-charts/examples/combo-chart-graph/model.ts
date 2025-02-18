@@ -1,14 +1,10 @@
-import { FormGroup } from '@angular/forms';
-import { ToFormControls } from '@kr-platform/ui';
+import {FormGroup} from '@angular/forms';
+import {ToFormControls} from '@kr-platform/ui';
 
 export interface KruiGeneratorForm {
   name: string;
-  color: string;
   type: KruiDataItemTypeEnum;
-  palette?: string[];
-  interpolation?:string;
-  secondColor?: string;
-  opacity?: number;
+  color: string;
   chartData?: any;
 }
 

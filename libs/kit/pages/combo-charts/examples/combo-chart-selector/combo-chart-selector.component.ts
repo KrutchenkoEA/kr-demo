@@ -3,20 +3,20 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Inpu
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'action-selector-control',
-  templateUrl: './action-selector-control.component.html',
-  styleUrls: ['./action-selector-control.component.scss'],
+  selector: 'combo-chart-selector',
+  templateUrl: './combo-chart-selector.component.html',
+  styleUrls: ['./combo-chart-selector.component.scss'],
   standalone: false,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MnActionSelectorControlComponent),
+      useExisting: forwardRef(() => ComboChartSelectorComponent),
       multi: true,
     },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MnActionSelectorControlComponent implements ControlValueAccessor {
+export class ComboChartSelectorComponent implements ControlValueAccessor {
   @Input()
   public options: { name: string; value: string }[] = [];
 
