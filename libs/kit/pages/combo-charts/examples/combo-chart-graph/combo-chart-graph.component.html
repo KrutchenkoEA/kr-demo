@@ -1,13 +1,15 @@
-<as-split direction="vertical">
-  <as-split-area>
-    <combo-chart-view [options]="comboChartService.chartOptions$ | async"></combo-chart-view>
+<as-split (dragEnd)="checkWorkArea()" direction="vertical">
+  <as-split-area #workArea>
+    <combo-chart-view [options]="comboChartService.chartOptions$ | async"
+                      [style.height.px]="comboChartService.chartSizeChanged$.value.height"
+                      [style.width.px]="comboChartService.chartSizeChanged$.value.width">
+    </combo-chart-view>
   </as-split-area>
 
   <as-split-area>
     <as-split [formGroup]="form" direction="horizontal">
       <as-split-area>
         <combo-chart-generator [formGroupName]="'dataForm'"></combo-chart-generator>
-
       </as-split-area>
       <as-split-area>
         <combo-chart-settings [formGroupName]="'optionsForm'"></combo-chart-settings>

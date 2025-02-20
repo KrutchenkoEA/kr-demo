@@ -4,6 +4,7 @@
     [borderColor]="chartOptions.view?.wrapper?.borderColor"
     [borderRadius]="chartOptions.view?.wrapper?.borderRadius"
     [chartOrientation]="chartOptions.view?.tooltip?.chartOrientation"
+    [customResize]="comboChartService.chartSizeChanged$ | async"
     [legendAxis]="chartOptions.view?.legend?.legendAxis"
     [legendLayer]="chartOptions.view?.legend?.legendLayer"
     [legendPosition]="chartOptions.view?.legend?.legendPosition"

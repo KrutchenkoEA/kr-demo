@@ -11,4 +11,8 @@ export class ComboChartService {
   public update$ = new BehaviorSubject<IKruiChartSingleLayerInputModel | null>(null);
   public autoRefresh$ = new BehaviorSubject<boolean>(false);
   public reset$ = new BehaviorSubject<null>(null);
+  public chartSizeChanged$: BehaviorSubject<{ width: number; height: number }> = new BehaviorSubject<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
 }

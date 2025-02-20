@@ -8,6 +8,7 @@ import {
 import {IComboChartRenderingOptions, IDashboardItemOptions} from '../combo-chart-view/model';
 import {ComboChartViewService} from './combo-chart-view.service';
 import {DataItemTypeEnum} from '../combo-chart-graph/model';
+import {ComboChartService} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
 
 
 const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
@@ -29,6 +30,7 @@ export class ComboChartViewComponent {
   public typeOptions = DataItemTypeEnum;
   private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
 
+  public comboChartService = inject(ComboChartService)
   public setterService = inject(ComboChartViewService);
 
   private chartOptionsString: string = '';

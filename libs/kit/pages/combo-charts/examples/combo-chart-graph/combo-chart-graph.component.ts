@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService} from '@kr-platform/ui';
 import {KruiDataSourceFormType} from './model';
@@ -21,6 +21,7 @@ const DATA_PARAMS = {
   standalone: false,
 })
 export class ComboChartGraphComponent implements OnInit, OnDestroy {
+  @ViewChild('workArea', {read: ElementRef}) public workArea!: ElementRef;
   public subscriptions: Subscription[] = [];
   private readonly fb = inject(FormBuilder)
 
@@ -39,6 +40,11 @@ export class ComboChartGraphComponent implements OnInit, OnDestroy {
   private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
   public comboChartService = inject(ComboChartService)
   public autoRedraw: boolean = false;
+
+  @HostListener('document:resize')
+  public onResize(): void {
+    this.checkWorkArea();
+  }
 
   public ngOnDestroy(): void {
     this.subscriptions?.forEach((sub) => sub.unsubscribe());
@@ -72,5 +78,12 @@ export class ComboChartGraphComponent implements OnInit, OnDestroy {
 
   public autoRefresh(): void {
     this.comboChartService.autoRefresh$.next(!this.comboChartService.autoRefresh$.value)
+  }
+
+  public checkWorkArea(): void {
+    this.comboChartService.chartSizeChanged$.next({
+      width: this.workArea?.nativeElement?.clientWidth - 5,
+      height: this.workArea?.nativeElement?.clientHeight - 2,
+    });
   }
 }
