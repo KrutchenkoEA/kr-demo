@@ -1,12 +1,4 @@
-import {FormGroup} from '@angular/forms';
-import {ToFormControls} from '@kr-platform/ui';
-
-export interface KruiGeneratorForm {
-  name: string;
-  type: DataItemTypeEnum;
-  color: string;
-  chartData?: any;
-}
+import { InjectionToken } from '@angular/core';
 
 export enum DataItemTypeEnum {
   Line = 'line',
@@ -20,4 +12,4 @@ export enum DataItemTypeEnum {
   StackBarHorizontal = 'stackBarHorizontal',
 }
 
-export type KruiDataSourceFormType = FormGroup<ToFormControls<KruiGeneratorForm>>;
+export const ACTIVE_SHAPES_ITEM_OPTIONS = new InjectionToken<unknown>('active-shapes-options');

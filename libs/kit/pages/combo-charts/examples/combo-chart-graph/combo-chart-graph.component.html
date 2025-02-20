@@ -1,4 +1,4 @@
-<combo-chart-view></combo-chart-view>
+<combo-chart-view [options]="chartOptions | async"></combo-chart-view>
 
 <as-split [formGroup]="form" direction="horizontal">
   <as-split-area>
@@ -11,9 +11,14 @@
 </as-split>
 
 
-<div class="button">
-  <label class="krui-form-field-label"></label>
+<div class="buttons">
   <button (click)="update()" kruiButton>
     <svg-icon kruiBtnIcon src="kruiIconReloadCycle"></svg-icon>
+  </button>
+  <button (click)="reset()" kruiButton>
+    Сбросить
+  </button>
+  <button (click)="autoRefresh()" [btnStyle]="'secondary'" kruiButton>
+    Автообновление
   </button>
 </div>

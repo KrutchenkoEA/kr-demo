@@ -26,8 +26,12 @@ as-split-area {
 }
 
 
-.button {
+.buttons {
   display: flex;
-  flex-direction: column;
+  gap: 0.5rem;
+
+  :first-child {
+    flex: 1;
+  }
 }
 

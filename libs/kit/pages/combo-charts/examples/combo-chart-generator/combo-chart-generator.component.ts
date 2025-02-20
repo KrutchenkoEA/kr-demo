@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { KRUI_CHART_LINE_INTERPOLATE, kruiChartRandomDateArray, kruiChartRdmNumberData } from '@kr-platform/ui';
-import { KruiDataItemTypeEnum, KruiDataSourceFormType } from '../combo-chart-graph/model';
+import { DataItemTypeEnum, KruiDataSourceFormType } from '../combo-chart-graph/model';
 import { BehaviorSubject } from 'rxjs';
 
 enum KruiDataItemTypeEnumVertical {
@@ -44,7 +44,7 @@ export class ComboChartGeneratorComponent {
   }>;
   public isChartHorizontal = new FormControl<boolean>(false);
 
-  public typeOptions = KruiDataItemTypeEnum;
+  public typeOptions = DataItemTypeEnum;
   public typeOptionsParsed$: BehaviorSubject<{ name: string; value: string }[]> = new BehaviorSubject<
     { name: string; value: string }[]
   >(this.parseEnum(KruiDataItemTypeEnumVertical));
@@ -78,7 +78,7 @@ export class ComboChartGeneratorComponent {
 
       setTimeout(() => {
         this.dataSources.controls.forEach((control) => {
-          control.patchValue({ type: v ? KruiDataItemTypeEnum.BarHorizontal : KruiDataItemTypeEnum.Line });
+          control.patchValue({ type: v ? DataItemTypeEnum.BarHorizontal : DataItemTypeEnum.Line });
         });
       });
     });
@@ -92,7 +92,7 @@ export class ComboChartGeneratorComponent {
     const dataSourceForm: KruiDataSourceFormType = new FormGroup({
       name: new FormControl(name, [Validators.required]),
       color: new FormControl(color, [Validators.required]),
-      type: new FormControl(KruiDataItemTypeEnum.Line, [Validators.required]),
+      type: new FormControl(DataItemTypeEnum.Line, [Validators.required]),
       palette: new FormControl([
         this.getRandomColor(), this.getRandomColor(), this.getRandomColor(),
       ], [Validators.required]),

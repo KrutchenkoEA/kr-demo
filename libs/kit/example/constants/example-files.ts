@@ -3690,13 +3690,12 @@ export const EXAMPLE_FILES = {
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container__row&quot;</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;big-width&quot;</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Наименование&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span>/&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">kruiInput</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Наименование&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;md&quot;</span> /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">krui-form-field</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">action-selector-control</span> #<span class="hljs-attr">typeValue</span>
-                                 [<span class="hljs-attr">options</span>]=<span class="hljs-string">&quot;typeOptionsParsed$ | async&quot;</span>
-                                 <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span>
-        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">action-selector-control</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">combo-chart-selector</span> [<span class="hljs-attr">options</span>]=<span class="hljs-string">&quot;typeOptionsParsed$ | async&quot;</span>
+                              <span class="hljs-attr">formControlName</span>=<span class="hljs-string">&quot;type&quot;</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">combo-chart-selector</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-width&quot;</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">input</span> [<span class="hljs-attr">value</span>]=<span class="hljs-string">&quot;group.value.color&quot;</span>
@@ -3865,7 +3864,7 @@ export const EXAMPLE_FILES = {
   <span class="hljs-title class_">Validators</span>,
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>, kruiChartRandomDateArray, kruiChartRdmNumberData } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiDataItemTypeEnum</span>, <span class="hljs-title class_">KruiDataSourceFormType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/model&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span>, <span class="hljs-title class_">KruiDataSourceFormType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/model&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">BehaviorSubject</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
 
 <span class="hljs-keyword">enum</span> <span class="hljs-title class_">KruiDataItemTypeEnumVertical</span> {
@@ -3900,7 +3899,7 @@ export const EXAMPLE_FILES = {
   }&gt;;
   <span class="hljs-keyword">public</span> isChartHorizontal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
 
-  <span class="hljs-keyword">public</span> typeOptions = <span class="hljs-title class_">KruiDataItemTypeEnum</span>;
+  <span class="hljs-keyword">public</span> typeOptions = <span class="hljs-title class_">DataItemTypeEnum</span>;
   <span class="hljs-keyword">public</span> <span class="hljs-attr">typeOptionsParsed$</span>: <span class="hljs-title class_">BehaviorSubject</span>&lt;{ <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }[]&gt; = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;
     { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }[]
   &gt;(<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">parseEnum</span>(<span class="hljs-title class_">KruiDataItemTypeEnumVertical</span>));
@@ -3934,7 +3933,7 @@ export const EXAMPLE_FILES = {
 
       <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
         <span class="hljs-variable language_">this</span>.<span class="hljs-property">dataSources</span>.<span class="hljs-property">controls</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">control</span>) =&gt;</span> {
-          control.<span class="hljs-title function_">patchValue</span>({ <span class="hljs-attr">type</span>: v ? <span class="hljs-title class_">KruiDataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span> : <span class="hljs-title class_">KruiDataItemTypeEnum</span>.<span class="hljs-property">Line</span> });
+          control.<span class="hljs-title function_">patchValue</span>({ <span class="hljs-attr">type</span>: v ? <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span> : <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> });
         });
       });
     });
@@ -3948,7 +3947,7 @@ export const EXAMPLE_FILES = {
     <span class="hljs-keyword">const</span> <span class="hljs-attr">dataSourceForm</span>: <span class="hljs-title class_">KruiDataSourceFormType</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormGroup</span>({
       <span class="hljs-attr">name</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(name, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
       <span class="hljs-attr">color</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(color, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
-      <span class="hljs-attr">type</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-title class_">KruiDataItemTypeEnum</span>.<span class="hljs-property">Line</span>, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
+      <span class="hljs-attr">type</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
       <span class="hljs-attr">palette</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>([
         <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(), <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(), <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(),
       ], [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
@@ -4097,12 +4096,12 @@ as-split-area {
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">KruiGeneratorForm</span> {
   <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
-  <span class="hljs-attr">type</span>: <span class="hljs-title class_">KruiDataItemTypeEnum</span>;
+  <span class="hljs-attr">type</span>: <span class="hljs-title class_">DataItemTypeEnum</span>;
   <span class="hljs-attr">color</span>: <span class="hljs-built_in">string</span>;
   <span class="hljs-attr">chartData</span>?: <span class="hljs-built_in">any</span>;
 }
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">KruiDataItemTypeEnum</span> {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">DataItemTypeEnum</span> {
   <span class="hljs-title class_">Line</span> = <span class="hljs-string">&#x27;line&#x27;</span>,
   <span class="hljs-title class_">Area</span> = <span class="hljs-string">&#x27;area&#x27;</span>,
   <span class="hljs-title class_">GradientArea</span> = <span class="hljs-string">&#x27;gradientArea&#x27;</span>,
@@ -5416,8 +5415,373 @@ as-split-area {
   }
 }
 `,
-	'combo-charts/combo-chart-view/combo-chart-view.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>combo-chart-view works!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-`,	'combo-charts/combo-chart-view/combo-chart-view.component.scss': ``,	'combo-charts/combo-chart-view/combo-chart-view.component.ts': `<span class="hljs-keyword">import</span> {<span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+	'combo-charts/combo-chart-view/active-shapes-shapes-sets-chart.service.ts': `<span class="hljs-comment">/* eslint-disable import/no-extraneous-dependencies */</span>
+<span class="hljs-comment">/* eslint-disable no-unsafe-optional-chaining */</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IComboChartComboData</span>, <span class="hljs-title class_">IDataMappingOptionsViewer</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/model&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./const&#x27;</span>;
+
+<span class="hljs-meta">@Injectable</span>()
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ActiveShapesShapesSetsChartService</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createData</span>(): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>,
+      <span class="hljs-attr">chartData</span>: [],
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+      <span class="hljs-attr">caption</span>: [],
+      <span class="hljs-attr">palette</span>: [],
+    };
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createComboData</span>(<span class="hljs-attr">keys</span>: <span class="hljs-built_in">string</span>[]): <span class="hljs-title class_">IComboChartComboData</span> {
+    <span class="hljs-keyword">const</span> comboData = {};
+    keys?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">key</span>: <span class="hljs-built_in">string</span></span>) =&gt;</span> {
+      <span class="hljs-comment">// @ts-ignore</span>
+      comboData[key] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">createData</span>();
+    });
+
+    <span class="hljs-keyword">return</span> &lt;<span class="hljs-title class_">IComboChartComboData</span>&gt; comboData;
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">setData</span>(<span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>, <span class="hljs-attr">item</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
+    data.<span class="hljs-property">chartData</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">chartData</span>);
+    data.<span class="hljs-property">caption</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">name</span>);
+    data.<span class="hljs-property">palette</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">color</span>);
+    <span class="hljs-keyword">return</span> data;
+  }
+}
+`,	'combo-charts/combo-chart-view/combo-chart-view.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;chartOptions$ | async as chartOptions&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span>
+    [<span class="hljs-attr">bgColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.bgColor&quot;</span>
+    [<span class="hljs-attr">borderColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.borderColor&quot;</span>
+    [<span class="hljs-attr">borderRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.borderRadius&quot;</span>
+    [<span class="hljs-attr">chartOrientation</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.chartOrientation&quot;</span>
+    [<span class="hljs-attr">legendAxis</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendAxis&quot;</span>
+    [<span class="hljs-attr">legendLayer</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendLayer&quot;</span>
+    [<span class="hljs-attr">legendPosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendPosition&quot;</span>
+    [<span class="hljs-attr">legendTrend</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendTrend&quot;</span>
+    [<span class="hljs-attr">legendType</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legendType&quot;</span>
+    [<span class="hljs-attr">legend</span>]=<span class="hljs-string">&quot;chartOptions.view?.legend?.legend&quot;</span>
+    [<span class="hljs-attr">marginBottom</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginBottom&quot;</span>
+    [<span class="hljs-attr">marginLeft</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginLeft&quot;</span>
+    [<span class="hljs-attr">marginRight</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginRight&quot;</span>
+    [<span class="hljs-attr">marginTop</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.marginTop&quot;</span>
+    [<span class="hljs-attr">resizeObserveType</span>]=<span class="hljs-string">&quot;chartOptions.view?.resizeObserveType&quot;</span>
+    [<span class="hljs-attr">setDefIfContainerSizeInvalid</span>]=<span class="hljs-string">&quot;true&quot;</span>
+    [<span class="hljs-attr">smartScrollEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.smartScrollEnable&quot;</span>
+    [<span class="hljs-attr">smartScrollHeight</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.smartScrollHeight&quot;</span>
+    [<span class="hljs-attr">toolbarJustifyContent</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbarJustifyContent&quot;</span>
+    [<span class="hljs-attr">toolbarPosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbarPosition&quot;</span>
+    [<span class="hljs-attr">toolbar</span>]=<span class="hljs-string">&quot;chartOptions.view?.toolbar?.toolbar&quot;</span>
+    [<span class="hljs-attr">tooltipColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipColor&quot;</span>
+    [<span class="hljs-attr">tooltipMarkerCrossSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipMarkerCrossSize&quot;</span>
+    [<span class="hljs-attr">tooltipMarkerType</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipMarkerType&quot;</span>
+    [<span class="hljs-attr">tooltipShowMilliseconds</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipShowMilliseconds&quot;</span>
+    [<span class="hljs-attr">tooltipType</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipType&quot;</span>
+    [<span class="hljs-attr">tooltipWidth</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltipWidth&quot;</span>
+    [<span class="hljs-attr">tooltip</span>]=<span class="hljs-string">&quot;chartOptions.view?.tooltip?.tooltip&quot;</span>
+    [<span class="hljs-attr">zoomType</span>]=<span class="hljs-string">&quot;chartOptions.view?.zoomType&quot;</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-layer</span>
+      [<span class="hljs-attr">layerTitle</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.layerTitle&quot;</span>
+      [<span class="hljs-attr">tooltipColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipColor&quot;</span>
+      [<span class="hljs-attr">tooltipEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.tooltipEnable&quot;</span>
+      [<span class="hljs-attr">zoomPrimaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomPrimaryEnable&quot;</span>
+      [<span class="hljs-attr">zoomSecondaryEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.layer?.zoomSecondaryEnable&quot;</span>
+    &gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.color&quot;</span>
+        [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabelLine&quot;</span>
+        [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.drawAxisLabel&quot;</span>
+        [<span class="hljs-attr">fontColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.fontColor&quot;</span>
+        [<span class="hljs-attr">position</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.position&quot;</span>
+        [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.primary&quot;</span>
+        [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.ticks&quot;</span>
+        [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisX?.type&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;x&quot;</span>
+      &gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-axis</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.color&quot;</span>
+        [<span class="hljs-attr">drawAxisLabelLine</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabelLine&quot;</span>
+        [<span class="hljs-attr">drawAxisLabel</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.drawAxisLabel&quot;</span>
+        [<span class="hljs-attr">fontColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.fontColor&quot;</span>
+        [<span class="hljs-attr">position</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.position&quot;</span>
+        [<span class="hljs-attr">primary</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.primary&quot;</span>
+        [<span class="hljs-attr">ticks</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.ticks&quot;</span>
+        [<span class="hljs-attr">type</span>]=<span class="hljs-string">&quot;chartOptions.view?.axisY?.type&quot;</span>
+        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;y&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-axis</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.color&quot;</span>
+        [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridX?.drawGrid&quot;</span>
+        <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;x&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-grid</span>
+        [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.color&quot;</span>
+        [<span class="hljs-attr">drawGrid</span>]=<span class="hljs-string">&quot;chartOptions.view?.gridY?.drawGrid&quot;</span>
+        <span class="hljs-attr">axis</span>=<span class="hljs-string">&quot;y&quot;</span>
+      &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-grid</span>&gt;</span>
+
+      @for (data of chartOptions.data; track data.parentChartId + data.name) {
+        @if (data.type === typeOptions.Line) {
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+            [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;line&#x27;&quot;</span>
+            [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[data.name]&quot;</span>
+            [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
+            [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
+            [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData&quot;</span>
+            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
+            [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.animation&quot;</span>
+            [<span class="hljs-attr">extendStep</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.extendStep&quot;</span>
+            [<span class="hljs-attr">breakPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointMarker&quot;</span>
+            [<span class="hljs-attr">breakPointSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointSize&quot;</span>
+            [<span class="hljs-attr">breakPoint</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPoint&quot;</span>
+            [<span class="hljs-attr">dataPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.dataPointMarker&quot;</span>
+            [<span class="hljs-attr">dataPointType</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.dataPointType&quot;</span>
+            [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.durationAnimation&quot;</span>
+            [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.durationToggleAnimation&quot;</span>
+            [<span class="hljs-attr">endPointSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.endPointSize&quot;</span>
+            [<span class="hljs-attr">endPoint</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.endPoint&quot;</span>
+            [<span class="hljs-attr">interpolateEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.interpolateEnable&quot;</span>
+            [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.reRangeThenDataChange&quot;</span>
+            [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.reRangeThenLegendClick&quot;</span>
+            [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.showValues&quot;</span>
+            [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.valuesFontSizePx&quot;</span>
+            [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.workgroundPadding&quot;</span>
+            <span class="hljs-attr">kruiChartLine</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+        }
+        @if (data.type === typeOptions.Area || data.type === typeOptions.GradientArea) {
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+            [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
+            [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[data.name]&quot;</span>
+            [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
+            [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;data.palette?.length ? data.palette : [data.color]&quot;</span>
+            [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData&quot;</span>
+            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
+            [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.animation&quot;</span>
+            [<span class="hljs-attr">extendStep</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.extendStep&quot;</span>
+            [<span class="hljs-attr">breakPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointMarker&quot;</span>
+            [<span class="hljs-attr">breakPointSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointSize&quot;</span>
+            [<span class="hljs-attr">breakPoint</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPoint&quot;</span>
+            [<span class="hljs-attr">dataPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.dataPointMarker&quot;</span>
+            [<span class="hljs-attr">dataPointType</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.dataPointType&quot;</span>
+            [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.durationAnimation&quot;</span>
+            [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.durationToggleAnimation&quot;</span>
+            [<span class="hljs-attr">endPointSize</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.endPointSize&quot;</span>
+            [<span class="hljs-attr">endPoint</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.endPoint&quot;</span>
+            [<span class="hljs-attr">interpolateEnable</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.interpolateEnable&quot;</span>
+            [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.reRangeThenDataChange&quot;</span>
+            [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.reRangeThenLegendClick&quot;</span>
+            [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.showValues&quot;</span>
+            [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.valuesFontSizePx&quot;</span>
+            [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.workgroundPadding&quot;</span>
+            <span class="hljs-attr">kruiChartLine</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+        }
+        @if (data.type === typeOptions.Bar) {
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+            [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[data.name]&quot;</span>
+            [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
+            [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
+            [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData&quot;</span>
+            [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;data.secondColor&quot;</span>
+            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.animationType&quot;</span>
+            [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.animation&quot;</span>
+            [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barBorder&quot;</span>
+            [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barRadius&quot;</span>
+            [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barType&quot;</span>
+            [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barWidthPercent&quot;</span>
+            [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.durationAnimation&quot;</span>
+            [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.durationToggleAnimation&quot;</span>
+            [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.reRangeThenDataChange&quot;</span>
+            [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.reRangeThenLegendClick&quot;</span>
+            [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.showEnumValues&quot;</span>
+            [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.showValues&quot;</span>
+            [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.tooltipHoverColor&quot;</span>
+            [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.tooltipHoverEffect&quot;</span>
+            [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.valuePosition&quot;</span>
+            [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.valuesFontSizePx&quot;</span>
+            [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.workgroundPadding&quot;</span>
+            <span class="hljs-attr">kruiChartBar</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+        }
+        @if (data.type === typeOptions.BarHorizontal) {
+          <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+            [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[data.name]&quot;</span>
+            [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
+            [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
+            [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData&quot;</span>
+            [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;data.secondColor&quot;</span>
+            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.animationType&quot;</span>
+            [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.animation&quot;</span>
+            [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barBorder&quot;</span>
+            [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barRadius&quot;</span>
+            [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barType&quot;</span>
+            [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barWidthPercent&quot;</span>
+            [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.durationAnimation&quot;</span>
+            [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.durationToggleAnimation&quot;</span>
+            [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.reRangeThenDataChange&quot;</span>
+            [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.reRangeThenLegendClick&quot;</span>
+            [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.showEnumValues&quot;</span>
+            [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.showValues&quot;</span>
+            [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.tooltipHoverColor&quot;</span>
+            [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.tooltipHoverEffect&quot;</span>
+            [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.valuePosition&quot;</span>
+            [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.valuesFontSizePx&quot;</span>
+            [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.workgroundPadding&quot;</span>
+            <span class="hljs-attr">kruiChartHorizontalBar</span>
+          &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+        }
+      }
+
+      @if (chartOptions?.comboData?.comboBar?.chartDataCommon?.length) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.captionCommon&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.paletteCommon&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData?.comboBar.chartDataCommon&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.barBorderColorsCommon&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.opacityArrCommon&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">stackWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.stackWidthPercent&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartComboBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      }
+
+      @if (chartOptions?.comboData?.comboBarHorizontal?.chartDataCommon?.length) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.captionCommon&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.paletteCommon&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData?.comboBarHorizontal.chartDataCommon&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData?.comboBarHorizontal.barBorderColorsCommon&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.opacityArrCommon&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">stackWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.stackWidthPercent&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartHorizontalComboBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      }
+
+      @if (chartOptions?.comboData?.stackBar?.chartDataCommon?.length) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.captionCommon&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.paletteCommon&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar?.chartDataCommon&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar?.barBorderColorsCommon&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.opacityArrCommon&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">stackType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config.stackType&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showStackValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.showStackValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartStackBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      }
+      @if (chartOptions?.comboData?.stackBarHorizontal?.chartDataCommon?.length) {
+        <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
+          [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.captionCommon&quot;</span>
+          [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.paletteCommon&quot;</span>
+          [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal?.chartDataCommon&quot;</span>
+          [<span class="hljs-attr">barBorderColors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal?.barBorderColorsCommon&quot;</span>
+          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.opacityArrCommon&quot;</span>
+          [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.animationType&quot;</span>
+          [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.animation&quot;</span>
+          [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barBorder&quot;</span>
+          [<span class="hljs-attr">barRadius</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barRadius&quot;</span>
+          [<span class="hljs-attr">barType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barType&quot;</span>
+          [<span class="hljs-attr">barWidthPercent</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barWidthPercent&quot;</span>
+          [<span class="hljs-attr">durationAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.durationAnimation&quot;</span>
+          [<span class="hljs-attr">durationToggleAnimation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.durationToggleAnimation&quot;</span>
+          [<span class="hljs-attr">reRangeThenDataChange</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.reRangeThenDataChange&quot;</span>
+          [<span class="hljs-attr">reRangeThenLegendClick</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.reRangeThenLegendClick&quot;</span>
+          [<span class="hljs-attr">stackType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config.stackType&quot;</span>
+          [<span class="hljs-attr">showEnumValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.showEnumValues&quot;</span>
+          [<span class="hljs-attr">showStackValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.showStackValues&quot;</span>
+          [<span class="hljs-attr">showValues</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.showValues&quot;</span>
+          [<span class="hljs-attr">tooltipHoverColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.tooltipHoverColor&quot;</span>
+          [<span class="hljs-attr">tooltipHoverEffect</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.tooltipHoverEffect&quot;</span>
+          [<span class="hljs-attr">valuePosition</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.valuePosition&quot;</span>
+          [<span class="hljs-attr">valuesFontSizePx</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx&quot;</span>
+          [<span class="hljs-attr">workgroundPadding</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.workgroundPadding&quot;</span>
+          <span class="hljs-attr">kruiChartHorizontalStackBar</span>
+        &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
+      }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-layer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
+`,	'combo-charts/combo-chart-view/combo-chart-view.component.scss': ``,	'combo-charts/combo-chart-view/combo-chart-view.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">Input</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">BehaviorSubject</span>, delay } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+<span class="hljs-keyword">import</span> {
+  <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>,
+  <span class="hljs-variable constant_">KRUI_CHART_FORM_CREATE_SERVICE</span>,
+  <span class="hljs-title class_">KruiChartFormCreateService</span>,
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IComboChartRenderingOptions</span>, <span class="hljs-title class_">IDashboardItemOptions</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/model&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ActiveShapesShapesSetsChartService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/active-shapes-shapes-sets-chart.service&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/model&#x27;</span>;
+
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">CHART_COMBO_KEYS</span>: <span class="hljs-title class_">DataItemTypeEnum</span>[] = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>([
+  <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">ComboBar</span>,
+  <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">ComboBarHorizontal</span>,
+  <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">StackBar</span>,
+  <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">StackBarHorizontal</span>,
+]);
 
 <span class="hljs-meta">@Component</span>({
   <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;combo-chart-view&#x27;</span>,
@@ -5427,7 +5791,101 @@ as-split-area {
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartViewComponent</span> {
+  <span class="hljs-keyword">public</span> typeOptions = <span class="hljs-title class_">DataItemTypeEnum</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> formCreateService = inject&lt;<span class="hljs-title class_">KruiChartFormCreateService</span>&gt;(<span class="hljs-variable constant_">KRUI_CHART_FORM_CREATE_SERVICE</span>);
 
+  <span class="hljs-keyword">public</span> setterService = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ActiveShapesShapesSetsChartService</span>);
+
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">chartOptionsString</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> chartOptions$$ = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;<span class="hljs-built_in">unknown</span>&gt;(<span class="hljs-literal">null</span>);
+  <span class="hljs-keyword">public</span> chartOptions$ = <span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptions$$</span>.<span class="hljs-title function_">asObservable</span>().<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">delay</span>(<span class="hljs-number">0</span>));
+
+
+  <span class="hljs-meta">@Input</span>() <span class="hljs-keyword">set</span> <span class="hljs-title function_">options</span>(<span class="hljs-params"><span class="hljs-attr">options</span>: <span class="hljs-title class_">IDashboardItemOptions</span></span>) {
+    <span class="hljs-keyword">const</span> data = options?.<span class="hljs-property">data</span>?.<span class="hljs-title function_">filter</span>(
+      <span class="hljs-function">(<span class="hljs-params">t</span>) =&gt;</span>
+        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> ||
+        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Area</span> ||
+        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">GradientArea</span> ||
+        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Bar</span> ||
+        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span>,
+    );
+
+    <span class="hljs-keyword">const</span> comboData = <span class="hljs-variable language_">this</span>.<span class="hljs-property">setterService</span>.<span class="hljs-title function_">createComboData</span>(<span class="hljs-variable constant_">CHART_COMBO_KEYS</span>);
+    <span class="hljs-variable constant_">CHART_COMBO_KEYS</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> {
+      options?.<span class="hljs-property">data</span>
+        ?.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">t</span>) =&gt;</span> t.<span class="hljs-property">type</span> === key)
+        <span class="hljs-comment">// @ts-ignore</span>
+        ?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> comboData[key] = <span class="hljs-variable language_">this</span>.<span class="hljs-property">setterService</span>.<span class="hljs-title function_">setData</span>(comboData[key], c));
+    });
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setOptions</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>.<span class="hljs-property">view</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>, data, comboData);
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
+
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-title function_">setOptions</span>(
+    <span class="hljs-attr">view</span>: <span class="hljs-title class_">IComboChartRenderingOptions</span>[<span class="hljs-string">&#x27;view&#x27;</span>],
+    <span class="hljs-attr">data</span>: <span class="hljs-title class_">IComboChartRenderingOptions</span>[<span class="hljs-string">&#x27;data&#x27;</span>],
+    <span class="hljs-attr">comboData</span>: <span class="hljs-title class_">IComboChartRenderingOptions</span>[<span class="hljs-string">&#x27;comboData&#x27;</span>],
+  ): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">const</span> <span class="hljs-attr">options</span>: <span class="hljs-title class_">IComboChartRenderingOptions</span> = {
+      <span class="hljs-attr">view</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">formCreateService</span>.<span class="hljs-title function_">createFormObjects</span>(view),
+      data,
+      comboData,
+    };
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;options&#x27;</span>, options);
+    <span class="hljs-keyword">const</span> optionsString = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(options);
+    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptionsString</span> !== optionsString) {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptionsString</span> = optionsString;
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptions$$</span>.<span class="hljs-title function_">next</span>(<span class="hljs-literal">null</span>);
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptions$$</span>.<span class="hljs-title function_">next</span>(options);
+    }
+  }
+}
+`,	'combo-charts/combo-chart-view/const.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">InjectionToken</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">DataItemTypeEnum</span> {
+  <span class="hljs-title class_">Line</span> = <span class="hljs-string">&#x27;line&#x27;</span>,
+  <span class="hljs-title class_">Area</span> = <span class="hljs-string">&#x27;area&#x27;</span>,
+  <span class="hljs-title class_">GradientArea</span> = <span class="hljs-string">&#x27;gradientArea&#x27;</span>,
+  <span class="hljs-title class_">Bar</span> = <span class="hljs-string">&#x27;bar&#x27;</span>,
+  <span class="hljs-title class_">BarHorizontal</span> = <span class="hljs-string">&#x27;barHorizontal&#x27;</span>,
+  <span class="hljs-title class_">ComboBar</span> = <span class="hljs-string">&#x27;comboBar&#x27;</span>,
+  <span class="hljs-title class_">ComboBarHorizontal</span> = <span class="hljs-string">&#x27;comboBarHorizontal&#x27;</span>,
+  <span class="hljs-title class_">StackBar</span> = <span class="hljs-string">&#x27;stackBar&#x27;</span>,
+  <span class="hljs-title class_">StackBarHorizontal</span> = <span class="hljs-string">&#x27;stackBarHorizontal&#x27;</span>,
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">ACTIVE_SHAPES_ITEM_OPTIONS</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">InjectionToken</span>&lt;<span class="hljs-built_in">unknown</span>&gt;(<span class="hljs-string">&#x27;active-shapes-options&#x27;</span>);
+`,	'combo-charts/combo-chart-view/model.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiGeneratorForm</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/model&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IDashboardItemOptions</span> {
+  <span class="hljs-attr">exampleView</span>: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-attr">view</span>: <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>;
+  <span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>[];
+}
+
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IDataMappingOptionsViewer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">KruiGeneratorForm</span> {
+  <span class="hljs-attr">caption</span>: <span class="hljs-built_in">string</span>[];
+  <span class="hljs-attr">palette</span>: <span class="hljs-built_in">string</span>[];
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IComboChartRenderingOptions</span> {
+  <span class="hljs-attr">view</span>: <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>;
+  <span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>[];
+  <span class="hljs-attr">comboData</span>: <span class="hljs-title class_">IComboChartComboData</span>;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IComboChartComboData</span> {
+  <span class="hljs-attr">comboBar</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
+  <span class="hljs-attr">comboBarHorizontal</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
+  <span class="hljs-attr">stackBar</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
+  <span class="hljs-attr">stackBarHorizontal</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
 }
 `,
 	'input/input-native-example/input-native-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-form-field&quot;</span>&gt;</span>

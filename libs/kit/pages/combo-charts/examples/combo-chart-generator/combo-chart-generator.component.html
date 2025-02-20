@@ -44,13 +44,12 @@
       <div class="container__row">
 
         <krui-form-field class="big-width">
-          <input formControlName="name" kruiInput placeholder="Наименование" size="md"/>
+          <input formControlName="name" kruiInput placeholder="Наименование" size="md" />
         </krui-form-field>
 
-        <action-selector-control #typeValue
-                                 [options]="typeOptionsParsed$ | async"
-                                 formControlName="type"
-        ></action-selector-control>
+        <combo-chart-selector [options]="typeOptionsParsed$ | async"
+                              formControlName="type"
+        ></combo-chart-selector>
 
         <krui-form-field class="small-width">
           <input [value]="group.value.color"
