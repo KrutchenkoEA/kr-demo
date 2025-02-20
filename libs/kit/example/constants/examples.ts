@@ -320,9 +320,9 @@ export const EXAMPLES = {
     title: 'undefined',
     packagePath: 'combo-charts',
     moduleName: 'ChartsExampleModule',
-    componentName: 'ComboChartViewComponent',
+    componentName: 'undefined',
     selector: 'combo-chart-view',
-    files: ['active-shapes-shapes-sets-chart.service.ts','combo-chart-view.component.html','combo-chart-view.component.scss','combo-chart-view.component.ts','const.ts','model.ts'],
+    files: ['combo-chart-view.component.html','combo-chart-view.component.scss','combo-chart-view.component.ts','combo-chart-view.service.ts','const.ts','model.ts'],
     loadAsync: () => import('../../pages/combo-charts/examples'),
   },
   'input-native-example' : {

@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { BehaviorSubject, delay } from 'rxjs';
+import {ChangeDetectionStrategy, Component, inject, Input} from '@angular/core';
+import {BehaviorSubject, delay} from 'rxjs';
 import {
   IKruiChartSingleLayerInputModel,
   KRUI_CHART_FORM_CREATE_SERVICE,
   KruiChartFormCreateService,
 } from '@kr-platform/ui';
-import { IComboChartRenderingOptions, IDashboardItemOptions } from '../combo-chart-view/model';
-import { ActiveShapesShapesSetsChartService } from '../combo-chart-view/active-shapes-shapes-sets-chart.service';
-import { DataItemTypeEnum } from '../combo-chart-graph/model';
+import {IComboChartRenderingOptions, IDashboardItemOptions} from '../combo-chart-view/model';
+import {ComboChartViewService} from './combo-chart-view.service';
+import {DataItemTypeEnum} from '../combo-chart-graph/model';
 
 
 const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
@@ -23,13 +23,13 @@ const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
   styleUrl: './combo-chart-view.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
-  providers:[ActiveShapesShapesSetsChartService]
+  providers: [ComboChartViewService]
 })
 export class ComboChartViewComponent {
   public typeOptions = DataItemTypeEnum;
   private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
 
-  public setterService = inject(ActiveShapesShapesSetsChartService);
+  public setterService = inject(ComboChartViewService);
 
   private chartOptionsString: string = '';
   private readonly chartOptions$$ = new BehaviorSubject<unknown>(null);
@@ -38,7 +38,7 @@ export class ComboChartViewComponent {
 
   @Input() set options(options: IDashboardItemOptions) {
     if (!options) return
-    console.log('set options',options);
+    console.log('set options', options);
     const data = options?.data?.filter(
       (t) =>
         t.type === DataItemTypeEnum.Line ||

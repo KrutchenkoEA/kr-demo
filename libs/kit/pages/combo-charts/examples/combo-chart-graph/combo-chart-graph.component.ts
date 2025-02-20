@@ -1,11 +1,18 @@
-import { AfterViewInit, Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService } from '@kr-platform/ui';
-import { KruiDataSourceFormType } from './model';
-import { BehaviorSubject } from 'rxjs';
-import { IDashboardItemOptions } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-view/model';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService} from '@kr-platform/ui';
+import {KruiDataSourceFormType} from './model';
+import {ComboChartService} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import {filter, Subscription} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 /** @title Настройки */
+
+const DATA_PARAMS = {
+  minValue: 2,
+  maxValue: 50,
+  dataLength: 50,
+}
 
 @Component({
   selector: 'combo-chart-graph',
@@ -13,54 +20,57 @@ import { IDashboardItemOptions } from '@kr-platform/kit/pages/combo-charts/examp
   styleUrl: './combo-chart-graph.component.scss',
   standalone: false,
 })
-export class ComboChartGraphComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ComboChartGraphComponent implements OnInit, OnDestroy {
+  public subscriptions: Subscription[] = [];
+  private readonly fb = inject(FormBuilder)
+
   public form!: FormGroup<{
-    optionsForm: IKruiOptionsFormType
-    dataForm: FormGroup<{ dataSources: FormArray<KruiDataSourceFormType> }>
+    optionsForm: IKruiOptionsFormType,
+    dataForm: FormGroup<{
+      dataSources: FormArray<KruiDataSourceFormType>,
+      dataParams: FormGroup<{
+        minValue: FormControl;
+        maxValue: FormControl;
+        dataLength: FormControl;
+      }>
+    }>
   }>;
 
+  private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
+  public comboChartService = inject(ComboChartService)
+  public autoRedraw: boolean = false;
 
-  public chartOptions = new BehaviorSubject<IDashboardItemOptions | null>(null);
-
-  constructor(
-    @Inject(KRUI_CHART_FORM_CREATE_SERVICE) private readonly formCreateService: KruiChartFormCreateService,
-    private readonly fb: FormBuilder,
-  ) {
-    this.form = this.fb.group({
-        optionsForm: this.formCreateService.createSettingFormDefault(),
-        dataForm: this.fb.group({ dataSources: this.fb.array<KruiDataSourceFormType>([]) }),
-      },
-    );
-  }
-
-  public ngAfterViewInit(): void {
-    this.update();
+  public ngOnDestroy(): void {
+    this.subscriptions?.forEach((sub) => sub.unsubscribe());
+    this.subscriptions = [];
   }
 
   public ngOnInit(): void {
+    this.form = this.fb.group({
+        optionsForm: this.formCreateService.createSettingFormDefault(),
+        dataForm: this.fb.group({
+          dataSources: this.fb.array<KruiDataSourceFormType>([]),
+          dataParams: this.fb.group(DATA_PARAMS),
+        }),
+      },
+    );
 
-  }
-
-  public ngOnDestroy(): void {
+    const formSub = this.form.valueChanges
+      .pipe(filter(() => this.autoRedraw), debounceTime(600))
+      .subscribe(() => this.update())
+    this.subscriptions.push(formSub)
   }
 
   public update(): void {
-    const formValue = this.form.getRawValue();
-    console.log('form', formValue);
-
-    this.chartOptions.next({
-      exampleView: false,
-      data: formValue.dataForm.dataSources,
-      view: formValue.optionsForm,
-    });
+    //@ts-ignore
+    this.comboChartService.update$.next(this.form.controls.optionsForm.value)
   }
 
   public reset(): void {
-
+    this.comboChartService.reset$.next(null)
   }
 
   public autoRefresh(): void {
-
-
+    this.comboChartService.autoRefresh$.next(!this.comboChartService.autoRefresh$.value)
   }
 }

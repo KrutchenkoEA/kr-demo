@@ -1,12 +1,18 @@
-<combo-chart-view [options]="chartOptions | async"></combo-chart-view>
-
-<as-split [formGroup]="form" direction="horizontal">
+<as-split direction="vertical">
   <as-split-area>
-    <combo-chart-generator [formGroupName]="'dataForm'"></combo-chart-generator>
-
+    <combo-chart-view [options]="comboChartService.chartOptions$ | async"></combo-chart-view>
   </as-split-area>
+
   <as-split-area>
-    <combo-chart-settings [formGroupName]="'optionsForm'"></combo-chart-settings>
+    <as-split [formGroup]="form" direction="horizontal">
+      <as-split-area>
+        <combo-chart-generator [formGroupName]="'dataForm'"></combo-chart-generator>
+
+      </as-split-area>
+      <as-split-area>
+        <combo-chart-settings [formGroupName]="'optionsForm'"></combo-chart-settings>
+      </as-split-area>
+    </as-split>
   </as-split-area>
 </as-split>
 
@@ -18,7 +24,11 @@
   <button (click)="reset()" kruiButton>
     Сбросить
   </button>
-  <button (click)="autoRefresh()" [btnStyle]="'secondary'" kruiButton>
+  <button (click)="autoRedraw = !autoRedraw" [btnStyle]="autoRedraw ? 'secondary' : 'tertiary'" kruiButton>
+    Автоперестроение
+  </button>
+  <button (click)="autoRefresh()" [btnStyle]="(comboChartService.autoRefresh$ | async) ? 'secondary' : 'tertiary'"
+          kruiButton>
     Автообновление
   </button>
 </div>

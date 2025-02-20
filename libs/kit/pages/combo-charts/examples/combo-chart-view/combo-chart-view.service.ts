@@ -5,7 +5,7 @@ import { IComboChartComboData, IDataMappingOptionsViewer } from '../combo-chart-
 import { DataItemTypeEnum } from './const';
 
 @Injectable()
-export class ActiveShapesShapesSetsChartService {
+export class ComboChartViewService {
   public createData(): IDataMappingOptionsViewer {
     return {
       name: '',

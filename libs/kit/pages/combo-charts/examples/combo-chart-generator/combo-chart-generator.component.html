@@ -7,67 +7,69 @@
   ></krui-toggle>
   <label for="chart-orientation-toggle"> Горизонтальный </label>
 </div>
-<div [formGroup]="dataParamsForm" class="data-params">
-  <label>Минимальное значение</label>
-  <krui-slider [buttons]="true"
-               [inputs]="true"
-               [labels]="true"
-               [max]="1000"
-               [min]="0"
-               [step]="2"
-               formControlName="minValue"
-  ></krui-slider>
+<ng-container [formGroup]="dataForm">
+  <div class="data-params" formGroupName="dataParams">
+    <label>Минимальное значение</label>
+    <krui-slider [buttons]="true"
+                 [inputs]="true"
+                 [labels]="true"
+                 [max]="1000"
+                 [min]="0"
+                 [step]="2"
+                 formControlName="minValue"
+    ></krui-slider>
 
-  <label>Максимальное значение</label>
-  <krui-slider [buttons]="true"
-               [inputs]="true"
-               [labels]="true"
-               [max]="5000"
-               [min]="2"
-               [step]="2"
-               formControlName="maxValue"
-  ></krui-slider>
+    <label>Максимальное значение</label>
+    <krui-slider [buttons]="true"
+                 [inputs]="true"
+                 [labels]="true"
+                 [max]="5000"
+                 [min]="2"
+                 [step]="2"
+                 formControlName="maxValue"
+    ></krui-slider>
 
-  <label>Количество точек</label>
-  <krui-slider [buttons]="true"
-               [inputs]="true"
-               [labels]="true"
-               [max]="9999"
-               [min]="0"
-               [step]="2"
-               formControlName="dataLength"
-  ></krui-slider>
-</div>
-<div [formGroup]="dataForm" class="container">
-  <ng-container *ngFor="let group of dataSources.controls; let ruleIndex = index" formArrayName="dataSources">
-    <ng-container [formGroupName]="ruleIndex">
-      <div class="container__row">
-
-        <krui-form-field class="big-width">
-          <input formControlName="name" kruiInput placeholder="Наименование" size="md" />
-        </krui-form-field>
-
-        <combo-chart-selector [options]="typeOptionsParsed$ | async"
-                              formControlName="type"
-        ></combo-chart-selector>
-
-        <krui-form-field class="small-width">
-          <input [value]="group.value.color"
-                 formControlName="color"
-                 kruiInput
-                 size="md"
-                 type="color"
-          />
-        </krui-form-field>
-        <svg-icon (click)="deleteDataSource(ruleIndex)"
-                  class="krui-cursor--pointer"
-                  src="kruiIconDeleteTrash">
-        </svg-icon>
-      </div>
-    </ng-container>
-  </ng-container>
-  <div class="container__add-row">
-    <svg-icon (click)="addDataSource()" class="icon" src="kruiIconPlusAddCircle"></svg-icon>
-    <span (click)="addDataSource()">Добавить источник</span>
+    <label>Количество точек</label>
+    <krui-slider [buttons]="true"
+                 [inputs]="true"
+                 [labels]="true"
+                 [max]="9999"
+                 [min]="0"
+                 [step]="2"
+                 formControlName="dataLength"
+    ></krui-slider>
   </div>
-</div>
+  <div class="container">
+    <ng-container *ngFor="let group of dataSources.controls; let ruleIndex = index" formArrayName="dataSources">
+      <ng-container [formGroupName]="ruleIndex">
+        <div class="container__row">
+
+          <krui-form-field class="big-width">
+            <input formControlName="name" kruiInput placeholder="Наименование" size="md"/>
+          </krui-form-field>
+
+          <combo-chart-selector [options]="typeOptionsParsed$ | async"
+                                formControlName="type"
+          ></combo-chart-selector>
+
+          <krui-form-field class="small-width">
+            <input [value]="group.value.color"
+                   formControlName="color"
+                   kruiInput
+                   size="md"
+                   type="color"
+            />
+          </krui-form-field>
+          <svg-icon (click)="deleteDataSource(ruleIndex)"
+                    class="krui-cursor--pointer"
+                    src="kruiIconDeleteTrash">
+          </svg-icon>
+        </div>
+      </ng-container>
+    </ng-container>
+    <div class="container__add-row">
+      <svg-icon (click)="addDataSource()" class="icon" src="kruiIconPlusAddCircle"></svg-icon>
+      <span (click)="addDataSource()">Добавить источник</span>
+    </div>
+  </div>
+</ng-container>

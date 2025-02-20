@@ -3998,7 +3998,7 @@ export const EXAMPLE_FILES = {
   }
 }
 `,
-	'combo-charts/combo-chart-graph/combo-chart-graph.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">combo-chart-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">combo-chart-view</span>&gt;</span>
+	'combo-charts/combo-chart-graph/combo-chart-graph.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">combo-chart-view</span> [<span class="hljs-attr">options</span>]=<span class="hljs-string">&quot;chartOptions | async&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">combo-chart-view</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">as-split</span> [<span class="hljs-attr">formGroup</span>]=<span class="hljs-string">&quot;form&quot;</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">&quot;horizontal&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">as-split-area</span>&gt;</span>
@@ -4011,10 +4011,15 @@ export const EXAMPLE_FILES = {
 <span class="hljs-tag">&lt;/<span class="hljs-name">as-split</span>&gt;</span>
 
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-form-field-label&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;buttons&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;update()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">kruiBtnIcon</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconReloadCycle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;reset()&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span>
+    Сбросить
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;autoRefresh()&quot;</span> [<span class="hljs-attr">btnStyle</span>]=<span class="hljs-string">&quot;&#x27;secondary&#x27;&quot;</span> <span class="hljs-attr">kruiButton</span>&gt;</span>
+    Автообновление
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 `,	'combo-charts/combo-chart-graph/combo-chart-graph.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;../../../../../../libs/ui/styles/packages/scrolling/mixins&quot;</span>;
@@ -4045,15 +4050,21 @@ as-split-area {
 }
 
 
-.button {
+.buttons {
   <span class="hljs-attribute">display</span>: flex;
-  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">0.5rem</span>;
+
+  <span class="hljs-selector-pseudo">:first-child</span> {
+    <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;
+  }
 }
 
-`,	'combo-charts/combo-chart-graph/combo-chart-graph.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">Inject</span>, <span class="hljs-title class_">OnDestroy</span>, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+`,	'combo-charts/combo-chart-graph/combo-chart-graph.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">AfterViewInit</span>, <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">Inject</span>, <span class="hljs-title class_">OnDestroy</span>, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormArray</span>, <span class="hljs-title class_">FormBuilder</span>, <span class="hljs-title class_">FormGroup</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">IKruiOptionsFormType</span>, <span class="hljs-variable constant_">KRUI_CHART_FORM_CREATE_SERVICE</span>, <span class="hljs-title class_">KruiChartFormCreateService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">KruiDataSourceFormType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./model&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">BehaviorSubject</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IDashboardItemOptions</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/kit/pages/combo-charts/examples/combo-chart-view/model&#x27;</span>;
 
 <span class="hljs-comment">/** <span class="hljs-doctag">@title</span> Настройки */</span>
 
@@ -4063,12 +4074,14 @@ as-split-area {
   <span class="hljs-attr">styleUrl</span>: <span class="hljs-string">&#x27;./combo-chart-graph.component.scss&#x27;</span>,
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartGraphComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">OnDestroy</span> {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartGraphComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">OnDestroy</span>, <span class="hljs-title class_">AfterViewInit</span> {
   <span class="hljs-keyword">public</span> form!: <span class="hljs-title class_">FormGroup</span>&lt;{
     <span class="hljs-attr">optionsForm</span>: <span class="hljs-title class_">IKruiOptionsFormType</span>
     <span class="hljs-attr">dataForm</span>: <span class="hljs-title class_">FormGroup</span>&lt;{ <span class="hljs-attr">dataSources</span>: <span class="hljs-title class_">FormArray</span>&lt;<span class="hljs-title class_">KruiDataSourceFormType</span>&gt; }&gt;
   }&gt;;
 
+
+  <span class="hljs-keyword">public</span> chartOptions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;<span class="hljs-title class_">IDashboardItemOptions</span> | <span class="hljs-literal">null</span>&gt;(<span class="hljs-literal">null</span>);
 
   <span class="hljs-title function_">constructor</span>(<span class="hljs-params">
     <span class="hljs-meta">@Inject</span>(KRUI_CHART_FORM_CREATE_SERVICE) <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">formCreateService</span>: <span class="hljs-title class_">KruiChartFormCreateService</span>,
@@ -4081,14 +4094,35 @@ as-split-area {
     );
   }
 
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngAfterViewInit</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">update</span>();
+  }
+
   <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
+
   }
 
   <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnDestroy</span>(): <span class="hljs-built_in">void</span> {
   }
 
   <span class="hljs-keyword">public</span> <span class="hljs-title function_">update</span>(): <span class="hljs-built_in">void</span> {
-    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;form&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">form</span>.<span class="hljs-title function_">getRawValue</span>());
+    <span class="hljs-keyword">const</span> formValue = <span class="hljs-variable language_">this</span>.<span class="hljs-property">form</span>.<span class="hljs-title function_">getRawValue</span>();
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;form&#x27;</span>, formValue);
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">chartOptions</span>.<span class="hljs-title function_">next</span>({
+      <span class="hljs-attr">exampleView</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">data</span>: formValue.<span class="hljs-property">dataForm</span>.<span class="hljs-property">dataSources</span>,
+      <span class="hljs-attr">view</span>: formValue.<span class="hljs-property">optionsForm</span>,
+    });
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">reset</span>(): <span class="hljs-built_in">void</span> {
+
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">autoRefresh</span>(): <span class="hljs-built_in">void</span> {
+
+
   }
 }
 `,	'combo-charts/combo-chart-graph/model.ts': `<span class="hljs-keyword">import</span> {<span class="hljs-title class_">FormGroup</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
@@ -5415,43 +5449,7 @@ as-split-area {
   }
 }
 `,
-	'combo-charts/combo-chart-view/active-shapes-shapes-sets-chart.service.ts': `<span class="hljs-comment">/* eslint-disable import/no-extraneous-dependencies */</span>
-<span class="hljs-comment">/* eslint-disable no-unsafe-optional-chaining */</span>
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IComboChartComboData</span>, <span class="hljs-title class_">IDataMappingOptionsViewer</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/model&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./const&#x27;</span>;
-
-<span class="hljs-meta">@Injectable</span>()
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ActiveShapesShapesSetsChartService</span> {
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createData</span>(): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
-    <span class="hljs-keyword">return</span> {
-      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span>,
-      <span class="hljs-attr">type</span>: <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>,
-      <span class="hljs-attr">chartData</span>: [],
-      <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;&#x27;</span>,
-      <span class="hljs-attr">caption</span>: [],
-      <span class="hljs-attr">palette</span>: [],
-    };
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createComboData</span>(<span class="hljs-attr">keys</span>: <span class="hljs-built_in">string</span>[]): <span class="hljs-title class_">IComboChartComboData</span> {
-    <span class="hljs-keyword">const</span> comboData = {};
-    keys?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">key</span>: <span class="hljs-built_in">string</span></span>) =&gt;</span> {
-      <span class="hljs-comment">// @ts-ignore</span>
-      comboData[key] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">createData</span>();
-    });
-
-    <span class="hljs-keyword">return</span> &lt;<span class="hljs-title class_">IComboChartComboData</span>&gt; comboData;
-  }
-
-  <span class="hljs-keyword">public</span> <span class="hljs-title function_">setData</span>(<span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>, <span class="hljs-attr">item</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
-    data.<span class="hljs-property">chartData</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">chartData</span>);
-    data.<span class="hljs-property">caption</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">name</span>);
-    data.<span class="hljs-property">palette</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">color</span>);
-    <span class="hljs-keyword">return</span> data;
-  }
-}
-`,	'combo-charts/combo-chart-view/combo-chart-view.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;chartOptions$ | async as chartOptions&quot;</span>&gt;</span>
+	'combo-charts/combo-chart-view/combo-chart-view.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">ng-container</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;chartOptions$ | async as chartOptions&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart</span>
     [<span class="hljs-attr">bgColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.bgColor&quot;</span>
     [<span class="hljs-attr">borderColor</span>]=<span class="hljs-string">&quot;chartOptions.view?.wrapper?.borderColor&quot;</span>
@@ -5772,7 +5770,7 @@ as-split-area {
   <span class="hljs-title class_">KruiChartFormCreateService</span>,
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">IComboChartRenderingOptions</span>, <span class="hljs-title class_">IDashboardItemOptions</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/model&#x27;</span>;
-<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ActiveShapesShapesSetsChartService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/active-shapes-shapes-sets-chart.service&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ComboChartViewService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./combo-chart-view.service&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/model&#x27;</span>;
 
 
@@ -5789,12 +5787,13 @@ as-split-area {
   <span class="hljs-attr">styleUrl</span>: <span class="hljs-string">&#x27;./combo-chart-view.component.scss&#x27;</span>,
   <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">providers</span>:[<span class="hljs-title class_">ComboChartViewService</span>]
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartViewComponent</span> {
   <span class="hljs-keyword">public</span> typeOptions = <span class="hljs-title class_">DataItemTypeEnum</span>;
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> formCreateService = inject&lt;<span class="hljs-title class_">KruiChartFormCreateService</span>&gt;(<span class="hljs-variable constant_">KRUI_CHART_FORM_CREATE_SERVICE</span>);
 
-  <span class="hljs-keyword">public</span> setterService = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ActiveShapesShapesSetsChartService</span>);
+  <span class="hljs-keyword">public</span> setterService = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ComboChartViewService</span>);
 
   <span class="hljs-keyword">private</span> <span class="hljs-attr">chartOptionsString</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;&#x27;</span>;
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> chartOptions$$ = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;<span class="hljs-built_in">unknown</span>&gt;(<span class="hljs-literal">null</span>);
@@ -5802,6 +5801,8 @@ as-split-area {
 
 
   <span class="hljs-meta">@Input</span>() <span class="hljs-keyword">set</span> <span class="hljs-title function_">options</span>(<span class="hljs-params"><span class="hljs-attr">options</span>: <span class="hljs-title class_">IDashboardItemOptions</span></span>) {
+    <span class="hljs-keyword">if</span> (!options) <span class="hljs-keyword">return</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;set options&#x27;</span>,options);
     <span class="hljs-keyword">const</span> data = options?.<span class="hljs-property">data</span>?.<span class="hljs-title function_">filter</span>(
       <span class="hljs-function">(<span class="hljs-params">t</span>) =&gt;</span>
         t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> ||
@@ -5819,7 +5820,8 @@ as-split-area {
         ?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> comboData[key] = <span class="hljs-variable language_">this</span>.<span class="hljs-property">setterService</span>.<span class="hljs-title function_">setData</span>(comboData[key], c));
     });
 
-    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setOptions</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span>.<span class="hljs-property">view</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>, data, comboData);
+    <span class="hljs-comment">// @ts-ignore</span>
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setOptions</span>(options.<span class="hljs-property">view</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>, data, comboData);
   }
 
   <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
@@ -5845,6 +5847,42 @@ as-split-area {
     }
   }
 }
+`,	'combo-charts/combo-chart-view/combo-chart-view.service.ts': `<span class="hljs-comment">/* eslint-disable import/no-extraneous-dependencies */</span>
+<span class="hljs-comment">/* eslint-disable no-unsafe-optional-chaining */</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Injectable</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">IComboChartComboData</span>, <span class="hljs-title class_">IDataMappingOptionsViewer</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-view/model&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">DataItemTypeEnum</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./const&#x27;</span>;
+
+<span class="hljs-meta">@Injectable</span>()
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartViewService</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createData</span>(): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>,
+      <span class="hljs-attr">chartData</span>: [],
+      <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+      <span class="hljs-attr">caption</span>: [],
+      <span class="hljs-attr">palette</span>: [],
+    };
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">createComboData</span>(<span class="hljs-attr">keys</span>: <span class="hljs-built_in">string</span>[]): <span class="hljs-title class_">IComboChartComboData</span> {
+    <span class="hljs-keyword">const</span> comboData = {};
+    keys?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">key</span>: <span class="hljs-built_in">string</span></span>) =&gt;</span> {
+      <span class="hljs-comment">// @ts-ignore</span>
+      comboData[key] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">createData</span>();
+    });
+
+    <span class="hljs-keyword">return</span> &lt;<span class="hljs-title class_">IComboChartComboData</span>&gt; comboData;
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">setData</span>(<span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>, <span class="hljs-attr">item</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>): <span class="hljs-title class_">IDataMappingOptionsViewer</span> {
+    data.<span class="hljs-property">chartData</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">chartData</span>);
+    data.<span class="hljs-property">caption</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">name</span>);
+    data.<span class="hljs-property">palette</span>.<span class="hljs-title function_">push</span>(item.<span class="hljs-property">color</span>);
+    <span class="hljs-keyword">return</span> data;
+  }
+}
 `,	'combo-charts/combo-chart-view/const.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">InjectionToken</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">DataItemTypeEnum</span> {
@@ -5866,7 +5904,7 @@ as-split-area {
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">IDashboardItemOptions</span> {
   <span class="hljs-attr">exampleView</span>: <span class="hljs-built_in">boolean</span>;
   <span class="hljs-attr">view</span>: <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>;
-  <span class="hljs-attr">data</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>[];
+  <span class="hljs-attr">data</span>: <span class="hljs-title class_">KruiGeneratorForm</span>[];
 }
 
 

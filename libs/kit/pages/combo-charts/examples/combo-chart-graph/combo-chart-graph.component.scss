@@ -1,4 +1,4 @@
-@import "../../../../../../libs/ui/styles/packages/scrolling/mixins";
+@import "packages/scrolling/mixins";
 
 
 :host {
@@ -6,7 +6,7 @@
   flex-direction: column;
   width: 100%;
   gap: 1rem;
-  height: 80vh;
+  height: 88vh;
 
   ::ng-deep {
     .as-split-gutter {

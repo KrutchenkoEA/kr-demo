@@ -1,16 +1,14 @@
-import { ChangeDetectionStrategy, Component, Optional } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnDestroy} from '@angular/core';
+import {FormArray, FormControl, FormGroup, FormGroupDirective, FormGroupName, Validators,} from '@angular/forms';
 import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  FormGroupName,
-  Validators,
-} from '@angular/forms';
-import { KRUI_CHART_LINE_INTERPOLATE, kruiChartRandomDateArray, kruiChartRdmNumberData } from '@kr-platform/ui';
-import { DataItemTypeEnum, KruiDataSourceFormType } from '../combo-chart-graph/model';
-import { BehaviorSubject } from 'rxjs';
+  IKruiChartSingleLayerInputModel,
+  KRUI_CHART_LINE_INTERPOLATE,
+  kruiChartRandomDateArray,
+  kruiChartRdmNumberData
+} from '@kr-platform/ui';
+import {DataItemTypeEnum, KruiDataSourceFormType, KruiGeneratorForm} from '../combo-chart-graph/model';
+import {BehaviorSubject, Subscription} from 'rxjs';
+import {ComboChartService} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
 
 enum KruiDataItemTypeEnumVertical {
   Line = 'line',
@@ -27,6 +25,15 @@ enum KruiDataItemTypeEnumHorizontal {
   StackBarHorizontal = 'stackBarHorizontal',
 }
 
+type generatorFormType = FormGroup<{
+  dataSources: FormArray<KruiDataSourceFormType>,
+  dataParams: FormGroup<{
+    minValue: FormControl;
+    maxValue: FormControl;
+    dataLength: FormControl;
+  }>
+}>
+
 @Component({
   selector: 'combo-chart-generator',
   templateUrl: './combo-chart-generator.component.html',
@@ -34,14 +41,14 @@ enum KruiDataItemTypeEnumHorizontal {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
 })
-export class ComboChartGeneratorComponent {
+export class ComboChartGeneratorComponent implements OnDestroy {
+  public subscriptions: Subscription[] = [];
+  private readonly comboChartService = inject(ComboChartService)
+  private readonly parentForm = inject(FormGroupDirective)
+  private readonly formGroupName = inject(FormGroupName, {optional: true})
+
   protected readonly interpolation = KRUI_CHART_LINE_INTERPOLATE;
-  public dataForm!: FormGroup<{ dataSources: FormArray<KruiDataSourceFormType> }>;
-  public dataParamsForm!: FormGroup<{
-    minValue: FormControl;
-    maxValue: FormControl;
-    dataLength: FormControl;
-  }>;
+  public dataForm!: generatorFormType
   public isChartHorizontal = new FormControl<boolean>(false);
 
   public typeOptions = DataItemTypeEnum;
@@ -53,38 +60,44 @@ export class ComboChartGeneratorComponent {
     return this.dataForm.controls.dataSources as FormArray;
   }
 
-  constructor(
-    private readonly parentForm: FormGroupDirective,
-    @Optional() public formGroupName: FormGroupName,
-    private readonly fb: FormBuilder,
-  ) {
-    this.dataParamsForm = fb.group({
-      minValue: 2,
-      maxValue: 50,
-      dataLength: 50,
-    });
+  public ngOnDestroy(): void {
+    this.subscriptions?.forEach((sub) => sub.unsubscribe());
+    this.subscriptions = [];
   }
 
   public ngOnInit(): void {
     this.dataForm =
       (this.formGroupName?.name ?
         this.parentForm.form.controls[this.formGroupName.name] :
-        this.parentForm.form) as FormGroup<{ dataSources: FormArray<KruiDataSourceFormType> }>;
+        this.parentForm.form) as generatorFormType;
 
-    this.isChartHorizontal.valueChanges.subscribe((v) => {
+    const isChartHorizontalSub = this.isChartHorizontal.valueChanges.subscribe((v) => {
       this.typeOptionsParsed$.next(
         v ? this.parseEnum(KruiDataItemTypeEnumHorizontal) : this.parseEnum(KruiDataItemTypeEnumVertical),
       );
 
       setTimeout(() => {
         this.dataSources.controls.forEach((control) => {
-          control.patchValue({ type: v ? DataItemTypeEnum.BarHorizontal : DataItemTypeEnum.Line });
+          control.patchValue({type: v ? DataItemTypeEnum.BarHorizontal : DataItemTypeEnum.Line});
         });
       });
     });
+    this.subscriptions.push(isChartHorizontalSub)
 
-    this.addDataSource('test1');
-    this.addDataSource('test2');
+    this.addDataSource('Пример 1');
+    this.addDataSource('Пример 2');
+
+    const updateSub = this.comboChartService.update$.pipe().subscribe((v) => {
+        this.comboChartService.chartOptions$.next({
+          data: this.dataForm.value.dataSources?.map(v => {
+            v.chartData = this.generateData()
+            return v
+          }) as KruiGeneratorForm[],
+          view: v as IKruiChartSingleLayerInputModel
+        })
+      }
+    )
+    this.subscriptions.push(updateSub)
   }
 
   public addDataSource(name: string = this.getRandomColor()): void {
@@ -133,9 +146,10 @@ export class ComboChartGeneratorComponent {
   }
 
   private generateData(): any {
-    const dataLength = this.dataParamsForm.value.dataLength ?? 50;
-    const minValue = this.dataParamsForm.value.minValue ?? 2;
-    const maxValue = this.dataParamsForm.value.maxValue ?? 50;
+    const paramsValue = this.dataForm.controls.dataParams.value
+    const dataLength = paramsValue.dataLength;
+    const minValue = paramsValue.minValue;
+    const maxValue = paramsValue.maxValue;
     return this.parentForm.form.controls['optionsForm'].getRawValue().axisX.type === 'number'
       ? kruiChartRdmNumberData(dataLength, minValue, maxValue)
       : kruiChartRandomDateArray(dataLength, minValue, maxValue, new Date('2022-09-01T00:00:00.0000000Z'));
