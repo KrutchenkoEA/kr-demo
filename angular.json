@@ -167,7 +167,8 @@
             "styles": [
               "projects/kit-demo/src/styles.scss",
               "libs/ui/styles/index.scss",
-              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "@angular/material/prebuilt-themes/cyan-orange.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
