@@ -193,7 +193,7 @@
         <krui-chart-data-layer
           [captions]="chartOptions?.comboData.comboBar.caption"
           [colors]="chartOptions?.comboData.comboBar.palette"
-          [data]="chartOptions?.comboData?.comboBar.chartData"
+          [data]="chartOptions?.comboData?.comboBar.chartData$ | async"
           [barOpacity]="chartOptions.view?.comboBarLayer?.common?.opacity"
           [animationType]="chartOptions.view?.comboBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.comboBarLayer?.common?.animation"
@@ -221,7 +221,7 @@
         <krui-chart-data-layer
           [captions]="chartOptions?.comboData.comboBarHorizontal.caption"
           [colors]="chartOptions?.comboData.comboBarHorizontal.palette"
-          [data]="chartOptions?.comboData?.comboBarHorizontal.chartData"
+          [data]="chartOptions?.comboData?.comboBarHorizontal.chartData$ | async"
           [barOpacity]="chartOptions.view?.comboBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.comboBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.comboBarLayer?.common?.animation"
@@ -249,7 +249,7 @@
         <krui-chart-data-layer
           [captions]="chartOptions?.comboData.stackBar.caption"
           [colors]="chartOptions?.comboData.stackBar.palette"
-          [data]="chartOptions?.comboData.stackBar?.chartData"
+          [data]="chartOptions?.comboData.stackBar?.chartData$ | async"
           [barOpacity]="chartOptions.view?.stackBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.stackBarLayer?.common?.animation"
@@ -277,7 +277,7 @@
         <krui-chart-data-layer
           [captions]="chartOptions?.comboData.stackBarHorizontal.caption"
           [colors]="chartOptions?.comboData.stackBarHorizontal.palette"
-          [data]="chartOptions?.comboData.stackBarHorizontal?.chartData"
+          [data]="chartOptions?.comboData.stackBarHorizontal?.chartData$ | async"
           [barOpacity]="chartOptions.view?.stackBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.stackBarLayer?.common?.animation"

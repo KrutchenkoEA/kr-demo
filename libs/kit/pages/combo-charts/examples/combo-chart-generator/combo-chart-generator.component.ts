@@ -9,7 +9,7 @@ import {
 } from '@kr-platform/ui';
 import { DataItemTypeEnum, KruiDataSourceFormType, KruiGeneratorForm } from '../combo-chart-graph/model';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { ComboChartService } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import { ComboChartService } from '../combo-chart-graph/combo-chart.service';
 
 enum KruiDataItemTypeEnumVertical {
   Line = 'line',
@@ -177,19 +177,21 @@ export class ComboChartGeneratorComponent implements OnDestroy {
     const maxValue = paramsValue.maxValue;
     const isNumber = this.parentForm.form.controls['optionsForm'].getRawValue().axisX.type === 'number';
 
-    this.dataForm.value.dataSources?.map(v => {
+    // @ts-ignore
+    this.comboChartService.chartDataUpdate$.next(this.dataForm.value.dataSources?.map(v => {
       const newValue = kruiChartRandomValue(minValue, maxValue);
       const existData = v.chartData$.value;
 
       if (isNumber) {
-        v.chartData$.next([...existData, [existData?.length, newValue]]);
+        v.chartData = [...existData, [existData?.length, newValue]];
       } else {
         const lastDate = new Date(existData[existData?.length - 1][0]);
         const newDate = new Date(lastDate.setDate(lastDate.getDate() + 1));
-        v.chartData$.next([...existData, [newDate, newValue]]);
+        v.chartData = [...existData, [newDate, newValue]];
       }
+      v.chartData$.next(v.chartData);
 
       return v;
-    });
+    }));
   }
 }

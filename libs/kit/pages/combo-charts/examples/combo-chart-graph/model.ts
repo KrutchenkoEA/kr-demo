@@ -1,5 +1,5 @@
-import {FormGroup} from '@angular/forms';
-import {ToFormControls} from '@kr-platform/ui';
+import { FormGroup } from '@angular/forms';
+import { ToFormControls } from '@kr-platform/ui';
 
 export interface KruiGeneratorForm {
   name: string;
@@ -15,6 +15,13 @@ export enum DataItemTypeEnum {
   GradientArea = 'gradientArea',
   Bar = 'bar',
   BarHorizontal = 'barHorizontal',
+  ComboBar = 'comboBar',
+  ComboBarHorizontal = 'comboBarHorizontal',
+  StackBar = 'stackBar',
+  StackBarHorizontal = 'stackBarHorizontal',
+}
+
+export enum DataItemTypeEnumComboKey {
   ComboBar = 'comboBar',
   ComboBarHorizontal = 'comboBarHorizontal',
   StackBar = 'stackBar',

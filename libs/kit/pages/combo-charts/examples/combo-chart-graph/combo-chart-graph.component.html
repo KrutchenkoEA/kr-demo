@@ -1,6 +1,7 @@
 <as-split (dragEnd)="checkWorkArea()" direction="vertical">
   <as-split-area #workArea>
-    <combo-chart-view [options]="comboChartService.chartOptions$ | async"
+    <combo-chart-view [dataUpdate]="comboChartService.chartDataUpdate$ | async"
+                      [options]="comboChartService.chartOptions$ | async"
                       [style.height.px]="comboChartService.chartSizeChanged$.value.height"
                       [style.width.px]="comboChartService.chartSizeChanged$.value.width">
     </combo-chart-view>

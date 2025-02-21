@@ -5,17 +5,17 @@ import {
   KRUI_CHART_FORM_CREATE_SERVICE,
   KruiChartFormCreateService,
 } from '@kr-platform/ui';
-import { IComboChartRenderingOptions, IDashboardItemOptions } from '../combo-chart-view/model';
+import { IComboChartComboData, IComboChartRenderingOptions, IDashboardItemOptions } from '../combo-chart-view/model';
 import { ComboChartViewService } from './combo-chart-view.service';
-import { DataItemTypeEnum } from '../combo-chart-graph/model';
-import { ComboChartService } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import { DataItemTypeEnum, DataItemTypeEnumComboKey } from '../combo-chart-graph/model';
+import { ComboChartService } from '../combo-chart-graph/combo-chart.service';
 
 
-const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
-  DataItemTypeEnum.ComboBar,
-  DataItemTypeEnum.ComboBarHorizontal,
-  DataItemTypeEnum.StackBar,
-  DataItemTypeEnum.StackBarHorizontal,
+const CHART_COMBO_KEYS: DataItemTypeEnumComboKey[] = Array.from([
+  DataItemTypeEnumComboKey.ComboBar,
+  DataItemTypeEnumComboKey.ComboBarHorizontal,
+  DataItemTypeEnumComboKey.StackBar,
+  DataItemTypeEnumComboKey.StackBarHorizontal,
 ]);
 
 @Component({
@@ -33,14 +33,11 @@ export class ComboChartViewComponent {
   public comboChartService = inject(ComboChartService);
   public setterService = inject(ComboChartViewService);
 
-  private chartOptionsString: string = '';
   private readonly chartOptions$$ = new BehaviorSubject<unknown>(null);
   public chartOptions$ = this.chartOptions$$.asObservable().pipe(delay(0));
 
-
   @Input() set options(options: IDashboardItemOptions) {
     if (!options) return;
-    console.log('set options', options);
     const data = options?.data?.filter(
       (t) =>
         t.type === DataItemTypeEnum.Line ||
@@ -50,20 +47,29 @@ export class ComboChartViewComponent {
         t.type === DataItemTypeEnum.BarHorizontal,
     );
 
-    const comboData = this.setterService.createComboData(CHART_COMBO_KEYS);
-    CHART_COMBO_KEYS.forEach((key) => {
+    const comboData: IComboChartComboData = this.setterService.createComboData(CHART_COMBO_KEYS);
+    CHART_COMBO_KEYS.forEach((key: DataItemTypeEnumComboKey) => {
       options?.data
-        ?.filter((t) => t.type === key)
-        // @ts-ignore
+        ?.filter((t) => (t.type as unknown as DataItemTypeEnumComboKey) === key)
         ?.forEach((c) => comboData[key] = this.setterService.setData(comboData[key], c));
+      comboData[key]['chartData$'].next(comboData[key]['chartData']);
     });
 
-    // @ts-ignore
-    this.setOptions(options.view as IKruiChartSingleLayerInputModel, data, comboData);
+    this.setOptions(options.view as IKruiChartSingleLayerInputModel, data as IComboChartRenderingOptions['data'], comboData);
   }
 
-  public ngOnInit(): void {
-
+  @Input() set dataUpdate(data: IDashboardItemOptions['data']) {
+    if (!data) return;
+    const existValue = (this.chartOptions$$.value as IComboChartRenderingOptions).comboData;
+    CHART_COMBO_KEYS.forEach((key: DataItemTypeEnumComboKey) => {
+      existValue[key]['chartData'] = [];
+      existValue[key]['caption'] = [];
+      existValue[key]['palette'] = [];
+      data
+        ?.filter((t) => (t.type as unknown as DataItemTypeEnumComboKey) === key)
+        ?.forEach((c) => existValue[key] = this.setterService.setData(existValue[key], c));
+      existValue[key]['chartData$'].next(existValue[key]['chartData']);
+    });
   }
 
   private setOptions(
@@ -76,7 +82,6 @@ export class ComboChartViewComponent {
       data,
       comboData,
     };
-    console.log('options', options);
     this.chartOptions$$.next(null);
     this.chartOptions$$.next(options);
   }

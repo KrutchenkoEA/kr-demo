@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, inject, OnDestroy, OnInit, ViewChi
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService } from '@kr-platform/ui';
 import { KruiDataSourceFormType } from './model';
-import { ComboChartService } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import { ComboChartService } from '../combo-chart-graph/combo-chart.service';
 import { filter, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
