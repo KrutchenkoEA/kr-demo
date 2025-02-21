@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
     "baseUrl": "./",
     "strict": true,
@@ -19,22 +20,22 @@
     "moduleResolution": "bundler",
     "paths": {
       "@kr-platform/ui": [
-        "./libs/ui"
+        "./dist/ui"
       ],
       "@kr-platform/ui/*": [
-        "./libs/ui/*"
+        "./dist/ui/*"
       ],
       "@kr-platform/kit": [
-        "./libs/kit"
+        "./dist/kit"
       ],
       "@kr-platform/kit/*": [
-        "./libs/kit/*"
+        "./dist/kit/*"
       ],
       "@kr-platform/icons": [
-        "./libs/icons"
+        "./dist/icons"
       ],
       "@kr-platform/icons/*": [
-        "./libs/icons/*"
+        "./dist/icons/*"
       ]
     },
     "importHelpers": true,

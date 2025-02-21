@@ -1,24 +1,24 @@
 /** Don't edit this file! It has been generated automatically. */
 
-    import { AccordionComponent} from '@kr-platform/kit/pages/accordion/accordion.component';
-import { AreaChartsComponent} from '@kr-platform/kit/pages/area-charts/area-charts.component';
-import { BarChartsComponent} from '@kr-platform/kit/pages/bar-charts/bar-charts.component';
-import { ButtonComponent} from '@kr-platform/kit/pages/button/button.component';
-import { CheckboxComponent} from '@kr-platform/kit/pages/checkbox/checkbox.component';
-import { ComboBarChartsComponent} from '@kr-platform/kit/pages/combo-bar-charts/combo-bar-charts.component';
-import { ComboChartsComponent} from '@kr-platform/kit/pages/combo-charts/combo-charts.component';
-import { InputComponent} from '@kr-platform/kit/pages/input/input.component';
-import { LineChartsComponent} from '@kr-platform/kit/pages/line-charts/line-charts.component';
-import { RangeComponent} from '@kr-platform/kit/pages/range/range.component';
-import { RangeBarChartsComponent} from '@kr-platform/kit/pages/range-bar-charts/range-bar-charts.component';
-import { SelectComponent} from '@kr-platform/kit/pages/select/select.component';
-import { SliderComponent} from '@kr-platform/kit/pages/slider/slider.component';
-import { SpinnerComponent} from '@kr-platform/kit/pages/spinner/spinner.component';
-import { StackBarChartsComponent} from '@kr-platform/kit/pages/stack-bar-charts/stack-bar-charts.component';
-import { TabsComponent} from '@kr-platform/kit/pages/tabs/tabs.component';
-import { ToggleComponent} from '@kr-platform/kit/pages/toggle/toggle.component';
-import { TooltipComponent} from '@kr-platform/kit/pages/tooltip/tooltip.component';
-import { TypographyComponent} from '@kr-platform/kit/pages/typography/typography.component';
+    import { AccordionComponent} from '../../pages/accordion/accordion.component';
+import { AreaChartsComponent} from '../../pages/area-charts/area-charts.component';
+import { BarChartsComponent} from '../../pages/bar-charts/bar-charts.component';
+import { ButtonComponent} from '../../pages/button/button.component';
+import { CheckboxComponent} from '../../pages/checkbox/checkbox.component';
+import { ComboBarChartsComponent} from '../../pages/combo-bar-charts/combo-bar-charts.component';
+import { ComboChartsComponent} from '../../pages/combo-charts/combo-charts.component';
+import { InputComponent} from '../../pages/input/input.component';
+import { LineChartsComponent} from '../../pages/line-charts/line-charts.component';
+import { RangeComponent} from '../../pages/range/range.component';
+import { RangeBarChartsComponent} from '../../pages/range-bar-charts/range-bar-charts.component';
+import { SelectComponent} from '../../pages/select/select.component';
+import { SliderComponent} from '../../pages/slider/slider.component';
+import { SpinnerComponent} from '../../pages/spinner/spinner.component';
+import { StackBarChartsComponent} from '../../pages/stack-bar-charts/stack-bar-charts.component';
+import { TabsComponent} from '../../pages/tabs/tabs.component';
+import { ToggleComponent} from '../../pages/toggle/toggle.component';
+import { TooltipComponent} from '../../pages/tooltip/tooltip.component';
+import { TypographyComponent} from '../../pages/typography/typography.component';
 
     export const EXAMPLE_ROUTES = [
 {

@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
 import { TypographyHeaderExample } from './typography-header-example/typography-header-example';
 import { TypographyLinkExample } from './typography-link-example/typography-link-example';
 import { KruiSvgLoader } from '@kr-platform/icons';
-import { TypographyComponent } from '@kr-platform/kit/pages/typography/typography.component';
 
 export {
   TypographyHeaderExample,

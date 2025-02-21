@@ -9,7 +9,6 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-
 import { KruiSelectComponent } from '../select.component';
 
 @Component({

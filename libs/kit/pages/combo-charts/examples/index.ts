@@ -11,15 +11,13 @@ import {
   KruiSliderModule,
   KruiToggleModule,
 } from '@kr-platform/ui';
+import { MatMenuModule } from '@angular/material/menu';
 import { SplitAreaComponent, SplitComponent } from 'angular-split';
 import { ComboChartSettingsComponent } from './combo-chart-settings/combo-chart-settings.component';
 import { ComboChartGraphComponent } from './combo-chart-graph/combo-chart-graph.component';
 import { ComboChartGeneratorComponent } from './combo-chart-generator/combo-chart-generator.component';
 import { ComboChartSelectorComponent } from './combo-chart-selector/combo-chart-selector.component';
-import { MatMenuModule } from '@angular/material/menu';
-import {
-  ComboChartViewComponent
-} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-view/combo-chart-view.component';
+import { ComboChartViewComponent } from './combo-chart-view/combo-chart-view.component';
 
 export {
   ComboChartGraphComponent,
@@ -31,7 +29,7 @@ export {
     ComboChartGraphComponent,
     ComboChartGeneratorComponent,
     ComboChartSelectorComponent,
-    ComboChartViewComponent
+    ComboChartViewComponent,
   ],
   imports: [
     CommonModule,

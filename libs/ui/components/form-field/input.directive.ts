@@ -12,7 +12,6 @@ import {
 import { NgControl } from '@angular/forms';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { Subject } from 'rxjs';
-
 import { KruiFormFieldControl } from './form-field';
 
 export type KruiInputSize = 'sm' | 'md' | 'lg' | 'xlg';

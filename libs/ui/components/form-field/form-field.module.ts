@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { A11yModule } from '@angular/cdk/a11y';
-
 import { KruiErrorComponent } from './error/error.component';
 import { KruiHintComponent } from './hint/hint.component';
 import { KruiFormFieldComponent } from './form-field/form-field.component';

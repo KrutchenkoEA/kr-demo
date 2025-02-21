@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } 
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { SLIDE_INOUT_TOP } from '@kr-platform/ui/animations';
-import { ThemeConfiguratorService } from '../../../../../projects/kr-app/src/app/services/theme-configurator.service';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { ThemeConfiguratorService } from '../../services/theme-configurator.service';
 
 export interface KruiMainMenuItem {
   label: string;
@@ -15,6 +15,16 @@ export interface KruiMainMenuItem {
   selected?: boolean;
   children?: KruiMainMenuItem[];
 }
+
+const SLIDE_INOUT_TOP = trigger('slideInOutTop', [
+  transition(':enter', [
+    style({ opacity: 0, height: 0 }),
+    animate(`180ms cubic-bezier(0, 0, .2, 1)`, style({ opacity: 1, height: '*' })),
+  ]),
+  transition(':leave', [
+    animate(`180ms cubic-bezier(0, 0, .2, 1)`, style({ height: 0, opacity: 0 })),
+  ]),
+]);
 
 @Component({
   selector: 'krui-main-menu',

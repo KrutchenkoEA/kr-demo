@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
-import { ThemeConfiguratorService } from './services/theme-configurator.service';
 import { DOCUMENT } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 import { PlatformHeaderComponent } from './components/platform-header/platform-header.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule } from '@kr-platform/ui';
+import { ThemeConfiguratorService } from '@kr-platform/kit/src';
 
 @Component({
   selector: 'kr-app-root',

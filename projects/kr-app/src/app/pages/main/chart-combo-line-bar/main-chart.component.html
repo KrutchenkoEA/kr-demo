@@ -1,5 +1,9 @@
-<krui-chart [height]="1000" [legendType]="'simple-style'" [setDefIfContainerSizeInvalid]="true" [toolbar]="false"
+<krui-chart [height]="1000"
+            [legendType]="'simple-style'"
+            [setDefIfContainerSizeInvalid]="true"
+            [toolbar]="false"
             [tooltipType]="'dataPoint'"
+            [width]="1000"
             [zoomType]="'brush'">
   <krui-chart-layer>
     <krui-chart-axis
@@ -40,8 +44,8 @@
       [barBorder]="true"
       [barRadius]="4"
       [captions]="[2020, 2021]"
-      [data]="[data3, data2]"
       [colors]="['green']"
+      [data]="[data3, data2]"
       [showValues]="false"
       [tooltipHoverEffect]="true"
       [workgroundPadding]="{

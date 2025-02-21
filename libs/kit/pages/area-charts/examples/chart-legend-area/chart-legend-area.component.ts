@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { KruiChartComponent, kruiChartNumberMock1 } from '@kr-platform/ui';
-import { CustomAreaTooltipComponent } from '@kr-platform/kit/pages/area-charts/examples';
+import { CustomAreaTooltipComponent } from './tooltip.component';
 
 /** @title Легенда */
 

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -26,6 +25,7 @@ export class CodeSnippedComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    console.log('this.path', this.path);
     this.content$ = this.httpClient
       .get<string>(this.path)
       .pipe(

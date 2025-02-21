@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'packages/typography/variables';
-@import 'packages/typography/mixins';
+@import '../../../../ui/styles/variables';
+@import '../../../../ui/styles/packages/typography/variables';
+@import '../../../../ui/styles/packages/typography/mixins';
 
 $example-viewer-margin: $atom * 4;
 $example-viewer-border: $br-stroke;

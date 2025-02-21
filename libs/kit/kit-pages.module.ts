@@ -7,7 +7,7 @@ import {
   StorageService,
   SyntaxPipe,
   TableOfContentsComponent,
-} from '@kr-platform/kit/index';
+} from './example';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { KruiTabsModule, KruiToggleModule } from '@kr-platform/ui';

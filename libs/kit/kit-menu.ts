@@ -1,4 +1,4 @@
-import { KruiMainMenuItem } from '@kr-platform/kit/example';
+import { KruiMainMenuItem } from './example';
 
 export const KrKitMenu: KruiMainMenuItem[] = [
   {

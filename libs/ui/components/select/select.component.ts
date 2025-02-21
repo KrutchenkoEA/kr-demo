@@ -18,11 +18,14 @@ import { delay, filter, map } from 'rxjs/operators';
 import { SelectionChange, SelectionModel } from '@angular/cdk/collections';
 import { ConnectedPosition, Overlay } from '@angular/cdk/overlay';
 import { FocusMonitor } from '@angular/cdk/a11y';
-
 import { KruiOptionComponent } from './option/option.component';
 import { SELECT_LABELS_MAP } from './consts';
 import { SelectComponentState } from './interfaces';
-import { KruiFormFieldComponent, KruiFormFieldControl, KruiFormFieldControlBase } from '@kr-platform/ui';
+import {
+  KruiFormFieldComponent,
+  KruiFormFieldControl,
+  KruiFormFieldControlBase,
+} from '@kr-platform/ui/components/form-field';
 
 const isNil = <T>(value: T) => value === null || value === undefined;
 
