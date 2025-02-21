@@ -30,12 +30,6 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
-      - name: Compile Icons
-        run: |
-          npm run icons:compile
-      - name: Compile Examples
-        run: |
-          npm run kit-demo:compile
       - name: Build kr-app
         run: |
           npm run build kr-app
