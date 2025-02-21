@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import {IKruiChartSingleLayerInputModel} from '@kr-platform/ui';
 import {IDashboardItemOptions} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-view/model';
 

@@ -6,6 +6,7 @@ export interface KruiGeneratorForm {
   type: DataItemTypeEnum;
   color: string;
   chartData?: any;
+  chartData$?: any;
 }
 
 export enum DataItemTypeEnum {

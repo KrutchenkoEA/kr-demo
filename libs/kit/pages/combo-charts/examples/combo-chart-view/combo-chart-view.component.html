@@ -79,7 +79,7 @@
             [captions]="[data.name]"
             [color]="data.color"
             [colors]="[data.color]"
-            [data]="data.chartData"
+            [data]="data.chartData$ | async"
             [lineOpacity]="data.opacity"
             [lineDynamics]="data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics"
             [animation]="chartOptions.view?.lineLayer?.common?.animation"
@@ -108,7 +108,7 @@
             [captions]="[data.name]"
             [color]="data.color"
             [colors]="data.palette?.length ? data.palette : [data.color]"
-            [data]="data.chartData"
+            [data]="data.chartData$ | async"
             [lineOpacity]="data.opacity"
             [lineDynamics]="data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics"
             [animation]="chartOptions.view?.lineLayer?.common?.animation"
@@ -136,7 +136,7 @@
             [captions]="[data.name]"
             [color]="data.color"
             [colors]="[data.color]"
-            [data]="data.chartData"
+            [data]="data.chartData$ | async"
             [barBorderColor]="data.secondColor"
             [barOpacity]="data.opacity"
             [animationType]="chartOptions.view?.barLayer?.config?.animationType"
@@ -164,7 +164,7 @@
             [captions]="[data.name]"
             [color]="data.color"
             [colors]="[data.color]"
-            [data]="data.chartData"
+            [data]="data.chartData$ | async"
             [barBorderColor]="data.secondColor"
             [barOpacity]="data.opacity"
             [animationType]="chartOptions.view?.barLayer?.config?.animationType"
@@ -189,14 +189,12 @@
         }
       }
 
-      @if (chartOptions?.comboData?.comboBar?.chartDataCommon?.length) {
+      @if (chartOptions?.comboData?.comboBar?.chartData?.length) {
         <krui-chart-data-layer
-          [captions]="chartOptions?.comboData.comboBar.captionCommon"
-          [colors]="chartOptions?.comboData.comboBar.paletteCommon"
-          [data]="chartOptions?.comboData?.comboBar.chartDataCommon"
-          [barBorderColors]="chartOptions?.comboData.comboBar.barBorderColorsCommon"
-          [barOpacity]="chartOptions?.comboData.comboBar.opacity"
-          [barsOpacity]="chartOptions?.comboData.comboBar.opacityArrCommon"
+          [captions]="chartOptions?.comboData.comboBar.caption"
+          [colors]="chartOptions?.comboData.comboBar.palette"
+          [data]="chartOptions?.comboData?.comboBar.chartData"
+          [barOpacity]="chartOptions.view?.comboBarLayer?.common?.opacity"
           [animationType]="chartOptions.view?.comboBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.comboBarLayer?.common?.animation"
           [barBorder]="chartOptions.view?.comboBarLayer?.config?.barBorder"
@@ -219,14 +217,12 @@
         ></krui-chart-data-layer>
       }
 
-      @if (chartOptions?.comboData?.comboBarHorizontal?.chartDataCommon?.length) {
+      @if (chartOptions?.comboData?.comboBarHorizontal?.chartData?.length) {
         <krui-chart-data-layer
-          [captions]="chartOptions?.comboData.comboBarHorizontal.captionCommon"
-          [colors]="chartOptions?.comboData.comboBarHorizontal.paletteCommon"
-          [data]="chartOptions?.comboData?.comboBarHorizontal.chartDataCommon"
-          [barBorderColors]="chartOptions?.comboData?.comboBarHorizontal.barBorderColorsCommon"
-          [barOpacity]="chartOptions?.comboData.comboBarHorizontal.opacity"
-          [barsOpacity]="chartOptions?.comboData.comboBarHorizontal.opacityArrCommon"
+          [captions]="chartOptions?.comboData.comboBarHorizontal.caption"
+          [colors]="chartOptions?.comboData.comboBarHorizontal.palette"
+          [data]="chartOptions?.comboData?.comboBarHorizontal.chartData"
+          [barOpacity]="chartOptions.view?.comboBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.comboBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.comboBarLayer?.common?.animation"
           [barBorder]="chartOptions.view?.comboBarLayer?.config?.barBorder"
@@ -249,14 +245,12 @@
         ></krui-chart-data-layer>
       }
 
-      @if (chartOptions?.comboData?.stackBar?.chartDataCommon?.length) {
+      @if (chartOptions?.comboData?.stackBar?.chartData?.length) {
         <krui-chart-data-layer
-          [captions]="chartOptions?.comboData.stackBar.captionCommon"
-          [colors]="chartOptions?.comboData.stackBar.paletteCommon"
-          [data]="chartOptions?.comboData.stackBar?.chartDataCommon"
-          [barBorderColors]="chartOptions?.comboData.stackBar?.barBorderColorsCommon"
-          [barOpacity]="chartOptions?.comboData.stackBar.opacity"
-          [barsOpacity]="chartOptions?.comboData.stackBar.opacityArrCommon"
+          [captions]="chartOptions?.comboData.stackBar.caption"
+          [colors]="chartOptions?.comboData.stackBar.palette"
+          [data]="chartOptions?.comboData.stackBar?.chartData"
+          [barOpacity]="chartOptions.view?.stackBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.stackBarLayer?.common?.animation"
           [barBorder]="chartOptions.view?.stackBarLayer?.config?.barBorder"
@@ -279,14 +273,12 @@
           kruiChartStackBar
         ></krui-chart-data-layer>
       }
-      @if (chartOptions?.comboData?.stackBarHorizontal?.chartDataCommon?.length) {
+      @if (chartOptions?.comboData?.stackBarHorizontal?.chartData?.length) {
         <krui-chart-data-layer
-          [captions]="chartOptions?.comboData.stackBarHorizontal.captionCommon"
-          [colors]="chartOptions?.comboData.stackBarHorizontal.paletteCommon"
-          [data]="chartOptions?.comboData.stackBarHorizontal?.chartDataCommon"
-          [barBorderColors]="chartOptions?.comboData.stackBarHorizontal?.barBorderColorsCommon"
-          [barOpacity]="chartOptions?.comboData.stackBarHorizontal.opacity"
-          [barsOpacity]="chartOptions?.comboData.stackBarHorizontal.opacityArrCommon"
+          [captions]="chartOptions?.comboData.stackBarHorizontal.caption"
+          [colors]="chartOptions?.comboData.stackBarHorizontal.palette"
+          [data]="chartOptions?.comboData.stackBarHorizontal?.chartData"
+          [barOpacity]="chartOptions.view?.stackBarLayer?.config?.opacity"
           [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
           [animation]="chartOptions.view?.stackBarLayer?.common?.animation"
           [barBorder]="chartOptions.view?.stackBarLayer?.config?.barBorder"

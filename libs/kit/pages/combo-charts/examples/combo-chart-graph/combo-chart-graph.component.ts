@@ -1,10 +1,10 @@
-import {Component, ElementRef, HostListener, inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService} from '@kr-platform/ui';
-import {KruiDataSourceFormType} from './model';
-import {ComboChartService} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
-import {filter, Subscription} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
+import { Component, ElementRef, HostListener, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { IKruiOptionsFormType, KRUI_CHART_FORM_CREATE_SERVICE, KruiChartFormCreateService } from '@kr-platform/ui';
+import { KruiDataSourceFormType } from './model';
+import { ComboChartService } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import { filter, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 /** @title Настройки */
 
@@ -12,7 +12,7 @@ const DATA_PARAMS = {
   minValue: 2,
   maxValue: 50,
   dataLength: 50,
-}
+};
 
 @Component({
   selector: 'combo-chart-graph',
@@ -21,9 +21,9 @@ const DATA_PARAMS = {
   standalone: false,
 })
 export class ComboChartGraphComponent implements OnInit, OnDestroy {
-  @ViewChild('workArea', {read: ElementRef}) public workArea!: ElementRef;
+  @ViewChild('workArea', { read: ElementRef }) public workArea!: ElementRef;
   public subscriptions: Subscription[] = [];
-  private readonly fb = inject(FormBuilder)
+  private readonly fb = inject(FormBuilder);
 
   public form!: FormGroup<{
     optionsForm: IKruiOptionsFormType,
@@ -38,8 +38,8 @@ export class ComboChartGraphComponent implements OnInit, OnDestroy {
   }>;
 
   private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
-  public comboChartService = inject(ComboChartService)
-  public autoRedraw: boolean = false;
+  public comboChartService = inject(ComboChartService);
+  public autoRedraw: boolean = true;
 
   @HostListener('document:resize')
   public onResize(): void {
@@ -63,21 +63,31 @@ export class ComboChartGraphComponent implements OnInit, OnDestroy {
 
     const formSub = this.form.valueChanges
       .pipe(filter(() => this.autoRedraw), debounceTime(600))
-      .subscribe(() => this.update())
-    this.subscriptions.push(formSub)
+      .subscribe(() => this.update());
+    this.subscriptions.push(formSub);
   }
 
   public update(): void {
     //@ts-ignore
-    this.comboChartService.update$.next(this.form.controls.optionsForm.value)
+    this.comboChartService.update$.next(this.form.controls.optionsForm.value);
   }
 
   public reset(): void {
-    this.comboChartService.reset$.next(null)
+    this.comboChartService.autoRefresh$.next(false);
+    this.comboChartService.reset$.next(null);
+    this.form.patchValue(
+      {
+        optionsForm: this.formCreateService.createDefaultData(),
+        dataForm: {
+          dataSources: [],
+          dataParams: DATA_PARAMS,
+        },
+      },
+    );
   }
 
   public autoRefresh(): void {
-    this.comboChartService.autoRefresh$.next(!this.comboChartService.autoRefresh$.value)
+    this.comboChartService.autoRefresh$.next(!this.comboChartService.autoRefresh$.value);
   }
 
   public checkWorkArea(): void {

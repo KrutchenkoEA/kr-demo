@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, Component, inject, Input} from '@angular/core';
-import {BehaviorSubject, delay} from 'rxjs';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import { BehaviorSubject, delay } from 'rxjs';
 import {
   IKruiChartSingleLayerInputModel,
   KRUI_CHART_FORM_CREATE_SERVICE,
   KruiChartFormCreateService,
 } from '@kr-platform/ui';
-import {IComboChartRenderingOptions, IDashboardItemOptions} from '../combo-chart-view/model';
-import {ComboChartViewService} from './combo-chart-view.service';
-import {DataItemTypeEnum} from '../combo-chart-graph/model';
-import {ComboChartService} from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
+import { IComboChartRenderingOptions, IDashboardItemOptions } from '../combo-chart-view/model';
+import { ComboChartViewService } from './combo-chart-view.service';
+import { DataItemTypeEnum } from '../combo-chart-graph/model';
+import { ComboChartService } from '@kr-platform/kit/pages/combo-charts/examples/combo-chart-graph/combo-chart.service';
 
 
 const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
@@ -24,13 +24,13 @@ const CHART_COMBO_KEYS: DataItemTypeEnum[] = Array.from([
   styleUrl: './combo-chart-view.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
-  providers: [ComboChartViewService]
+  providers: [ComboChartViewService],
 })
 export class ComboChartViewComponent {
   public typeOptions = DataItemTypeEnum;
   private readonly formCreateService = inject<KruiChartFormCreateService>(KRUI_CHART_FORM_CREATE_SERVICE);
 
-  public comboChartService = inject(ComboChartService)
+  public comboChartService = inject(ComboChartService);
   public setterService = inject(ComboChartViewService);
 
   private chartOptionsString: string = '';
@@ -39,7 +39,7 @@ export class ComboChartViewComponent {
 
 
   @Input() set options(options: IDashboardItemOptions) {
-    if (!options) return
+    if (!options) return;
     console.log('set options', options);
     const data = options?.data?.filter(
       (t) =>
@@ -77,11 +77,7 @@ export class ComboChartViewComponent {
       comboData,
     };
     console.log('options', options);
-    const optionsString = JSON.stringify(options);
-    if (this.chartOptionsString !== optionsString) {
-      this.chartOptionsString = optionsString;
-      this.chartOptions$$.next(null);
-      this.chartOptions$$.next(options);
-    }
+    this.chartOptions$$.next(null);
+    this.chartOptions$$.next(options);
   }
 }
