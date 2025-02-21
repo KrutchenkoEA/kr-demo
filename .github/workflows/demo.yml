@@ -38,7 +38,7 @@ jobs:
           npm run kit-demo:compile
       - name: Build kr-app
         run: |
-          npm build kr-app
+          npm run build kr-app
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
