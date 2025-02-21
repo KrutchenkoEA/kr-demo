@@ -4098,7 +4098,7 @@ export const EXAMPLE_FILES = {
   <span class="hljs-attribute">flex-direction</span>: column;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
   <span class="hljs-attribute">gap</span>: <span class="hljs-number">1rem</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">88vh</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">85vh</span>;
 
   ::ng-deep {
     <span class="hljs-selector-class">.as-split-gutter</span> {
@@ -5537,7 +5537,7 @@ as-split-area {
     }
   }
 }
-`,	'combo-charts/combo-chart-settings/combo-chart-settings.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">Optional</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+`,	'combo-charts/combo-chart-settings/combo-chart-settings.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 <span class="hljs-keyword">import</span> {
   <span class="hljs-title class_">IKruiOptionsFormType</span>,
   <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>,
@@ -5554,16 +5554,13 @@ as-split-area {
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartSettingsComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span> {
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> parentForm = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupDirective</span>);
+  <span class="hljs-keyword">public</span> formGroupName = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupName</span>, { <span class="hljs-attr">optional</span>: <span class="hljs-literal">true</span> });
+
   <span class="hljs-keyword">protected</span> <span class="hljs-keyword">readonly</span> interpolation = <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>;
   <span class="hljs-keyword">protected</span> <span class="hljs-keyword">readonly</span> markers = <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS</span>;
   <span class="hljs-keyword">protected</span> <span class="hljs-keyword">readonly</span> dataMarkers = <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS_CONFIG</span>;
   <span class="hljs-keyword">public</span> <span class="hljs-attr">optionsForm</span>: <span class="hljs-title class_">IKruiOptionsFormType</span> | <span class="hljs-literal">undefined</span>;
-
-  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">parentForm</span>: <span class="hljs-title class_">FormGroupDirective</span>,
-    <span class="hljs-meta">@Optional</span>() <span class="hljs-keyword">public</span> <span class="hljs-attr">formGroupName</span>: <span class="hljs-title class_">FormGroupName</span>,
-  </span>) {
-  }
 
   <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
     <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span> = (

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { ThemeConfiguratorService } from './services/theme-configurator.service';
 import { DOCUMENT } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -22,6 +22,7 @@ import { KruiButtonModule } from '@kr-platform/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KrAppComponent implements OnInit {
+  @ViewChild('main', { read: ElementRef }) main!: ElementRef;
   private document = inject<Document>(DOCUMENT);
   public themeService = inject(ThemeConfiguratorService);
   public title = 'kr-demo';
@@ -31,6 +32,6 @@ export class KrAppComponent implements OnInit {
   }
 
   public scrollTop(): void {
-    this.document.body.firstElementChild?.scrollTo(0, 0);
+    this.main?.nativeElement?.scrollTo(0, 0);
   }
 }
