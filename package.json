@@ -10,6 +10,9 @@
     "icons:compile": "node ./libs/icons/scripts/compile.js"
   },
   "private": true,
+  "publishConfig": {
+    "@KrutchenkoEA:registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@angular/animations": "^19.0.5",
     "@angular/cdk": "^19.0.4",
