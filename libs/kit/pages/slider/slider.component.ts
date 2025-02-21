@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject } from '@angular/core';
 
 @Component({
   selector: 'kr-kit-slider',
@@ -8,5 +8,5 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class SliderComponent {
   @HostBinding() class = 'kit-page';
-
+  public elementRef = inject(ElementRef);
 }

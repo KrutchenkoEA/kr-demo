@@ -9,4 +9,4 @@
   <example-viewer [collapsed]="true" example="chart-horizontal-stack-bar-update"></example-viewer>
 </section>
 
-<table-of-contents [content]="content"></table-of-contents>
+<table-of-contents [container]="elementRef.nativeElement.parentElement" [content]="content"></table-of-contents>

@@ -8,4 +8,4 @@
   <example-viewer [collapsed]="true" example="chart-update-horizontal-combo-bar"></example-viewer>
 </section>
 
-<table-of-contents [content]="content"></table-of-contents>
+<table-of-contents [container]="elementRef.nativeElement.parentElement" [content]="content"></table-of-contents>

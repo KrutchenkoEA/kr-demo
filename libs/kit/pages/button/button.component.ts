@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject } from '@angular/core';
 
 @Component({
   selector: 'kr-kit-button',
@@ -8,4 +8,5 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class ButtonComponent {
   @HostBinding('class') class = 'kit-page';
+  public elementRef = inject(ElementRef);
 }

@@ -54,6 +54,7 @@ a {
   overflow: hidden;
   color: $toc-font-color;
 
+  &.active,
   &:hover {
     color: $toc-font-hover-color;
   }

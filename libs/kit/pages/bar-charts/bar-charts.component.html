@@ -12,4 +12,4 @@
   <example-viewer [collapsed]="true" example="chart-tooltip-horizontal-bar"></example-viewer>
 </section>
 
-<table-of-contents [content]="content"></table-of-contents>
+<table-of-contents [container]="elementRef.nativeElement.parentElement" [content]="content"></table-of-contents>

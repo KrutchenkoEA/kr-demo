@@ -33,7 +33,7 @@ interface Link {
   standalone: false,
 })
 export class TableOfContentsComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() public container: HTMLElement | undefined;
+  @Input() public container: Element | undefined;
 
   @Input() public content: HTMLElement | undefined;
 
