@@ -1,0 +1,40 @@
+@import "mixins/main-page-mixin";
+
+@include main-page-mixin();
+
+p {
+  margin: 16px 0;
+}
+
+.card_clickable {
+  margin: 0 2rem;
+}
+
+.image {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: auto;
+  height: 100px;
+}
+
+.card {
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    width: 70%;
+  }
+
+  &__image {
+    height: 300px;
+    padding: 1rem;
+    border: 1px dashed var(--color-borders-light);
+    border-radius: 0.8rem;
+    display: flex;
+  }
+
+  &__column {
+    flex-direction: column;
+  }
+}
+

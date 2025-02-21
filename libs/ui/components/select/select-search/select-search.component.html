@@ -1,0 +1,15 @@
+<div *ngIf="SELECT_SEARCH_LABELS.get(language) as labels"
+     class="krui-input-group">
+  <svg-icon class="krui-input-group__icon"
+            src="kruiIconSearch"></svg-icon>
+  <input #search
+         [formControl]="searchControl"
+         [placeholder]="!!placeholder ? placeholder : labels?.['placeholder']"
+         class="krui-input"
+         type="text" />
+  <svg-icon (click)="clear()"
+            *ngIf="searchControl.value"
+            [title]="labels?.['clear']"
+            class="krui-icon--xxs krui-input-group__icon krui-cursor--pointer krui-btn--icon"
+            src="kruiIconClose"></svg-icon>
+</div>

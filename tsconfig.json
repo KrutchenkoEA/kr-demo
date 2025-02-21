@@ -4,6 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -17,17 +18,23 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "paths": {
-      "@shared": [
-        "./dist/shared"
+      "@kr-platform/ui": [
+        "./libs/ui"
       ],
-      "@shared/*": [
-        "./dist/shared/*"
+      "@kr-platform/ui/*": [
+        "./libs/ui/*"
       ],
-      "@kr-ui": [
-        "./dist/@kr-platform/ui"
+      "@kr-platform/kit": [
+        "./libs/kit"
       ],
-      "@kr-ui/*": [
-        "./dist/@kr-platform/ui/*"
+      "@kr-platform/kit/*": [
+        "./libs/kit/*"
+      ],
+      "@kr-platform/icons": [
+        "./libs/icons"
+      ],
+      "@kr-platform/icons/*": [
+        "./libs/icons/*"
       ]
     },
     "importHelpers": true,
@@ -42,6 +49,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false
   }
 }

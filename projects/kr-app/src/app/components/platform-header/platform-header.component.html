@@ -1,0 +1,38 @@
+<button [btnStyle]="'ghost'" kruiButton routerLink="">
+  <svg-icon src="kruiIconHomeOutlineSquare"></svg-icon>
+</button>
+<div class="menu">
+  <krui-button-group [btnStyle]="'ghost'">
+    <button [btnStyle]="isActive('main') ? 'primary' : 'ghost'" kruiButton routerLink="">Главная</button>
+    <button [btnStyle]="isActive('rezume') ? 'primary' : 'ghost'" kruiButton routerLink="/rezume">Резюме</button>
+    <button [btnStyle]="isActive('kit/combo-charts') ? 'primary' : 'ghost'"
+            [queryParams]="{onlyCharts: true}"
+            kruiButton
+            routerLink="/kit/combo-charts">Графики
+    </button>
+    <button [btnStyle]="isActive('mnemo') ? 'primary' : 'ghost'"
+            [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}"
+            class="menu_disabled"
+            kruiButton
+            kruiTooltip>Схемы
+    </button>
+    <button [btnStyle]="isActive('dashboard') ? 'primary' : 'ghost'"
+            [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+            class="menu_disabled"
+            kruiButton
+            kruiTooltip>Дашборды
+    </button>
+    <button [btnStyle]="isActive('kit', 'subset') ? 'primary' : 'ghost'" kruiButton routerLink="/kit">UI KIT</button>
+  </krui-button-group>
+</div>
+<div class="options">
+  <krui-toggle (change)="changeTheme()"
+               [ngModel]="themeService.isDarkTheme$ | async"
+               [tooltipParameters]="{size: 'sm',  text: 'Переключить тему', position: 'bottom'}"
+               class="krui-mr--xs"
+               iconOff="kruiIconThemeLightSun"
+               iconOn="kruiIconThemeDarkMoon"
+               kruiTooltip
+               size="xlg">
+  </krui-toggle>
+</div>

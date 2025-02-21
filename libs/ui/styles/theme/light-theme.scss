@@ -1,0 +1,84 @@
+@mixin light-variables() {
+  --color-logo: rgba(50, 80, 255, 0.75); /* Чуть темнее для контраста */
+
+  /* Текст */
+  --color-text-contrast: #0f141a; /* Ещё темнее для лучшей читаемости */
+  --color-text-main: #252b36; /* Чуть насыщеннее */
+  --color-text-signatures: #4a5568; /* Темнее для удобства чтения */
+  --color-text-optional: #5c6b7d; /* Увеличен контраст */
+
+  /* Фон */
+  --color-background-main: #f6f8fa; /* Чуть темнее, меньше белизны */
+  --color-background-body: #ffffff; /* Оставил белым */
+  --color-background-app-header: #e8edf4; /* Чуть более насыщенный */
+  --color-background-headers: #d0d5de; /* Более отчетливый серый */
+
+  /* Границы */
+  --color-borders-stroke: #bfc6d3; /* Чуть темнее для визуального разделения */
+  --color-borders-light: #d6dbe5; /* Чуть заметнее */
+  --color-borders-icons: #98a6b8; /* Сделал выразительнее */
+
+  /* Тень */
+  --color-shadows: rgba(0, 0, 0, 0.15); /* Немного увеличил тень */
+
+  /* Основной цвет */
+  --color-color-1: #ffffff;
+  --color-color-2: #eaf0fc; /* Более выраженный синий оттенок */
+  --color-color-3: #d8e0f0; /* Усиленный оттенок */
+  --color-color-4: #c5cde0;
+  --color-color-5: #b0b7c9;
+  --color-color-6: #8a98b0;
+  --color-color-7: #667389;
+  --color-color-8: #4a5c78;
+  --color-color-9: #36465d;
+  --color-color-10: #252e3d;
+
+  --color-color-11: #697d99;
+  --color-color-12: #8596b3;
+  --color-color-13: #9eafc7;
+  --color-color-14: #bac4dc;
+  --color-color-15: #d2d8ea;
+  --color-color-16: #e9edf5;
+  --color-color-17: #d9deec;
+  --color-color-18: #f1f3f8;
+  --color-color-19: #ffffff;
+
+  --color-color-30: #ffffff;
+  --color-color-31: #cdd2db;
+  --color-color-32: #b7bdc9;
+  --color-color-33: #a0a8b8;
+  --color-color-34: #8a92a3;
+  --color-color-35: #747f93;
+  --color-color-36: #5f6b80;
+  --color-color-37: #4a5466;
+  --color-color-38: #384253;
+
+  --color-index-gray: #bfc6d3;
+  --color-index-yellow: #e09b00; /* Чуть глубже цвет */
+  --color-index-red: #e03036;
+  --color-index-green: #38a534;
+  --color-index-blue: #2178d0;
+
+  /* Дополнительные цвета */
+  --color-additional-1: #b480ff;
+  --color-additional-2: #38b44a;
+  --color-additional-3: #ff3f69;
+  --color-additional-4: #009eea;
+  --color-additional-5: #e5a500;
+  --color-additional-6: #7325b3;
+  --color-additional-7: #4f6af2;
+  --color-additional-8: #267dff;
+  --color-additional-9: #00a39f;
+  --color-additional-10: #005a57;
+  --color-additional-11: #b09ad7;
+  --color-additional-12: #32d966;
+  --color-additional-13: #ff5c5c;
+  --color-additional-14: #00b8ff;
+  --color-additional-15: #ffc400;
+  --color-additional-16: #8a4ade;
+  --color-additional-17: #4f66d3;
+  --color-additional-18: #c24bcf;
+  --color-additional-19: #4ae7e6;
+  --color-additional-20: #8fff2f;
+  --color-additional-21: #007a2e;
+}

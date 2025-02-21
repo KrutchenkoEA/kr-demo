@@ -1,0 +1,19 @@
+<ng-container>
+  <span [class.disabled]="disabled" [matMenuTriggerFor]="menu" [ngClass]="name" class="chart-preview">
+      {{ name }}
+    </span>
+
+  <mat-menu #menu="matMenu" class="mat-menu">
+    @for (option of options; track option.name) {
+      @if (isColors) {
+        <div (click)="setValue(option)" mat-menu-item>
+          <div [className]="'color-example ' + option.name"></div>
+        </div>
+      } @else {
+        <div (click)="setValue(option)" class="mat-menu-item" mat-menu-item>
+          {{ option.name }}
+        </div>
+      }
+    }
+  </mat-menu>
+</ng-container>

@@ -1,0 +1,83 @@
+@mixin dark-variables() {
+  --color-logo: rgba(90, 114, 255, 0.8); /* Сделал чуть ярче для лучшей видимости на темном фоне */
+
+  /*Текст*/
+  --color-text-contrast: #ffffff; /* Белый для контраста */
+  --color-text-main: #e0e4eb; /* Светло-серый для основного текста */
+  --color-text-signatures: #a0b0c9; /* Сделал более светлым для подписей */
+  --color-text-optional: #b0b7c2; /* Легко читаемый серый для необязательных текстов */
+
+  /*Фон*/
+  --color-background-main: #22262f; /* Сделал фон немного светлее, чтобы повысить контраст */
+  --color-background-body: #2c333d; /* Тёмный, но не слишком, чтобы текст был читаем */
+  --color-background-app-header: #353e48; /* Легко отличимый фон хедера */
+  --color-background-headers: #3e4859; /* Тёмно-серый для заголовков, для контраста с фоном */
+
+  /*Границы*/
+  --color-borders-stroke: #2c333d; /* Более светлый градиент для границ */
+  --color-borders-light: #3e4859; /* Легко различимые светлые границы */
+  --color-borders-icons: #a0b0c9; /* Иконки немного светлее, чтобы они выделялись */
+
+  /*Тень*/
+  --color-shadows: rgba(0,0,0,0.1); /* Лёгкая тень, чтобы элементы не сливались с фоном */
+
+  /*Основной цвет*/
+  --color-color-1: #22262f; /* Тёмный фон */
+  --color-color-2: #2c333d; /* Глубокий серый оттенок */
+  --color-color-3: #353e48; /* Немного светлее для выделения */
+  --color-color-4: #4b5561; /* Светло-серый для некоторых элементов */
+  --color-color-5: #3e4859; /* Отличающийся фон для небольших блоков */
+  --color-color-6: #5e6a7d; /* Немного светлее для акцентов */
+  --color-color-7: #7d8da9; /* Светло-синий для активных элементов */
+  --color-color-8: #8a99b0; /* Пастельный оттенок для некоторых элементов */
+  --color-color-9: #97a3ba; /* Светлый синий для некоторых заголовков */
+
+  --color-color-10: #a0b4c2; /* Текстовый синий для акцентов */
+  --color-color-11: #c1c9d5; /* Сильно светлый для дополнительного текста */
+  --color-color-12: #d6dbe5; /* Очень светлый для слабых акцентов */
+  --color-color-13: #e0e4eb; /* Пастельный оттенок для фоновых элементов */
+  --color-color-14: #f0f2f6; /* Очень светлый оттенок */
+  --color-color-15: #f8fafc; /* Практически белый для фона */
+  --color-color-16: #ffffff; /* Белый для контраста */
+  --color-color-17: #ffffff;
+  --color-color-18: #f1f3f7;
+  --color-color-19: #eaecee;
+
+  --color-color-30: #f0f2f6;
+  --color-color-31: #d5d8e0;
+  --color-color-32: #c0c3d2;
+  --color-color-33: #a8abb8;
+  --color-color-34: #8f94a4;
+  --color-color-35: #7b7f91;
+  --color-color-36: #6b707e;
+  --color-color-37: #595f72;
+  --color-color-38: #4d5567;
+
+  --color-index-gray: #d6dbe5; /* Светлый серый для индексов */
+  --color-index-yellow: #FFB30F; /* Ярко-желтый для акцентов */
+  --color-index-red: #FF4046; /* Ярко-красный для ошибок */
+  --color-index-green: #4CB944; /* Зелёный для успешных действий */
+  --color-index-blue: #2D8DED; /* Ярко-синий для ссылок и кнопок */
+
+  --color-additional-1: #BA80FF;
+  --color-additional-2: #38B44A;
+  --color-additional-3: #FF3F69;
+  --color-additional-4: #009EEA;
+  --color-additional-5: #E5A500;
+  --color-additional-6: #7325B3;
+  --color-additional-7: #4F6AF2;
+  --color-additional-8: #267DFF;
+  --color-additional-9: #00A39F;
+  --color-additional-10: #005A57;
+  --color-additional-11: #B09AD7;
+  --color-additional-12: #32D966;
+  --color-additional-13: #FF5C5C;
+  --color-additional-14: #00B8FF;
+  --color-additional-15: #FFC400;
+  --color-additional-16: #8A4ADE;
+  --color-additional-17: #4F66D3;
+  --color-additional-18: #C24BCF;
+  --color-additional-19: #4AE7E6;
+  --color-additional-20: #8FFF2F;
+  --color-additional-21: #007A2E;
+}

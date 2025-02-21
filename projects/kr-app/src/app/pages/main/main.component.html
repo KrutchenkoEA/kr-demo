@@ -1,0 +1,73 @@
+<div class="card">
+  <h1>Приветствую!</h1>
+  <p>Вы попали на мой сайт: резюме, сборник проектов и черновиков. Тут можно найти как заверенные проекты, так и
+    проекты разработке.</p>
+  <p>Сайт сделан в простом дизайне, с использование собственного UI-kit и Angular Material(Angular CDK).</p>
+</div>
+
+<div class="card">
+  <h2>Я - Angular frontend разработчик.</h2>
+  <p>Интересует мой опыт и резюме? Переходи по <a href="/rezume">ссылке</a> в хедере. Печатный вариант можно найти <a
+    href="assets/rezume.pdf">тут</a>.</p>
+  <p>Но советую ознакомиться со со всеми остальными страницами!</p>
+</div>
+
+<div class="card">
+  <p>Одним из нестандартных направлений в моей текущей деятельности - интегрирация библиотек <a
+    (click)="openUrl('https://d3js.org/')"
+    href="">d3.js</a> и <a
+    (click)="openUrl('https://jgraph.github.io/mxgraph/')" href="">mxGraph</a> в проекты.</p>
+  <p>В этом направление, могу предствать свои собственные проекты:</p>
+</div>
+
+<div class="card card_clickable card_flexible-row" routerLink="/kit/combo-charts">
+  <kr-app-main-chart class="card__image"></kr-app-main-chart>
+  <section class="card__section">
+    Графики: line
+    <svg-icon src="kruiIconChartMountain"></svg-icon>
+    , bar
+    <svg-icon src="kruiIconChartColumns"></svg-icon>
+    , combo bar
+    <svg-icon src="kruiIconChartGantt"></svg-icon>
+    , stack bar
+    <svg-icon src="kruiIconChartColumnsRows"></svg-icon>
+    , pie
+    <svg-icon src="kruiIconChartDiagramPie"></svg-icon>
+    , написанные с нуля на d3.js.
+    <p> В базовом варианте графики поддерживают множество настройк с помощью UI и обновление данных в
+      реальном времени</p>
+    <p>Графики унифицированы и используются во всех проектах, представленных, на этой странице.</p>
+  </section>
+</div>
+
+<div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+     class="card card_clickable card_flexible-row" kruiTooltip>
+  <img [src]="'assets/favicon.ico'" alt="" class="image">
+  <section class="card__section card__column">
+    <p>mxGraph является open source библиотекой, которую использую как основу для:</p>
+
+    <p>Конструктор схем.</p>
+    <li>Предоставляет пользователю широкий интерфейс по созданию схем:</li>
+    <li>Статичные объекты из базовых геометрический фигур, svg-шейпов и пользовательских фигур;</li>
+    <li>И динамические объекты, представляющие собой "активные элементы", которые являются оберткой для графиков,
+      учитывающей специфику конструктора;
+    </li>
+    <li>Конфигурирование их свойст и связей. А так же подключение источников данных;</li>
+
+    <p>Портал схем.</p>
+    <li>Представляет собой модуль, для динамического отображения исторических и мгновенных значений подключенных
+      данных;
+    </li>
+    <li>Предоставляет широкий интерфейс для анализа значений подключенных данных, в виде графиков;</li>
+  </section>
+</div>
+
+<div [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+     class="card card_clickable card_flexible-row" kruiTooltip>
+  <img [src]="'assets/favicon.ico'" alt="" class="image">
+  <section class="card__section">
+    <p>Конструктор и портал дашбордов, основанный на Angular Gridster.</p>
+    <p>Построен на основе тех же графиков, с использованием дополнительной обертки для gridster`a.</p>
+  </section>
+</div>
+

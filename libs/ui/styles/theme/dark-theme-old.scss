@@ -1,0 +1,85 @@
+@mixin dark-variables-old() {
+  //--color-logo: rgba(202, 205, 222, 0.6);
+  //--color-logo: rgba(121, 247, 17, 0.6);
+  --color-logo: rgba(90, 114, 255, 0.6);
+
+  /*Текст*/
+  --color-text-contrast: #ffffff;
+  --color-text-main: #e0e4eb;
+  --color-text-signatures: #97a3ba;
+  --color-text-optional: #727689;
+
+  /*Фон*/
+  --color-background-main: #181d25;
+  --color-background-body: #212631;
+  --color-background-app-header: #2A2F38;
+  --color-background-headers: #2d3443;
+
+  /*Границы*/
+  --color-borders-stroke: #181d25;
+  --color-borders-light: #2d3443;
+  --color-borders-icons: #727689;
+
+  /*Тень*/
+  --color-shadows: rgba(1,1,1,0.004);
+
+  /*Основной цвет*/
+  --color-color-1: #181d25;
+  --color-color-2: #212631;
+  --color-color-3: #252b37;
+  --color-color-4: #29303d;
+  --color-color-5: #2d3443;
+  --color-color-6: #353e50;
+  --color-color-7: #3d475c;
+  --color-color-8: #455168;
+  --color-color-9: #566481;
+
+  --color-color-10: #667799;
+  --color-color-11: #7e8da9;
+  --color-color-12: #97a3ba;
+  --color-color-13: #afb8ca;
+  --color-color-14: #c8ceda;
+  --color-color-15: #d4d9e2;
+  --color-color-16: #e0e4eb;
+  --color-color-17: #eaecf1;
+  --color-color-18: #f3f4f7;
+  --color-color-19: #f9fafb;
+
+  --color-color-30: #F3F4F8;
+  --color-color-31: #D3D4D9;
+  --color-color-32: #B2B5BC;
+  --color-color-33: #9496A2;
+  --color-color-34: #777986;
+  --color-color-35: #5B5D6A;
+  --color-color-36: #404251;
+  --color-color-37: #282A39;
+  --color-color-38: #101123;
+
+  --color-index-gray: #C8CEDA;
+  --color-index-yellow: #FFB30F;
+  --color-index-red: #FF4046;
+  --color-index-green: #4CB944;
+  --color-index-blue: #2D8DED;
+
+  --color-additional-1: #D4BBFF;
+  --color-additional-2: #6FDC8C;
+  --color-additional-3: #FF7D96;
+  --color-additional-4: #45C5FA;
+  --color-additional-5: #FDD13A;
+  --color-additional-6: #9362D0;
+  --color-additional-7: #8090F0;
+  --color-additional-8: #78A9FF;
+  --color-additional-9: #08BDBA;
+  --color-additional-10: #007D79;
+  --color-additional-11: #D0C4E8;
+  --color-additional-12: #69E88B;
+  --color-additional-13: #FF9090;
+  --color-additional-14: #53CDFF;
+  --color-additional-15: #FFDD66;
+  --color-additional-16: #AC7EE6;
+  --color-additional-17: #7282DD;
+  --color-additional-18: #DA8AE1;
+  --color-additional-19: #8DF2F1;
+  --color-additional-20: #B6FF6D;
+  --color-additional-21: #118F3F;
+}

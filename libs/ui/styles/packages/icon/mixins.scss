@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+@mixin icon-size($name) {
+  $size: map-get($icon-sizes, $name);
+
+  width: #{$size}px;
+  height: #{$size}px;
+
+  & > svg {
+    width: #{$size}px !important;
+    height: #{$size}px !important;
+  }
+}
+
+@mixin icon() {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

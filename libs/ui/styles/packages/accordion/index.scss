@@ -1,0 +1,66 @@
+@import "./variables";
+@import "../../variables.scss";
+@import "../scrolling/mixins";
+
+.krui-accordion {
+  @include vertical-scroll();
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: $accordion-background;
+  border-radius: 20px;
+
+  &-tab {
+    font-size: 12px;
+    border-bottom: 1px solid $accordion-border;
+
+    &__header {
+      display: grid;
+      grid-template-columns: 20px 1fr 1fr 20px auto;
+      user-select: none;
+      height: 40px;
+      align-items: center;
+      background: $accordion-background;
+      padding-left: 16px;
+      padding-right: 20px;
+      cursor: pointer;
+      transition: color 180ms, backgroud-color 18ms;
+
+
+      &_disabled {
+        display: grid;
+        grid-template-columns: 1fr 20px auto;
+      }
+
+      & > svg-icon:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+      }
+
+      &:hover {
+        color: $accordion-active-color;
+
+        svg-icon {
+          color: $accordion-active-icon;
+        }
+      }
+    }
+
+    &--expanded &__header {
+      color: $accordion-active-color !important;
+
+      svg-icon {
+        color: $accordion-active-icon;
+      }
+    }
+
+    &__body {
+      color: map-get($palette, accent);
+      border-top: 1px solid $accordion-border;
+      background: $accordion-body-background;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div
+  (dragstart)="$event.preventDefault()"
+  class="slider-container"
+  [class.krui-disabled]="disabled"
+>
+  <svg-icon
+    *ngIf="buttons"
+    src="kruiIconPlusMinusCircle"
+    class="krui-btn--icon krui-icon--sm krui-mr--xs"
+    (click)="onDecrease(endControl)"
+  ></svg-icon>
+
+  <label
+    class="krui-typography--regular krui-text--default krui-mr--xs"
+    *ngIf="labels"
+  >
+    {{ min }}
+  </label>
+
+  <div class="krui-slider" #slider (mousedown)="onBarMouseDown($event)">
+    <div class="krui-slider__bar"></div>
+    <div
+      class="krui-slider__range"
+      [style.left.%]="0"
+      [style.width.%]="endPercent"
+    ></div>
+
+    <a
+      #end
+      tabindex="0"
+      class="krui-slider__handle"
+      [class.krui-slider__handle--active]="active === end"
+      [style.left.%]="endPercent"
+      cdkMonitorElementFocus
+      (keydown)="onHandleKeyDown($event, end)"
+      (mousedown)="onHandleMouseDown($event, end)"
+    ></a>
+  </div>
+
+  <label
+    class="krui-typography--regular krui-text--default krui-ml--xs"
+    *ngIf="labels"
+  >
+    {{ max }}
+  </label>
+
+  <svg-icon
+    *ngIf="buttons"
+    src="kruiIconPlusAddCircle"
+    class="krui-btn--icon krui-icon--sm krui-ml--xs"
+    (click)="onIncrease(endControl)"
+  ></svg-icon>
+
+  <krui-form-field *ngIf="inputs" class="slider-input krui-ml--xs">
+    <input
+      kruiInput
+      class="krui-input--no-appearance"
+      size="sm"
+      [formControl]="endControl"
+      tabindex="0"
+      type="number"
+      [step]="step"
+      (blur)="onControlBlur(endControl)"
+      [min]="min"
+      [max]="max"
+    />
+  </krui-form-field>
+</div>

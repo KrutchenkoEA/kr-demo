@@ -1,0 +1,92 @@
+@import "./variables.scss";
+@import "../transition/mixins.scss";
+
+@mixin toggle-base() {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &__switcher {
+    @include transition((background-color, color, box-shadow));
+
+    z-index: 0;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: $toggle-background;
+    border: 1px solid $toggle-border;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    svg-icon {
+      position: relative;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    &::before {
+      content: "";
+      transition: 100ms left, 100ms right;
+      z-index: 3;
+      position: absolute;
+      background: $toggle-color;
+      border-radius: 50%;
+      left: 1px;
+      top: 1px;
+    }
+  }
+
+  input[type="checkbox"]:checked + &__switcher {
+    background: $toggle-background-active;
+    border-color: $toggle-border-active;
+  }
+
+  input[type="checkbox"]:hover + &__switcher,
+  input[type="checkbox"]:focus + &__switcher {
+    box-shadow: 0 0 0 1px $toggle-outline;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+@mixin toggle-variant($root: &, $variant: md) {
+  $size: map-get($toggle-sizes, $variant);
+
+  width: $size + $size;
+  height: $size;
+
+  #{$root}__switcher {
+    border-radius: $size * 0.5;
+
+    svg-icon {
+      width: $size - 2 !important;
+      height: $size - 2 !important;
+    }
+
+    &::before {
+      width: $size - 4;
+      height: $size - 4;
+    }
+  }
+
+  input[type="checkbox"]:checked + #{$root}__switcher {
+    &::before {
+      left: $size + 1;
+    }
+  }
+}

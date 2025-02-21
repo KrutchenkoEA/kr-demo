@@ -1,0 +1,47 @@
+<krui-chart [height]="600"
+            [legendPosition]="'top'"
+            [legendType]="'custom'"
+            [toolbar]="false"
+            [tooltipComponentType]="'custom'"
+            [tooltipComponent]="tooltipComponent">
+  <krui-chart-legend-directive class="custom-legend">
+    @for (layer of chart?.legendGroups; track layer.layerId; let layerIndex = $index) {
+      @for (label of layer.dataLayer; track label.layer.id) {
+        @for (lab of label.data; track lab.title; let trendIndex = $index) {
+          <div class="custom-legend__item"
+               (click)="chart?.onTrendInactivityChange(lab.type, label.layer, layer.layerId, layerIndex, trendIndex, lab.disabled = !lab.disabled)">
+            <div [style.background-color]="lab.color" class="custom-legend__icon"></div>
+            <div class="custom-legend__title">{{ lab.title }}</div>
+          </div>
+        }
+      }
+    }
+  </krui-chart-legend-directive>
+
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="[2022]"
+      [color]="'var(--color-additional-5)'"
+      [data]="data"
+      [workgroundPadding]="{ top: 15, right: 10, left: 10, bottom: 0 }"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

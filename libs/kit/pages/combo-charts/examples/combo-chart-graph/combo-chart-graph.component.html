@@ -1,0 +1,37 @@
+<as-split (dragEnd)="checkWorkArea()" direction="vertical">
+  <as-split-area #workArea>
+    <combo-chart-view [dataUpdate]="comboChartService.chartDataUpdate$ | async"
+                      [options]="comboChartService.chartOptions$ | async"
+                      [style.height.px]="comboChartService.chartSizeChanged$.value.height"
+                      [style.width.px]="comboChartService.chartSizeChanged$.value.width">
+    </combo-chart-view>
+  </as-split-area>
+
+  <as-split-area>
+    <as-split [formGroup]="form" direction="horizontal">
+      <as-split-area>
+        <combo-chart-generator [formGroupName]="'dataForm'"></combo-chart-generator>
+      </as-split-area>
+      <as-split-area>
+        <combo-chart-settings [formGroupName]="'optionsForm'"></combo-chart-settings>
+      </as-split-area>
+    </as-split>
+  </as-split-area>
+</as-split>
+
+
+<div class="buttons">
+  <button (click)="update()" kruiButton>
+    <svg-icon kruiBtnIcon src="kruiIconReloadCycle"></svg-icon>
+  </button>
+  <button (click)="reset()" kruiButton>
+    Сбросить
+  </button>
+  <button (click)="autoRedraw = !autoRedraw" [btnStyle]="autoRedraw ? 'secondary' : 'tertiary'" kruiButton>
+    Автоперестроение
+  </button>
+  <button (click)="autoRefresh()" [btnStyle]="(comboChartService.autoRefresh$ | async) ? 'secondary' : 'tertiary'"
+          kruiButton>
+    Автообновление
+  </button>
+</div>

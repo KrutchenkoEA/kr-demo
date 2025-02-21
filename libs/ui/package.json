@@ -1,0 +1,18 @@
+{
+  "name": "@kr-platform/ui",
+  "version": "19.0.1",
+  "peerDependencies": {
+    "@angular/common": "^19.0.5",
+    "@angular/core": "^19.0.5",
+    "d3": "^7.9.0",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "@types/d3": "^7.4.3",
+    "@types/file-saver": "^2.0.7",
+    "roboto-fontface": "^0.10.0"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  },
+  "sideEffects": false
+}

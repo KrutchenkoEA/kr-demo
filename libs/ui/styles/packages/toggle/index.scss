@@ -1,0 +1,15 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.krui-toggle {
+  $root: &;
+
+  @include toggle-base();
+  @include toggle-variant($root, md);
+
+  @each $size in map-keys($toggle-sizes) {
+    &--#{$size} {
+      @include toggle-variant($root, $size);
+    }
+  }
+}

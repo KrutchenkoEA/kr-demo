@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@use "theme/theme";
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  flex-flow: column;
+}
+
+a:any-link {
+  color: var(--color-additional-8);
+
+  &:hover {
+    color: var(--color-additional-6);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 10px;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 12px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--color-background-body);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: var(--color-background-headers);
+  border-radius: 10px;
+  border: 2px solid var(--color-borders-stroke);
+}
+
+::-webkit-resizer {
+  background-color: var(--color-borders-stroke);
+}

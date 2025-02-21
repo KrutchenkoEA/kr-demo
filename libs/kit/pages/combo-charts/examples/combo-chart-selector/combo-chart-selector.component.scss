@@ -1,0 +1,86 @@
+span {
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 7px 5px;
+  text-transform: uppercase;
+  background-color: var(--color-color-3);
+  border-radius: 4px;
+  color: var(--color-logo);
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+  }
+}
+
+::ng-deep {
+  .mat-menu {
+    background-color: var(--color-background-main);
+    color: var(--color-text-main);
+  }
+
+  .mat-mdc-menu-item {
+    text-align: initial;
+  }
+}
+
+.color-preview,
+.color-example {
+  width: 80px;
+  height: 30px;
+  margin-left: 3px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.default {
+  background-color: var(--color-index-gray);
+}
+
+.info {
+  background-color: var(--color-index-yellow);
+}
+
+.warning {
+  background-color: #f7931e;
+}
+
+.error {
+  background-color: var(--color-index-red);
+}
+
+.success {
+  background-color: var(--color-index-green);
+}
+
+.comboBar {
+  color: var(--color-additional-1);
+}
+
+.comboBarHorizontal {
+  color: var(--color-additional-2);
+}
+
+.stackBar {
+  color: var(--color-additional-4);
+}
+
+.fullStackBar,
+.stackBarHorizontal {
+  color: var(--color-additional-5);
+}
+
+.barHorizontal {
+  color: var(--color-additional-7);
+}
+
+.null {
+  color: var(--color-additional-13);
+}
+
+.disabled {
+  color: var(--color-text-signatures);
+  cursor: not-allowed;
+  pointer-events: none;
+}

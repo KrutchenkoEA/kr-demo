@@ -1,0 +1,71 @@
+<ng-container *ngIf="render$ | async">
+  <krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'fullLine'">
+    <krui-chart-layer>
+      <krui-chart-axis
+        [primary]="true"
+        name="x"
+        position="bottom"
+        type="number"
+      ></krui-chart-axis>
+      <krui-chart-axis
+        name="y"
+        position="left"
+        type="number"
+      ></krui-chart-axis>
+
+      <krui-chart-grid axis="x"></krui-chart-grid>
+      <krui-chart-grid axis="y"></krui-chart-grid>
+
+      <krui-chart-data-layer
+        [animation]="true"
+        [captions]="[2022]"
+        [data]="stream0"
+        [durationAnimation]="durationAnimation1"
+        [showValues]="false"
+        kruiChartLine
+      >
+      </krui-chart-data-layer>
+
+      <krui-chart-data-layer
+        [animation]="true"
+        [captions]="[2023]"
+        [data]="stream1"
+        [durationAnimation]="durationAnimation2"
+        [showValues]="true"
+        kruiChartLine
+      >
+      </krui-chart-data-layer>
+    </krui-chart-layer>
+  </krui-chart>
+
+</ng-container>
+<div class="settings">
+  <div class="item">
+    <label class="krui-form-field-label">Длина анимации первой линии</label>
+    <krui-slider
+      [(ngModel)]="durationAnimation1"
+      [inputs]="true"
+      [labels]="true"
+      [max]="5000"
+      [min]="1000"
+      [step]="200"
+    ></krui-slider>
+  </div>
+  <div class="item">
+    <label class="krui-form-field-label">Длина анимации второй линии</label>
+    <krui-slider
+      [(ngModel)]="durationAnimation2"
+      [inputs]="true"
+      [labels]="true"
+      [max]="5000"
+      [min]="1000"
+      [step]="200"
+    ></krui-slider>
+  </div>
+  <div class="item">
+    <label class="krui-form-field-label"></label>
+    <button (click)="update()" kruiButton>
+      <svg-icon src="kruiIconReloadCycle" kruiBtnIcon></svg-icon>
+    </button>
+  </div>
+</div>

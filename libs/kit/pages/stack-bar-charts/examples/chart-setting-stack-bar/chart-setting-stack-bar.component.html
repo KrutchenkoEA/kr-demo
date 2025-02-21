@@ -1,0 +1,746 @@
+@if ((options | async); as chartOptions) {
+  <krui-chart
+    [height]="600"
+    [setDefIfContainerSizeInvalid]="true"
+    [bgColor]="chartOptions.view?.wrapper?.bgColor"
+    [borderColor]="chartOptions.view?.wrapper?.borderColor"
+    [borderRadius]="chartOptions.view?.wrapper?.borderRadius"
+    [chartOrientation]="chartOptions.view?.tooltip?.chartOrientation"
+    [legendAxis]="chartOptions.view?.legend?.legendAxis"
+    [legendLayer]="chartOptions.view?.legend?.legendLayer"
+    [legendPosition]="chartOptions.view?.legend?.legendPosition"
+    [legendTrend]="chartOptions.view?.legend?.legendTrend"
+    [legendType]="chartOptions.view?.legend?.legendType"
+    [legend]="chartOptions.view?.legend?.legend"
+    [marginBottom]="chartOptions.view?.wrapper?.marginBottom"
+    [marginLeft]="chartOptions.view?.wrapper?.marginLeft"
+    [marginRight]="chartOptions.view?.wrapper?.marginRight"
+    [marginTop]="chartOptions.view?.wrapper?.marginTop"
+    [resizeObserveType]="chartOptions.view?.resizeObserveType"
+    [smartScrollEnable]="chartOptions.view?.wrapper?.smartScrollEnable"
+    [smartScrollHeight]="chartOptions.view?.wrapper?.smartScrollHeight"
+    [toolbarJustifyContent]="chartOptions.view?.toolbar?.toolbarJustifyContent"
+    [toolbarPosition]="chartOptions.view?.toolbar?.toolbarPosition"
+    [toolbar]="chartOptions.view?.toolbar?.toolbar"
+    [tooltipColor]="chartOptions.view?.tooltip?.tooltipColor"
+    [tooltipMarkerCrossSize]="chartOptions.view?.tooltip?.tooltipMarkerCrossSize"
+    [tooltipMarkerType]="chartOptions.view?.tooltip?.tooltipMarkerType"
+    [tooltipShowMilliseconds]="chartOptions.view?.tooltip?.tooltipShowMilliseconds"
+    [tooltipType]="chartOptions.view?.tooltip?.tooltipType"
+    [tooltipWidth]="chartOptions.view?.tooltip?.tooltipWidth"
+    [tooltip]="chartOptions.view?.tooltip?.tooltip"
+    [zoomType]="chartOptions.view?.zoomType"
+  >
+    <krui-chart-layer
+      [layerTitle]="chartOptions.view?.layer?.layerTitle"
+      [tooltipColor]="chartOptions.view?.layer?.tooltipColor"
+      [tooltipEnable]="chartOptions.view?.layer?.tooltipEnable"
+      [zoomPrimaryEnable]="chartOptions.view?.layer?.zoomPrimaryEnable"
+      [zoomSecondaryEnable]="chartOptions.view?.layer?.zoomSecondaryEnable">
+      <krui-chart-axis
+        [color]="chartOptions.view?.axisX?.color"
+        [drawAxisLabelLine]="chartOptions.view?.axisX?.drawAxisLabelLine"
+        [drawAxisLabel]="chartOptions.view?.axisX?.drawAxisLabel"
+        [fontColor]="chartOptions.view?.axisX?.fontColor"
+        [position]="chartOptions.view?.axisX?.position"
+        [primary]="chartOptions.view?.axisX?.primary"
+        [ticks]="chartOptions.view?.axisX?.ticks"
+        [type]="chartOptions.view?.axisX?.type"
+        name="x"
+      ></krui-chart-axis>
+      <krui-chart-axis
+        [color]="chartOptions.view?.axisY?.color"
+        [drawAxisLabelLine]="chartOptions.view?.axisY?.drawAxisLabelLine"
+        [drawAxisLabel]="chartOptions.view?.axisY?.drawAxisLabel"
+        [fontColor]="chartOptions.view?.axisY?.fontColor"
+        [position]="chartOptions.view?.axisY?.position"
+        [primary]="chartOptions.view?.axisY?.primary"
+        [ticks]="chartOptions.view?.axisY?.ticks"
+        [type]="chartOptions.view?.axisY?.type"
+        name="y"
+      ></krui-chart-axis>
+
+      <krui-chart-grid
+        [color]="chartOptions.view?.gridX?.color"
+        [drawGrid]="chartOptions.view?.gridX?.drawGrid"
+        axis="x"
+      ></krui-chart-grid>
+      <krui-chart-grid
+        [color]="chartOptions.view?.gridY?.color"
+        [drawGrid]="chartOptions.view?.gridY?.drawGrid"
+        axis="y"
+      ></krui-chart-grid>
+
+
+      @if (isChartHorizontal.value) {
+        <krui-chart-data-layer
+          [captions]="['Тестовый пример', 'Тестовый пример 2']"
+          [data]="chartOptions.data"
+          [color]="bgColor"
+          [colors]="[bgColor, bgColor2]"
+          [barBorderColors]="[brColor, brColor2]"
+          [barOpacity]="chartOptions.view?.stackBarLayer?.config?.barOpacity"
+          [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
+          [animation]="chartOptions.view?.stackBarLayer?.common?.animation"
+          [barBorder]="chartOptions.view?.stackBarLayer?.config?.barBorder"
+          [barRadius]="chartOptions.view?.stackBarLayer?.config?.barRadius"
+          [barType]="chartOptions.view?.stackBarLayer?.config?.barType"
+          [barWidthPercent]="chartOptions.view?.stackBarLayer?.config?.barWidthPercent"
+          [stackType]="chartOptions.view?.stackBarLayer?.config.stackType"
+          [durationAnimation]="chartOptions.view?.stackBarLayer?.common?.durationAnimation"
+          [durationToggleAnimation]="chartOptions.view?.stackBarLayer?.common?.durationToggleAnimation"
+          [reRangeThenDataChange]="chartOptions.view?.stackBarLayer?.common?.reRangeThenDataChange"
+          [reRangeThenLegendClick]="chartOptions.view?.stackBarLayer?.common?.reRangeThenLegendClick"
+          [showEnumValues]="chartOptions.view?.stackBarLayer?.config?.showEnumValues"
+          [showValues]="chartOptions.view?.stackBarLayer?.common?.showValues"
+          [tooltipHoverColor]="chartOptions.view?.stackBarLayer?.config?.tooltipHoverColor"
+          [tooltipHoverEffect]="chartOptions.view?.stackBarLayer?.config?.tooltipHoverEffect"
+          [valuePosition]="chartOptions.view?.stackBarLayer?.config?.valuePosition"
+          [valuesFontSizePx]="chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx"
+          [workgroundPadding]="chartOptions.view?.stackBarLayer?.common?.workgroundPadding"
+          kruiChartHorizontalStackBar
+        >
+        </krui-chart-data-layer>
+      } @else {
+        <krui-chart-data-layer
+          [captions]="['Тестовый пример', 'Тестовый пример 2']"
+          [data]="chartOptions.data"
+          [color]="bgColor"
+          [colors]="[bgColor, bgColor2]"
+          [barBorderColors]="[brColor, brColor2]"
+          [barOpacity]="chartOptions.view?.stackBarLayer?.config?.barOpacity"
+          [animationType]="chartOptions.view?.stackBarLayer?.config?.animationType"
+          [animation]="chartOptions.view?.stackBarLayer?.common?.animation"
+          [barBorder]="chartOptions.view?.stackBarLayer?.config?.barBorder"
+          [barRadius]="chartOptions.view?.stackBarLayer?.config?.barRadius"
+          [barType]="chartOptions.view?.stackBarLayer?.config?.barType"
+          [barWidthPercent]="chartOptions.view?.stackBarLayer?.config?.barWidthPercent"
+          [stackType]="chartOptions.view?.stackBarLayer?.config.stackType"
+          [durationAnimation]="chartOptions.view?.stackBarLayer?.common?.durationAnimation"
+          [durationToggleAnimation]="chartOptions.view?.stackBarLayer?.common?.durationToggleAnimation"
+          [reRangeThenDataChange]="chartOptions.view?.stackBarLayer?.common?.reRangeThenDataChange"
+          [reRangeThenLegendClick]="chartOptions.view?.stackBarLayer?.common?.reRangeThenLegendClick"
+          [showEnumValues]="chartOptions.view?.stackBarLayer?.config?.showEnumValues"
+          [showValues]="chartOptions.view?.stackBarLayer?.common?.showValues"
+          [tooltipHoverColor]="chartOptions.view?.stackBarLayer?.config?.tooltipHoverColor"
+          [tooltipHoverEffect]="chartOptions.view?.stackBarLayer?.config?.tooltipHoverEffect"
+          [valuePosition]="chartOptions.view?.stackBarLayer?.config?.valuePosition"
+          [valuesFontSizePx]="chartOptions.view?.stackBarLayer?.common?.valuesFontSizePx"
+          [workgroundPadding]="chartOptions.view?.stackBarLayer?.common?.workgroundPadding"
+          kruiChartStackBar
+        >
+        </krui-chart-data-layer>
+      }
+    </krui-chart-layer>
+  </krui-chart>
+}
+
+<div class="container">
+  <div class="container__chart-toggle">
+    <label for="chart-orientation-toggle"> Вертикальный </label>
+    <krui-toggle
+      [formControl]="isChartHorizontal"
+      [iconOff]="'kruiIconChartGantt'"
+      [iconOn]="'kruiIconChartColumns'"
+      id="chart-orientation-toggle"
+    ></krui-toggle>
+    <label for="chart-orientation-toggle"> Горизонтальный </label>
+  </div>
+  <div class="container__color-toggle">
+    <div class="color-item">
+      <div>Цвет фона 1</div>
+      <krui-form-field class="color-select">
+        <input
+          [(ngModel)]="bgColor"
+          kruiInput
+          size="sm"
+          type="color"
+        />
+      </krui-form-field>
+    </div>
+    <div class="color-item">
+      <div>Цвет границы 1</div>
+      <krui-form-field class="color-select">
+        <input
+          [(ngModel)]="brColor"
+          kruiInput
+          size="sm"
+          type="color"
+        />
+      </krui-form-field>
+    </div>
+    <div class="color-item">
+      <div>Цвет фона 2</div>
+      <krui-form-field class="color-select">
+        <input
+          [(ngModel)]="bgColor2"
+          kruiInput
+          size="sm"
+          type="color"
+        />
+      </krui-form-field>
+    </div>
+    <div class="color-item">
+      <div>Цвет границы 2</div>
+      <krui-form-field class="color-select">
+        <input
+          [(ngModel)]="brColor2"
+          kruiInput
+          size="sm"
+          type="color"
+        />
+      </krui-form-field>
+    </div>
+  </div>
+
+  <krui-accordion [formGroup]="optionsForm" [multiple]="true" class="container__accordion">
+    <ng-template kruiAccordionItem="График">
+      <div class="tab-content" formGroupName="wrapper">
+        <div class="tab-content__item">
+          <div>Цвет фона</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="bgColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет границы</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="borderColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <hr class="tab-delimeter" />
+        <div class="tab-content__item">
+          <krui-checkbox class="krui-disabled" formControlName="smartScrollEnable" size="md">Смарт-скролл
+          </krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет смарт-скролла</div>
+          <krui-form-field class="color-select">
+            <input
+              class="krui-disabled"
+              formControlName="smartScrollColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Тоолтип">
+      <div class="tab-content" formGroupName="tooltip">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="tooltip" size="md">Тултип</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="tooltipShowMilliseconds" size="md">Показывать миллисекунды</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Тип тултипа</div>
+          <krui-form-field>
+            <select formControlName="tooltipType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['fullLine', 'dataPoint']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Маркер тултипа</div>
+          <krui-form-field>
+            <select formControlName="tooltipMarkerType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['line', 'horizontal-line', 'smallCross', 'fullscreenCross', 'none']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет маркера</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="tooltipColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div
+          [class.krui-disabled]="optionsForm.controls.tooltip.controls.tooltipMarkerType.value !== 'smallCross'"
+          class="tab-content__item"
+        >
+          <label>Размер маркера</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="20"
+            [min]="1"
+            [step]="1"
+            formControlName="tooltipMarkerCrossSize"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <label>Толщина линии</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="20"
+            [min]="1"
+            [step]="1"
+            formControlName="tooltipWidth"
+          ></krui-slider>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Панель управления">
+      <div class="tab-content" formGroupName="toolbar">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="toolbar" size="md">Панель управления</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Позиция</div>
+          <krui-form-field>
+            <select formControlName="toolbarPosition" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['top', 'bottom']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Выравнивание</div>
+          <krui-form-field>
+            <select formControlName="toolbarJustifyContent" kruiInput size="sm">
+              <ng-container
+                *ngFor="
+                  let option of ['center', 'flex-start', 'flex-end', 'space-between', 'space-around', 'space-evenly']
+                "
+              >
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Легенда">
+      <div class="tab-content" formGroupName="legend">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="legend" size="md">Легенда</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox
+            [disabled]="optionsForm.controls.legend.controls.legendType.value === 'simple-style'"
+            formControlName="legendLayer"
+            size="md"
+          >Метки слоя
+          </krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox
+            [disabled]="optionsForm.controls.legend.controls.legendType.value === 'simple-style'"
+            formControlName="legendAxis"
+            size="md"
+          >Метки осей
+          </krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox class="krui-disabled" formControlName="legendTrend" size="md"
+          >Метки трендов и столбцов
+          </krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Тип легенды</div>
+          <krui-form-field>
+            <select formControlName="legendType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['default', 'simple-style']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Позиция</div>
+          <krui-form-field>
+            <select formControlName="legendPosition" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['top', 'bottom']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Зум">
+      <div class="tab-content" formGroupName="layer">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="zoomPrimaryEnable" size="md">Зум по оси х</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="zoomSecondaryEnable" size="md">Зум по оси y</krui-checkbox>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <div class="tab-content__item">
+          <div>Тип зума</div>
+          <krui-form-field>
+            <select formControlName="zoomType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['none', 'brush', 'scroll']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Ось Х">
+      <div class="tab-content" formGroupName="axisX">
+        <div class="tab-content__item">
+          <div>Тип оси х</div>
+          <krui-form-field>
+            <select formControlName="type" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['time', 'number', 'enum']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Позиция</div>
+          <krui-form-field>
+            <select formControlName="position" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['top', 'bottom']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox class="krui-disabled" formControlName="primary" size="md">Главная ось</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawAxisLabel" size="md">Отображать значения</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawAxisLabelLine" size="md">Отображать метки значений</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет Оси</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="color"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет значений</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="fontColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <label>Количество меток</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="10"
+            [min]="2"
+            [step]="1"
+            formControlName="ticks"
+          ></krui-slider>
+        </div>
+      </div>
+      <hr class="tab-delimeter" />
+      <div class="tab-content" formGroupName="gridX">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawGrid" size="md">Отображать сетку</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет значений сетки</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="color"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template kruiAccordionItem="Ось Y">
+      <div class="tab-content" formGroupName="axisY">
+        <div class="tab-content__item">
+          <div>Тип оси у</div>
+          <krui-form-field>
+            <select formControlName="type" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['time', 'number', 'enum']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Позиция</div>
+          <krui-form-field>
+            <select formControlName="position" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['left', 'right']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox class="krui-disabled" formControlName="primary" size="md">Главная ось</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawAxisLabel" size="md">Отображать значения</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawAxisLabelLine" size="md">Отображать метки значений</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет Оси</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="color"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет значений</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="fontColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <label>Количество меток</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="10"
+            [min]="2"
+            [step]="1"
+            formControlName="ticks"
+          ></krui-slider>
+        </div>
+      </div>
+      <hr class="tab-delimeter" />
+      <div class="tab-content" formGroupName="gridY">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="drawGrid" size="md">Отображать сетку</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет значений сетки</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="color"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template formGroupName="stackBarLayer" kruiAccordionItem="Стековый столбец">
+      <div class="tab-content" formGroupName="config">
+        <div class="tab-content__item">
+          <div>Тип анимации</div>
+          <krui-form-field>
+            <select formControlName="animationType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['growth', 'none']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Тип столбцов</div>
+          <krui-form-field>
+            <select formControlName="stackType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['stackBar', 'fullStackBar']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Заливка столбцов</div>
+          <krui-form-field>
+            <select formControlName="barType" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['gradient', 'solidColor']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <label>Ширина столбца, %</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="100"
+            [min]="0"
+            [step]="1"
+            formControlName="barWidthPercent"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <label>Скругление столбцов</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="20"
+            [min]="0"
+            [step]="1"
+            formControlName="barRadius"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="barBorder" size="md">Обводка столбцов</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <label>Прозрачность</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="1"
+            [min]="0"
+            [step]="0.1"
+            formControlName="barOpacity"
+          ></krui-slider>
+        </div>
+        <hr class="tab-delimeter" />
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="tooltipHoverEffect" size="md">Эффект наведения курсора</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <div>Цвет эффекта наведения</div>
+          <krui-form-field class="color-select">
+            <input
+              formControlName="tooltipHoverColor"
+              kruiChartInputColorWrapper
+              kruiInput
+              size="sm"
+              type="color"
+            />
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <div>Положение значений</div>
+          <krui-form-field>
+            <select formControlName="valuePosition" kruiInput size="sm">
+              <ng-container *ngFor="let option of ['over', 'top', 'center', 'bottom']">
+                <option [value]="option">{{ option }}</option>
+              </ng-container>
+            </select>
+          </krui-form-field>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="showEnumValues" size="md">Показывать расчетные значения</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="startInNull" size="md">Начинать с нуля</krui-checkbox>
+        </div>
+      </div>
+      <hr class="tab-delimeter" />
+      <div class="tab-content" formGroupName="common">
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="showValues" size="md">Показывать значения столбцов</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <label>Размер значений точек, пх</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="18"
+            [min]="1"
+            [step]="1"
+            formControlName="valuesFontSizePx"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="animation" size="md">Показывать анимацию</krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <label>Длительность анимации отрисовки</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="5000"
+            [min]="100"
+            [step]="100"
+            formControlName="durationAnimation"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <label>Длительность анимации переключения</label>
+          <krui-slider
+            [inputs]="true"
+            [labels]="true"
+            [max]="5000"
+            [min]="100"
+            [step]="100"
+            formControlName="durationToggleAnimation"
+          ></krui-slider>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="reRangeThenDataChange" size="md"
+          >Перестраивать при изменение значений
+          </krui-checkbox>
+        </div>
+        <div class="tab-content__item">
+          <krui-checkbox formControlName="reRangeThenLegendClick" size="md"
+          >Перестраивать при клике на легенду
+          </krui-checkbox>
+        </div>
+      </div>
+    </ng-template>
+  </krui-accordion>
+</div>
+
+<div class="button">
+  <label class="krui-form-field-label"></label>
+  <button (click)="update()" kruiButton>
+    <svg-icon kruiBtnIcon src="kruiIconReloadCycle"></svg-icon>
+  </button>
+</div>

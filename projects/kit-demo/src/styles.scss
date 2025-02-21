@@ -1,0 +1,18 @@
+@import "kit-root.mixin";
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+html {
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+}
+
+body {
+  overflow: hidden;
+  flex-flow: column;
+}

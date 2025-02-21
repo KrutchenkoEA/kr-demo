@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+@import "../typography/variables";
+
+$tab-color: map-get($text-colors, optional-text);
+$tab-disabled-color: map-get($text-colors, main-text);
+$tab-active-color: map-get($text-colors, contrast-text);
+$tab-border-color: $br-stroke;
+$tab-active-border-color: map-get($palette, logo);
+$tab-border-width: 2px;
+$tab-padding: $atom * 3;
+$tab-menu-background: $bg-main;;
+
+$tab-sizes: (
+  sm: $size-md,
+  md: $size-lg,
+  lg: $size-xlg,
+  xlg: $size-xxlg,
+);

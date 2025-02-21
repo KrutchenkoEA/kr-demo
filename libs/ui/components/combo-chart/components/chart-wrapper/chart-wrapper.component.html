@@ -1,0 +1,201 @@
+<!--@if (options$ | async; as options) {-->
+<!--  <krui-chart-->
+<!--    [bgColor]="options.chart.wrapper.bgColor"-->
+<!--    [borderColor]="options.chart.wrapper.bgColor"-->
+<!--    [borderRadius]="options.chart.wrapper.borderRadius"-->
+<!--    [chartOrientation]="options.chart.tooltip.chartOrientation"-->
+<!--    [customResize]="null"-->
+<!--    [formatFunc]="options.chart.wrapper.formatFunc"-->
+<!--    [height]="options.chart.wrapper.height"-->
+<!--    [isFixedSize]="options.chart.wrapper.isFixedSize"-->
+<!--    [language]="(language$ | async) ?? 'ru'"-->
+<!--    [legendAxis]="options.chart.legend.legendAxis"-->
+<!--    [legendLayer]="options.chart.legend.legendLayer"-->
+<!--    [legendPosition]="options.chart.legend.legendPosition"-->
+<!--    [legendTrend]="options.chart.legend.legendTrend"-->
+<!--    [legendType]="options.chart.legend.legendType"-->
+<!--    [legend]="options.chart.legend.legend"-->
+<!--    [marginBottom]="options.chart.wrapper.marginBottom"-->
+<!--    [marginLeft]="options.chart.wrapper.marginLeft"-->
+<!--    [marginRight]="options.chart.wrapper.marginRight"-->
+<!--    [marginTop]="options.chart.wrapper.marginTop"-->
+<!--    [setDefIfContainerSizeInvalid]="options.chart.wrapper.setDefIfContainerSizeInvalid"-->
+<!--    [smartScrollEnable]="options.chart.wrapper.smartScrollEnable"-->
+<!--    [smartScrollHeight]="options.chart.wrapper.smartScrollHeight"-->
+<!--    [toolbarJustifyContent]="options.chart.toolbar.toolbarJustifyContent"-->
+<!--    [toolbarPosition]="options.chart.toolbar.toolbarPosition"-->
+<!--    [toolbar]="options.chart.toolbar.toolbar"-->
+<!--    [tooltipColor]="options.chart.tooltip.tooltipColor"-->
+<!--    [tooltipComponentType]="options.chart.tooltip.tooltipComponentType"-->
+<!--    [tooltipComponent]="options.chart.tooltip.tooltipComponent"-->
+<!--    [tooltipMarkerCrossSize]="options.chart.tooltip.tooltipMarkerCrossSize"-->
+<!--    [tooltipMarkerType]="options.chart.tooltip.tooltipMarkerType"-->
+<!--    [tooltipType]="options.chart.tooltip.tooltipType"-->
+<!--    [tooltipWidth]="options.chart.tooltip.tooltipWidth"-->
+<!--    [tooltip]="options.chart.tooltip.tooltip"-->
+<!--    [width]="options.chart.wrapper.width"-->
+<!--    [zoomType]="options.chart.zoomType"-->
+<!--  >-->
+<!--    <krui-chart-layer-->
+<!--      [layerTitle]="options.layer.layerTitle"-->
+<!--      [tooltipColor]="options.layer.tooltipColor"-->
+<!--      [tooltipEnable]="options.layer.tooltipEnable"-->
+<!--      [zoomPrimaryEnable]="options.layer.zoomPrimaryEnable"-->
+<!--      [zoomSecondaryEnable]="options.layer.zoomSecondaryEnable"-->
+<!--    >-->
+<!--      <krui-chart-axis-->
+<!--        [color]="options.axisX.color"-->
+<!--        [drawAxisLabelLine]="options.axisX.drawAxisLabelLine"-->
+<!--        [drawAxisLabel]="options.axisX.drawAxisLabel"-->
+<!--        [fontColor]="options.axisX.fontColor"-->
+<!--        [fontFamily]="options.axisX.fontFamily"-->
+<!--        [fontSize]="options.axisX.fontSize"-->
+<!--        [max]="options.axisX.max"-->
+<!--        [min]="options.axisX.min"-->
+<!--        [position]="options.axisX.position"-->
+<!--        [primary]="options.axisX.primary"-->
+<!--        [ticks]="options.axisX.ticks"-->
+<!--        [type]="options.axisX.type"-->
+<!--      ></krui-chart-axis>-->
+<!--      <krui-chart-axis-->
+<!--        [color]="options.axisY.color"-->
+<!--        [drawAxisLabelLine]="options.axisY.drawAxisLabelLine"-->
+<!--        [drawAxisLabel]="options.axisY.drawAxisLabel"-->
+<!--        [fontColor]="options.axisY.fontColor"-->
+<!--        [fontFamily]="options.axisY.fontFamily"-->
+<!--        [fontSize]="options.axisY.fontSize"-->
+<!--        [max]="options.axisY.max"-->
+<!--        [min]="options.axisY.min"-->
+<!--        [position]="options.axisY.position"-->
+<!--        [primary]="options.axisY.primary"-->
+<!--        [ticks]="options.axisY.ticks"-->
+<!--        [type]="options.axisY.type"-->
+<!--      ></krui-chart-axis>-->
+
+<!--      <krui-chart-grid-->
+<!--        [axis]="options.gridX.axis"-->
+<!--        [color]="options.gridX.color"-->
+<!--        [drawGrid]="options.gridX.drawGrid"-->
+<!--      ></krui-chart-grid>-->
+<!--      <krui-chart-grid-->
+<!--        [axis]="options.gridY.axis"-->
+<!--        [color]="options.gridY.color"-->
+<!--        [drawGrid]="options.gridY.drawGrid"-->
+<!--      ></krui-chart-grid>-->
+
+<!--      @if (null === 'line') {-->
+<!--        <krui-chart-data-layer-->
+<!--          [animation]="options.dataLayers.line.common.animation"-->
+<!--          [captions]="options.dataLayers.line.common.captions"-->
+<!--          [color]="options.dataLayers.line.common.color"-->
+<!--          [colors]="options.dataLayers.line.common.colors"-->
+<!--          [durationAnimation]="options.dataLayers.line.common.durationAnimation"-->
+<!--          [durationToggleAnimation]="options.dataLayers.line.common.durationToggleAnimation"-->
+<!--          [engUnits]="options.dataLayers.line.common.engUnits"-->
+<!--          [reRangeThenDataChange]="options.dataLayers.line.common.reRangeThenDataChange"-->
+<!--          [reRangeThenLegendClick]="options.dataLayers.line.common.reRangeThenLegendClick"-->
+<!--          [showValues]="options.dataLayers.line.common.showValues"-->
+<!--          [valuesColor]="options.dataLayers.line.common.valuesColor"-->
+<!--          [valuesFontFamily]="options.dataLayers.line.common.valuesFontFamily"-->
+<!--          [valuesFontSizePx]="options.dataLayers.line.common.valuesFontSizePx"-->
+<!--          [workgroundPadding]="options.dataLayers.line.common.workgroundPadding"-->
+<!--          kruiChartLine-->
+<!--        >-->
+<!--        </krui-chart-data-layer>-->
+<!--      }-->
+<!--      @if (null === 'bar') {-->
+<!--        <krui-chart-data-layer-->
+<!--          [animation]="options.dataLayers.line.common.animation"-->
+<!--          [captions]="options.dataLayers.line.common.captions"-->
+<!--          [color]="options.dataLayers.line.common.color"-->
+<!--          [colors]="options.dataLayers.line.common.colors"-->
+<!--          [durationAnimation]="options.dataLayers.line.common.durationAnimation"-->
+<!--          [durationToggleAnimation]="options.dataLayers.line.common.durationToggleAnimation"-->
+<!--          [engUnits]="options.dataLayers.line.common.engUnits"-->
+<!--          [reRangeThenDataChange]="options.dataLayers.line.common.reRangeThenDataChange"-->
+<!--          [reRangeThenLegendClick]="options.dataLayers.line.common.reRangeThenLegendClick"-->
+<!--          [showValues]="options.dataLayers.line.common.showValues"-->
+<!--          [valuesColor]="options.dataLayers.line.common.valuesColor"-->
+<!--          [valuesFontFamily]="options.dataLayers.line.common.valuesFontFamily"-->
+<!--          [valuesFontSizePx]="options.dataLayers.line.common.valuesFontSizePx"-->
+<!--          [workgroundPadding]="options.dataLayers.line.common.workgroundPadding"-->
+<!--          kruiChartBar-->
+<!--        >-->
+<!--        </krui-chart-data-layer>-->
+<!--      }-->
+<!--      @if (null === 'horizontalBar') {-->
+<!--        <krui-chart-data-layer-->
+<!--          [animation]="options.dataLayers.line.common.animation"-->
+<!--          [captions]="options.dataLayers.line.common.captions"-->
+<!--          [color]="options.dataLayers.line.common.color"-->
+<!--          [colors]="options.dataLayers.line.common.colors"-->
+<!--          [durationAnimation]="options.dataLayers.line.common.durationAnimation"-->
+<!--          [durationToggleAnimation]="options.dataLayers.line.common.durationToggleAnimation"-->
+<!--          [engUnits]="options.dataLayers.line.common.engUnits"-->
+<!--          [reRangeThenDataChange]="options.dataLayers.line.common.reRangeThenDataChange"-->
+<!--          [reRangeThenLegendClick]="options.dataLayers.line.common.reRangeThenLegendClick"-->
+<!--          [showValues]="options.dataLayers.line.common.showValues"-->
+<!--          [valuesColor]="options.dataLayers.line.common.valuesColor"-->
+<!--          [valuesFontFamily]="options.dataLayers.line.common.valuesFontFamily"-->
+<!--          [valuesFontSizePx]="options.dataLayers.line.common.valuesFontSizePx"-->
+<!--          [workgroundPadding]="options.dataLayers.line.common.workgroundPadding"-->
+<!--          kruiChartHorizontalBar-->
+<!--        >-->
+<!--        </krui-chart-data-layer>-->
+<!--      }-->
+<!--      @if (null === 'comboBar') {-->
+<!--        <krui-chart-data-layer-->
+<!--          [animation]="options.dataLayers.line.common.animation"-->
+<!--          [captions]="options.dataLayers.line.common.captions"-->
+<!--          [color]="options.dataLayers.line.common.color"-->
+<!--          [colors]="options.dataLayers.line.common.colors"-->
+<!--          [durationAnimation]="options.dataLayers.line.common.durationAnimation"-->
+<!--          [durationToggleAnimation]="options.dataLayers.line.common.durationToggleAnimation"-->
+<!--          [engUnits]="options.dataLayers.line.common.engUnits"-->
+<!--          [reRangeThenDataChange]="options.dataLayers.line.common.reRangeThenDataChange"-->
+<!--          [reRangeThenLegendClick]="options.dataLayers.line.common.reRangeThenLegendClick"-->
+<!--          [showValues]="options.dataLayers.line.common.showValues"-->
+<!--          [valuesColor]="options.dataLayers.line.common.valuesColor"-->
+<!--          [valuesFontFamily]="options.dataLayers.line.common.valuesFontFamily"-->
+<!--          [valuesFontSizePx]="options.dataLayers.line.common.valuesFontSizePx"-->
+<!--          [workgroundPadding]="options.dataLayers.line.common.workgroundPadding"-->
+<!--          kruiChartComboBar-->
+<!--        >-->
+<!--        </krui-chart-data-layer>-->
+<!--      }-->
+<!--      @if (null === 'horizontalComboBar') {-->
+<!--        <krui-chart-data-layer-->
+<!--          [animation]="options.dataLayers.line.common.animation"-->
+<!--          [captions]="options.dataLayers.line.common.captions"-->
+<!--          [color]="options.dataLayers.line.common.color"-->
+<!--          [colors]="options.dataLayers.line.common.colors"-->
+<!--          [durationAnimation]="options.dataLayers.line.common.durationAnimation"-->
+<!--          [durationToggleAnimation]="options.dataLayers.line.common.durationToggleAnimation"-->
+<!--          [engUnits]="options.dataLayers.line.common.engUnits"-->
+<!--          [reRangeThenDataChange]="options.dataLayers.line.common.reRangeThenDataChange"-->
+<!--          [reRangeThenLegendClick]="options.dataLayers.line.common.reRangeThenLegendClick"-->
+<!--          [showValues]="options.dataLayers.line.common.showValues"-->
+<!--          [valuesColor]="options.dataLayers.line.common.valuesColor"-->
+<!--          [valuesFontFamily]="options.dataLayers.line.common.valuesFontFamily"-->
+<!--          [valuesFontSizePx]="options.dataLayers.line.common.valuesFontSizePx"-->
+<!--          [workgroundPadding]="options.dataLayers.line.common.workgroundPadding"-->
+<!--          kruiChartHorizontalComboBar-->
+<!--        >-->
+<!--        </krui-chart-data-layer>-->
+<!--      }-->
+<!--      @if (null === 'stackBar') {-->
+<!--      }-->
+<!--      @if (null === 'horizontalStackBar') {-->
+<!--      }-->
+<!--      @if (null === 'fullStackBar') {-->
+<!--      }-->
+<!--      @if (null === 'horizontalFullStackBar') {-->
+<!--      }-->
+
+<!--      <ng-content select="krui-chart-data-layer"></ng-content>-->
+
+<!--    </krui-chart-layer>-->
+
+<!--    <ng-content select="krui-chart-legend-directive"></ng-content>-->
+<!--  </krui-chart>-->
+<!--}-->

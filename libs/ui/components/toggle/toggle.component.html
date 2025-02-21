@@ -1,0 +1,22 @@
+<label
+  [class.krui-disabled]="disabled"
+  [class]="{
+    'krui-toggle--sm': size === 'sm',
+    'krui-toggle--md': size === 'md',
+    'krui-toggle--lg': size === 'lg',
+    'krui-toggle--xlg': size === 'xlg'
+  }"
+  class="krui-toggle"
+>
+  <input
+    (ngModelChange)="onModelChange($event)"
+    [disabled]="disabled"
+    [id]="id"
+    [ngModel]="model"
+    type="checkbox"
+  />
+  <span class="krui-toggle__switcher">
+        <svg-icon [src]="iconOff" class="krui-toggle__icon krui-icon--sm"></svg-icon>
+    <svg-icon [src]="iconOn" class="krui-toggle__icon krui-icon--sm"></svg-icon>
+  </span>
+</label>

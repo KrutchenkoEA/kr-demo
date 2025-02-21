@@ -1,0 +1,29 @@
+@import "theme/light-theme-old";
+@import "theme/light-theme";
+@import "theme/dark-theme";
+@import "theme/dark-theme-old";
+@import "variables";
+@import "cdk";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import "packages/accordion";
+@import "packages/button";
+@import "packages/chart";
+@import "packages/form";
+@import "packages/icon";
+@import "packages/scrolling";
+@import "packages/slider";
+@import "packages/tabs";
+@import "packages/toggle";
+@import "packages/transition";
+@import "packages/typography";
+@import "packages/utils";
+
+.theme-light {
+  @include light-variables();
+  //@include light-variables-old();
+}
+
+.theme-dark {
+  @include dark-variables();
+  //@include dark-variables-old();
+}

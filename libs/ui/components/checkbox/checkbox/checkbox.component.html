@@ -1,0 +1,27 @@
+<label [class.krui-disabled]="disabled" [class.krui-text--contrast]="value">
+  <ng-container *ngIf="labelPosition === 'after'">
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  </ng-container>
+  <ng-content></ng-content>
+  <ng-container *ngIf="labelPosition === 'before'">
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  </ng-container>
+</label>
+
+<ng-template #template>
+  <input
+    #checkbox
+    (ngModelChange)="onCheck($event)"
+    [checked]="checked"
+    [class.krui-input--outlined]="focused"
+    [class]="'krui-checkbox krui-checkbox--' + size"
+    [disabled]="disabled"
+    [id]="id"
+    [indeterminate]="indeterminate"
+    [name]="name"
+    [ngModel]="value"
+    [required]="required"
+    [tabindex]="tabIndex"
+    type="checkbox"
+  />
+</ng-template>

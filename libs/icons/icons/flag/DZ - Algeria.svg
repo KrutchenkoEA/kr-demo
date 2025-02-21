@@ -1,0 +1,28 @@
+<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="16" height="12">
+<rect x="3" y="1" width="16" height="12" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 1H19V13H11V1Z" fill="#F7FCFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H11V13H3V1Z" fill="#36A400"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 8.99894C9.76989 8.76773 9.49394 7.69931 9.49394 6.90433C9.49394 6.10936 9.95035 5.13484 11 4.95078C12.0496 4.76672 13.5021 5.50309 13.5021 5.50309C13.5021 5.50309 12.163 4.00885 10.7613 4.00885C9.35965 4.00885 8.02058 5.06062 8.02058 6.90433C8.02058 8.74805 8.98116 9.95918 10.7613 9.95918C12.5415 9.95918 13.4205 8.08024 13.4205 8.08024C13.4205 8.08024 12.2301 9.23015 11 8.99894ZM11.4678 6.27836L10.5688 6.27185L11.4444 6.89583L11.138 7.90328L12.0496 7.35292L13.0805 7.92895L12.5368 6.90433L13.368 6.27185L12.5167 6.27086L12.0146 5.38556L11.4678 6.27836Z" fill="#FF0000"/>
+</g>
+<rect x="3" y="1" width="16" height="12" fill="url(#paint0_linear)" style="mix-blend-mode:overlay"/>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="22" height="18" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="11" y1="1" x2="11" y2="13" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.7"/>
+<stop offset="1" stop-opacity="0.3"/>
+</linearGradient>
+</defs>
+</svg>

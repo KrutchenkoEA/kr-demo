@@ -1,0 +1,70 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.button {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  box-sizing: border-box;
+
+  &__chart-toggle {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0 0 10px;
+
+    label {
+      font-size: 11px;
+    }
+  }
+
+  &__color-toggle {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+
+    .color-item {
+      display: flex;
+      align-items: center;
+
+      krui-form-field {
+        width: 100px;
+      }
+    }
+  }
+
+
+  &__accordion {
+    width: 100%;
+
+    .tab-content {
+      padding: 15px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      &__item {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: space-between;
+
+        .color-select {
+          width: 100px;
+        }
+      }
+    }
+
+    hr.tab-delimeter {
+      border: 1px solid var(--color-borders-and-icons-stroke-shape);
+      width: 96%;
+    }
+  }
+
+}

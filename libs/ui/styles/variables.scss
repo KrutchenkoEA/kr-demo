@@ -1,0 +1,32 @@
+$atom: 8px;
+
+$size-xxs: $atom * 0.5;
+$size-xs: $atom;
+$size-s: $atom * 2;
+$size-sm: $atom * 3;
+$size-md: $atom * 4;
+$size-lg: $atom * 5;
+$size-xlg: $atom * 6;
+$size-xxlg: $atom * 7;
+
+$bg-main: #{var(--color-background-main)};
+$bg-body: #{var(--color-background-body)};
+$bg-header: #{var(--color-background-headers)};
+$bg-app-header: #{var(--color-background-app-header)};
+$br-stroke: #{var(--color-borders-stroke)};
+$br-light: #{var(--color-borders-light)};
+$br-icon: #{var(--color-borders-icons)};
+$shadow: #{var(--color-shadows)};
+$logo: #{var(--color-logo)};
+
+$palette: (
+  contrast: #{var(--color-text-contrast)},
+  accent: #{var(--color-text-main)},
+  subscript: #{var(--color-text-signatures)},
+  gray: #{var(--color-index-gray)},
+  info: #{var(--color-index-blue)},
+  warning: #{var(--color-index-yellow)},
+  error: #{var(--color-index-red)},
+  success: #{var(--color-index-green)},
+  logo: #{var(--color-logo)},
+);

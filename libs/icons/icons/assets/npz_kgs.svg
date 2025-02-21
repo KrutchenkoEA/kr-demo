@@ -1,0 +1,13 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.5 9.99999V7.24999H3.85L5 6.04999H6.6V9.89999" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.59995 10H0.699951V11.55H6.59995" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.45 1.75H2.25V7.25H3.45V1.75Z" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.80005 6.05001V2.95001H8.95005V4.10001" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.75 8.39998V5.19998C7.75 4.59998 8.25 4.09998 8.85 4.09998H9C9.6 4.09998 10.1 4.59998 10.1 5.19998V5.24998" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.9 7.09998C11.9 7.09998 9.25005 9.29998 9.05005 12.05C9.05005 12.15 9.05005 12.25 9.05005 12.35C9.05005 13.95 10.35 15.2 11.9 15.2C13.35 15.2 14.55 14.1 14.75 12.7" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.75 12C10.75 12.8 11.4 13.45 12.2 13.45" stroke="#606580" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.75 11.5C14.9709 11.5 15.15 11.3209 15.15 11.1C15.15 10.8791 14.9709 10.7 14.75 10.7C14.5291 10.7 14.35 10.8791 14.35 11.1C14.35 11.3209 14.5291 11.5 14.75 11.5Z" fill="#606580"/>
+<path d="M13.2 8.14998C13.421 8.14998 13.6 7.97089 13.6 7.74998C13.6 7.52906 13.421 7.34998 13.2 7.34998C12.9791 7.34998 12.8 7.52906 12.8 7.74998C12.8 7.97089 12.9791 8.14998 13.2 8.14998Z" fill="#606580"/>
+<path d="M13.4 10.5C13.7314 10.5 14 10.2314 14 9.90005C14 9.56868 13.7314 9.30005 13.4 9.30005C13.0687 9.30005 12.8 9.56868 12.8 9.90005C12.8 10.2314 13.0687 10.5 13.4 10.5Z" fill="#606580"/>
+<path d="M14.7 9.2C15.0313 9.2 15.3 8.93137 15.3 8.6C15.3 8.26863 15.0313 8 14.7 8C14.3686 8 14.1 8.26863 14.1 8.6C14.1 8.93137 14.3686 9.2 14.7 9.2Z" fill="#606580"/>
+</svg>
