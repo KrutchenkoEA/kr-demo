@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { KitDemoComponent } from './app/app.component';
-import { getDefaultKrAppConfig } from '@kr-platform/kit/src';
-import { EXAMPLE_ROUTES } from '@kr-platform/kit';
+import { getDefaultKrAppConfig } from './app/kit/app-default.config';
+import { EXAMPLE_ROUTES } from './app/kit/example';
 
 bootstrapApplication(KitDemoComponent, getDefaultKrAppConfig(EXAMPLE_ROUTES))
   .catch((err) => console.error(err));

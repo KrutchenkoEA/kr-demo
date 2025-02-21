@@ -1,15 +1,11 @@
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import packageInfo from '../../../../libs/kit/package.json';
+import packageInfo from '../../package.json';
 import { ActivationStart, Router, RouterOutlet } from '@angular/router';
 import { CdkScrollable } from '@angular/cdk/scrolling';
 import { DOCUMENT } from '@angular/common';
-import {
-  KrKitMenu,
-  KrKitPagesModule,
-  KruiMainMenuItem,
-  PageTitleService,
-  ThemeConfiguratorService,
-} from '@kr-platform/kit';
+import { KrKitPagesModule } from './kit/kit-pages.module';
+import { KruiMainMenuItem, PageTitleService, ThemeConfiguratorService } from './kit/example';
+import { KrKitMenu } from './kit/kit-menu';
 
 @Component({
   imports: [

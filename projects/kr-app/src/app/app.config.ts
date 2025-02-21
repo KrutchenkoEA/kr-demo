@@ -1,6 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
-import { EXAMPLE_ROUTES, getDefaultKrAppConfig } from '@kr-platform/kit/src';
 import { Routes } from '@angular/router';
+import { EXAMPLE_ROUTES } from '../../../kit-demo/src/app/kit/example';
+import { getDefaultKrAppConfig } from '../../../kit-demo/src/app/kit/app-default.config';
 
 const routes: Routes = [
   {

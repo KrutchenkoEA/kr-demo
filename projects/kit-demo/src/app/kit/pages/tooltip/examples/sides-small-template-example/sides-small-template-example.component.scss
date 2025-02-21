@@ -1,0 +1,32 @@
+@import "packages/utils/tooltip";
+
+:host {
+  @include tooltip();
+}
+
+.item {
+  background-color: var(--color-background-app-header);
+  padding: 10px 15px;
+  color: var(--color-text-contrast);
+  border-radius: 4px;
+  margin-right: 30px;
+  border: 1px solid var(--color-text-signatures);
+  display: inline-block;
+}
+
+.table-container {
+  padding: 3px;
+  margin: 0;
+  border-radius: 4px;
+  border-collapse: collapse;
+  border: 1px solid var(--color-borders-light);
+  background: var(--color-borders-icons);
+  box-shadow: 0 4px 9px rgba(93, 117, 147, 0.110);
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-text-main);
+}
+
+span.good {
+  color: var(--color-index-green);
+}

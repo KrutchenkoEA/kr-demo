@@ -65,8 +65,8 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "libs/ui/styles",
-                "libs/kit",
-                "projects/kr-app/src/theme"
+                "projects/kr-app/src/theme",
+                "projects/kit-demo/src/kit-theme"
               ]
             },
             "scripts": []
@@ -173,7 +173,7 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "libs/ui/styles",
-                "libs/kit"
+                "projects/kit-demo/src/kit-theme"
               ]
             },
             "scripts": []
@@ -298,39 +298,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "libs/ui/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "kr-kit": {
-      "projectType": "library",
-      "root": "libs/kit",
-      "sourceRoot": "libs/kit",
-      "prefix": "kr-kit",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "libs/kit/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/kit/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/kit/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "libs/kit/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

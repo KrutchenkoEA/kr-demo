@@ -25,12 +25,6 @@
       "@kr-platform/ui/*": [
         "./dist/ui/*"
       ],
-      "@kr-platform/kit": [
-        "./dist/kit"
-      ],
-      "@kr-platform/kit/*": [
-        "./dist/kit/*"
-      ],
       "@kr-platform/icons": [
         "./dist/icons"
       ],
