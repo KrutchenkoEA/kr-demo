@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { PlatformHeaderComponent } from './components/platform-header/platform-header.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule } from '@kr-platform/ui';
-import { ThemeConfiguratorService } from '../../../kit-demo/src/app/kit/example';
+import { ThemeConfiguratorService } from 'projects/kit-demo/src/app/kit/example/services/theme-configurator.service';
 
 @Component({
   selector: 'kr-app-root',
