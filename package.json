@@ -8,7 +8,6 @@
     "app:build:git": "ng build kr-app --configuration=production --output-path docs --base-href /kr-app/",
     "kit-demo:serve": "ng serve kr-kit-demo --port=4006",
     "kit-demo:compile": "node ./libs/kit/scripts/compile.js",
-    "ui:watch": "ng build kr-ui --watch",
     "icons:compile": "node ./libs/icons/scripts/compile.js"
   },
   "private": true,
@@ -30,6 +29,7 @@
     "angular-svg-icon": "^19.1.1",
     "d3": "^7.9.0",
     "file-saver": "^2.0.5",
+    "ngx-build-plus": "^19.0.0",
     "ngx-skeleton-loader": "^9.0.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~7.8.1",

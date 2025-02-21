@@ -44,7 +44,7 @@ export const wrapperDefaultInputs: Partial<KruiChartWrapperInputs> = {
   smartScrollColor: KRUI_CHART_SMART_SCROLL_COLOR,
   language: 'ru',
   formatFunc: null,
-  setDefIfContainerSizeInvalid: false,
+  setDefIfContainerSizeInvalid: true,
   customResize: null,
   // height: 800,
   // width: 600,
