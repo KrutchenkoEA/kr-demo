@@ -3,19 +3,26 @@
 </button>
 <div class="menu">
   <krui-button-group [btnStyle]="'ghost'">
-    <button kruiButton routerLink="">Главная</button>
-    <button kruiButton routerLink="/rezume">Резюме</button>
-    <button kruiButton routerLink="/kit/combo-charts">Графики</button>
-    <button [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}" class="menu_disabled"
+    <button [btnStyle]="isActive('main') ? 'primary' : 'ghost'" kruiButton routerLink="">Главная</button>
+    <button [btnStyle]="isActive('rezume') ? 'primary' : 'ghost'" kruiButton routerLink="/rezume">Резюме</button>
+    <button [btnStyle]="isActive('kit/combo-charts') ? 'primary' : 'ghost'"
+            [queryParams]="{onlyCharts: true}"
+            kruiButton
+            routerLink="/kit/combo-charts">Графики
+    </button>
+    <button [btnStyle]="isActive('mnemo') ? 'primary' : 'ghost'"
+            [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}"
+            class="menu_disabled"
             kruiButton
             kruiTooltip>Схемы
     </button>
-    <button [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
+    <button [btnStyle]="isActive('dashboard') ? 'primary' : 'ghost'"
+            [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
             class="menu_disabled"
             kruiButton
             kruiTooltip>Дашборды
     </button>
-    <button kruiButton routerLink="/kit">UI KIT</button>
+    <button [btnStyle]="isActive('kit', 'subset') ? 'primary' : 'ghost'" kruiButton routerLink="/kit">UI KIT</button>
   </krui-button-group>
 </div>
 <div class="options">

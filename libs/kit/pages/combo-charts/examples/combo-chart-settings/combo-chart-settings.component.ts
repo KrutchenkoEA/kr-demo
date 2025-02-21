@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import {
   IKruiOptionsFormType,
   KRUI_CHART_LINE_INTERPOLATE,
@@ -15,16 +15,13 @@ import { FormGroupDirective, FormGroupName } from '@angular/forms';
   standalone: false,
 })
 export class ComboChartSettingsComponent implements OnInit {
+  private readonly parentForm = inject(FormGroupDirective);
+  public formGroupName = inject(FormGroupName, { optional: true });
+
   protected readonly interpolation = KRUI_CHART_LINE_INTERPOLATE;
   protected readonly markers = KRUI_CHART_POINT_MARKERS;
   protected readonly dataMarkers = KRUI_CHART_POINT_MARKERS_CONFIG;
   public optionsForm: IKruiOptionsFormType | undefined;
-
-  constructor(
-    private readonly parentForm: FormGroupDirective,
-    @Optional() public formGroupName: FormGroupName,
-  ) {
-  }
 
   public ngOnInit(): void {
     this.optionsForm = (

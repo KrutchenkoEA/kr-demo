@@ -42,6 +42,16 @@ export class KruiMainMenuComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.route.queryParams.subscribe(p => {
+      if (p['onlyCharts']) {
+        this.filterBroadcast$.next('chart');
+        this.query = 'chart';
+      } else {
+        this.filterBroadcast$.next('');
+        this.query = '';
+      }
+    });
+
     this.filterBroadcast$
       .pipe(debounceTime(60))
       .subscribe((q) => this.filter(q));
@@ -50,7 +60,7 @@ export class KruiMainMenuComponent implements OnInit {
   public onItemClick(item: KruiMainMenuItem): void {
     item.expanded = !item.expanded;
     if (item.href) {
-      this.router.navigate([item.href], { relativeTo: this.route });
+      this.router.navigate([item.href], { relativeTo: this.route, queryParamsHandling: 'merge' });
     }
   }
 

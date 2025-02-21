@@ -1,0 +1,10 @@
+@import "mixins/no-data-mixin";
+
+:host {
+  display: flex;
+  align-items: center;
+  height: 95%;
+  width: 100%;
+}
+
+@include no-data($height: 500px);

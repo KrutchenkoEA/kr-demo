@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { ThemeConfiguratorService } from './services/theme-configurator.service';
 import { DOCUMENT } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -19,15 +19,12 @@ import { KruiButtonModule } from '@kr-platform/ui';
     KruiButtonModule,
   ],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KrAppComponent {
+export class KrAppComponent implements OnInit {
+  private document = inject<Document>(DOCUMENT);
+  public themeService = inject(ThemeConfiguratorService);
   public title = 'kr-demo';
-
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private themeService: ThemeConfiguratorService,
-  ) {
-  }
 
   public ngOnInit(): void {
     this.themeService.setThemeConfiguratorRoot(this.document);

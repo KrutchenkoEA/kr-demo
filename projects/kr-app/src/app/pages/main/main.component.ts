@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SvgIconComponent } from 'angular-svg-icon';
@@ -19,14 +19,9 @@ import { MainChartComponent } from './chart-combo-line-bar/main-chart.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent {
-  constructor(@Inject(DOCUMENT) private document: Document) {
-  }
+  private document = inject<Document>(DOCUMENT);
 
   public openUrl(url: string): void {
     this.document?.defaultView?.open(url, '_blank');
-  }
-
-  public saveRezume(): void {
-    // console.log('REZUME', REZUME);
   }
 }

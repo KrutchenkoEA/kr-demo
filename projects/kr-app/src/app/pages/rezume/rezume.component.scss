@@ -26,6 +26,10 @@
       grid-column: span 5;
     }
   }
+
+  li {
+    margin-bottom: 16px;
+  }
 }
 
 .git {
@@ -68,6 +72,10 @@
   span {
     cursor: pointer;
     text-decoration: underline;
+
+    &.disabled {
+      cursor: default;
+    }
   }
 
   p {
