@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideAngularSvgIcon, SvgLoader } from 'angular-svg-icon';
 import { provideRouter, Routes } from '@angular/router';
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { KruiSvgLoader } from '@kr-platform/icons';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { EXAMPLE_FILES, EXAMPLE_FILES_TOKEN, EXAMPLES, EXAMPLES_TOKEN } from './example';
@@ -11,7 +11,7 @@ export const getDefaultKrAppConfig = (routes: Routes = []): ApplicationConfig =>
   return {
     providers: [
       provideZoneChangeDetection({ eventCoalescing: true }),
-      provideHttpClient(),
+      provideHttpClient(withInterceptorsFromDi()),
       provideAnimationsAsync(),
       provideAngularSvgIcon({
         loader: {

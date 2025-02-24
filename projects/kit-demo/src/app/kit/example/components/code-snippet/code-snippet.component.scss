@@ -26,7 +26,7 @@ pre {
 code {
   font-size: $snippet-font-size;
   line-height: $snippet-line-height;
-  background: red !important;
+  background: $snippet-background !important;
   white-space: pre-wrap;
 }
 
