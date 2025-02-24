@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/kr-app'
+          path: 'docs/kr-app'
   deploy:
     environment:
       name: github-pages
