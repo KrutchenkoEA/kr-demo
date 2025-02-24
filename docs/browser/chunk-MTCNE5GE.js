@@ -1,1 +1,0 @@
-import{Ub as o,Vb as m,oc as p,yb as n}from"./chunk-BNTXLAQM.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["kr-app-mnemo"]],decls:2,vars:0,template:function(e,r){e&1&&(o(0,"p"),p(1,"mnemo works!"),m())},encapsulation:2,changeDetection:0})};export{a as MnemoComponent};

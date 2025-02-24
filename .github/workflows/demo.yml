@@ -30,8 +30,12 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
-      - name: Build kr-app
-        run: npm run app:build
+      - name: Clear docs git deploy
+        run: npm run app:clear:git
+      - name: Build kr-app git deploy
+        run: npm run app:build:git
+      - name: Copy 404.html for git deploy
+        run: npm run app:copy404:git
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

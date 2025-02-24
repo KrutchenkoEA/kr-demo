@@ -20,16 +20,16 @@
     "moduleResolution": "bundler",
     "paths": {
       "@kr-platform/ui": [
-        "./dist/ui"
+        "./libs/ui"
       ],
       "@kr-platform/ui/*": [
-        "./dist/ui/*"
+        "./libs/ui/*"
       ],
       "@kr-platform/icons": [
-        "./dist/icons"
+        "./libs/icons"
       ],
       "@kr-platform/icons/*": [
-        "./dist/icons/*"
+        "./libs/icons/*"
       ]
     },
     "importHelpers": true,

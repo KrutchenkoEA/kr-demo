@@ -37,11 +37,11 @@
       "prefix": "kr-app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/kr-app",
             "index": "projects/kr-app/src/index.html",
-            "main": "projects/kr-app/src/main.ts",
+            "browser": "projects/kr-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
