@@ -126,47 +126,57 @@ export class KruiChartWrapperDirective implements OnInit, KruiChartWrapperInputs
 
   /** Высота SVG = this._height - высота легенды */
   get svgHeight(): number {
-    return this._height - this.legendHeight;
+    const value = this._height - this.legendHeight;
+    return value > 0 ? value : 0;
   }
 
   /** Внутренняя часть + оси (может быть несколько с одной стороны) (размер svg - margin) */
   get offsetWidth(): number {
-    return this.svgWidth - this.marginLeft - this.marginRight;
+    const value = this.svgWidth - this.marginLeft - this.marginRight;
+    return value > 0 ? value : 0;
   }
 
   /** Внутренняя часть + оси (может быть несколько с одной стороны) (размер svg - margin) */
   get offsetHeight(): number {
-    return this.svgHeight - this.marginBottom - this.marginTop;
+    const value = this.svgHeight - this.marginBottom - this.marginTop;
+    return value > 0 ? value : 0;
   }
 
   /** Внутренняя часть (размер svg - margin - оси) */
   get workGroundWidth(): number {
-    return this.svgWidth - this.marginLeft - this.marginRight - (this.axisCounter.left + this.axisCounter.right) * KRUI_CHART_AXIS_WIDTH;
+    const value = this.svgWidth - this.marginLeft - this.marginRight - (this.axisCounter.left + this.axisCounter.right) * KRUI_CHART_AXIS_WIDTH;
+    return value > 0 ? value : 0;
   }
 
   /** Внутренняя часть (размер svg - margin - оси) */
   get workGroundHeight(): number {
-    return this.svgHeight - this.marginBottom - this.marginTop - (this.axisCounter.bottom + this.axisCounter.top) * KRUI_CHART_AXIS_HEIGHT;
+    const value = this.svgHeight - this.marginBottom - this.marginTop - (this.axisCounter.bottom + this.axisCounter.top) * KRUI_CHART_AXIS_HEIGHT;
+    return value > 0 ? value : 0;
   }
 
   /** Общий отступ margin + размер оси*/
   get offsetMarginTop(): number {
-    return this.marginTop + this.axisCounter.top * KRUI_CHART_AXIS_HEIGHT;
+    const value = this.marginTop + this.axisCounter.top * KRUI_CHART_AXIS_HEIGHT;
+    return value > 0 ? value : 0;
   }
 
   /** Общий отступ margin + размер оси*/
   get offsetMarginRight(): number {
-    return this.marginRight + this.axisCounter.right * KRUI_CHART_AXIS_WIDTH;
+    const value = this.marginRight + this.axisCounter.right * KRUI_CHART_AXIS_WIDTH;
+    return value > 0 ? value : 0;
   }
 
   /** Общий отступ margin + размер оси*/
   get offsetMarginBottom(): number {
-    return this.marginBottom + this.axisCounter.bottom * KRUI_CHART_AXIS_HEIGHT;
+    const value = this.marginBottom + this.axisCounter.bottom * KRUI_CHART_AXIS_HEIGHT;
+    0;
+    return value > 0 ? value : 0;
   }
 
   /** Общий отступ margin + размер оси*/
   get offsetMarginLeft(): number {
-    return this.marginLeft + this.axisCounter.left * KRUI_CHART_AXIS_WIDTH;
+    const value = this.marginLeft + this.axisCounter.left * KRUI_CHART_AXIS_WIDTH;
+    return value > 0 ? value : 0;
   }
 
   @Input() set customResize(v: KruiChartReSizeEvent | null) {
@@ -261,7 +271,7 @@ export class KruiChartWrapperDirective implements OnInit, KruiChartWrapperInputs
       .style('order', 2)
       .append('g')
       .attr('id', `${this._id}`)
-      .attr('transform', `translate(${this.offsetMarginLeft}, ${this.offsetMarginTop})`);
+      .attr('transform', `translate(${this.offsetMarginLeft ?? 0}, ${this.offsetMarginTop ?? 0})`);
 
     this._g.append('clipPath')
       .attr('id', `${this._id}--clipPath-workground`)

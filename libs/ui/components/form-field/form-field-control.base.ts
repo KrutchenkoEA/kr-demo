@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-
 import { KruiFormFieldControl } from './form-field';
 
 @Directive()

@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ThemeConfiguratorService } from '../../services/theme-configurator.service';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule, KruiToggleModule, KruiTooltipModule } from '@kr-platform/ui';
 import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ThemeConfiguratorService } from '../../../../../kit-demo/src/app/kit/example';
 
 @Component({
   selector: 'kr-app-platform-header',

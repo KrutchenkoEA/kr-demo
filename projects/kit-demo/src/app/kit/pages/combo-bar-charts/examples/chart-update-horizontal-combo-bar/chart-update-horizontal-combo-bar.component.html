@@ -1,0 +1,41 @@
+<krui-chart [chartOrientation]="'horizontal'"
+            [height]="600"
+            [legendType]="'simple-style'"
+            [toolbar]="true"
+            [tooltipMarkerType]="'smallCross'"
+            [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [min]="0"
+      [primary]="false"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [primary]="true"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorder]="true"
+      [barRadius]="2"
+      [captions]="[2020,2022]"
+      [data]="[data, data2]"
+      [showValues]="true"
+      [tooltipHoverEffect]="true"
+      kruiChartHorizontalComboBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>
+
+<div class="update-button">
+  <button (click)="update()" kruiButton> Обновить данные</button>
+</div>

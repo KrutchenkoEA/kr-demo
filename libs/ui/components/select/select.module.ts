@@ -7,7 +7,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { KruiSelectComponent } from './select.component';
 import { KruiOptionComponent } from './option/option.component';
 import { KruiSelectSearch } from './select-search/select-search.component';
-import { KruiSpinnerModule } from '@kr-platform/ui/components';
+import { KruiSpinnerModule } from '@kr-platform/ui/components/spinner';
 
 @NgModule({
   declarations: [KruiSelectComponent, KruiOptionComponent, KruiSelectSearch],

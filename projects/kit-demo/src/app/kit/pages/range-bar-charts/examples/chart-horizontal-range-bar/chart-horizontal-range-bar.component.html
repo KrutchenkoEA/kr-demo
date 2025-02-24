@@ -1,0 +1,39 @@
+<krui-chart [chartOrientation]="'horizontal'"
+            [height]="600"
+            [legendType]="'simple-style'"
+            [toolbar]="true"
+            [tooltipMarkerType]="'horizontal-line'"
+            [tooltipType]="'dataPoint'">
+  <krui-chart-layer [zoomSecondaryEnable]="true">
+    <krui-chart-axis
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [primary]="true"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorderColors]="['rgb(45, 141, 237)', 'rgb(45, 141, 237)']"
+      [barBorder]="true"
+      [barRadius]="4"
+      [captions]="[2020,2021]"
+      [color]="'rgba(45, 141, 237,0.5)'"
+      [colors]="['red', 'yellow']"
+      [data]="[data, data2]"
+      [showValues]="true"
+      [tooltipHoverEffect]="true"
+      [valuePosition]="'center'"
+      kruiChartHorizontalRangeBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>

@@ -1,0 +1,36 @@
+<div class="example-viewer">
+  <div class="example-viewer__toolbar">
+    <h3 [id]="id" class="example-viewer__title">{{ title }}</h3>
+    <svg-icon
+      (click)="copyLink()"
+      title="Корировать ссылку на пример"
+      src="kruiIconLinkChainClip"
+      class="krui-btn--icon krui-icon--sm krui-ml--sm"
+    ></svg-icon>
+    <svg-icon
+      (click)="collapsed = !collapsed"
+      [src]="
+        collapsed
+          ? 'kruiIconArrowResizeScaleMax'
+          : 'kruiIconArrowResizeScaleMin'
+      "
+      class="krui-btn--icon krui-icon--sm krui-ml--sm"
+      [title]="collapsed ? 'Развернуть' : 'Свернуть'"
+    ></svg-icon>
+  </div>
+  @if (!collapsed) {
+    <div class="example-viewer__source">
+      <krui-tabs [selectedIndex]="selectedTabIndex">
+        <krui-tab *ngFor="let tab of tabs" [label]="tab.title">
+          <code-snippet [path]="tab.path"></code-snippet>
+        </krui-tab>
+      </krui-tabs>
+    </div>
+  }
+  <div class="example-viewer__body">
+    <div
+      [ngComponentOutletNgModuleFactory]="moduleFactory"
+      [ngComponentOutlet]="componentType"
+    ></div>
+  </div>
+</div>

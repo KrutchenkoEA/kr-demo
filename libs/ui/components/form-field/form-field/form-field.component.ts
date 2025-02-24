@@ -8,15 +8,13 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-
 import { delay } from 'rxjs/operators';
 import { CdkOverlayOrigin } from '@angular/cdk/overlay';
-
 import { KruiLabelComponent } from '../label/label.component';
 import { KruiHintComponent } from '../hint/hint.component';
 import { KruiErrorComponent } from '../error/error.component';
 import { KruiFormFieldControl } from '../form-field';
-import { FADE_IN } from '@kr-platform/ui';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 export type KruiFormFieldColor =
   | 'default'
@@ -24,6 +22,13 @@ export type KruiFormFieldColor =
   | 'error'
   | 'success'
   | 'info';
+
+const FADE_IN = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate(`300ms cubic-bezier(0, 0, .2, 1)`, style({ opacity: 1 })),
+  ]),
+]);
 
 @Component({
   selector: 'krui-form-field',

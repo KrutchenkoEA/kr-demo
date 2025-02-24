@@ -4,10 +4,15 @@
   "scripts": {
     "ng": "ng",
     "app:serve": "ng serve kr-app --port=4005",
+    "app:build": "ng build kr-app --configuration=production",
+    "app:build:git": "ng build kr-app --configuration=production --output-path docs --base-href /kr-app/",
+    "app:copy404:git": "node ./projects/scripts/copy-index.js",
     "kit-demo:serve": "ng serve kr-kit-demo --port=4006",
-    "kit-demo:compile": "node ./libs/kit/scripts/compile.js",
-    "ui:watch": "ng build kr-ui --watch",
-    "icons:compile": "node ./libs/icons/scripts/compile.js"
+    "kit-demo:build": "ng build kr-kit-demo",
+    "kit-demo:compile": "node ./projects/kit-demo/src/app/kit/scripts/compile.js",
+    "icons:compile": "node ./libs/icons/scripts/compile.js",
+    "icons:build": "ng build kr-icons",
+    "ui:build": "ng build kr-ui"
   },
   "private": true,
   "dependencies": {

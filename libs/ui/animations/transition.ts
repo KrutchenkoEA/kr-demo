@@ -1,5 +1,3 @@
-import { SLIDE_CONTENT } from './slide-in-out';
-
 export const TRANSITION_CURVE = 'cubic-bezier(0, 0, .2, 1)';
 export const TRANSITION_CURVE_2 = 'cubic-bezier(0.25, 0.8, 0.25, 1)';
 

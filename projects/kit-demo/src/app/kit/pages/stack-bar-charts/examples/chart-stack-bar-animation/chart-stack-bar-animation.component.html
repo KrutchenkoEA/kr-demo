@@ -1,0 +1,60 @@
+<krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'dataPoint'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="number"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      [min]="0"
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [barBorder]="true"
+      [barRadius]="12"
+      [captions]="[2020,2021,2022]"
+      [colors]="['var(--color-additional-17)', 'var(--color-additional-15)', 'var(--color-additional-16)']"
+      [dataStack]="data"
+      [showValues]="true"
+      [valuePosition]="'center'"
+      [tooltipHoverEffect]="true"
+      [stackType]="'stackBar'"
+      [durationAnimation]="durationAnimation"
+      [workgroundPadding]="{
+        top: 5,
+        right: 15,
+        bottom: 0,
+        left: 15
+      }"
+      kruiChartStackBar
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>
+<div class="settings">
+  <div class="item">
+    <label class="krui-form-field-label">Длина анимации</label>
+    <krui-slider
+      [(ngModel)]="durationAnimation"
+      [inputs]="true"
+      [labels]="true"
+      [max]="5000"
+      [min]="1000"
+      [step]="200"
+    ></krui-slider>
+  </div>
+  <div class="item">
+    <label class="krui-form-field-label"></label>
+    <button (click)="update()" kruiButton>
+      <svg-icon src="kruiIconReloadCycle" kruiBtnIcon></svg-icon>
+    </button>
+  </div>
+</div>

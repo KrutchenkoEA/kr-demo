@@ -1,0 +1,73 @@
+<div class="logo">
+<!--  <svg-icon src="/assets/icons/logo.svg"></svg-icon>-->
+  <span> | KR-UI-Kit</span><span>&nbsp;| v{{ version }}</span>
+</div>
+
+<header class="header">
+  <svg-icon class="krui-icon--sm" src="kruiIconSearch"></svg-icon>
+  <input
+    (ngModelChange)="filterBroadcast$.next($event)"
+    [ngModel]="query"
+    class="search"
+    placeholder="Найти"
+    type="text"
+  />
+</header>
+
+@if (filteredItems.length) {
+  <ng-container *ngTemplateOutlet="menu; context: { level: 1, items: filteredItems }"></ng-container>
+} @else {
+  <span class="empty-msg">Нет элеменов</span>
+}
+
+@if (showFooter) {
+  <footer class="footer">
+    <span class="flex-divider"></span>
+    <krui-toggle
+      (change)="changeTheme()"
+      [ngModel]="themeService.isDarkTheme$ | async"
+      class="krui-mr--xs"
+      iconOff="kruiIconThemeLightSun"
+      iconOn="kruiIconThemeDarkMoon"
+      size="lg"
+    ></krui-toggle>
+  </footer>
+}
+
+<ng-template #menu let-items="items" let-level="level">
+  <ul [class]="'menu menu--level-' + level">
+    <li
+      *ngFor="let item of items"
+      [class.menu-item--disabled]="item.disabled"
+      [class.menu-item--selected]="isActive(item.href)"
+      class="menu-item"
+    >
+      <a (click)="onItemClick(item)" class="menu-item__link">
+        @if (level === 1) {
+          <svg-icon [src]="item.iconUrl ?? 'kruiIconSets'" class="menu-item__link__icon krui-icon--xs"></svg-icon>
+        } @else {
+          <span class="menu-item__link__icon krui-icon--xs"></span>
+        }
+
+        <span class="menu-item__link__text">{{ item.label }}</span>
+
+        @if (item.badge) {
+          <span class="krui-tag krui-tag--primary">{{ item.badge }}</span>
+        }
+
+        @if (item.children?.length) {
+          <svg-icon
+            [src]="item.expanded ? 'kruiIconArrowDownSimple' : 'kruiIconArrowRightSimple'"
+            class="menu-item__link__arrow krui-icon--xs"
+          ></svg-icon>
+        }
+      </a>
+
+      @if (item.children?.length && item.expanded) {
+        <div @slideInOutTop>
+          <ng-container *ngTemplateOutlet="menu; context: { level: level + 1, items: item.children }"></ng-container>
+        </div>
+      }
+    </li>
+  </ul>
+</ng-template>

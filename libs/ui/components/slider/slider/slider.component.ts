@@ -15,7 +15,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
-
 import { RangeBase } from '../range-base.class';
 
 @Component({

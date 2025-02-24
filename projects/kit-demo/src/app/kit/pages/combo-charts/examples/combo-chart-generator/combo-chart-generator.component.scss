@@ -1,0 +1,136 @@
+:host {
+  position: relative;
+
+  ::ng-deep {
+    .krui-toggle__switcher {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .krui-toggle__icon {
+      width: 12px !important;
+    }
+
+    .krui-form-field-label {
+      margin: 0;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+
+  &__add-row {
+    cursor: pointer;
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+      color: var(--color-color-6);
+    }
+
+    span {
+      font-size: 12px;
+      color: var(--color-color-6);
+    }
+
+    &:hover {
+      .icon,
+      span {
+        color: var(--color-text-signatures-and-future);
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+
+    .data-source {
+      width: 200px;
+      overflow: hidden;
+      height: 100%;
+
+      span {
+        font-size: 13px;
+        box-sizing: border-box;
+        padding-left: 2px;
+        color: var(--color-text-signatures-and-future);
+      }
+
+      .link {
+        font-size: 12px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-style: dotted;
+        }
+      }
+    }
+
+    .search {
+      width: 30px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .big-width {
+      width: 185px;
+    }
+
+    .small-width {
+      width: 100px;
+    }
+
+    .medium-width {
+      width: 150px;
+    }
+
+    .small-text {
+      font-size: 11px;
+    }
+
+    .small-input {
+      height: 12px;
+    }
+
+    tl-mn-action-selector-control {
+      white-space: nowrap;
+    }
+  }
+}
+
+.chart-toggle {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+
+  label {
+    font-size: 11px;
+  }
+}
+
+.data-params {
+  display: flex;
+  flex-direction: column;
+}

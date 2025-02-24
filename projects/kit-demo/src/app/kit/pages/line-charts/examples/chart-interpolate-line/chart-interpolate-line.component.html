@@ -1,0 +1,33 @@
+<krui-chart [height]="600" [legendType]="'simple-style'" [toolbar]="true" [tooltipType]="'fullLine'">
+  <krui-chart-layer>
+    <krui-chart-axis
+      [primary]="true"
+      name="x"
+      position="bottom"
+      type="time"
+    ></krui-chart-axis>
+    <krui-chart-axis
+      name="y"
+      position="left"
+      type="number"
+    ></krui-chart-axis>
+
+    <krui-chart-grid axis="x"></krui-chart-grid>
+    <krui-chart-grid axis="y"></krui-chart-grid>
+
+    <krui-chart-data-layer
+      [animation]="true"
+      [captions]="['план']"
+      [color]="'rgba(104,37,212,0.5)'"
+      [data]="stream1"
+      [interpolateEnable]="true"
+      [showValues]="false"
+      kruiChartLine
+    >
+    </krui-chart-data-layer>
+  </krui-chart-layer>
+</krui-chart>
+
+<div class="update-button">
+  <button (click)="update()" kruiButton> Обновить данные</button>
+</div>
