@@ -15,7 +15,7 @@
     "icons:build": "ng build kr-icons",
     "ui:build": "ng build kr-ui"
   },
-  "homepage": ".",
+  "homepage": "https://krutchenkoea.github.io/kr-demo/",
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.0.5",
