@@ -1,4 +1,4 @@
-import { Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
+import { ChangeDetectorRef, Compiler, Component, Inject, Input, NgModuleFactory, OnInit, Type } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { DemoExample } from '../../models/demo-example';
 import { EXAMPLES_TOKEN } from '../../tokens';
@@ -45,6 +45,7 @@ export class ExampleViewerComponent implements OnInit {
     @Inject(EXAMPLES_TOKEN) private readonly examples: { [id: string]: DemoExample },
     private readonly clipboard: Clipboard,
     private readonly compiler: Compiler,
+    private readonly cdr: ChangeDetectorRef,
   ) {
   }
 
@@ -56,6 +57,8 @@ export class ExampleViewerComponent implements OnInit {
       this.createExampleTabs();
       await this.loadExampleComponent();
     }
+    //todo костыль, не визуализируется тело примера
+    setTimeout(() => this.cdr.detectChanges());
   }
 
   public copyLink(): void {
