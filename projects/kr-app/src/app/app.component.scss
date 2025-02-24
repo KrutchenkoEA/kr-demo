@@ -27,8 +27,18 @@
   transition: width 0.5s;
   width: 4%;
 
+  .version {
+    visibility: hidden;
+    margin: 0;
+  }
+
   &:hover {
     width: 97%;
+    justify-content: space-between;
+
+    .version {
+      visibility: visible;
+    }
   }
 }
 
