@@ -7,7 +7,7 @@ p {
 }
 
 a {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .card_clickable {
@@ -42,3 +42,8 @@ a {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .card_flexible-row {
+    flex-direction: column;
+  }
+}

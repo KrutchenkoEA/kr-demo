@@ -4,11 +4,35 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 0.7rem;
   margin: 0 auto;
   width: 90%;
   background-color: var(--color-background-headers);
   border-radius: 2.2rem;
+  transition: height 0.5s;
+
+  .burger-button {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .burger-button {
+      display: inline;
+    }
+
+    height: 50px;
+    overflow: hidden;
+  }
+
+  &.burger-menu--visible {
+    height: unset;
+    overflow: visible;
+    transition: height 0.5s;
+  }
+
+  .menu {
+    gap: 0;
+  }
 }
 
 .menu {
@@ -31,3 +55,4 @@
 .options {
   display: flex;
 }
+
