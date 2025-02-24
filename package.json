@@ -5,7 +5,7 @@
     "ng": "ng",
     "app:serve": "ng serve kr-app --port=4005",
     "app:build": "ng build kr-app --configuration=production",
-    "app:build:git": "ng build kr-app --output-path docs --base-href /kr-app/",
+    "app:build:git": "ng build kr-app --output-path docs --base-href /kr-demo/",
     "app:clear:git": "node ./projects/scripts/clear-docs.js",
     "app:copy404:git": "node ./projects/scripts/copy-index.js",
     "kit-demo:serve": "ng serve kr-kit-demo --port=4006",
