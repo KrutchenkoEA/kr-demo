@@ -5,7 +5,7 @@ on:
   # Event for the workflow to run on
   push:
     branches:
-      - 'master'
+      - 'develop'
 
 permissions:
   contents: read
@@ -32,8 +32,8 @@ jobs:
         run: npm ci
       - name: Build kr-app git deploy
         run: npm run app:build:git
-      - name: Copy 404.html for git deploy
-        run: npm run app:copy404:git
+#      - name: Copy 404.html for git deploy
+#        run: npm run app:copy404:git
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
