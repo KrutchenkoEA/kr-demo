@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostBinding, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule, KruiToggleModule, KruiTooltipModule } from '@kr-platform/ui';
@@ -24,6 +24,11 @@ import { ThemeConfiguratorService } from '../../../../../kit-demo/src/app/kit/ex
 export class PlatformHeaderComponent {
   public themeService = inject(ThemeConfiguratorService);
   public router = inject(Router);
+  public isMenuVisible: boolean = false;
+
+  @HostBinding('class.burger-menu--visible') get menuVisible() {
+    return this.isMenuVisible;
+  }
 
   public changeTheme(): void {
     this.themeService.changeTheme();
