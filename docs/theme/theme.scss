@@ -1,0 +1,9 @@
+@import "kit-root.mixin";
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-background-main);
+  color: var(--color-text-contrast);
+  height: 98vh;
+  overflow: hidden;
+}

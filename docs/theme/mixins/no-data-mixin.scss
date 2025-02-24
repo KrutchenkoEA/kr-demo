@@ -1,0 +1,36 @@
+@mixin no-data($height: 500px) {
+  .no-data {
+    width: 100%;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+
+    .img {
+      color: var(--color-borders-icons);
+      margin-bottom: 25px;
+    }
+
+    span.message,
+    span.title {
+      text-align: center;
+      color: var(--color-text-contrast);
+    }
+
+    span.title {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    span.message {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .color-logo {
+      stroke: var(--color-logo);
+    }
+  }
+}
