@@ -31,8 +31,11 @@
 <div class="card">
   <h1>Достижения</h1>
   <section class="achievements">
-    <h2>Написал собственную библиотеку для создания
-      <span [queryParams]="{onlyCharts: true}" routerLink="/kit/combo-charts">графиков</span>
+    <h2>Написал библиотеку для создания
+      <span [queryParams]="{onlyCharts: true}"
+            [tooltipParameters]="{size: 'sm',   text: 'Перейти в конфигуратор графиков', position: 'bottom'}"
+            kruiTooltip
+            routerLink="/kit/combo-charts">графиков</span>
       , на основе
       d3.js</h2>
     <div class="card_flexible-row">Графики включают в себя тренды
@@ -98,6 +101,7 @@
         <li>npm, pnpm, webpack, module federation, transloco</li>
         <li>Контроль версий/Git, GitLab, GitHub, Figma</li>
         <li>PWA, Service Worker, WebSocket, REST</li>
+        <li>Использование ChatGpt</li>
         <li>Английский (технический)</li>
       </ul>
     </div>
