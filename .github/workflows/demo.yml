@@ -3,6 +3,9 @@ name: Build and Publish to GitHub Pages
 
 on:
   # Event for the workflow to run on
+  pull_request:
+    branches:
+      - 'master'
   push:
     branches:
       - 'master'
