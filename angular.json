@@ -37,11 +37,11 @@
       "prefix": "kr-app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/kr-app",
             "index": "projects/kr-app/src/index.html",
-            "main": "projects/kr-app/src/main.ts",
+            "browser": "projects/kr-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -141,11 +141,11 @@
       "prefix": "kr-kit-demo",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/kit-demo",
             "index": "projects/kit-demo/src/index.html",
-            "main": "projects/kit-demo/src/main.ts",
+            "browser": "projects/kit-demo/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
