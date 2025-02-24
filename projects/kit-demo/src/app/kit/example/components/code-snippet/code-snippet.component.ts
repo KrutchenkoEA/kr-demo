@@ -25,13 +25,12 @@ export class CodeSnippedComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    console.log('this.path', this.path);
     this.content$ = this.httpClient
       .get<string>(this.path)
       .pipe(
         catchError((e) => ((this.error = e), of('Не удалось загрузить данные'))),
         map(content => {
-          return content || '\n'
+          return content || '\n';
         }),
       );
   }

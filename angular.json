@@ -37,7 +37,7 @@
       "prefix": "kr-app",
       "architect": {
         "build": {
-          "builder": "@@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/kr-app",
             "index": "projects/kr-app/src/index.html",
