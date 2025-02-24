@@ -91,12 +91,12 @@ $button-styles: (
     focus: (
       color: map-get($text-colors, contrast-text),
       background: $bg-app-header,
-      border: map-get($palette, logo),
+      border: $bg-app-header,
     ),
     active: (
       color: map-get($text-colors, contrast-text),
       background: $bg-app-header,
-      border: map-get($palette, logo),
+      border: $bg-app-header,
     ),
   ),
 );
