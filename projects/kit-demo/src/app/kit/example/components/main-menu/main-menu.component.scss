@@ -113,6 +113,7 @@ footer {
   &--level-2 {
     .menu-item {
       padding-top: $gap;
+
       &__link {
         &__icon {
           &::before {
@@ -126,6 +127,7 @@ footer {
   &--level-3 {
     .menu-item {
       padding-top: $gap;
+
       &__link {
         &__icon {
           &::before,
@@ -204,6 +206,12 @@ footer {
   &__link:active,
   &--active > &__link {
     background-color: $logo !important;
+  }
+
+  @media screen and (max-width: 1000px) {
+    &__link__text {
+      padding-left: 0;
+    }
   }
 }
 
