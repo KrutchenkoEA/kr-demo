@@ -9,6 +9,10 @@
   }
 }
 
+p {
+  text-align: justify;
+}
+
 .avo {
   width: 100%;
   max-width: 400px;
@@ -33,7 +37,14 @@
 }
 
 .git {
-  padding-right: 6px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  a {
+    width: 60%;
+    overflow-wrap: break-word;
+  }
 }
 
 .contrast {
@@ -64,10 +75,14 @@
 }
 
 .achievements {
+  div {
+    padding-left: 20px;
+    flex-wrap: wrap;
+  }
+
   p {
     padding-left: 20px;
   }
-
 
   span {
     cursor: pointer;

@@ -3,7 +3,7 @@
 </div>
 <div class="card card_5">
   <svg-icon (click)="link.click()" [tooltipParameters]="{size: 'sm',   text: 'Скачать', position: 'bottom'}"
-            class="download-icon"
+            class="download-icon krui-icon--lg"
             kruiTooltip src="kruiIconDownloadArrowDownSimple">
     <a #link href="assets/rezume.pdf"></a>
   </svg-icon>
@@ -23,8 +23,10 @@
   </div>
   <hr class="delimiter">
   <p>Опыт работы: 6 лет.<span class="contrast"> Опыт разработки: 3 года</span></p>
-  <svg-icon [src]="'assets/github-mark.svg'" [svgStyle]="{ 'width.px':24, 'height.px':24 }" class="git"></svg-icon>
-  <a href="https://github.com/KrutchenkoEA">https://github.com/KrutchenkoEA</a>
+  <div class="git">
+    <svg-icon [src]="'assets/github-mark.svg'" class="git krui-icon--lg"></svg-icon>
+    <a href="https://github.com/KrutchenkoEA">https://github.com/KrutchenkoEA</a>
+  </div>
 </div>
 <div class="card">
   <h1>Достижения</h1>
@@ -33,14 +35,14 @@
       <span [queryParams]="{onlyCharts: true}" routerLink="/kit/combo-charts">графиков</span>
       , на основе
       d3.js</h2>
-    <p class="card_flexible-row">Графики включают в себя тренды
+    <div class="card_flexible-row">Графики включают в себя тренды
       <svg-icon src="kruiIconChartMountain"></svg-icon>
       , бары
       <svg-icon src="kruiIconChartColumns"></svg-icon>
       , стек-бары
       <svg-icon src="kruiIconChartColumnsRows"></svg-icon>
       и их комбинации
-    </p>
+    </div>
     <p>Поддерживают перерисовку в реальном времени, анимацию, стилизацию через UI, легенду, тулбар, распечатку</p>
     <p>Используется во всех нижеперечисленных проектах</p>
   </section>
