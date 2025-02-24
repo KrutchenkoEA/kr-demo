@@ -16,6 +16,7 @@
     "ui:build": "ng build kr-ui"
   },
   "private": true,
+  "homepage" : "http://krutchenkoea.github.io/kr-demo/",
   "dependencies": {
     "@angular/animations": "^19.0.5",
     "@angular/cdk": "^19.0.4",
