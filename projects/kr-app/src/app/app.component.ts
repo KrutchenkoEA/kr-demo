@@ -5,7 +5,8 @@ import { RouterOutlet } from '@angular/router';
 import { PlatformHeaderComponent } from './components/platform-header/platform-header.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule } from '@kr-platform/ui';
-import { ThemeConfiguratorService } from 'projects/kit-demo/src/app/kit/example/services/theme-configurator.service';
+import { ThemeConfiguratorService } from '../../../kit-demo/src/app/kit/example';
+import packageInfo from '../../../../package.json';
 
 @Component({
   selector: 'kr-app-root',
@@ -26,6 +27,7 @@ export class KrAppComponent implements OnInit {
   private document = inject<Document>(DOCUMENT);
   public themeService = inject(ThemeConfiguratorService);
   public title = 'kr-demo';
+  public version = packageInfo.version;
 
   public ngOnInit(): void {
     this.themeService.setThemeConfiguratorRoot(this.document);

@@ -2,7 +2,6 @@
 name: Build and Publish to GitHub Pages
 
 on:
-#  repository_dispatch: null
   # Event for the workflow to run on
   push:
     branches:
@@ -31,8 +30,8 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
-#      - name: Clear docs
-#        run: npm run app:clear:git
+      #      - name: Clear docs
+      #        run: npm run app:clear:git
       - name: Build kr-app git deploy
         run: npm run app:build:git
       - name: Copy 404.html for git deploy

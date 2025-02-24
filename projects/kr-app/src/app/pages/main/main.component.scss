@@ -6,15 +6,19 @@ p {
   margin: 16px 0;
 }
 
+a {
+   cursor: pointer;
+}
+
 .card_clickable {
   margin: 0 2rem;
 }
 
 .image {
-  width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   aspect-ratio: auto;
   height: 100px;
+  width: 60%;
 }
 
 .card {
