@@ -21,9 +21,6 @@ export class ComboChartSelectorComponent implements ControlValueAccessor {
   public options: { name: string; value: string }[] = [];
 
   @Input()
-  public isColors: boolean = false;
-
-  @Input()
   public disabled: boolean = false;
 
   private selectedOption: { name: string; value: string } | undefined = undefined;
@@ -76,7 +73,6 @@ export class ComboChartSelectorComponent implements ControlValueAccessor {
     this.selectedOption = option;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private onChange = (value: unknown | null): void => {
   };
   private onTouched = (): void => {

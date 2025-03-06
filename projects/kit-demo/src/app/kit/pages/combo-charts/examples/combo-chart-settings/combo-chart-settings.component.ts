@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   IKruiOptionsFormType,
   KRUI_CHART_LINE_INTERPOLATE,
@@ -6,6 +6,8 @@ import {
   KRUI_CHART_POINT_MARKERS_CONFIG,
 } from '@kr-platform/ui';
 import { FormGroupDirective, FormGroupName } from '@angular/forms';
+import { ComboChartService } from '../combo-chart-graph/combo-chart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'combo-chart-settings',
@@ -14,7 +16,9 @@ import { FormGroupDirective, FormGroupName } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
 })
-export class ComboChartSettingsComponent implements OnInit {
+export class ComboChartSettingsComponent implements OnInit, OnDestroy {
+  public subscriptions: Subscription[] = [];
+  private readonly comboChartService = inject(ComboChartService);
   private readonly parentForm = inject(FormGroupDirective);
   public formGroupName = inject(FormGroupName, { optional: true });
 
@@ -32,5 +36,27 @@ export class ComboChartSettingsComponent implements OnInit {
       this.optionsForm.controls.legend.controls.legendLayer.disable();
       this.optionsForm.controls.legend.controls.legendAxis.disable();
     }
+
+    const isChartHorSub = this.comboChartService.isChartHorizontal$.subscribe(v => {
+      if (v) {
+        this.optionsForm!.patchValue({
+          tooltip: { chartOrientation: 'horizontal', tooltipMarkerType: 'horizontal-line' },
+          axisX: { primary: false, type: 'number' },
+          axisY: { primary: true },
+        });
+      } else {
+        this.optionsForm!.patchValue({
+          tooltip: { chartOrientation: 'vertical', tooltipMarkerType: 'line' },
+          axisX: { primary: true, type: 'time' },
+          axisY: { primary: false },
+        });
+      }
+    });
+    this.subscriptions.push(isChartHorSub);
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions?.forEach((sub) => sub.unsubscribe());
+    this.subscriptions = [];
   }
 }
