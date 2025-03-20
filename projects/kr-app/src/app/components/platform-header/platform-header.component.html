@@ -20,10 +20,8 @@
           kruiTooltip>Схемы
   </button>
   <button [btnStyle]="isActive('dashboard') ? 'primary' : 'ghost'"
-          [tooltipParameters]="{size: 'sm',   text: 'В разработке', position: 'bottom'}"
-          class="menu_disabled"
           kruiButton
-          kruiTooltip>Дашборды
+          routerLink="/dashboard">Дашборды
   </button>
   <button [btnStyle]="isActive('kit', 'subset') ? 'primary' : 'ghost'" kruiButton routerLink="/kit">UI KIT</button>
   <!--  </krui-button-group>-->

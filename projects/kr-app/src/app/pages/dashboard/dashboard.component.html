@@ -1,1 +1,21 @@
-<p>dashboard works!</p>
+<header class="header">header</header>
+<as-split class="body">
+  <as-split-area size="20">
+    <div (click)="fileInput.click()" class="drop-zone">
+      <p>
+        Перетащите или выберите элемент
+      </p>
+      <svg-icon class="krui-icon--xlg" src="kruiIconDownloadArrowDownSimple"></svg-icon>
+      <p>
+        .json, .xml
+      </p>
+      <input #fileInput (change)="onFileChange($event)" [multiple]="false" class="file-input" hidden required
+             type="file" />
+    </div>
+    <div class="file-tree">
+    </div>
+  </as-split-area>
+  <as-split-area>
+    <section>section</section>
+  </as-split-area>
+</as-split>

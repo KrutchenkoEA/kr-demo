@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  ::ng-deep {
+    .as-split-gutter {
+      background-color: var(--color-background-body) !important;
+      flex-basis: 13px !important;
+      border: 1px solid var(--color-borders-light) !important;
+    }
+
+    .as-disabled > .as-split-gutter .as-split-gutter-icon {
+      background-image: none !important;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background-color: var(--color-background-body);
+}
+
+.body {
+  margin: 0.5rem;
+  width: calc(100% - 2rem);
+}
+
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  margin-right: 0.5rem;
+  border: 1px dashed var(--color-borders-light);
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
