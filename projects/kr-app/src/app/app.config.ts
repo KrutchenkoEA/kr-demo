@@ -6,27 +6,27 @@ import { EXAMPLE_ROUTES } from 'projects/kit-demo/src/app/kit/example/constants/
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'kr-demo/main',
+    redirectTo: 'main',
     pathMatch: 'full',
   },
   {
-    path: 'kr-demo/main',
+    path: 'main',
     loadComponent: () => import('./pages/main/main.component').then((m) => m.MainComponent),
   },
   {
-    path: 'kr-demo/rezume',
+    path: 'rezume',
     loadComponent: () => import('./pages/rezume/rezume.component').then((m) => m.RezumeComponent),
   },
   {
-    path: 'kr-demo/mnemo',
+    path: 'mnemo',
     loadComponent: () => import('./pages/mnemo/mnemo.component').then((m) => m.MnemoComponent),
   },
   {
-    path: 'kr-demo/dashboard',
+    path: 'dashboard',
     loadComponent: () => import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
   },
   {
-    path: 'kr-demo/kit',
+    path: 'kit',
     loadComponent: () => import('../../../kit-demo/src/app/app.component').then((m) => m.KitDemoComponent),
     children: EXAMPLE_ROUTES,
   },
