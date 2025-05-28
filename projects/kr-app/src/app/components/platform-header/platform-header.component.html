@@ -5,26 +5,30 @@
   <svg-icon src="kruiIconHomeOutlineSquare"></svg-icon>
 </button>
 <div class="menu">
-  <!--  <krui-button-group [btnStyle]="'ghost'">-->
-  <button [btnStyle]="isActive('main') ? 'primary' : 'ghost'" kruiButton routerLink="">Главная</button>
-  <button [btnStyle]="isActive('rezume') ? 'primary' : 'ghost'" kruiButton routerLink="/rezume">Резюме</button>
-  <button [btnStyle]="isActive('kit/combo-charts') ? 'primary' : 'ghost'"
+  <button [btnStyle]="isActive('kr-demo/main') ? 'primary' : 'ghost'" kruiButton routerLink="">Главная</button>
+  <button [btnStyle]="isActive('kr-demo/rezume') ? 'primary' : 'ghost'" kruiButton routerLink="kr-demo/rezume">Резюме
+  </button>
+  <button [btnStyle]="isActive('kr-demo/kit/combo-charts') ? 'primary' : 'ghost'"
           [queryParams]="{onlyCharts: true}"
           kruiButton
-          routerLink="/kit/combo-charts">Графики
+          routerLink="kr-demo/kit/combo-charts">Графики
   </button>
-  <button [btnStyle]="isActive('mnemo') ? 'primary' : 'ghost'"
+  <button [btnStyle]="isActive('kr-demo/mnemo') ? 'primary' : 'ghost'"
           [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}"
           class="menu_disabled"
           kruiButton
           kruiTooltip>Схемы
   </button>
-  <button [btnStyle]="isActive('dashboard') ? 'primary' : 'ghost'"
+  <button [btnStyle]="isActive('kr-demo/dashboard') ? 'primary' : 'ghost'"
+          [tooltipParameters]="{  size: 'sm', text: 'В разработке', position: 'bottom'}"
+          class="menu_disabled"
           kruiButton
-          routerLink="/dashboard">Дашборды
+          kruiTooltip
+          routerLink="kr-demo/dashboard">Дашборды
   </button>
-  <button [btnStyle]="isActive('kit', 'subset') ? 'primary' : 'ghost'" kruiButton routerLink="/kit">UI KIT</button>
-  <!--  </krui-button-group>-->
+  <button [btnStyle]="isActive('kr-demo/kit', 'subset') ? 'primary' : 'ghost'" kruiButton routerLink="kr-demo/kit">UI
+    KIT
+  </button>
 </div>
 <div class="options">
   <krui-toggle (change)="changeTheme()"
