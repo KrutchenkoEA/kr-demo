@@ -53,11 +53,13 @@
   --color-color-37: #595f72;
   --color-color-38: #4d5567;
 
-  --color-index-gray: #d6dbe5; /* Светлый серый для индексов */
-  --color-index-yellow: #FFB30F; /* Ярко-желтый для акцентов */
-  --color-index-red: #FF4046; /* Ярко-красный для ошибок */
-  --color-index-green: #4CB944; /* Зелёный для успешных действий */
-  --color-index-blue: #2D8DED; /* Ярко-синий для ссылок и кнопок */
+  --color-index-gray: #d6dbe5;
+  --color-index-yellow: #FFB30F;
+  --color-index-yellow-50: rgba(255, 179, 15, 0.5);
+  --color-index-red: #FF4046;
+  --color-index-red-10: rgba(255, 64, 70, 0.1);
+  --color-index-green: #4CB944;
+  --color-index-blue: #2D8DED;
 
   --color-additional-1: #BA80FF;
   --color-additional-2: #38B44A;
