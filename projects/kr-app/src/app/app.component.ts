@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PlatformHeaderComponent } from './components/platform-header/platform-header.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { KruiButtonModule } from '@kr-platform/ui';
@@ -23,6 +23,8 @@ import packageInfo from '../../../../package.json';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KrAppComponent implements OnInit {
+  public router = inject(Router);
+  public route = inject(ActivatedRoute);
   @ViewChild('main', { read: ElementRef }) main!: ElementRef;
   private document = inject<Document>(DOCUMENT);
   public themeService = inject(ThemeConfiguratorService);
@@ -35,5 +37,10 @@ export class KrAppComponent implements OnInit {
 
   public scrollTop(): void {
     this.main?.nativeElement?.scrollTo(0, 0);
+  }
+
+  public isActive(): boolean {
+    const url = this.router.url;
+    return url !== '/dashboard';
   }
 }

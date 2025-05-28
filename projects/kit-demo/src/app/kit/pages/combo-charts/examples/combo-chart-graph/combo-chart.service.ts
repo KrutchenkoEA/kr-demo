@@ -16,4 +16,5 @@ export class ComboChartService {
     width: number;
     height: number;
   }>({ width: 0, height: 0 });
+  public isChartHorizontal$ = new BehaviorSubject<boolean>(false);
 }

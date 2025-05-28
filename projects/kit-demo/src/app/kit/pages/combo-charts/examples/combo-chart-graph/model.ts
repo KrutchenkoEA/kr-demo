@@ -12,7 +12,6 @@ export interface KruiGeneratorForm {
 export enum DataItemTypeEnum {
   Line = 'line',
   Area = 'area',
-  GradientArea = 'gradientArea',
   Bar = 'bar',
   BarHorizontal = 'barHorizontal',
   ComboBar = 'comboBar',

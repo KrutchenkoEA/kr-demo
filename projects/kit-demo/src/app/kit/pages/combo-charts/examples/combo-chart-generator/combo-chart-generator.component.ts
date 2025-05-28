@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormGroupDirective, FormGroupName, Validators } from '@angular/forms';
 import {
   IKruiChartSingleLayerInputModel,
@@ -47,6 +47,7 @@ export class ComboChartGeneratorComponent implements OnDestroy {
   private readonly comboChartService = inject(ComboChartService);
   private readonly parentForm = inject(FormGroupDirective);
   private readonly formGroupName = inject(FormGroupName, { optional: true });
+  private readonly cdr = inject(ChangeDetectorRef);
 
   protected readonly interpolation = KRUI_CHART_LINE_INTERPOLATE;
   public dataForm!: generatorFormType;
@@ -76,15 +77,17 @@ export class ComboChartGeneratorComponent implements OnDestroy {
         this.parentForm.form) as generatorFormType;
 
     const isChartHorizontalSub = this.isChartHorizontal.valueChanges.subscribe((v) => {
+      this.comboChartService.isChartHorizontal$.next(v ?? false);
+
       this.typeOptionsParsed$.next(
         v ? this.parseEnum(KruiDataItemTypeEnumHorizontal) : this.parseEnum(KruiDataItemTypeEnumVertical),
       );
 
-      setTimeout(() => {
-        this.dataSources.controls.forEach((control) => {
-          control.patchValue({ type: v ? DataItemTypeEnum.BarHorizontal : DataItemTypeEnum.Line });
-        });
+      this.dataSources.controls.forEach((control) => {
+        control.patchValue({ type: v ? DataItemTypeEnum.BarHorizontal : DataItemTypeEnum.Line });
       });
+
+      this.cdr.markForCheck();
     });
 
     this.addDataSource('Пример 1');
@@ -120,13 +123,12 @@ export class ComboChartGeneratorComponent implements OnDestroy {
     const dataSourceForm: KruiDataSourceFormType = new FormGroup({
       name: new FormControl(name, [Validators.required]),
       color: new FormControl(color, [Validators.required]),
-      type: new FormControl(DataItemTypeEnum.Line, [Validators.required]),
+      type: new FormControl(this.isChartHorizontal.value ?
+        DataItemTypeEnum.BarHorizontal :
+        DataItemTypeEnum.Line, [Validators.required]),
       palette: new FormControl([
         this.getRandomColor(), this.getRandomColor(), this.getRandomColor(),
       ], [Validators.required]),
-      interpolation: new FormControl('curveBasis'),
-      secondColor: new FormControl(color),
-      opacity: new FormControl(1),
       chartData: new FormControl(chartData),
       chartData$: new FormControl(new BehaviorSubject(chartData)),
     }) as unknown as KruiDataSourceFormType;

@@ -42,7 +42,6 @@ export class ComboChartViewComponent {
       (t) =>
         t.type === DataItemTypeEnum.Line ||
         t.type === DataItemTypeEnum.Area ||
-        t.type === DataItemTypeEnum.GradientArea ||
         t.type === DataItemTypeEnum.Bar ||
         t.type === DataItemTypeEnum.BarHorizontal,
     );
