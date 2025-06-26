@@ -3855,7 +3855,7 @@ export const EXAMPLE_FILES = {
   <span class="hljs-attribute">display</span>: flex;
   <span class="hljs-attribute">flex-direction</span>: column;
 }
-`,	'combo-charts/combo-chart-generator/combo-chart-generator.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">OnDestroy</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+`,	'combo-charts/combo-chart-generator/combo-chart-generator.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">ChangeDetectorRef</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">OnDestroy</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormArray</span>, <span class="hljs-title class_">FormControl</span>, <span class="hljs-title class_">FormGroup</span>, <span class="hljs-title class_">FormGroupDirective</span>, <span class="hljs-title class_">FormGroupName</span>, <span class="hljs-title class_">Validators</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
 <span class="hljs-keyword">import</span> {
   <span class="hljs-title class_">IKruiChartSingleLayerInputModel</span>,
@@ -3904,6 +3904,7 @@ export const EXAMPLE_FILES = {
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> comboChartService = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ComboChartService</span>);
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> parentForm = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupDirective</span>);
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> formGroupName = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupName</span>, { <span class="hljs-attr">optional</span>: <span class="hljs-literal">true</span> });
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> cdr = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ChangeDetectorRef</span>);
 
   <span class="hljs-keyword">protected</span> <span class="hljs-keyword">readonly</span> interpolation = <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>;
   <span class="hljs-keyword">public</span> dataForm!: generatorFormType;
@@ -3933,15 +3934,17 @@ export const EXAMPLE_FILES = {
         <span class="hljs-variable language_">this</span>.<span class="hljs-property">parentForm</span>.<span class="hljs-property">form</span>) <span class="hljs-keyword">as</span> generatorFormType;
 
     <span class="hljs-keyword">const</span> isChartHorizontalSub = <span class="hljs-variable language_">this</span>.<span class="hljs-property">isChartHorizontal</span>.<span class="hljs-property">valueChanges</span>.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> {
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">comboChartService</span>.<span class="hljs-property">isChartHorizontal$</span>.<span class="hljs-title function_">next</span>(v ?? <span class="hljs-literal">false</span>);
+
       <span class="hljs-variable language_">this</span>.<span class="hljs-property">typeOptionsParsed$</span>.<span class="hljs-title function_">next</span>(
         v ? <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">parseEnum</span>(<span class="hljs-title class_">KruiDataItemTypeEnumHorizontal</span>) : <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">parseEnum</span>(<span class="hljs-title class_">KruiDataItemTypeEnumVertical</span>),
       );
 
-      <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-        <span class="hljs-variable language_">this</span>.<span class="hljs-property">dataSources</span>.<span class="hljs-property">controls</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">control</span>) =&gt;</span> {
-          control.<span class="hljs-title function_">patchValue</span>({ <span class="hljs-attr">type</span>: v ? <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span> : <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> });
-        });
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">dataSources</span>.<span class="hljs-property">controls</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">control</span>) =&gt;</span> {
+        control.<span class="hljs-title function_">patchValue</span>({ <span class="hljs-attr">type</span>: v ? <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span> : <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> });
       });
+
+      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cdr</span>.<span class="hljs-title function_">markForCheck</span>();
     });
 
     <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">addDataSource</span>(<span class="hljs-string">&#x27;Пример 1&#x27;</span>);
@@ -3977,13 +3980,12 @@ export const EXAMPLE_FILES = {
     <span class="hljs-keyword">const</span> <span class="hljs-attr">dataSourceForm</span>: <span class="hljs-title class_">KruiDataSourceFormType</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormGroup</span>({
       <span class="hljs-attr">name</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(name, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
       <span class="hljs-attr">color</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(color, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
-      <span class="hljs-attr">type</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
+      <span class="hljs-attr">type</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isChartHorizontal</span>.<span class="hljs-property">value</span> ?
+        <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span> :
+        <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span>, [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
       <span class="hljs-attr">palette</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>([
         <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(), <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(), <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getRandomColor</span>(),
       ], [<span class="hljs-title class_">Validators</span>.<span class="hljs-property">required</span>]),
-      <span class="hljs-attr">interpolation</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-string">&#x27;curveBasis&#x27;</span>),
-      <span class="hljs-attr">secondColor</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(color),
-      <span class="hljs-attr">opacity</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-number">1</span>),
       <span class="hljs-attr">chartData</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(chartData),
       <span class="hljs-attr">chartData$</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormControl</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>(chartData)),
     }) <span class="hljs-keyword">as</span> <span class="hljs-built_in">unknown</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">KruiDataSourceFormType</span>;
@@ -4244,6 +4246,7 @@ as-split-area {
     <span class="hljs-attr">width</span>: <span class="hljs-built_in">number</span>;
     <span class="hljs-attr">height</span>: <span class="hljs-built_in">number</span>;
   }&gt;({ <span class="hljs-attr">width</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">0</span> });
+  <span class="hljs-keyword">public</span> isChartHorizontal$ = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;<span class="hljs-built_in">boolean</span>&gt;(<span class="hljs-literal">false</span>);
 }
 `,	'combo-charts/combo-chart-graph/model.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormGroup</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">ToFormControls</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
@@ -4259,7 +4262,6 @@ as-split-area {
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">DataItemTypeEnum</span> {
   <span class="hljs-title class_">Line</span> = <span class="hljs-string">&#x27;line&#x27;</span>,
   <span class="hljs-title class_">Area</span> = <span class="hljs-string">&#x27;area&#x27;</span>,
-  <span class="hljs-title class_">GradientArea</span> = <span class="hljs-string">&#x27;gradientArea&#x27;</span>,
   <span class="hljs-title class_">Bar</span> = <span class="hljs-string">&#x27;bar&#x27;</span>,
   <span class="hljs-title class_">BarHorizontal</span> = <span class="hljs-string">&#x27;barHorizontal&#x27;</span>,
   <span class="hljs-title class_">ComboBar</span> = <span class="hljs-string">&#x27;comboBar&#x27;</span>,
@@ -4284,15 +4286,9 @@ as-split-area {
 
   <span class="hljs-tag">&lt;<span class="hljs-name">mat-menu</span> #<span class="hljs-attr">menu</span>=<span class="hljs-string">&quot;matMenu&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu&quot;</span>&gt;</span>
     @for (option of options; track option.name) {
-      @if (isColors) {
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> [<span class="hljs-attr">className</span>]=<span class="hljs-string">&quot;&#x27;color-example &#x27; + option.name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      } @else {
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu-item&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
-          {{ option.name }}
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      }
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">&quot;setValue(option)&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mat-menu-item&quot;</span> <span class="hljs-attr">mat-menu-item</span>&gt;</span>
+        {{ option.name }}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     }
   <span class="hljs-tag">&lt;/<span class="hljs-name">mat-menu</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ng-container</span>&gt;</span>
@@ -4405,9 +4401,6 @@ as-split-area {
   <span class="hljs-keyword">public</span> <span class="hljs-attr">options</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> }[] = [];
 
   <span class="hljs-meta">@Input</span>()
-  <span class="hljs-keyword">public</span> <span class="hljs-attr">isColors</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
-
-  <span class="hljs-meta">@Input</span>()
   <span class="hljs-keyword">public</span> <span class="hljs-attr">disabled</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
 
   <span class="hljs-keyword">private</span> <span class="hljs-attr">selectedOption</span>: { <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>; <span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span> } | <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span>;
@@ -4460,7 +4453,6 @@ as-split-area {
     <span class="hljs-variable language_">this</span>.<span class="hljs-property">selectedOption</span> = option;
   }
 
-  <span class="hljs-comment">// eslint-disable-next-line @typescript-eslint/no-unused-vars</span>
   <span class="hljs-keyword">private</span> onChange = (<span class="hljs-attr">value</span>: <span class="hljs-built_in">unknown</span> | <span class="hljs-literal">null</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
   };
   <span class="hljs-keyword">private</span> onTouched = (): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {
@@ -5537,7 +5529,7 @@ as-split-area {
     }
   }
 }
-`,	'combo-charts/combo-chart-settings/combo-chart-settings.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+`,	'combo-charts/combo-chart-settings/combo-chart-settings.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ChangeDetectionStrategy</span>, <span class="hljs-title class_">Component</span>, inject, <span class="hljs-title class_">OnDestroy</span>, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
 <span class="hljs-keyword">import</span> {
   <span class="hljs-title class_">IKruiOptionsFormType</span>,
   <span class="hljs-variable constant_">KRUI_CHART_LINE_INTERPOLATE</span>,
@@ -5545,6 +5537,8 @@ as-split-area {
   <span class="hljs-variable constant_">KRUI_CHART_POINT_MARKERS_CONFIG</span>,
 } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kr-platform/ui&#x27;</span>;
 <span class="hljs-keyword">import</span> { <span class="hljs-title class_">FormGroupDirective</span>, <span class="hljs-title class_">FormGroupName</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/forms&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ComboChartService</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;../combo-chart-graph/combo-chart.service&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Subscription</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
 
 <span class="hljs-meta">@Component</span>({
   <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;combo-chart-settings&#x27;</span>,
@@ -5553,7 +5547,9 @@ as-split-area {
   <span class="hljs-attr">changeDetection</span>: <span class="hljs-title class_">ChangeDetectionStrategy</span>.<span class="hljs-property">OnPush</span>,
   <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
 })
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartSettingsComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span> {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ComboChartSettingsComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span>, <span class="hljs-title class_">OnDestroy</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">subscriptions</span>: <span class="hljs-title class_">Subscription</span>[] = [];
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> comboChartService = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">ComboChartService</span>);
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> parentForm = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupDirective</span>);
   <span class="hljs-keyword">public</span> formGroupName = <span class="hljs-title function_">inject</span>(<span class="hljs-title class_">FormGroupName</span>, { <span class="hljs-attr">optional</span>: <span class="hljs-literal">true</span> });
 
@@ -5571,6 +5567,28 @@ as-split-area {
       <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legend</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legendLayer</span>.<span class="hljs-title function_">disable</span>();
       <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legend</span>.<span class="hljs-property">controls</span>.<span class="hljs-property">legendAxis</span>.<span class="hljs-title function_">disable</span>();
     }
+
+    <span class="hljs-keyword">const</span> isChartHorSub = <span class="hljs-variable language_">this</span>.<span class="hljs-property">comboChartService</span>.<span class="hljs-property">isChartHorizontal$</span>.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> {
+      <span class="hljs-keyword">if</span> (v) {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>!.<span class="hljs-title function_">patchValue</span>({
+          <span class="hljs-attr">tooltip</span>: { <span class="hljs-attr">chartOrientation</span>: <span class="hljs-string">&#x27;horizontal&#x27;</span>, <span class="hljs-attr">tooltipMarkerType</span>: <span class="hljs-string">&#x27;horizontal-line&#x27;</span> },
+          <span class="hljs-attr">axisX</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;number&#x27;</span> },
+          <span class="hljs-attr">axisY</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">true</span> },
+        });
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">optionsForm</span>!.<span class="hljs-title function_">patchValue</span>({
+          <span class="hljs-attr">tooltip</span>: { <span class="hljs-attr">chartOrientation</span>: <span class="hljs-string">&#x27;vertical&#x27;</span>, <span class="hljs-attr">tooltipMarkerType</span>: <span class="hljs-string">&#x27;line&#x27;</span> },
+          <span class="hljs-attr">axisX</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;time&#x27;</span> },
+          <span class="hljs-attr">axisY</span>: { <span class="hljs-attr">primary</span>: <span class="hljs-literal">false</span> },
+        });
+      }
+    });
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subscriptions</span>.<span class="hljs-title function_">push</span>(isChartHorSub);
+  }
+
+  <span class="hljs-keyword">public</span> <span class="hljs-title function_">ngOnDestroy</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subscriptions</span>?.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">sub</span>) =&gt;</span> sub.<span class="hljs-title function_">unsubscribe</span>());
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subscriptions</span> = [];
   }
 }
 `,
@@ -5656,8 +5674,8 @@ as-split-area {
             [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
             [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
             [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData$ | async&quot;</span>
-            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
-            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
+            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.lineOpacity&quot;</span>
+            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
             [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.animation&quot;</span>
             [<span class="hljs-attr">extendStep</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.extendStep&quot;</span>
             [<span class="hljs-attr">breakPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointMarker&quot;</span>
@@ -5678,15 +5696,15 @@ as-split-area {
             <span class="hljs-attr">kruiChartLine</span>
           &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">krui-chart-data-layer</span>&gt;</span>
         }
-        @if (data.type === typeOptions.Area || data.type === typeOptions.GradientArea) {
+        @if (data.type === typeOptions.Area) {
           <span class="hljs-tag">&lt;<span class="hljs-name">krui-chart-data-layer</span>
             [<span class="hljs-attr">lineType</span>]=<span class="hljs-string">&quot;&#x27;area&#x27;&quot;</span>
             [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;[data.name]&quot;</span>
             [<span class="hljs-attr">color</span>]=<span class="hljs-string">&quot;data.color&quot;</span>
             [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;data.palette?.length ? data.palette : [data.color]&quot;</span>
             [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData$ | async&quot;</span>
-            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
-            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;data?.interpolation ?? chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
+            [<span class="hljs-attr">lineOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.lineOpacity&quot;</span>
+            [<span class="hljs-attr">lineDynamics</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.lineDynamics&quot;</span>
             [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.common?.animation&quot;</span>
             [<span class="hljs-attr">extendStep</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.extendStep&quot;</span>
             [<span class="hljs-attr">breakPointMarker</span>]=<span class="hljs-string">&quot;chartOptions.view?.lineLayer?.config?.breakPointMarker&quot;</span>
@@ -5714,7 +5732,7 @@ as-split-area {
             [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
             [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData$ | async&quot;</span>
             [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;data.secondColor&quot;</span>
-            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barOpacity&quot;</span>
             [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.animationType&quot;</span>
             [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.animation&quot;</span>
             [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barBorder&quot;</span>
@@ -5742,7 +5760,7 @@ as-split-area {
             [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;[data.color]&quot;</span>
             [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;data.chartData$ | async&quot;</span>
             [<span class="hljs-attr">barBorderColor</span>]=<span class="hljs-string">&quot;data.secondColor&quot;</span>
-            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;data.opacity&quot;</span>
+            [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barOpacity&quot;</span>
             [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.animationType&quot;</span>
             [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.common?.animation&quot;</span>
             [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.barLayer?.config?.barBorder&quot;</span>
@@ -5770,7 +5788,7 @@ as-split-area {
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.caption&quot;</span>
           [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBar.palette&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData?.comboBar.chartData$ | async&quot;</span>
-          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;[chartOptions.view?.comboBarLayer?.config?.barsOpacity]&quot;</span>
           [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
           [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
           [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
@@ -5798,7 +5816,7 @@ as-split-area {
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.caption&quot;</span>
           [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.comboBarHorizontal.palette&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData?.comboBarHorizontal.chartData$ | async&quot;</span>
-          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;[chartOptions.view?.comboBarLayer?.config?.barsOpacity]&quot;</span>
           [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.animationType&quot;</span>
           [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.common?.animation&quot;</span>
           [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.comboBarLayer?.config?.barBorder&quot;</span>
@@ -5826,7 +5844,7 @@ as-split-area {
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.caption&quot;</span>
           [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar.palette&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBar?.chartData$ | async&quot;</span>
-          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;[chartOptions.view?.stackBarLayer?.config?.barsOpacity]&quot;</span>
           [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.animationType&quot;</span>
           [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.animation&quot;</span>
           [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barBorder&quot;</span>
@@ -5854,7 +5872,7 @@ as-split-area {
           [<span class="hljs-attr">captions</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.caption&quot;</span>
           [<span class="hljs-attr">colors</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal.palette&quot;</span>
           [<span class="hljs-attr">data</span>]=<span class="hljs-string">&quot;chartOptions?.comboData.stackBarHorizontal?.chartData$ | async&quot;</span>
-          [<span class="hljs-attr">barOpacity</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.opacity&quot;</span>
+          [<span class="hljs-attr">barsOpacity</span>]=<span class="hljs-string">&quot;[chartOptions.view?.stackBarLayer?.config?.barsOpacity]&quot;</span>
           [<span class="hljs-attr">animationType</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.animationType&quot;</span>
           [<span class="hljs-attr">animation</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.common?.animation&quot;</span>
           [<span class="hljs-attr">barBorder</span>]=<span class="hljs-string">&quot;chartOptions.view?.stackBarLayer?.config?.barBorder&quot;</span>
@@ -5924,7 +5942,6 @@ as-split-area {
       <span class="hljs-function">(<span class="hljs-params">t</span>) =&gt;</span>
         t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Line</span> ||
         t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Area</span> ||
-        t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">GradientArea</span> ||
         t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">Bar</span> ||
         t.<span class="hljs-property">type</span> === <span class="hljs-title class_">DataItemTypeEnum</span>.<span class="hljs-property">BarHorizontal</span>,
     );
@@ -6031,6 +6048,1288 @@ as-split-area {
   <span class="hljs-attr">stackBar</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
   <span class="hljs-attr">stackBarHorizontal</span>: <span class="hljs-title class_">IDataMappingOptionsViewer</span>;
 }
+`,
+	'icons/icons-simple-example/icons-simple-example.component.html': `<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;kruiIconSearch&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-icon--sm&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+    <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>
+    <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Найти&quot;</span>
+    [<span class="hljs-attr">ngModel</span>]=<span class="hljs-string">&quot;query&quot;</span>
+    (<span class="hljs-attr">ngModelChange</span>)=<span class="hljs-string">&quot;filterBroadcast$.next($event)&quot;</span>
+  /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let pack of filtered&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span>{{ pack.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;flex-direction: row; flex-wrap: wrap&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let icon of pack.icons; let index = index&quot;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;demo-icon&quot;</span>
+        [<span class="hljs-attr">title</span>]=<span class="hljs-string">&quot;icon&quot;</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">svg-icon</span> [<span class="hljs-attr">src</span>]=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;krui-icon--md&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg-icon</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+`,	'icons/icons-simple-example/icons-simple-example.component.scss': `<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;../../../../../../../../../libs/ui/styles/packages/typography/mixins&quot;</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;../../../../../../../../../libs/ui/styles/packages/scrolling/mixins&quot;</span>;
+
+<span class="hljs-variable">$icon-width</span>: <span class="hljs-number">64px</span>;
+<span class="hljs-variable">$icon-height</span>: <span class="hljs-number">64px</span>;
+
+<span class="hljs-variable">$header-background</span>: #{<span class="hljs-selector-tag">var</span>(--bg-body-color)};
+<span class="hljs-variable">$header-height</span>: <span class="hljs-number">40px</span>;
+
+<span class="hljs-selector-pseudo">:host</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+}
+
+<span class="hljs-selector-class">.demo-icon</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-width</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-height</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">justify-content</span>: center;
+  <span class="hljs-attribute">flex-direction</span>: column;
+}
+
+<span class="hljs-selector-class">.content</span> {
+  <span class="hljs-keyword">@include</span> vertical-scroll(<span class="hljs-variable">$hover</span>: true, <span class="hljs-variable">$scrollbar-margin-x</span>: <span class="hljs-number">4px</span>);
+
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">margin-right</span>: -<span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">24px</span>;
+}
+
+<span class="hljs-selector-tag">header</span> {
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">height</span>: <span class="hljs-variable">$header-height</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-variable">$header-background</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">flex-flow</span>: row;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">16px</span> <span class="hljs-number">0px</span>;
+
+  <span class="hljs-selector-tag">svg</span>-<span class="hljs-attribute">icon</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">justify-content</span>: center;
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+
+    &amp;<span class="hljs-selector-attr">[src=<span class="hljs-string">&quot;kruiIconSearch&quot;</span>]</span> {
+      <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">10px</span>;
+    }
+  }
+
+  <span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;text&quot;</span>]</span> {
+    <span class="hljs-keyword">@include</span> typography(regular);
+    <span class="hljs-keyword">@include</span> typography-color(contrast);
+
+    <span class="hljs-attribute">border</span>: none;
+    <span class="hljs-attribute">outline</span>: none;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">18px</span>;
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$header-background</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+
+    &amp;<span class="hljs-selector-pseudo">::placeholder</span> {
+      <span class="hljs-keyword">@include</span> typography-color(muted);
+    }
+  }
+}
+`,	'icons/icons-simple-example/icons-simple-example.component.ts': `<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Component</span>, <span class="hljs-title class_">OnInit</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@angular/core&#x27;</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">BehaviorSubject</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-variable constant_">PACKS</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./packs&#x27;</span>;
+<span class="hljs-keyword">import</span> { debounceTime } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Pack</span> {
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">icons</span>: <span class="hljs-built_in">string</span>[];
+}
+
+<span class="hljs-meta">@Component</span>({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;icons-simple-example&#x27;</span>,
+  <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./icons-simple-example.component.html&#x27;</span>,
+  <span class="hljs-attr">styleUrls</span>: [<span class="hljs-string">&#x27;./icons-simple-example.component.scss&#x27;</span>],
+  <span class="hljs-attr">standalone</span>: <span class="hljs-literal">false</span>,
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">IconsSimpleExampleComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">OnInit</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> <span class="hljs-attr">packs</span>: <span class="hljs-title class_">Pack</span>[] = <span class="hljs-variable constant_">PACKS</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">filtered</span>: <span class="hljs-title class_">Pack</span>[] = [];
+  <span class="hljs-keyword">public</span> <span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> filterBroadcast$ = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BehaviorSubject</span>&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-string">&#x27;&#x27;</span>);
+
+  <span class="hljs-title function_">ngOnInit</span>(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">filterBroadcast$</span>
+      .<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">debounceTime</span>(<span class="hljs-number">60</span>))
+      .<span class="hljs-title function_">subscribe</span>(<span class="hljs-function">(<span class="hljs-params">q</span>) =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">filter</span>(q));
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-title function_">filter</span>(<span class="hljs-params"><span class="hljs-attr">query</span>: <span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-keyword">const</span> pattern = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(query, <span class="hljs-string">&#x27;i&#x27;</span>);
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">filtered</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">packs</span>
+      .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">p</span>) =&gt;</span> ({
+        <span class="hljs-attr">title</span>: p.<span class="hljs-property">title</span>,
+        <span class="hljs-attr">icons</span>: p.<span class="hljs-property">icons</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">ic</span>) =&gt;</span>
+          ic.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;kruiIcon&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">match</span>(pattern),
+        ),
+      }))
+      .<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">p</span>) =&gt;</span> p.<span class="hljs-property">icons</span>.<span class="hljs-property">length</span>);
+  }
+}
+`,	'icons/icons-simple-example/packs.ts': `
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Условия обледенения&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconIce10&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce20&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce310&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce311&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce312&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce313&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce32&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce33&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce34&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce35&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce36&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce37&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce381&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce38&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce410&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce411&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce412&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce413&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce42&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce43&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce44&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce45&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce46&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce47&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce48&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce49&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce510&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce511&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce512&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce513&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce52&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce53&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce54&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce55&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce56&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce57&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce58&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce59&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce610&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce611&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce612&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce613&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce62&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce63&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce64&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce65&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce66&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce67&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce68&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce69&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp310&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp311&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp312&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp313&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp32&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp33&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp34&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp35&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp36&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp37&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp381&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp38&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp410&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp411&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp412&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp413&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp42&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp43&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp44&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp45&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp46&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp47&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp48&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp49&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp510&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp511&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp512&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp513&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp52&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp53&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp54&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp55&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp56&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp57&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp58&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp59&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp610&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp611&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp612&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp613&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp62&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp63&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp64&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp65&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp66&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp67&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp68&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceOp69&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Интерфейс&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconLoading&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMenuBurgerBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMenuBurgerSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMenuKebabHor&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMenuKebabVer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWindowCloseSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWindowMaximize&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWindowMinimize&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWindowRollDown&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Устройства&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconCalc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCamLiveOnline&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCamWebOnline&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceDesktopDisplay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceDisplayCrack&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceLaptop&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDevicePhone&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceTablet&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisplayHomeMenu&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMouse&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMouseLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMouseRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPrint&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Подтверждение&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconApprovedCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconApprovedCircleDouble&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconApproveOkReturn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOkLock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOkQuestion&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOkX2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadOk&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;События&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconCake&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCupReward&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGiftBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconKingHatCrown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLifebuoy&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNyFirTree&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTie&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Визуализация данных&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIcon3dCubeBoxVolume&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeChain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeChainHorisontal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeArrowMedium&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeArrowSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeLink&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeLinkHorisontal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeRings&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIcon3dCubeRingsHorisontal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChainLinkCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChainLinkProc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChainLinkArrow&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChainLinkChain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChainLinkConnection&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartCirclesAreas&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartColumns&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartColumnsAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartColumnsOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartColumnsRows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartColumnsSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartDiagramLinesRadial&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartDiagramPie&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartDots&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartGantt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartHeatSchedule&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartJapanCandles&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartLinks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartMountain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartMountainCorner&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartMountainCross&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartNormalDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartNormalOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartNormalUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartPentagram&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartSquares&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFunnelPyramidLayer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHexagon&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMassMeter&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMetro&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyDynamicRubBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPulseLine&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSchemeRoadmapLinks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSchemeRoadmapTwoLinks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSettingsSliders&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSpeedometer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewColumns&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewGridCells&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewList&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewListBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewSortMax&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewSortMin&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewTable&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewTableCells&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewTableList&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewTableColumn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChangableParams&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGrouping&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconObjectPropertyLink&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconObjectPropertyValue&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDownDecrease&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowUpDecrease&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowUpIncrease&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSquaresSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSquaresTree&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTTextArrowDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTTextArrowRotate&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTTextEditArrowDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTTextEdit&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTText&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMathOperators&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Люди&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconLockUser&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShieldUser&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUser&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserAlert&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserAttentionScream&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserAvatarProfile&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserAvatarProfileDefault&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserCaptainHat&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserDriver&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserEye&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserFeatures&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserGroupX2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserGroupX3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserKey&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserLinks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserMedic&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserPass&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserRank&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserScrum&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserSearch&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserSick&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserSpyAnonymous&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserStand&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserStarKey&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserUpAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserLock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUserSheet&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Груз&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxBoostReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxQuestion&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxX3Group&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxX3Line&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCargoBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCircleRandomX3Group&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCraneCargoOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWarehouseCargoBox&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Предупреждение&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconAlertAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconAttentionCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBell&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconForbidden&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconInfoCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuestionCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRiskAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimerAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNoDataFound&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNotSelect&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFilledSquareAlarm&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;НБ и резервуары&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconTank&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankCar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNormalHigh&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNormalLow&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNormalOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankPlane&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankShip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSmallEmpty&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSmallMaxFull&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSmallMin&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSmallSum&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankSug&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankTrendDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankTrendUp&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Разное&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconAimCross&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconAnchor&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArchiveCards&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowLinkBigRotate&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBagCase&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBalance&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBirdNationStructureGoverment&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBook&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBookmark&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBookClosed&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBookSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoostBuildingHomeReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBrain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBrainCyborg&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBroadcast&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBroomEraseClean&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCanister&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCard&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCardAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCardX3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCertificate&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCircleMedic&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconClipboardLoad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconClose&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCode&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconColors&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconComparisonCards&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCopyFileId&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCrossCloseCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCustomEntitiesElement&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCustomEntitiesGoToTemplate&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCustomEntitiesTemplate&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDashboardItem&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeath&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeleteTrash&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDelta&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDouble&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEditPen&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEditPenCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEscapeArrowCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEscapeArrowSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEye&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEyeHide&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEyeLock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFill&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFilterFunnel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFilterSortTable&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlag&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlagMountain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlagX2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasGun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasMask&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasStation&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGraduateHatEducation&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGrid&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHeart&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHome&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHomeSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconKey&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLayers&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLightBulbIdea&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLinkChainClip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkTagBadge&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMinusRemove&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNewsHorn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilCan&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilRoad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPause&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPenDraw&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPenDrawAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPenDrawDelete&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPin&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlaneProjectEdit&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlaneTakeoff&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlayBoostReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlusAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlusAddCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlusMinusCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRandomItemsEquipment&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadPlay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReplace&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRocket&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearch&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchMinus&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchPlus&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSendLinkTransmit&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSendPlaneTelegram&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSetsOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSetsOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSetsPause&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSetsSliders&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSetsTwoGears&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShield&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSlideLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSlideRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSlideWindow&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSumm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimerForward&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimerReturn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimerSand&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUnlock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVideo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewSwapTabsDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconViewSwapTabsUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWrenchSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBooks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBorderBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChecklist&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCubeInRoom&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFormulaBoldStyle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFormulaItalianStyle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFormulaRoundStyle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFormulaSharpStyle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNotepad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOval&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeActive&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeSearch&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeSearchActive&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeSearchActiveClose&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchSetsBold&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchSetsLight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchSetsSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSquaresCenter&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSquaresLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThreeCube&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThreeCubes2d&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThreeCubesSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThreeCubesSmallCenter&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextList&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListAccordion&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListAccordion2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListGrayAccordion&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListWithBorder&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListWithHeader&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTextListSets&#x27;</span>,
+
+      <span class="hljs-string">&#x27;kruiIconCircleLightning&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconColumn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconControlCbk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHomeOutlineSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNewspaperPen&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeLeftTop&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRecCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRunOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconScales&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVibro&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWallClock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconJoystick&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChartDiagramLines&#x27;</span>
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Производство&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconAirCooler&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconAromaticsRing&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBattery&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBiohazard&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBiohazardAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoltDoubleSlash&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBottleAdditives&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxProduction1&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoxProduction&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCanisterCapLid&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCapProduction&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconChemistryWaterH2o&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCircleEnergyBolt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCircleOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCompressor&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCompressorWorkshop&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCylinderBalloonCompressed&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeasphalting&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceNfc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDeviceScanBarcode&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDewaxing&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDustCollector&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEcoLeaf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEnergyBolt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEnergyFuel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEnergyHeat&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEngine&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEyeOilQuality&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFactoryN2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFire&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlasherLight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlaskChemistryQuality&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFlaskReagents&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFractionLayer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFractionLayerDarkT&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFractionLayerLightC&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFuelCanister&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFuelEarth&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFuelPlants&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHastBuilder&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHeating&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHeightAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHydraulics&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLargeTonnageMotorOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLink&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLithiumGreases&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMixer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMixArrows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMixOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilCanister&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOxygen&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOxygenCylinderCompressed&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeGateValve&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeRotateValve&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeVerticalFire&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeVerticalSmoke&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlantDeviceCold&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlantDeviceHeat&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlantLockReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlantTimerAttention&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPreparationOilRotor&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPump&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReducerOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadEcoLeaf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReturnOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRotor&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSampleCabinet&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectiveCleaning&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectAimBolt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectUserGroup&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShiedEcoLeaf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShieldBolt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShieldSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShieldSignal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShuffleArrows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSignaling&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSmallTonnageMotorOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSmoke&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSulfonateAdditives&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSupercharger&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNo1&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNo2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNo3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankNo4&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTestMicroscopeQuality&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTestTubeQuality&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTestTubeQualityAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimelineLinkBox&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTools&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTransmissionOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTriangleChemistry&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVibration&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWasteHeatBoiler&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWeigher&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWrench&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Геолокация&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconGeo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoAlert&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoAttention&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoLocalizationWay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoMap&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGeoX3&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Большие данные&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconDataAim&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataBigExport&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataBigImport&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataBigSwap&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataCompletely&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataFlag&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataInAuto&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataInExcel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataInHand&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataClose&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataQuestionMark&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDataSuccess&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Коммуникации&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconCommentChat&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCommentMessage&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCommentQuestion&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCommentQuote&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEditText&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHandApprovedOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHandFailNegativeNo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHashtag&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLinksEarth&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLinksUser&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMail&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMailIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMailOkSend&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMailOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMailTel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMailTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNewsOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSatelliteLand&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSatelliteSpace&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSendMessage&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSupportHead&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSupportHeadMan&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTelCallMobile&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTelCallOffice&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Планирование&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconMarkDesiredVolume&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkFactSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanCalendar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureBp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureF&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureOp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureOz&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureP&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanFutureUf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquare&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquareGB&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquareGO&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquareMF&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquareMOp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanSquareMP&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkPlanVolume&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Текст&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconPropertyDensityP&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPropertySulfurS&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteBrent&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteCapex&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteEbitda&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteEmv&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteFcf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteMirr&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteNb&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteNpv&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuoteOpex&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconQuotePi&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRopertySulfurDensitySp&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Шельф&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconDrillMobile&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDrillWater&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconInjectionWell&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectGrr&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSeismicExplorationLayers&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShelf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShelfBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShelfD&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShelfH&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Работа с данными&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconAddElement&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconAddFormula&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconAlgorithmMath&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArchiveBooks&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArchiveBooksSettings&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArchiveBooksTime&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArchivePdf&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleBigReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBoundsSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCirclePercent&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconComponent&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconConstantMath&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCrop&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDevelopmentChart&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDividers&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconEffect&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFormula&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFrame&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconLinkChainConnect&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkMaximum&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMarkMinimum&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMeasuringKit&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPictureX3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadCalc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRuler&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconScalesBalance&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSearchCrack&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSquareScale&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTeble3rows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTeble4rows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTeble5rows&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimelineRulerTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUploadCellAll&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUploadCellSome&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVariableHorisontal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVariableVertical&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Обстановка&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconAreasOverlay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudWeatherBolt&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudWeatherRain&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudWeatherSnow&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudWeatherStorm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDangerIceIceberg&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDangerIceNesyak&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDangerIceStamukha&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDangerIceUnknown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIce&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceDriftingWay&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIcePhoto&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceTexture&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceTextureBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconIceUnderwater&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRadarRotateShip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectIce&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSnowflake&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTermometerTemperature&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThemeDarkMoon&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconThemeLightSun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWaterCoastDistance&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWaterCoastLine&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWaterDeep&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWaterIsobath&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWaterLevel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWeatherGeneral&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWind&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Проект&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconProject&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectComponent&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectDirections&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectEdit&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectHouse&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProjectWindow&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Файл&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconClip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloud&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudLoad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCloudSave&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDiskette&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisketteLoad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisketteOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisketteReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisketteSave&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDisketteSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDownloadArrowDownSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDownloadArrowUpSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileDeviceHdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdLoad&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdSave&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFileSsdServer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFolder&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFolderAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFolderClosed&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFolderDelete&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconZip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconExportFile&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconImportFile&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Календарь&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconCalendar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarAttention&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarChart&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarKey&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarMoneyRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarPlayDemo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarPen&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarPeriodFrom&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCalendarPeriodTo&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Стрелки&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconArrowArrayLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowArrayRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCircleDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCircleLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCircleRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCircleUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCorner&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleRotateCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDoubleUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDownSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowGo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowHeight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowLeftSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowLongReturn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowMoveCross&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowResizeAreaScaleMaximize&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowResizeAreaScaleMinimize&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowResizeScaleMax&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowResizeScaleMin&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowRightSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowRotateLeft&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowRotateRight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowUpDownDouble&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowDottedUpDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowUpSimple&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowWidth&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCircleArrowsCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDirections&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHeight&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconProcessingCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadCycle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReturnCircle&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectAreaAimTarget&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWidth&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowSortDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowSortUpDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowSortUp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowLightning&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowCollapseVertically&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Транспортировка&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconArcticShip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowsBigDoubleHorizontal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowsBigDoubleVertical&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigBz&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigDoubleAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigDz&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconArrowBigOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCargoSimpleIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCargoSimpleOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarDangerPosition&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarJeepFront&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarLightClose&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarLightCloseDrivingSafety&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarLightFront&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarLightSport&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarNoParking&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarRollerBitumen&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarRoute&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarShieldOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarSpeedLess20&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarSpeedMore20&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarSportFront&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarTruck&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarTruckClose&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCarTruckFront&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDieselCarCylinderBalloon&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDieselGunCar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasPlaneGun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasShipUmbaGun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasStationCar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasStationCarGun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconGasStationCarIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconHelicopter&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNodeUun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNodeUunAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNodeUunOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipe&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeEnd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeEndIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeEndOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeEndOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeEndWater&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeForeign&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeInnerB&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeMainM&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPipeRoute&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPlaneStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRailwayIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRailwayOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconRailwayRoute&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShip&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipArctic&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipRoute&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShipScan&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSteeringWheelCar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankerPause&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTankShip2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimeForward&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUmba&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUmbaArctic&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUmbaIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUmbaOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconUmbaRoute&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehicleCarHeavy&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehicleCarHeavyDetailed&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehiclePlaneSide&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehiclePlaneTop&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehicleRailway&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehicleRailwayPause&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconVehicleTruck&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Планшеты&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconDocDirections&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconShieldTabletOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTablet&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletChartArrow&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletList&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletListOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletPaymentAlertAlarm&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTabletX3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWideTabletList&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Документ&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconDoc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocArchive&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocComparison&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocDownload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocUpload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcelBig&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcelIn1&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcelIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcelOut1&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExcelOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocExportExcel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocImportExcel&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocPassport&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocUploadPaste&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocsDouble&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocAddDotted&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocDocAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconDocDotedDoc&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Нефть&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconBarrelSmall&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconBarrelX3&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCanisterMetalOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconCanisterOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFuelOilFireMasut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilArrowDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilBoxRandom&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilDropDown&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilDynamics&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilFuelCanisterAromatics&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilGun&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilInfo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilKgs&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilKgsOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilOk&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilProbe&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilReload&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilResize&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilSets&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilStar&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilSulfur&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilTimer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilTypeBc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilTypeC&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilTypeMc&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilTypeT&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilX1Direction&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconOilX3Directions&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconPassportOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectAimOilKgs&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconSelectAreaAimTargetOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconTimerOil&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Деньги&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconDeal&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyApprovedHandRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyCalenderRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyChartArrowRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyChartRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyEditRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyEditUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyEur&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyHand&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyLinksRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyLockUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyOilRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyOilUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyOkRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyOkUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyPlus&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneySave&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneySetsRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneySwap&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneySwap2&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTax&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTaxScissors&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTimerRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTimerUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTranche&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyTransfer&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyUpRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconMoneyX3Rub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadRub&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconReloadUsd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconWallet&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Активы&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconFactory&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFactoryIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFactoryOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFactorySmoke&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconField&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFieldAdd&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFieldDo&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFieldOut&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconFieldSp&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpz&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpzIn&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpzKgs&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpzLock&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpzOil&#x27;</span>,
+      <span class="hljs-string">&#x27;kruiIconNpzQualityFlask&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Логотипы&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconNpz&#x27;</span>,
+    ],
+  },
+  {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;БДРВ&#x27;</span>,
+    <span class="hljs-attr">icons</span>: [
+      <span class="hljs-string">&#x27;kruiIconRtdbOmCloseDown&#x27;</span>,
+    ],
+  },
+];
 `,
 	'input/input-native-example/input-native-example.html': `<span class="hljs-tag">&lt;<span class="hljs-name">krui-form-field</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;example-form-field&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">krui-label</span>&gt;</span>Text<span class="hljs-tag">&lt;/<span class="hljs-name">krui-label</span>&gt;</span>

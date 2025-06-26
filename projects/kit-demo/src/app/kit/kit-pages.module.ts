@@ -33,6 +33,7 @@ import { RangeBarChartsComponent } from './pages/range-bar-charts/range-bar-char
 import { AreaChartsComponent } from './pages/area-charts/area-charts.component';
 import { ComboChartsComponent } from './pages/combo-charts/combo-charts.component';
 import { SyntaxPipe } from './example/pipes/syntax.pipe';
+import { IconComponent } from './pages/icons/icon.component';
 
 
 const kitPages = [
@@ -48,6 +49,7 @@ const kitPages = [
   ToggleComponent,
   TypographyComponent,
   TooltipComponent,
+  IconComponent,
 ];
 
 const kitPagesCharts = [

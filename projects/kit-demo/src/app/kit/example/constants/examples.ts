@@ -325,6 +325,15 @@ export const EXAMPLES = {
     files: ['combo-chart-view.component.html','combo-chart-view.component.scss','combo-chart-view.component.ts','combo-chart-view.service.ts','model.ts'],
     loadAsync: () => import('../../pages/combo-charts/examples'),
   },
+  'icons-simple-example' : {
+    title: 'undefined',
+    packagePath: 'icons',
+    moduleName: 'IconsExampleModule',
+    componentName: 'IconsSimpleExampleComponent',
+    selector: 'icons-simple-example',
+    files: ['icons-simple-example.component.html','icons-simple-example.component.scss','icons-simple-example.component.ts','packs.ts'],
+    loadAsync: () => import('../../pages/icons/examples'),
+  },
   'input-native-example' : {
     title: 'Нативные контроллы',
     packagePath: 'input',

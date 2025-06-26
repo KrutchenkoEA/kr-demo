@@ -107,4 +107,9 @@ export const KrKitMenu: KruiMainMenuItem[] = [
     iconUrl: 'kruiIconThemeLightSun',
     href: 'tooltip'
   },
+  {
+    label: 'Icons',
+    href: 'icons',
+    iconUrl: 'kruiIconPictureX3',
+  },
 ];
