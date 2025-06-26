@@ -7,6 +7,7 @@ import { ButtonComponent} from 'projects/kit-demo/src/app/kit/pages/button/butto
 import { CheckboxComponent} from 'projects/kit-demo/src/app/kit/pages/checkbox/checkbox.component';
 import { ComboBarChartsComponent} from 'projects/kit-demo/src/app/kit/pages/combo-bar-charts/combo-bar-charts.component';
 import { ComboChartsComponent} from 'projects/kit-demo/src/app/kit/pages/combo-charts/combo-charts.component';
+import { IconComponent} from 'projects/kit-demo/src/app/kit/pages/icons/icon.component';
 import { InputComponent} from 'projects/kit-demo/src/app/kit/pages/input/input.component';
 import { LineChartsComponent} from 'projects/kit-demo/src/app/kit/pages/line-charts/line-charts.component';
 import { RangeComponent} from 'projects/kit-demo/src/app/kit/pages/range/range.component';
@@ -48,6 +49,10 @@ import { TypographyComponent} from 'projects/kit-demo/src/app/kit/pages/typograp
 {
         path: 'combo-charts',
         component: ComboChartsComponent,
+      },
+{
+        path: 'icons',
+        component: IconComponent,
       },
 {
         path: 'input',

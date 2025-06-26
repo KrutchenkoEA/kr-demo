@@ -1,0 +1,24 @@
+<header class="header">
+  <svg-icon src="kruiIconSearch" class="krui-icon--sm"></svg-icon>
+  <input
+    type="text"
+    placeholder="Найти"
+    [ngModel]="query"
+    (ngModelChange)="filterBroadcast$.next($event)"
+  />
+</header>
+
+<div class="content">
+  <div *ngFor="let pack of filtered">
+    <h2 class="example">{{ pack.title }}</h2>
+    <section class="example" style="flex-direction: row; flex-wrap: wrap">
+      <div
+        *ngFor="let icon of pack.icons; let index = index"
+        class="demo-icon"
+        [title]="icon"
+      >
+        <svg-icon [src]="icon" class="krui-icon--md"></svg-icon>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Вход в админку</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="submit()" [formGroup]="formGroup">
+    <krui-form-field class="example-form-field">
+      <krui-label>Пароль</krui-label>
+      <input [formControl]="passwordControl" kruiInput type="password" />
+      @if (passwordControl.invalid) {
+        <krui-hint>Пароль обязателен</krui-hint>
+      }
+    </krui-form-field>
+    <div class="actions">
+      <button (click)="dialogRef.close()" [btnStyle]="'secondary'" kruiButton="Отмена">Отмена</button>
+      <button [btnStyle]="'primary'" [disabled]="passwordControl.invalid" kruiButton="Войти" type="submit">Войти
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -42,6 +42,8 @@ export class KruiMainMenuComponent implements OnInit {
   public filteredItems: KruiMainMenuItem[] = [];
   public query: string = '';
   public readonly filterBroadcast$ = new BehaviorSubject<string>('');
+  public isHideTabs = false;
+
 
   public constructor(
     public themeService: ThemeConfiguratorService,
@@ -60,6 +62,7 @@ export class KruiMainMenuComponent implements OnInit {
         this.filterBroadcast$.next('');
         this.query = '';
       }
+      this.isHideTabs = p['hideTabs'] === 'true';
     });
 
     this.filterBroadcast$
