@@ -1,0 +1,19 @@
+{
+  "repo_notes": [
+    {
+      "content": ""
+    }
+  ],
+  "pages": [
+    {
+      "title": "Chart System",
+      "purpose": "Overview of the comprehensive charting system built on D3.js",
+      "parent": "UI Component Library",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
